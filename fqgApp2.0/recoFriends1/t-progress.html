@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>进度查询</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/t-progress.css">
+</head>
+<body>
+
+    <div id="con">
+        <div class="progress">
+            <div class="p-current">
+                <div class="con-left">
+                    <p class="box">
+                        <span class="p-date">06</span>
+                        <span class="p-month">07月</span>
+                    </p>
+                </div>
+                <p class="con-right"><i></i>已获赠佰仟还款券</p>
+            </div>
+            <div class="p-box">
+                <div class="over-view" style="height:100%;width:100%;"></div>
+                <div class="p-lists">
+                    <div class="p-list">
+                        <div class="con-left line-down con-8">
+                            <p class="box">
+                                <span class="p-date">06</span>
+                                <span class="p-month">07月</span>
+                            </p>
+                        </div>
+                        <p class="con-right"><i></i>好友已成功办理手机分期</p>
+                    </div>
+                    <div class="p-list">
+                        <div class="con-left line-down con-7">
+                            <p class="box">
+                                <span class="p-date">06</span>
+                                <span class="p-month">07月</span>
+                            </p>
+                        </div>
+                        <p class="con-right"><i></i>好友已到访门店</p>
+                    </div>
+                    <div class="p-list">
+                        <div class="con-left line-down con-6">
+                            <p class="box">
+                                <span class="p-date">06</span>
+                                <span class="p-month">07月</span>
+                            </p>
+                        </div>
+                        <p class="con-right"><i></i>好友已确定上门时间</p>
+                    </div>
+                    <div class="p-list">
+                        <div class="con-left line-down con-5">
+                            <p class="box">
+                                <span class="p-date">06</span>
+                                <span class="p-month">07月</span>
+                            </p>
+                        </div>
+                        <p class="con-right"><i></i>已为好友制定专属销售代表</p>
+                    </div>
+                    <div class="p-list">
+                        <div class="con-left con-4">
+                            <p class="box">
+                                <span class="p-date">06</span>
+                                <span class="p-month">07月</span>
+                            </p>
+                        </div>
+                        <p class="con-right"><i></i>已提交好友信息</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var viewEle = document.getElementsByClassName("over-view")[0];
+        var boxEle = document.getElementsByClassName("p-box")[0];
+        viewEle.style.height = boxEle.clientHeight;
+        console.log(viewEle.style.height);
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>佰仟分期购</title>
+    <!--<link rel="stylesheet" href="css/commit.css"/>-->
+    <link rel="stylesheet" href="css/layer.css"/>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#888;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        *::-webkit-input-placeholder {  color: #98b3d4;}
+
+        #con{height:100%; width:100%; background:url("images/slide12-bg.png") no-repeat left top; background-size:100% 100%;}
+        #audioBox{height:1.0rem; width:1.0rem; position:absolute; right:0.2rem; top:0.2rem;}
+        #audioBox .static{ height:0.8rem; width:0.8rem; position:absolute; left:0.1rem; top:0.1rem; animation: rotate 3s linear infinite;}
+        #audioBox .active{float:left; height:1.0rem; width:1.0rem;}
+        @keyframes rotate {
+            0%{transform: rotate(0deg);}
+            100%{transform: rotate(360deg);}
+        }
+
+
+        #con .title{height:0.9rem; width:100%; line-height:0.9rem; text-align:center; font-size:0.32rem; color:#fff; padding-top:0.5rem; }
+        #con .starsBox{min-height:2.0rem; width:100%; margin-bottom:0.5rem;}
+        #con .starsBox .list{height:0.4rem; width:100%; padding-top:0.5rem;}
+        #con .starsBox .list .txt1{float:left; height:0.4rem; line-height:0.4rem; width:1.8rem;margin-right:0.3rem; text-align:right; font-size:0.28rem;color:#fff;}
+        #con .starsBox .list .box{float:left;height:0.4rem;width:2.8rem;}
+        #con .starsBox .list .box span{float:left;height:0.4rem;width:0.43rem;margin-right:0.5rem; }
+        #con .starsBox .list .box .star-on{background:url("images/ostar.png") no-repeat left top; background-size:100% 100%;}
+        #con .starsBox .list .box .star-off{background:url("images/hstar.png") no-repeat left top; background-size:100% 100%;}
+        #con .starsBox .list .count-score{float:left;height:0.4rem;width:1.0rem;line-height:0.4rem; color:#efd108;}
+
+        #choosebq{min-height:2.0rem; width:100%;}
+        #choosebq .queTxt{height:0.52rem; line-height:0.52rem; padding-left:0.3rem; color:#fff; font-size:0.28rem;}
+        #choosebq .options{height:0.7rem; padding-left:1.0rem; margin-bottom:0.8rem;}
+        #choosebq .options label{float:left; height:0.3rem; padding:0.2rem 0.25rem; padding-left:0.35rem; position:relative;}
+        #choosebq .options label input{position:absolute; left:-9999px; top:0;}
+        #choosebq .options label i{float:left;height:0.22rem;width:0.22rem;margin-top:0.04rem;margin-right:0.1rem;}
+        #choosebq .options label .txt{float:left;line-height:0.3rem; font-size:0.28rem; color:#fff;}
+        #choosebq .options  .checked i{ background:url("images/slide12-checked.png") no-repeat left top; background-size:100% 100%; }
+        #choosebq .options  .unchecked i{ background:url("images/slide12-unchecked.png") no-repeat left top; background-size:100% 100%; }
+        #choosebq .textArea{ height:1.4rem; width:4.88rem; margin: auto; margin-bottom:0.8rem; background:url("images/input-bg.png") no-repeat left top; background-size:100% 100%; }
+        #said{height:1.0rem; width:4.4rem; padding:0.2rem 0.24rem; background:transparent; overflow-y:scroll; resize: none;  color:#fff;font-size:0.28rem;}
+        #con .submitBtn{ display:block; height:0.8rem; width:3.0rem; margin:0 auto; line-height:0.8rem; text-align:center; font-size:0.28rem;color:#fff; background:url("images/submit-bg.png") no-repeat left top; background-size:100% 100%; }
+    </style>
+</head>
+<body>
+
+
+    <div id="con">
+        <div id="audioBox">
+            <img class="static" src="images/music_off.png" alt=""/>
+            <img class="active" src="images/music.gif" alt=""/>
+            <audio src="BGmusic.mp3" preload="auto" loop="loop" autoplay="autoplay" ></audio>
+        </div>
+        <p class="title">请对我们的服务做出评价吧！</p>
+        <div class="starsBox">
+            <div class="list list1">
+                <span class="txt1">客服服务:</span>
+                <p class="box">
+                    <span class="star-on"></span>
+                    <span class="star-on"></span>
+                    <span class="star-off"></span>
+                </p>
+                <p class="count-score">
+                    <span class="count-num">2</span>分
+                </p>
+            </div>
+            <div class="list list2">
+                <span class="txt1">微信号服务:</span>
+                <p class="box">
+                    <span class="star-on"></span>
+                    <span class="star-on"></span>
+                    <span class="star-off"></span>
+                </p>
+                <p class="count-score">
+                    <span class="count-num">2</span>分
+                </p>
+            </div>
+        </div>
+        <form id="choosebq" action="">
+            <p class="queTxt">是否会继续选择佰仟:</p>
+            <p class="options">
+                <label for="do-yes" class="checked">
+                    <i ></i>
+                    <input id="do-yes" type="radio" name="bq-do">
+                    <span class="txt">会</span>
+                </label>
+                <label for="do-not" class="unchecked">
+                    <i ></i>
+                    <input id="do-not" type="radio" name="bq-do">
+                    <span class="txt">不会</span>
+                </label>
+                <label for="do-maybe" class="unchecked">
+                    <i></i>
+                    <input id="do-maybe" type="radio" name="bq-do">
+                    <span class="txt">看情况</span>
+                </label>
+            </p>
+            <p class="textArea">
+                <textarea name="" id="said" placeholder="给我们建议，让我们做的更好..."></textarea>
+            </p>
+        </form>
+        <button class="submitBtn">确定评分</button>
+    </div>
+
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 音乐播放控制
+            $('html').one('touchstart',function(){
+                $("audio")[0].play();
+            });
+            var flag = true;
+            $("#audioBox").on("click",function(){
+                if(flag){
+                    $("audio")[0].pause();
+                    flag = false;
+                    $(".active").css({"display":"none"});
+                    $(".static").css({'animation':"none"});
+                }else{
+                    $("audio")[0].play();
+                    flag = true;
+                    $(".active").css({"display":"block"});
+                    $(".static").css({"animation":"rotate 3s linear infinite"});
+                }
+            });
+
+
+            var eles1 = $(".list1 .box span");
+            var eles2 = $(".list2 .box span");
+            var commitData = {
+                "customeServiceStar" : "1",
+                "QRcodeStar" : "3",
+                "chooseBQ" : "看情况",
+                "said" : ""
+            };
+
+            if(!commitData){
+                $(".list1 .count-score .count-num").html(commitData.customeServiceStar);
+                $(".list2 .count-score .count-num").html(commitData.QRcodeStar);
+
+                //客服
+                for(var i=0; i<eles1.length;i++){
+                    eles1.eq(i).removeClass("star-on").addClass("star-off");
+                }
+                for(var j=0;j<commitData.customeServiceStar;j++){
+                    eles1.eq(j).removeClass("star-off").addClass("star-on");
+                }
+
+                // 微信号
+                for(var m=0; m<eles1.length; m++){
+                    eles2.eq(m).removeClass("star-on").addClass("star-off");
+                }
+                for(var n=0;n<commitData.QRcodeStar;n++){
+                    eles2.eq(n).removeClass("star-off").addClass("star-on");
+                }
+
+                // 是否选择佰仟
+                var labelEles = $("#choosebq label");
+                for(var k=0;k<labelEles.length;k++){
+                    if(labelEles.eq(k).find(".txt").html() === commitData.chooseBQ ){
+                        labelEles.eq(k).removeClass("unchecked").addClass("checked").siblings().removeClass("checked").addClass("unchecked");
+                    }
+                }
+            } else {
+
+                // 评分
+                eles1.on("click",function(){
+                    for(var i=0; i<eles1.length;i++){
+                        eles1.eq(i).removeClass("star-on").addClass("star-off");
+                    }
+                    for(var j=0;j<=$(this).index();j++){
+                        eles1.eq(j).removeClass("star-off").addClass("star-on");
+                    }
+                    $(this).parent().next().find(".count-num").html($(this).index() + 1);
+                    commitData.customeServiceStar = $(this).index() + 1;
+                });
+
+                eles2.on("click",function(){
+                    for(var i=0; i<eles1.length;i++){
+                        eles2.eq(i).removeClass("star-on").addClass("star-off");
+                    }
+                    for(var j=0;j<=$(this).index();j++){
+                        eles2.eq(j).removeClass("star-off").addClass("star-on");
+                    }
+                    $(this).parent().next().find(".count-num").html($(this).index() + 1);
+                    commitData.QRcodeStar = $(this).index() + 1;
+                });
+
+                // 单选
+                $("#choosebq .options label").on("click",function(){
+                    $(this).removeClass("unchecked").addClass("checked").siblings().removeClass("checked").addClass("unchecked");
+                    commitData.chooseBQ = $(this).find(".txt").html();
+                });
+
+                // 提交信息
+                $(".submitBtn").on("click",function(){
+                    $(this).attr("disabled","disabled");
+                    commitData.said = $("#said").val();
+                        // 向后台提交数据
+
+                });
+
+            }
+
+
+
+        })
+    </script>
+</body>
+</html>

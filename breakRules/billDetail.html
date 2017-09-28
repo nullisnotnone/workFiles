@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>订单详情</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style  type="text/css" >
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#999;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        *::-webkit-input-placeholder {  color: #d6d6db;}
+
+        #con{min-height:100%;width:100%; background:#edf1f2;display:flex; display:-webkit-flex; flex-direction: column; -webkit-flex-direction: column;}
+        #con .underLine:after{content:"";display:block;height:1px;width:100%;background:#e6e8e8;position:absolute;left:0;bottom:0;transform: scaleY(0.5); -webkit-transform: scaleY(0.5);}
+        #con .billState{min-height:2.0rem;padding:0 0.24rem;background:#fff; }
+        #con .billState .billNum{height:0.86rem;line-height:0.86rem;font-size:0.32rem;color:#000; position:relative;}
+        #con .billState .b-box{min-height:1.0rem;width:100%; padding:0.3rem 0;}
+        #con .billState .b-box .b-state{height:0.24rem;line-height:0.24rem;text-align:left;}
+        #con .billState .b-box .b-money{height:0.4rem;line-height:0.4rem;text-align:right; color:#000; font-size:0.4rem; }
+        #con .billState .b-box .b-txt{height:0.48rem;line-height:0.48rem;text-align:right;color:#000;}
+        #con .b-con{flex:1; -webkit-flex:1; padding:0 0.24rem;}
+        #con .b-con .b-txt1{height:0.56rem;padding-top:0.14rem;line-height:0.56rem;}
+        #con .b-con .b-txt2{line-height:0.56rem;height:0.56rem;}
+        #con .b-con .b-txt2 .carNum{color:#000;font-size:0.28rem;}
+
+        #con  .listDetail{min-height:1.5rem;width:100%;margin-top:0.25rem; background:#fff; border:0.01rem solid #e6e8e8; border-top:0.1rem solid #ff7143;border-radius:5px;}
+        #con  .listDetail .partTop{height:1.14rem;padding-left:0.4rem; position:relative;}
+        #con  .listDetail .partTop .part{float:left;height:1.14rem;}
+        #con  .listDetail .partTop .part1{width:0.6rem; text-align:left;}
+        #con  .listDetail .partTop .part2{width:1.2rem;}
+        #con  .listDetail .partTop .part3{width:0.9rem;margin-right:0.6rem;}
+        #con  .listDetail .partTop .part2{margin:0 0.5rem;}
+        #con  .listDetail .partTop .part .txt1{display:block; height:0.64rem; line-height:0.64rem; width:100%; text-align:center;}
+        #con  .listDetail .partTop .part .txt2{display:block; height:0.24rem; line-height:0.24rem; color:#ff7143; width:100%; text-align:center;}
+        #con  .listDetail .partTop .state{float:left;height:1.14rem;width:1.2rem;}
+        #con  .listDetail .partTop .stateTxt{float:left;height:1.14rem;line-height:1.14rem;color:#67b2f8}
+
+        #con  .listDetail .partDown{min-height:1.65rem; padding-top:0.06rem;padding-left:0.4rem;}
+        #con  .listDetail .partDown .breakReason{min-height:0.6rem; line-height:0.6rem; font-size:0.28rem; color:#000;padding-right:0.2rem}
+        #con  .listDetail .partDown .breakAddress{min-height:0.3rem; line-height:0.3rem; font-size:0.28rem; margin-bottom:0.1rem; padding-right:0.2rem}
+        #con  .listDetail .partDown .breakTime{height:0.44rem; line-height:0.44rem; font-size:0.20rem;}
+
+        #con .bottomPart{height:0.7rem;width:100%;padding-bottom:0.2rem;}
+        #con .bottomPart .txt1{height:0.4rem;line-height:0.4rem;width:100%;text-align:center;color:#000;}
+        #con .bottomPart .txt2{height:0.3rem;line-height:0.4rem;width:100%;text-align:center;}
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div class="billState ">
+            <p class="billNum underLine">订单号 : <span class="b-num">zzjuujn125488125</span></p>
+            <div class="b-box">
+                <p class="b-state">已付款</p>
+                <p class="b-money">¥ 395</p>
+                <p class="b-txt">含服务费45元</p>
+            </div>
+        </div>
+        <div class="b-con">
+            <p class="b-txt1">当前已支付违章信息:</p>
+            <p class="b-txt2"><span class="carNum">粤B02017</span> （预计处理时间: 7个工作日）</p>
+            <div class="listDetail">
+                <div class="partTop underLine">
+                    <p class="part part1">
+                        <span class="txt1">扣分</span>
+                        <span class="txt2">6分</span>
+                    </p>
+                    <p class="part part2">
+                        <span class="txt1">罚款金额</span>
+                        <span class="txt2">¥200</span>
+                    </p>
+                    <p class="part part3">
+                        <span class="txt1">服务费</span>
+                        <span class="txt2">¥20</span>
+                    </p>
+                    <div class="part state ">
+                        <span class="stateTxt">处理中</span>
+                    </div>
+                </div>
+                <div class="partDown">
+                    <p class="breakReason">驾驶机动车违反道路交通信号灯通行</p>
+                    <p class="breakAddress">福田区彩田路路口(广东深圳)</p>
+                    <p class="breakTime">2017-04-24 14:36</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottomPart">
+            <p class="txt1">如有任何疑问，可联系车行易客服: 400-6022-688</p>
+            <p class="txt2">当前技术由车行易提供</p>
+        </div>
+    </div>
+
+</body>
+</html>

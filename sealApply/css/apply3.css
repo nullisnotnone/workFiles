@@ -1,0 +1,72 @@
+* {margin: 0; padding: 0;  outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#92a1a8;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img,input{display:block; border:none 0;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+
+#con{min-height:100%;width:100%; background:#f0f4f5;padding-bottom:0.6rem;}
+#con .emptyBox{height:0.2rem;width:100%;}
+.shopsList{min-height:2.0rem;padding:0 0.2rem; padding-bottom:0.4rem;background:#fff;margin-bottom:0.2rem;}
+.shopsList .list{min-height:2.0rem;width:100%;}
+.shopsList .list .list-title{height:0.7rem;line-height:0.7rem; padding-left:0.2rem;font-size:0.24rem;position:relative;}
+.shopsList .list .list-title i{display:block ;position:absolute;right:0.16rem; top:0.15rem; height:0.4rem; width:0.4rem; background:url("../images/icon-delete.png") no-repeat left top; background-size:100% 100%;}
+.shopsList .list .list-info{color:#000;min-height:0.6rem;width:100%; padding:0.1rem 0;box-sizing: border-box; -webkit-box-sizing: border-box; border:1px solid #c0d2db;border-radius:5px;}
+.shopsList .list .list-info-code{margin-bottom:0.2rem;}
+.shopsList .list .list-info .left{float:left;width:0.96rem;height:0.4rem;line-height:0.4rem;text-align:center;border-right:0.01rem solid #c0d2db;}
+.shopsList .list .list-info .list-value{float:left;height:0.4rem;padding:0 0.2rem;}
+.shopsList .list .list-info .right{float:right;min-height:0.4rem;width:0.63rem; border-left:0.01rem solid #c0d2db;position:relative;}
+.shopsList .list .list-info .right i{display:block;height:0.18rem;width:0.28rem;margin:0 auto;margin-top:0.11rem;background:url("../images/icon-4.png") no-repeat left top; background-size:100% 100%;}
+.shopsList .list .list-info .right .list-sel{display:block;position:absolute;left:0;top:0;height:0.6rem;width:0.6rem;background:transparent; opacity:0;}
+
+.shopsList .list .list-info-name{min-height:0.6rem;display:flex;display:-webkit-flex;}
+.shopsList .list .list-info-name .left{border:none;}
+.shopsList .list .list-info-name .name-value{flex:1; -webkit-flex:1;line-height:0.36rem;min-height:0.4rem;padding:0 0.2rem; border-left:0.01rem solid #c0d2db;}
+
+
+
+.addBtn{height:0.4rem; padding:0.1rem 0; width:100%; background:#f0f4f5; border-radius:5px; margin-top:0.4rem;  }
+.addBtn .btn-box{height:0.4rem;width:2.4rem;padding-left:0.5rem;margin:0 auto;position:relative; color:#2e82fc;}
+.addBtn .btn-box i{display:block;position:absolute;left:0;top:0.02rem;height:0.36rem;width:0.36rem;background: url("../images/icon-1.png") no-repeat left top; background-size:100% 100%;}
+
+
+.ba-con{ min-height:2.0rem; padding:0 0.2rem;padding-bottom:0.2rem; padding-top:0.3rem; background:#fff; margin-bottom:0.8rem;  }
+.ba-con .con-part{margin-bottom:0.2rem;}
+.ba-con .part-name{padding-left:0.2rem;height:0.5rem;line-height:0.5rem;position:relative; font-size:0.24rem;}
+.ba-con .part-name i{display:block;height:4px;width:4px;background:#92a1a8;border-radius:4px;position:absolute;left:0;top:0.23rem;}
+.ba-con #said{display:block;height:0.9rem;width:100%;box-sizing: border-box; padding:0.1rem 0.3rem; border:0.01rem solid #c0d2db;border-radius:5px; resize:none;}
+
+
+#con .ba-con .fileBox{ min-height:2.1rem; width:5.0rem; margin:0 auto; padding-top:0.2rem; padding-bottom:0.3rem;}
+#con .fileBox .box{float:left; height:2.1rem; width:2.2rem; position:relative;}
+#con .fileBox .box:nth-child(2n){float:right;}
+#con .fileBox .box .viewBox{height:1.15rem; width:2.2rem; padding-top:0.45rem; background:#f0f4f5;position:relative;}
+
+#con .viewBox{border:0.01rem solid #92a1a8;}
+#con .viewBox .conHide{ display:none;}
+#con .viewBox .fileBg{height:0.72rem; width:0.72rem; margin:0 auto;}
+#con .viewBox .secBtn{height:0.4rem; padding:0 0.3rem; width:100%; -webkit-box-sizing: border-box;box-sizing: border-box; background:rgba(56,56,56,0.5);position:absolute;left:0;bottom:0;}
+#con .viewBox .secBtn i{float:left;height:0.18rem;width:0.18rem;margin-top:0.1rem;margin-right:0.2rem; background:url("../images/icon001.png") no-repeat left top; background-size:100% 100%;}
+#con .viewBox .secBtn span{float:left;height:0.4rem; line-height:0.4rem;color:#fff;font-size:0.2rem;}
+#con .viewBox .progress{height:0.4rem; width:1.8rem; position:absolute; left:0.2rem;bottom:0.1rem;}
+#con .viewBox .progress .txt{height:0.3rem; line-height:0.3rem; font-size:0.2rem;}
+#con .viewBox .progress .progressBar{height:0.06rem; width:1.8rem; border:0.01rem solid #96bcf4;border-radius:0.03rem; background:#fff;}
+#con .box .fileName{height:0.28rem; width:100%; padding:0.15rem 0;}
+#con .box .fileName .stateBg{float:left;height:0.28rem; width:0.28rem; background:url("../images/icon002.png") no-repeat left top; background-size:100% 100%;}
+#con .box .fileName .nameTxt{float:left;padding-left:0.1rem;height:0.28rem; line-height:0.28rem; color:#000;}
+#con .part2{min-height:2.0rem; padding:0 0.2rem; padding-top:0.3rem;background:#fff; }
+#ba-con{display:block;resize:none;color:#000;height:0.9rem; padding:0.1rem 0.2rem;width:100%;margin-bottom:0.4rem;-webkit-box-sizing: border-box;box-sizing: border-box; border:0.01rem solid #d3d9db;border-radius:5px;}
+
+#con .box-demo  .viewBox .fileBg{float:left; height:100%;width:100%;}
+#con .fileBox .box-demo  .viewBox{height:1.6rem;padding-top:0;}
+
+#con .submitBtn{height:0.75rem;width:5.0rem;line-height:0.75rem;text-align:center;color:#fff;font-size:0.32rem;background:#2e82fc;border-radius:5px;margin:0 auto;}
+
+
+
+
+

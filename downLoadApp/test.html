@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>APP下载</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/need/layer.css">
+    <style type="text/css">
+        *{padding:0; margin:0;}
+        body{height:100%; width:100%; background:#000;}
+        #layer{height:0.72rem;width:4.58rem;position:absolute;top:0.5rem;right:0.5rem;}
+        #layer .remarkImg{height:0.72rem; width:4.58rem;}
+        #layer .remarkImg>img{float:left;height:100%;width:100%;}
+    </style>
+</head>
+<body>
+
+    <div id="layer">
+        <p class="remarkImg">
+            <img src="images/1.png" alt="">
+        </p>
+    </div>
+
+    <script type="text/javascript">
+        function  fun(n,o){
+            console.log(o);
+            return {
+                fun : function(m){
+                    return fun(m,n);
+                }
+            }
+        }
+//        var a = fun(0);
+//        console.log(a.fun(1));
+//        console.log(a.fun(2));
+//        console.log(a.fun(3));
+//
+//        var b = fun(1).fun(2).fun(3);
+//        console.log(b); // undefined  1  2  object
+
+        var c = fun(0).fun(1);
+        c.fun(2);
+        c.fun(3);
+//        console.log(c.fun(2)); // undefined 0 1 object
+//        console.log(c.fun(3)); // undefined 2 object
+
+        console.log([1<2<3 , 3<2<1]); // [true , true]
+
+        var name = "world";
+        (function(){
+            if(typeof name === "undefined"){
+                var name = "jack";
+                console.log("goodbye" + name);
+            } else {
+                console.log('hello' + name);
+            }
+        })();
+
+        console.log([0] == false);
+
+        function sideEffecting(ary){
+            ary[0] = ary[2];
+        }
+
+        function add(a,b,c){
+            c = 10;
+            sideEffecting(arguments);
+
+            return a+b+c;
+        }
+        console.log(add(1,1,1));
+
+        function fn() {
+            return 20;
+        }
+        console.log(fn + 10); // 此时fn被当做字符串
+
+        fn.toString = function() {
+            return 10;
+        };
+
+        console.log(fn + 10);  // 输出结果是多少？
+
+        fn.valueOf = function() {
+            return 5;
+        };
+
+        console.log(fn + 10); // 输出结果是多少？
+
+    </script>
+</body>
+</html>

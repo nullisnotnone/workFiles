@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+    <script type="text/javascript">
+
+        console.log(checkTime("2018-1-23" , "2017-12-24" , 1));
+
+        function checkTime(date1 , date2 ,m){
+            var diffYear = new Date(date1).getFullYear() - new Date(date2).getFullYear();
+            var diffMonth = diffYear * 12 + new Date(date1).getMonth() - new Date(date2).getMonth();
+
+            var diffDay = new Date(date1).getDate() - new Date(date2).getDate();
+            if(diffMonth > m || (diffMonth == m && diffDay > 0)){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>

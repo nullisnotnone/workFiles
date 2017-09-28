@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>修改商户详情</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/sm.min.css">
+    <link rel="stylesheet" href="css/reverseDetail.css">
+    <style type="text/css">
+        .picker-columns{height:5.2rem;width:100%;}
+        .picker-items{font-size:0.40rem;background:#fff; -webkit-mask-box-image:none;}
+        .topPart{height:1.5rem;width:100%;background:#fff;position:relative; color:#000;border-bottom:1px solid #ededed;}
+        .top-title{height:1.5rem;line-height:1.5rem;width:100%;text-align:center;font-size:0.36rem;}
+        .close-picker{display:block;height:0.6rem;width:1.4rem;line-height:0.6rem;text-align:center;font-size:0.36rem;  color:#fff; border-radius:5px;}
+        .sureBtn{position:absolute;right:0.4rem;top:0.45rem; background:#ff795c;}
+        .cancelBtn{position:absolute;left:0.4rem;top:0.45rem; background:#999;}
+        .picker-center-highlight{margin-top:-58px;}
+        .picker-items-col-wrapper{margin-top:-40px;}
+    </style>
+</head>
+<body>
+
+
+    <div id="con">
+        <div class="infoCards">
+            <div class="cardBox">
+                <span class="infoCard">审核信息<i></i></span>
+                <span class="infoCard ">基本信息<i></i></span>
+                <span class="infoCard infoCardChecked">附加信息<i></i></span>
+                <span class="infoCard ">关联门店<i></i></span>
+            </div>
+        </div>
+        <div class="con">
+            <div class="infoPart infoPart1 infoPartHide">
+                <p class="emptyBox"></p>
+                <div class="shoperName">
+                    <p class="txt1">
+                        <i></i>
+                        门店名称
+                    </p>
+                    <p class="txt2">广东省深圳市罗湖区华强一路100号恒宇手机通讯全国连锁店</p>
+                </div>
+                <div class="upTime">
+                    <p class="txt1">
+                        <i></i>
+                        提交时间：<span class="time">2017/04/22 12:11:32</span>
+                    </p>
+                    <div class="detail progressStep flexBox">
+                        <div class="step step1 stepOver">
+                            <p class="stateBox">
+                                <i></i>
+                                <span class="over"></span>
+                                <span class="line-right"></span>
+                            </p>
+                            <p class="stepName">初审通过</p>
+                            <p class="stepTime">2017/06/23</p>
+                        </div>
+                        <div class="step step2 stepUnOver">
+                            <p class="stateBox">
+                                <i></i>
+                                <span class="over"></span>
+                                <span class="line-left"></span>
+                                <span class="line-right"></span>
+                            </p>
+                            <p class="stepName">协议审核不通过</p>
+                            <p class="stepTime">2017/06/23</p>
+                        </div>
+                        <div class="step step3">
+                            <p class="stateBox">
+                                <i></i>
+                                <span class="over"></span>
+                                <span class="line-left"></span>
+                            </p>
+                            <p class="stepName">全部审核</p>
+                            <p class="stepTime"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason">
+                    <p class="txt1">
+                        <i></i>
+                        打回原因
+                    </p>
+                    <p class="txt2">1、风险评估过大，不予准入。风险评估过大，不予准入。风险评估过大，不予准入。风险评估过大，不予准入</p>
+                    <p class="txt2">1、风险评估过大，不予准入。风险评估过大，不予准入。风险评估过大，不予准入。</p>
+                </div>
+            </div>
+            <div class="infoPart infoPart2 infoPartHide">
+                <p class="emptyBox"></p>
+                <form id="basicInfo" action="">
+                    <ul class="formLists">
+                        <li class="list list1">
+                            <div class="listTitle">
+                                <span class="left">注册信息</span>
+                                <p class="state">
+                                    <i class="noStared"></i>
+                                    <span class="stateTxt">待完成</span>
+                                    <span class="remarkBg close"></span>
+                                </p>
+                            </div>
+                            <div class="infoBox registerInfo boxHide">
+                                <div class="part part1">
+                                    <span class="infoName" >商户注册号</span>
+                                    <input id="shopsNum" class="infoCon infoConError" type="text" placeholder="R">
+                                    <i class="remarkBtn"></i>
+                                </div>
+                                <div class="part part2">
+                                    <span class="infoName">所属业务公司</span>
+                                    <div class="sel-box">
+                                        <i></i>
+                                        <span class="sel-value"></span>
+                                        <select class="selBox" name="" id="sel-company">
+                                            <option value="0">所属公司</option>
+                                            <option value="1">佰仟金融</option>
+                                            <option value="2">聚成惠鑫</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="part part3">
+                                    <span class="infoName">商户名称</span>
+                                    <input id="shopName" class="infoCon"  type="text" maxlength="40" placeholder="不超过40个字符">
+                                    <i class="remarkBtn"></i>
+                                </div>
+                                <div class="part part4">
+                                    <span class="infoName">商户类型</span>
+                                    <p class="sel-box">
+                                        <i></i>
+                                        <span class="sel-value"></span>
+                                        <select class="selBox" name="" id="shopType">
+                                            <option value="0">商户类型</option>
+                                            <option value="1">连锁商家</option>
+                                            <option value="1">商场商家</option>
+                                            <option value="1">独立商家</option>
+                                            <option value="1">IT MALL</option>
+                                        </select>
+                                    </p>
+                                </div>
+                                <div class="part part5">
+                                    <span class="infoName">是否大商户</span>
+                                    <p class="con-radio">
+                                        <label for="big-yes">
+                                            <input id="big-yes" class="big-yes" type="radio" name="bigShop" >
+                                            <span class="txt">是</span>
+                                            <i class="checked"></i>
+                                        </label>
+                                        <label for="big-no">
+                                            <input id="big-no" class="big-no" type="radio" name="bigShop" >
+                                            <span class="txt">否</span>
+                                            <i class="unchecked"></i>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="part part6 ">
+                                    <span class="infoName">大商户简称</span>
+                                    <input class="infoCon" type="text" >
+                                    <i class="remarkBtn"></i>
+                                </div>
+                                <div class="part part7">
+                                    <span class="infoName">是否个体户</span>
+                                    <p class="con-radio">
+                                        <label for="single-yes">
+                                            <input id="single-yes" class="single-yes" type="radio" name="singleShop" >
+                                            <span class="txt">是</span>
+                                            <i class="checked"></i>
+                                        </label>
+                                        <label for="single-no">
+                                            <input id="single-no" class="single-no" type="radio" name="singleShop" >
+                                            <span class="txt">否</span>
+                                            <i class="unchecked"></i>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="part part7">
+                                    <span class="infoName">分店数量</span>
+                                    <input class="infoCon" type="number" >
+                                </div>
+                                <div class="part part8">
+                                    <span class="infoName">商户商品范畴</span>
+                                    <input class="infoCon" type="text" >
+                                    <i class="remarkBtn"></i>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list list2">
+                            <div class="listTitle">
+                                <span class="left">业务信息</span>
+                                <p class="state">
+                                    <i class="noStared"></i>
+                                    <span class="stateTxt">待完成</span>
+                                    <span class="remarkBg close"></span>
+                                </p>
+                            </div>
+                            <div class="infoBox boxHide">
+                                <div class="part part1">
+                                    <span class="infoName">法人代表名称</span>
+                                    <input id="corporateName" class="infoCon" type="text" placeholder="法人姓名" >
+                                </div>
+                                <div class="part part2">
+                                    <span class="infoName">法人身份证号</span>
+                                    <input id="idCard" class="infoCon" type="text" >
+                                </div>
+                                <div class="part part3">
+                                    <span class="infoName">营业执照有效期</span>
+                                    <div class="sel-box">
+                                        <i></i>
+                                        <span class="sel-value"></span>
+                                        <select class="selBox" name="" id="timeAll">
+                                            <option value="0">有效期</option>
+                                            <option value="1">连锁商家</option>
+                                            <option value="1">商场商家</option>
+                                            <option value="1">独立商家</option>
+                                            <option value="1">IT MALL</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="part part4">
+                                    <span class="infoName">营业执照注册时间</span>
+                                    <div class="sel-box">
+                                        <i></i>
+                                        <span class="sel-value"></span>
+                                        <select class="selBox" name="" id="timeReg">
+                                            <option value="0">注册时间</option>
+                                            <option value="1">连锁商家</option>
+                                            <option value="1">商场商家</option>
+                                            <option value="1">独立商家</option>
+                                            <option value="1">IT MALL</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="part part5">
+                                    <span class="infoName">主要联系人姓名</span>
+                                    <input class="infoCon" type="text" >
+                                </div>
+                                <div class="part part6">
+                                    <span class="infoName">主要联系人手机号</span>
+                                    <input id="tel" class="infoCon tel" type="text" placeholder="11位手机号">
+                                </div>
+                                <div class="part part2">
+                                    <span class="infoName">主要联系人邮箱</span>
+                                    <input id="email" class="infoCon email" type="text" >
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list list3">
+                            <div class="listTitle">
+                                <span class="left">地址信息</span>
+                                <p class="state">
+                                    <i class="noStared"></i>
+                                    <span class="stateTxt">待完成</span>
+                                    <span class="remarkBg close"></span>
+                                </p>
+                            </div>
+                            <div class="infoBox boxHide">
+                                <div class="part part1">
+                                    <span class="infoName">商户所在城市</span>
+                                    <input class="infoCon city-picker" id="city-picker" type="text" >
+                                </div>
+                                <!--<div class="part part2">-->
+                                <!--<span class="infoName">县区</span>-->
+                                <!--<input class="infoCon" type="text" >-->
+                                <!--</div>-->
+                                <div class="part part3">
+                                    <span class="infoName">街道</span>
+                                    <input class="infoCon" type="text" >
+                                </div>
+                                <div class="part part6">
+                                    <span class="infoName">商户具体地址</span>
+                                    <input class="infoCon" type="text" >
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list list4">
+                            <div class="listTitle">
+                                <span class="left">结算账户信息</span>
+                                <p class="state">
+                                    <i class="noStared"></i>
+                                    <span class="stateTxt">待完成</span>
+                                    <span class="remarkBg close"></span>
+                                </p>
+                            </div>
+                            <div class="infoBox boxHide">
+                                <div class="part part1">
+                                    <span class="infoName">结算账号</span>
+                                    <input id="accountNum" class="infoCon" type="text" >
+                                </div>
+                                <div class="part part2">
+                                    <span class="infoName">结算账号开户名</span>
+                                    <input id="accountName" class="infoCon" type="text" >
+                                </div>
+                                <div class="part part3">
+                                    <span class="infoName">结算账号开户行</span>
+                                    <input  class="infoCon" type="text" >
+                                </div>
+                                <div class="part part4">
+                                    <span class="infoName">开户行所在省市</span>
+                                    <input class="infoCon city-picker"  type="text" >
+                                </div>
+                                <div class="part part5">
+                                    <span class="infoName">开户行所在支行</span>
+                                    <input class="infoCon" type="text" >
+                                </div>
+                                <div class="part part6">
+                                    <span class="infoName">结算账户类型</span>
+                                    <input id="accountType" class="infoCon" type="text" >
+                                </div>
+                                <div class="part part7">
+                                    <span class="infoName">是否对私账户</span>
+                                    <p class="con-radio">
+                                        <label for="per-yes">
+                                            <input id="per-yes" class="per-yes" type="radio" name="perAccount" >
+                                            <span class="txt">是</span>
+                                            <i class="unchecked"></i>
+                                        </label>
+                                        <label for="per-no">
+                                            <input id="per-no" class="per-no" type="radio" name="perAccount" >
+                                            <span class="txt">否</span>
+                                            <i class="unchecked"></i>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="part part8">
+                                    <span class="infoName">开户许可法人</span>
+                                    <input class="infoCon" type="text" placeholder="法人姓名">
+                                </div>
+                                <div class="part part8">
+                                    <span class="infoName">法人联系电话</span>
+                                    <input class="infoCon tel" type="text" placeholder="11位手机号">
+                                </div>
+                                <div class="part part8">
+                                    <span class="infoName">户名身份证号</span>
+                                    <input class="infoCon" type="text" >
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list list5">
+                            <div class="listTitle">
+                                <span class="left">其他财务信息</span>
+                                <p class="state">
+                                    <i class="noStared"></i>
+                                    <span class="stateTxt">待完成</span>
+                                    <span class="remarkBg close"></span>
+                                </p>
+                            </div>
+                            <div class="infoBox boxHide">
+                                <p class="part part1">
+                                    <span class="infoName">财务人员姓名</span>
+                                    <input class="infoCon" type="text" placeholder="必填">
+                                </p>
+                                <p class="part part2">
+                                    <span class="infoName">财务联系人电话</span>
+                                    <input class="infoCon tel" type="text" placeholder="必填">
+                                </p>
+                                <p class="part part3">
+                                    <span class="infoName">财务人员邮箱</span>
+                                    <input id="finance-email" class="infoCon email" type="text" placeholder="必填">
+                                </p>
+                                <p class="part part4">
+                                    <span class="infoName">商务服务费率(%)</span>
+                                    <input class="infoCon" type="number" placeholder="必填">
+                                </p>
+                            </div>
+                        </li>
+                        <li class="list">
+                            <div class="infoBox">
+                                <p class="said">
+                                    <span class="txt1">·备注(选填)</span>
+                                    <textarea name="" id="said" placeholder="请限制在200字以内" maxlength="200"></textarea>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <button type="button" class="submitBtn">提交</button>
+                </form>
+            </div>
+            <div class="infoPart infoPart3 ">
+                <p class="con-title">
+                    <span class="txt">请对下面资料拍照并上传图片</span>
+                    <a class="outLink" href="javascript:;">拍照要求</a>
+                </p>
+                <div class="fileCon">
+                    <div class="partBox clearfix">
+                        <div class="part part1 clearfix">
+                            <div class="fileBox">
+                                <div class="box box1">
+                                    <div class="viewBox">
+                                        <img class="fileBg" src="images/addFile01.png" alt="">
+                                        <div class="secBtn conHide">
+                                            <i></i>
+                                            <span>点击重新上传</span>
+                                        </div>
+                                        <div class="progress conHide">
+                                            <p class="txt">正在上传...</p>
+                                            <p class="progressBar"></p>
+                                        </div>
+                                    </div>
+                                    <div class="fileName">
+                                        <i class="stateBg"></i>
+                                        <span class="nameTxt">营业执照</span>
+                                    </div>
+                                </div>
+                                <div class="box box2">
+                                    <div class="viewBox">
+                                        <img class="fileBg" src="images/addFile01.png" alt="">
+                                        <p class="secBtn conHide">
+                                            <i></i>
+                                            <span>点击重新上传</span>
+                                        </p>
+                                        <div class="progress conHide">
+                                            <p class="txt">正在上传...</p>
+                                            <p class="progressBar"></p>
+                                        </div>
+                                    </div>
+                                    <div class="fileName">
+                                        <i class="stateBg"></i>
+                                        <span class="nameTxt">开户许可证</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="partName">
+                                法人代表、主要股东或经营者身份证
+                                <i></i>
+                            </div>
+                            <div class="fileBox">
+                                <div class="box box3">
+                                    <div class="viewBox">
+                                        <img class="fileBg" src="images/addFile01.png" alt="">
+                                        <div class="secBtn conHide">
+                                            <i></i>
+                                            <span>点击重新上传</span>
+                                        </div>
+                                        <div class="progress conHide">
+                                            <p class="txt">正在上传...</p>
+                                            <p class="progressBar"></p>
+                                        </div>
+                                    </div>
+                                    <div class="fileName">
+                                        <i class="stateBg"></i>
+                                        <span class="nameTxt">身份证正面</span>
+                                    </div>
+                                </div>
+                                <div class="box box4">
+                                    <div class="viewBox">
+                                        <img class="fileBg" src="images/addFile01.png" alt="">
+                                        <p class="secBtn conHide">
+                                            <i></i>
+                                            <span>点击重新上传</span>
+                                        </p>
+                                        <div class="progress conHide">
+                                            <p class="txt">正在上传...</p>
+                                            <p class="progressBar"></p>
+                                        </div>
+                                    </div>
+                                    <div class="fileName">
+                                        <i class="stateBg"></i>
+                                        <span class="nameTxt">身份证反面</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="partBox clearfix">
+                        <p class="titleTxt underLine">
+                            组织机构代码验证 <span>(选填)</span>
+                            <i></i>
+                        </p>
+                        <div class="part part2 clearfix">
+                            <div class="fileBox">
+                                <div class="box box1">
+                                    <i class="deleteBtn"></i>
+                                    <div class="viewBox">
+                                        <img class="fileBg" src="images/addFile01.png" alt="">
+                                        <div class="secBtn conHide">
+                                            <i></i>
+                                            <span>点击重新上传</span>
+                                        </div>
+                                        <div class="progress conHide">
+                                            <p class="txt">正在上传...</p>
+                                            <p class="progressBar"></p>
+                                        </div>
+                                    </div>
+                                    <div class="fileName">
+                                        <i class="stateBg"></i>
+                                        <span class="nameTxt">组织代码证1</span>
+                                    </div>
+                                </div>
+                                <div class="box box2">
+                                    <i class="deleteBtn"></i>
+                                    <div class="viewBox">
+                                        <img class="fileBg" src="images/addFile01.png" alt="">
+                                        <p class="secBtn conHide">
+                                            <i></i>
+                                            <span>点击重新上传</span>
+                                        </p>
+                                        <div class="progress conHide">
+                                            <p class="txt">正在上传...</p>
+                                            <p class="progressBar"></p>
+                                        </div>
+                                    </div>
+                                    <div class="fileName">
+                                        <i class="stateBg"></i>
+                                        <span class="nameTxt">组织代码证2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="partBox clearfix">
+                        <p class="titleTxt ">
+                            税务登记证 <span>(选填)</span>
+                            <i></i>
+                        </p>
+                    </div>
+                    <div class="partBox clearfix">
+                        <p class="titleTxt ">
+                            地区(省级)总监审批邮件 <span>(选填)</span>
+                            <i></i>
+                        </p>
+                    </div>
+                    <div class="partBox clearfix">
+                        <p class="titleTxt ">
+                            银行卡正反面<span>(选填)</span>
+                            <i></i>
+                        </p>
+                    </div>
+                    <div class="partBox clearfix">
+                        <p class="titleTxt ">
+                            银行流水或打印凭证<span>(选填)</span>
+                            <i></i>
+                        </p>
+                    </div>
+                    <div class="partBox clearfix">
+                        <p class="titleTxt ">
+                            合作协议<span>(选填)</span>
+                            <i></i>
+                        </p>
+                    </div>
+                </div>
+                <p class="submitBtn">修改完成</p>
+                <p class="remarkTxt">
+                    <span class="txtLeft">温馨提示: </span>
+                    <span class="txtRight">点击后会重新提交审核，请确认全部信息已按照拒绝理由更改！</span>
+                </p>
+            </div>
+            <div class="infoPart infoPart4 infoPartHide">
+                <p class="emptyBox"></p>
+                <form id="shopsInfo" action="">
+                    <ul class="shopLists">
+                        <li class="shopList">
+                            <div class="listTitle">
+                                <span class="left">关联门店一</span>
+                                <p class="state">
+                                    <span class="remarkBg close"></span>
+                                </p>
+                            </div>
+                            <div class="shopInfo infoBox boxHide">
+                                <p class="part part1">
+                                    <span class="infoName shopNum">门店注册号</span>
+                                    <input class="infoCon" type="text" placeholder="必填">
+                                </p>
+                                <p class="part part2">
+                                    <span class="infoName shopName">门店名称</span>
+                                    <input class="infoCon tel" type="text" placeholder="必填">
+                                </p>
+                                <p class="part part3">
+                                    <span class="infoName shopAddress">门店具体地址</span>
+                                    <input id="shopAddress1" class="infoCon email" type="text" placeholder="必填">
+                                </p>
+                            </div>
+                        </li>
+                        <li class="shopList">
+                            <div class="listTitle">
+                                <span class="left">关联门店二</span>
+                                <p class="state">
+                                    <span class="remarkBg close"></span>
+                                </p>
+                            </div>
+                            <div class="shopInfo infoBox boxHide">
+                                <p class="part part1">
+                                    <span class="infoName shopNum">门店注册号</span>
+                                    <input class="infoCon" type="text" placeholder="必填">
+                                </p>
+                                <p class="part part2">
+                                    <span class="infoName shopName">门店名称</span>
+                                    <input class="infoCon tel" type="text" placeholder="必填">
+                                </p>
+                                <p class="part part3">
+                                    <span class="infoName shopAddress">门店具体地址</span>
+                                    <input id="shopAddress2" class="infoCon email" type="text" placeholder="必填">
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/sm.min.js"></script>
+    <script src="js/sm-city-picker.js"></script>
+    <script src="js/basicInfo.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //信息切换
+            $(".infoCard").on("click",function(){
+                $(this).addClass("infoCardChecked").siblings().removeClass("infoCardChecked");
+                $(".infoPart").eq($(this).index()).removeClass("infoPartHide").siblings().addClass("infoPartHide");
+            });
+
+
+        });
+    </script>
+</body>
+</html>

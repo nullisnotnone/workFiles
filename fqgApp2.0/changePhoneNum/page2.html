@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>更改手机号</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/mobiscroll-2.13.2.full.min.css">
+    <link rel="stylesheet" href="css/page2.css">
+    <style type="text/css">
+        #friendsList_dummy , #bankList_dummy , #productsList_dummy , #countList_dummy , #dateList_dummy{position:absolute; left:0;top:0;}
+        /*#friendsList_dummy {position:absolute; left:0;top:0; height:1.0rem; border:1px solid red; z-index:100;}*/
+    </style>
+</head>
+<div>
+    <div class="nav-bar-box underLine">
+        <div class="navBar">
+            <p class="empty-bar"></p>
+            <p class="nav-title">更改手机号</p>
+            <span class="backBtn"><img src="images/icon-back.png" alt=""></span>
+        </div>
+    </div>
+     <div id="con">
+        <p class="c-txt">请填写以下问题，完成身份核验</p>
+        <div class="part">
+            <div class="perInfo infoBox">
+                <p class="i-box i-box1 ">
+                    <input id="nameInput" class="nameValue underLine" type="text" placeholder="请填写姓名">
+                </p>
+                <p class="i-box">
+                    <input id="idInput" class="idValue" type="text" placeholder="请填写身份证号">
+                </p>
+            </div>
+        </div>
+         <div id="pickerPart">
+             <div class="part part1">
+                 <p class="p-txt"><i></i>请选择一个预留联系方式</p>
+                 <div class="infoBox">
+                     <p class="i-box i-box1">
+                         <i class="icon-down"></i>
+                         <input id="friendsName" class="nameValue" type="text" name="friendsList" readonly value="自己" @click="listShow">
+                     </p>
+                     <p class="i-box">
+                         <input id="telInput" class="idValue" type="tel" placeholder="请填写预留联系方式" maxlength="13">
+                     </p>
+                 </div>
+                 <div>
+                     <div data-role="fieldcontain"  class="select-box">
+                         <select id="friendsList" class="dataList" data-role="none">
+                             <template v-for="item in friendsData" >
+                                 <option v-html="item"></option>
+                             </template>
+                         </select>
+                     </div>
+                 </div>
+
+             </div>
+             <div class="part part2">
+                 <p class="p-txt p2-txt">请选择至少两个问题回答 <br><span>(如以下问题不确定，请致电客服)</span></p>
+                 <p class="empty-line"></p>
+                 <div class="que-infoBox">
+                     <p class="p-txt">1. 您绑定的银行卡开户行是？</p>
+                     <p class="i-box">
+                         <i class="icon-down"></i>
+                         <input class="inputBox picker" id="bankName" type="text" readonly name="bankList"   placeholder="招商银行" @click="listShow">
+                     </p>
+                     <p class="p-txt">2. 您购买的商品是？</p>
+                     <p class="i-box">
+                         <i class="icon-down"></i>
+                         <input class="inputBox picker" id="productName" type="text"  readonly name="productsList"  placeholder="手机" @click="listShow">
+                     </p>
+                     <p class="p-txt">3. 您的分期期数是？</p>
+                     <p class="i-box">
+                         <i class="icon-down"></i>
+                         <input class="inputBox" id="countNum" type="text" readonly name="countList" placeholder="12" @click="listShow">
+                     </p>
+                     <p class="p-txt">4. 您的还款日是？</p>
+                     <p class="i-box">
+                         <i class="icon-down"></i>
+                         <input class="inputBox" id="paymentDate" type="text" readonly name="dateList" placeholder="29" @click="listShow">
+                     </p>
+                         <div data-role="fieldcontain"  class="select-box">
+                             <select id="bankList" class="dataList" data-role="none">
+                                 <template v-for="item in banksData" >
+                                     <option v-html="item"></option>
+                                 </template>
+                             </select>
+                         </div>
+                     </div>
+                     <div data-role="fieldcontain"  class="select-box">
+                         <select id="productsList" class="dataList" data-role="none">
+                             <template v-for="item in productsData" >
+                                 <option v-html="item"></option>
+                             </template>
+                         </select>
+                     </div>
+                     <div data-role="fieldcontain"  class="select-box">
+                         <select id="countList" class="dataList" data-role="none">
+                             <template v-for="item in countData" >
+                                 <option v-html="item"></option>
+                             </template>
+                         </select>
+                     </div>
+                     <div data-role="fieldcontain"  class="select-box">
+                         <select id="dateList" class="dataList" data-role="none">
+                             <template v-for="item in repaymentDate" >
+                                 <option v-html="item"></option>
+                             </template>
+                         </select>
+                     </div>
+                 </div>
+             </div>
+         </div>
+        <div class="part part3">
+            <button type="button" class="submitBtn" >提交信息</button>
+        </div>
+    </div>
+     <script src="js/jquery-3.2.1.min.js"></script>
+     <script src="js/mobiscroll-2.13.2.full.min.js"></script>
+     <script src="js/vue1.0.min.js"></script>
+     <script src="js/layer.js"></script>
+     <script type="text/javascript">
+         $(function(){
+             // 返回
+             $(".backBtn").on("click",function(){
+                 history.back();
+             });
+             console.log(history.length);
+             var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
+             if(isAndroid){
+                 $(".nav-bar-box").addClass("conHide");
+                 $("#con").css({"padding-top" : "0"});
+             }
+
+             var getData = null;
+             $.ajax({
+                 type : 'GET',
+                 url : "chooseData.json",
+                 async : false,
+                 success : function(data){
+                     getData = data.data;
+//                     console.log(getData);
+                 }
+             });
+             var boxName = [
+                 {"id" : "friendsList" , "decoration" : "请选择预留联系人"},
+                 {"id" : "bankList" , "decoration" : "请选择开户行"},
+                 {"id" : "productsList" , "decoration" : "请选择购买的商品"},
+                 {"id" : "countList" , "decoration" : "请选择分期期数"},
+                 {"id" : "dateList" , "decoration" : "请选择您的还款日"}
+             ];
+             var opt = {};
+             opt.default = {
+                 theme: "android-ics light",
+                 display: 'bottom',
+                 lang: "zh"
+             };
+             opt.select = {preset : "select"};
+
+            var vm = new Vue({
+                el : "#pickerPart",
+                data : {
+                    "friendsData" : getData[4].friendsData,
+                    "banksData" : getData[0].banksData,
+                    "productsData" : getData[1].productsData,
+                    "countData" : getData[2].countNum,
+                    "repaymentDate" : getData[3].repaymentDate
+                },
+                methods : {
+                    listShow : function(event){
+                        var name = event.currentTarget.getAttribute("name");
+                        $("#"+name+"_dummy").focus();
+                    }
+                },
+                created : function(){
+                    for(var i=0; i< boxName.length ; i++){
+                        opt.default.headerText = boxName[i].decoration;
+                        $("#"+boxName[i].id).scroller('destroy').scroller($.extend(opt['default'] , opt['select']));
+                    }
+                    $("select").on("change",function(){
+                        if($(this).attr("id") === "friendsList"){
+                            $("#friendsName").val($(this).val());
+                            return false;
+                        }
+                        if($(this).attr("id") === "bankList"){
+                            $("#bankName").val($(this).val());
+                            return false;
+                        }
+                        if($(this).attr("id") === "productsList"){
+                            $("#productName").val($(this).val());
+                            return false;
+                        }
+                        if($(this).attr("id") === "countList"){
+                            $("#countNum").val($(this).val());
+                            return false;
+                        }
+                        if($(this).attr("id") === "dateList"){
+                            $("#paymentDate").val($(this).val());
+                            return false;
+                        }
+                    })
+                }
+            });
+
+             // 手机号验证
+             var regTel = /^1[3|4|5|7|8|]\d{9}$/;
+             $("#telInput").on("keyup",function(e){
+                 var str = $(this).val();
+                 var str1 = str.replace(/\s*/g,"");
+                 if(e.keyCode != 8){
+                     if(str1.length == 3 || str1.length == 7){
+                         $(this).val(str + " ");
+                     }
+                 }
+             });
+             $("#telInput").on("blur",function(){
+                 var str = $(this).val().replace(/\s*/g , "");
+                 if(!regTel.test(str)){
+                     layerInfo('手机号格式错误，请重新填写');
+                 }
+             });
+
+             console.log($(".inputBox").length);
+
+             // 提交
+             var _count = 0;
+             $(".submitBtn").on("click",function(){
+                 var perName = $("#nameInput").val().replace(/\s*/g , "");
+                 var idCardNum = $("#idInput").val().replace(/\s*/g , "");
+                 var friendName = $('#friendsName').val().replace(/\s*/g , "");
+                 var friendPhone = $("#telInput").val().replace(/\s*/g , "");
+                 if(perName.length == 0 || idCardNum.length == 0 || friendName.length == 0 || friendPhone.length == 0){
+                     layerInfo('必要信息不完整，请完善信息后再提交');
+                     return false;
+                 }
+
+                 for(var i=0;i<$(".inputBox").length ;i++){
+                     if($(".inputBox").eq(i).val().length != 0){
+                         _count++;
+                     }
+                 }
+                 if(_count < 2){
+                     layerInfo('请回答至少两个问题后再提交！');
+                     return false;
+                 }
+
+                 location.href = "page3.html";
+             });
+
+
+
+             // 判断必填信息是否已经填写
+             function mustInfo(){
+                 var perName = $("#nameInput").val().replace(/\s*/g , "");
+                 var idCardNum = $("#idInput").val().replace(/\s*/g , "");
+                 var friendName = $('#friendsName').val().replace(/\s*/g , "");
+                 var friendPhone = $("#telInput").val().replace(/\s*/g , "");
+                 if(perName.length != 0 && idCardNum.length != 0 && friendName.length != 0 && friendPhone.length != 0){
+                     return true;
+                 } else {
+                     return false;
+                 }
+             }
+
+             // 提示消息弹窗
+             function layerInfo(str){
+                 layer.open({
+                     content: str
+                     ,skin: 'msg'
+                     ,time: 2  //2秒后自动关闭
+                 });
+             }
+
+         })
+     </script>
+</body>
+</html>

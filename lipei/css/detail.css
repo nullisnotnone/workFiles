@@ -1,0 +1,39 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#999;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+*::-webkit-input-placeholder {  color: #d6d6db;}
+
+
+#con{min-height:100%; width:100%; background:#edf1f2;}
+#con .sp{color:#ff7143;}
+#con .underLine:after{content:""; display:block;height:0;width:100%;border-bottom:1px dashed #333;  transform: scaleY(0.5); -webkit-transform: scaleY(0.5); position:absolute;left:0;bottom:0;}
+#con .lists{min-height:2.0rem;width:100%; padding-top:0.2rem; }
+#con .lists .list{min-height:1.5rem;margin-bottom:0.2rem;padding:0 0.24rem; background:#fff;}
+#con .list .part1{height:1.7rem;width:100%; padding-top:0.1rem; display:-webkit-flex; display:flex; position:relative; }
+#con .list .part1 .left{height:1.2rem;width:1.2rem;margin-top:0.2rem;margin-right:0.25rem;}
+#con .left img{float:left;height:100%;width:100%;  }
+#con .list .part1 .right{flex:1; -webkit-flex:1;}
+#con .right .txt{line-height:0.36rem;height:0.36rem; font-size:0.24rem;}
+#con .right .txt .p1{float:left;height:0.36rem;line-height:0.36rem;}
+#con .right .txt .p2{float:right;height:0.36rem;line-height:0.36rem;}
+#con .right .txt .text1{float:left;height:0.36rem;line-height:0.36rem;width:1.9rem; text-align:justify;}
+#con .right .txt .text2{float:left;}
+#con .part2{height:0.8rem;width:100%;}
+#con .part2 .linkBtn{float:right;height:0.46rem;width:1.2rem;line-height:0.46rem;text-align:center;color:#fff; background:#ff7143;border-radius:4px; margin-top:0.17rem; font-size:0.2rem;}
+
+
+#con .recordLists{min-height:0.2rem; width:100%; }
+#con .recordLists .listTitle{height:0.6rem; line-height:0.6rem; position:relative;}
+#con .recordLists .recordList{min-height:0.4rem; padding:0.1rem 0; width:100%; position:relative;}
+#con .recordLists .recordList .list-txt{line-height:0.5rem;height:0.5rem;}
+#con .recordLists .recordList .list-txt1{color:#000;}
+#con .recordLists .recordList .list-txt2{margin:0.1rem 0;}
+#con .recordLists .recordList .list-txt .left{float:left;width:50%;}
+#con .recordLists .recordList .list-txt .state{float:right;}
+#con .recordLists .recordList .list-txt .applyTime{float:right;}

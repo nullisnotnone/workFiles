@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>任务</title>
+    <link rel="stylesheet" href="css/myTasks.css"/>
+    <script type="text/javascript" src="js/public.js"></script>
+</head>
+<body>
+
+    <div id="con">
+        <div class="title">
+            <p class="txt">我的任务</p>
+            <button class="backBtn" type="button">首页</button>
+        </div>
+        <div class="con con1">
+            <div class="cards">
+                <p class="card card1 actived">未完成</p>
+                <p class="card card2">已完成</p>
+            </div>
+            <div class="tasks">
+                <div class="task task1">
+                    <span class="markImg">+</span>
+                    <p class="txt">非佰仟门店信息搜集</p>
+                </div>
+                <div class="task task2">
+                    <p class="txt1">佰仟门店信息采集任务</p>
+                    <p class="txt2">张三</p>
+                    <p class="txt3">
+                        <span class="add">苏宁电器福田店</span>
+                        <span class="time">2017/3/28</span>
+                    </p>
+                </div>
+                <div class="task task3">
+
+                    <p class="txt1">张三</p>
+                    <p class="txt2">
+                        <span class="add">苏宁电器福田店</span>
+                        <span class="time">2017/3/28</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".card").on("tap",function(){
+                $(this).addClass("actived").siblings().removeClass("actived");
+            })
+        })
+    </script>
+</body>
+</html>

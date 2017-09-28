@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>添加好友</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/mobiscroll-2.13.2.full.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <style type="text/css">
+        .mbsc-android-holo .dwv{color:#ffda44; border-bottom: 2px solid #ffda44;}
+        .mbsc-android-holo .dwwol{border-color:#ffda44;}
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div class="part-top">
+            <img src="images/topImg.png" alt="" class="topImg">
+            <img src="images/top-title.png" alt="" class="imgTitle">
+            <p class="p-rules">
+                <span class="openRulesBtn"></span>
+            </p>
+        </div>
+        <div class="index-con" >
+            <div class="shareApps">
+                <div class="s-title">
+                    <span class="t-left"></span>
+                    <span class="t-middle">马上分享给好朋友</span>
+                    <span class="t-right"></span>
+                </div>
+                <div class="shareCards">
+                    <div class="shareCard shareCard1">
+                        <p class="s-img">
+                            <img src="images/icon-shareCard1.png" alt="">
+                        </p>
+                        <p class="share-name">微信</p>
+                    </div>
+                    <div class="shareCard shareCard2">
+                        <p class="s-img">
+                            <img src="images/icon-shareCard2.png" alt="">
+                        </p>
+                        <p class="share-name">朋友圈</p>
+                    </div>
+                    <div class="shareCard shareCard3">
+                        <p class="s-img">
+                            <img src="images/icon-shareCard3.png" alt="">
+                        </p>
+                        <p class="share-name">QQ</p>
+                    </div>
+                    <div class="shareCard shareCard4">
+                        <p class="s-img">
+                            <img src="images/icon-shareCard4.png" alt="">
+                        </p>
+                        <p class="share-name">扫码</p>
+                    </div>
+                    <div class="shareCard shareCard5">
+                        <p class="s-img">
+                            <img src="images/icon-shareCard5.png" alt="">
+                        </p>
+                        <p class="share-name">QQ空间</p>
+                    </div>
+                    <div class="shareCard shareCard6">
+                        <p class="s-img">
+                            <img src="images/icon-shareCard6.png" alt="">
+                        </p>
+                        <p class="share-name">微博</p>
+                    </div>
+                    <div class="shareCard shareCard7">
+                        <p class="s-img">
+                            <img src="images/icon-shareCard7.png" alt="">
+                        </p>
+                        <p class="share-name">陌陌</p>
+                    </div>
+                </div>
+            </div>
+            <p class="friendInfo">我帮好友填信息</p>
+            <p class="linkBtn">
+                <a class="rec-link" href="javascript:;">获得抵扣券60元，查看详情</a>
+            </p>
+            <div class="myResult">
+                <div class="r-part r-part1 underLine">
+                    <p class="p-con">
+                        <span class="left"></span>
+                        <span class="middle">我的战绩</span>
+                        <span class="left"></span>
+                    </p>
+                </div>
+                <div class="r-part r-part2 underLine">
+                    <p class="leftTxt">成功推荐好友<span class="sp"> 3 </span>人</p>
+                    <a href="javascript:;" class="right-linkBtn">查看详情</a>
+                </div>
+                <div class="r-part r-part3">
+                    <p class="leftTxt">获得佰仟还款券<span class="sp"> 5 </span>张</p>
+                    <a href="javascript:;" class="right-linkBtn">查看详情</a>
+                </div>
+            </div>
+            <div class="activities">
+                <div class="ac-part ac-part1">
+                    <a href="javascript:;">
+                        <p class="bg-img">
+                            <img src="images/bg-img1.gif" alt="">
+                        </p>
+                        <p class="ac-name">
+                            <span class="txt1">佰仟人气眼</span>
+                            <span class="txt2">检测我的影响力</span>
+                        </p>
+                    </a>
+                </div>
+                <div class="ac-part ac-part2">
+                    <a href="javascript:;">
+                        <p class="bg-img"></p>
+                        <p class="ac-name">
+                            <span class="txt1">送祝福</span>
+                            <span class="txt2">朋友，常联系</span>
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="ranking">
+                <div class="r-part1">
+                    <p class="r-con">
+                        <span class="left"></span>
+                        <span class="middle">实时人气排行榜</span>
+                        <span class="left"></span>
+                    </p>
+                </div>
+                <div class="part-title">
+                    <p class="title-name title-name1">排名</p>
+                    <p class="title-name title-name2">用户</p>
+                    <p class="title-name3">成功推荐好友数</p>
+                    <p class="title-name title-name4">奖品</p>
+                </div>
+                <div class="t-box">
+                    <table id="rankingList" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td class="list1"><span class="l-first">1</span></td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1"><span class="l-second">2</span></td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1"><span class="l-third">3</span></td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">4</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">5</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">6</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">7</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">8</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">9</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">4</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">10</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">11</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">12</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">13</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">14</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">15</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">16</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                        <tr>
+                            <td class="list1">17</td>
+                            <td>13655662163</td>
+                            <td>10人</td>
+                            <td class="list4">抵扣券<span class="sp">10</span>张</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="part-bottom">
+                    <!--<p class="moreBtn">查看更多&nbsp;↓</p>-->
+                    <img class="icon-ring" src="images/icon-ring.png" alt="">
+                </div>
+            </div>
+            <div class="com-txt">
+                <p class="com-name">深圳市佰仟金融服务有限公司</p>
+                <p class="com-name">www.billionsfinance.cn</p>
+            </div>
+        </div>
+    </div>
+    <div id="layoutView" class="layoutView viewHide">
+        <div class="view-con">
+            <p class="closeBtn"><i></i></p>
+            <div class="l-title">
+                <p class="t-left"></p>
+                <p class="t-middle">填写信息</p>
+                <p class="t-right"></p>
+            </div>
+            <form id="friend-info" action="">
+                <div class="info-input">
+                    <p class="name input-box">
+                    <span class="icon-img">
+                        <img src="images/icon-name.png" alt="">
+                    </span>
+                        <input id="nameValue" type="text" placeholder="输入好友的姓名">
+                    </p>
+                    <p class="tel input-box">
+                        <span class="icon-img">
+                            <img src="images/icon-tel.png" alt="">
+                        </span>
+                        <input id="telValue" type="text" placeholder="输入好友的手机号">
+                    </p>
+                    <p class="shop-info">
+                        <span class="chooseBtn c-btn1 btn-actived">去原门店办理</span>
+                        <span class="chooseBtn c-btn2">其他区域门店</span>
+                    </p>
+                    <div class="input-box address-box  box-hide" id="addressPicker">
+                        <span class="icon-img">
+                            <img src="images/c-address.png" alt="">
+                        </span>
+                        <p class="addressChoose">
+                            <input type="text" placeholder="--省--" id="province" name="provinceData"  readonly @click="listShow">
+                            <input type="text" placeholder="--市--" id="city" name="cityData"  readonly @click="listShow">
+                            <input type="text" placeholder="-区/县-" id="town" name="townData" readonly @click="listShow">
+                        </p>
+                        <div>
+                            <ul id="provinceData" class="d-box p-box" name="province">
+                                <template v-for="data in provinceData">
+                                    <li v-html="data.name"></li>
+                                </template>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul id="cityData" class="d-box c-box" name="city">
+                                <template v-for="data in cityData">
+                                    <li v-html="data.name"></li>
+                                </template>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul id="townData" class="d-box t-box" name="town">
+                                <template v-for="data in townData">
+                                    <!--<li>{{data.name}}</li>-->
+                                    <li v-html="data.name"></li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="recommendBtn">立即推荐</p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/mobiscroll-2.13.2.full.min.js"></script>
+    <script src="js/vue1.0.min.js"></script>
+    <script src="js/cityPicker.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 打开活动规格
+            $(".openRulesBtn").on("click",function(){
+                layer.open({
+                    shadeClose : false,
+                    type : 1,
+                    content :'<div id="rulesOut">' +
+                    '<p class="r-title"><span class="t-left"></span><span class="t-middle">活动规则</span><span class="t-right"></span></p>' +
+                    '<div class="rule-con"><p class="rule-list"><span>1.</span>活动时间：2017.09.01 -- 2017.12.31</p>' +
+                    '<p class="rule-list"><span>2.</span> 活动期间，成功推荐好友办理佰仟手机分期业务，您和好友最高可享666元还款福利。</p>' +
+                    '<p class="rule-list"> <span>3.</span>参与方式：通过本活动页面提交好友信息且好友成功办单后，您和好友均可在5个工作日内获得“佰仟分期购”官方微信推送的抽奖机会，100%中奖。 </p>' +
+                    '<p class="rule-list"><span>4.</span>活动奖品：本期奖品为还款抵扣券，可抵扣您每月还款中的客户服务费和财务管理费。如当前无可抵扣合同或未办理佰仟业务，抵扣券可作为您下次办理佰仟手机分期时使用。券金额抵扣完前，该券始终有效。不可转赠他人使用。所得奖品及具体使用规则，可于“佰仟分期购官方微信号-推荐好友-我的战绩“中查看。 <br>推荐管理：您可在“我的战绩”里看到您推荐的好友信息及其办理进度，以及所获取礼品的情况。</p>'+
+                    '<p class="rule-list"><span>5.</span>对提交虚假信息等有恶意行为的用户，佰仟有权进行奖励回收。*最终活动解释权归佰仟金融所有。</p></div>' +
+                    '<p class="ok-btn" onclick="layer.closeAll();">朕，已阅</p>' +
+                    '</div>',
+                    anim : 'up',
+                    style :'min-height:3.0rem;width:4.8rem;padding:0.4rem; background:#fff;border-radius:8px;'
+                });
+            });
+
+            // 地址切换
+            $(".shop-info .chooseBtn").on("click",function(){
+               $(this).addClass("btn-actived").siblings().removeClass("btn-actived");
+                if($(this).index() == 1 && $(this).hasClass("btn-actived")){
+                    $(".address-box").removeClass("box-hide");
+                } else {
+                    $(".address-box").addClass("box-hide");
+                }
+            });
+
+            // 填写好友信息弹窗显示
+            $(".friendInfo").on("click",function(){
+                $("body").addClass("otherHide");
+                $("html").addClass("otherHide");
+               $("#layoutView").removeClass("viewHide");
+            });
+            // 填写好友信息弹窗关闭
+            $(".closeBtn").on("click",function(){
+                $("body").removeClass("otherHide");
+                $("html").removeClass("otherHide");
+                $("#layoutView").addClass("viewHide");
+            });
+
+
+            // 推荐好友
+            $(".recommendBtn").on("click",function(){
+                var nameValue = $("#nameValue").val().replace(/\s*/g , "");
+                var telValue = $("#telValue").val().replace(/\s*/g , "");
+                if(nameValue.length == 0 || telValue.length == 0){
+                    alert("请完善好友信息再提交！");
+                    return false;
+                }
+            });
+
+
+
+            // 排行榜滚动
+            setInterval(function(){
+                $("#rankingList").animate({"margin-top":"-0.9rem"},1000,function(){
+                    $(this).css({"margin-top" : "0"}).find("tr").eq(0).appendTo($(this));
+                });
+            },1500);
+
+        })
+    </script>
+
+</body>
+</html>

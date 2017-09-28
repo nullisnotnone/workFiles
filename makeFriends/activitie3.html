@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>推荐好友</title>
+    <link rel="stylesheet" href="css/activitie3.css"/>
+    <link rel="stylesheet" href="css/need/layer.css"/>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        .layer_txt{line-height:0.4rem; font-size:0.36rem; color:red;}
+    </style>
+</head>
+<body>
+
+    <div id="top">
+        <img class="top_img" src="images/activitie3_01.png" alt=""/>
+    </div>
+    <div id="con">
+        <p class="remark_txt">请填写以下信息:</p>
+        <form id="infoForm" action="">
+            <p class="name _input">
+                <img class="forward_img" src="images/21.png" alt=""/>
+                <input id="name" type="text" placeholder="您的姓名"/>
+            </p>
+            <p class="tel _input">
+                <img class="forward_img" src="images/22.png" alt=""/>
+                <input id="tel" type="text" placeholder="您的电话"/>
+            </p>
+            <p class="_style _radio">
+                <span class="s_txt">性别:</span>
+                <label for="_phone" >
+                    <i class="_enter"></i>
+                    <input id="_phone" type="radio" name="abb" checked="checked"/>
+                    <span class="_txt">男</span>
+                </label>
+                <label for="_car" class="mar_none">
+                    <i class="_out"></i>
+                    <input id="_car" type="radio" name="abb"/>
+                    <span class="_txt">女</span>
+                </label>
+            </p>
+
+            <p class="friendship _input _select">
+                <img class="forward_img" src="images/24.png" alt=""/>
+                <input id="brand" type="text" placeholder="您意向的手机品牌"/>
+            </p>
+            <p class="all_price _input _select">
+                <img class="forward_img" src="images/26.png" alt=""/>
+                <select name="" id="">
+                    <option value="1">手机价位区间</option>
+                    <option value="1">1000以下</option>
+                    <option value="1">1000---2000</option>
+                    <option value="1">2000---3000</option>
+                    <option value="1">3000---4000</option>
+                    <option value="1">4000---5000</option>
+                    <option value="1">5000以上</option>
+                </select>
+                <img class="selectbg" src="images/selectbg.png" alt=""/>
+            </p>
+            <p class="do_time _input _select">
+                <img class="forward_img" src="images/27.png" alt=""/>
+                <select name="" id="">
+                    <option value="1">期望联系您办单时间</option>
+                    <option value="1">加急越快越好</option>
+                    <option value="1">一周内</option>
+                    <option value="1">两周内</option>
+                    <option value="1">有时间可以联系我</option>
+                </select>
+                <img class="selectbg" src="images/selectbg.png" alt=""/>
+            </p>
+            <button class="submitBtn" type="button">
+                立即提交
+            </button>
+        </form>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 单选按钮
+            var _stylelabel = $("#infoForm ._style label");
+            var _styleInput = $("#infoForm ._style label input");
+
+            var _canlabel = $("#infoForm ._can label");
+            var _canInput = $("#infoForm ._can label input");
+
+            _stylelabel.on("tap",function(){
+                _styleInput.eq($(this).index()-1).attr("checked" , "checked");
+                _stylelabel.eq($(this).index()-1).siblings().find("input").removeAttr("checked");
+
+                _styleInput.each(function(index,ele){
+                    if($(this).attr("checked")){
+                        $(this).prev().removeClass("_out").addClass("_enter");
+                    } else {
+                        $(this).prev().removeClass("_enter").addClass("_out");
+                    }
+                });
+            });
+
+            // 手机号码验证
+            var reg1 = /^1[3|4|5|7|8]\d{9}$/ig;
+            $("#tel").on("blur",function(){
+                var $telNum = $("#tel").val();
+                if(!reg1.test($telNum)){ // 手机号码格式错误
+                    layer.open({
+                        type: 1
+                        ,content: '<p style="font-size:0.32rem;color:red;height:100%;width:100%; line-height:50px;text-align:center; background:#fff;border-radius:10px;">手机号码格式错误，请重新填写!</p>'
+                        ,anim: 'up'
+                        ,style: 'position:fixed; bottom:50%; left:10%; width: 80%; height: 40px; padding:10px 0; border:none; background:transparent;'
+                    });
+                }
+            });
+
+            // 提交信息
+            $(".submitBtn").on("tap",function(){
+                var _name = $("#name").val();
+                var _tel = $("#tel").val();
+                var _brand = $("#brand").val();
+
+                if(_name && _tel && _brand){
+                    layer.open({
+                        type: 1
+                        ,content: '<div class="layer_con"><img class="_close" onclick="layer.closeAll();"  src="images/close.png" alt=""/><div class="con_box"><img src="images/success.png" alt=""/><p class="_txt _txt1">感谢您提交的信息！</p><p class="_txt _txt2">佰仟同事会尽快联系您</p> </div></div>'
+                        ,anim: 'up'
+                        ,style: 'height:5.2rem; width:5.2rem; position:absolute; left:50%; margin-left:-2.6rem; top:2.5rem; background:transparent;'
+                    });
+                } else {
+                    layer.open({
+                        content: '请确保信息完整再提交!'
+                        ,skin: 'msg'
+                        ,time: 2 //2秒后自动关闭
+                    });
+                }
+            })
+        })
+    </script>
+
+</body>
+</html>

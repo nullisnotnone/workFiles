@@ -1,0 +1,72 @@
+﻿<!Doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="css/bootstrap3.0.min.css">
+<style>
+.all{min-height:100%;position:absolute;width:100%;background-color:rgb(240,244,245);}
+.top{margin:1rem 1.5rem;position:relative;}
+.btn_button{position:absolute;top:0;right:0;border-top-left-radius:0;border-bottom-left-radius:0;background-color:rgb(46,130,252);color:white;}
+.btn_button:hover,.btn_button:active{color:white;}
+.bottom {position:relative;height:0;margin-left: 1.5rem;margin-right: 1.5rem;text-align:center;margin-top:2.5rem;margin-bottom:1.5rem;}
+.bottom .bottom_l:after{content: "";display: block;position: absolute;left: -50%;width: 200%;height: 1px;background: #92a1a8;-ms-transform: scale(0.5);/* IE 9 */-webkit-transform: scale(0.5);/* Safari */transform: scale(0.5);/* 标准语法 */top: 0;}
+.bottom .bottom_content {transform: translateY(-50%);-webkit-transfrom: translateY(-50%);background-color: #f0f4f5;display: inline-block;padding-left: 1rem;padding-right: 1rem;color: #92a1a8;}
+.yiwancheng{padding:0 1.5rem 1.5rem;width:100%;top:4rem;bottom:0;overflow:auto;}
+.line{background-color:white;position:relative;padding-top:1rem;padding-bottom:1rem;margin-bottom:1rem;margin-top:1rem;border-radius:0.5rem;}
+.line:last-child{margin-bottom:0}
+.mendian{background:url('images/store_ico.png') no-repeat 1rem center/1.5rem;padding-left:3.5rem;margin-bottom:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mendian_info{display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content: space-between;}
+.name{margin-left:3.5rem;color:rgb(146,161,168)}
+.verticalBar{width:1px;height:80%;background-color:rgb(146,161,168);margin-left:0.8rem;margin-right:0.8rem;}
+.name span{display:inline-block;vertical-align:middle;max-width:70%;}
+
+</style>
+</head>
+
+<body>
+	<div class="all">
+		<div class="top">
+			<input class="form-control">
+			<button class="btn btn_button">搜索</button>
+		</div>
+		<div class="bottom">
+			<div class="bottom_l"></div>
+			<div class="bottom_content">搜索结果</div>
+		</div>
+		<div class="yiwancheng">
+			<div class="line">
+				<div class="mendian">深圳市福特旗舰店</div>
+				<div class="mendian_info">
+					<div class="name">
+						<span>王灿灿</span><!--
+						--><span class="verticalBar"></span><!--
+						--><span>广东省深圳市福田区华侨路一路82号</span>
+					</div>
+				</div>
+			</div>
+			<div class="line">
+				<div class="mendian">深圳市福特旗舰店</div>
+				<div class="mendian_info">
+					<div class="name">
+						<span>王灿灿</span><!--
+						--><span class="verticalBar"></span><!--
+						--><span>广东省深圳市福田区华侨路一路82号</span>
+					</div>
+				</div>
+			</div>
+			<div class="line">
+				<div class="mendian">深圳市福特旗舰店</div>
+				<div class="mendian_info">
+					<div class="name">
+						<span>王灿灿</span><!--
+						--><span class="verticalBar"></span><!--
+						--><span>广东省深圳市福田区华侨路一路82号</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

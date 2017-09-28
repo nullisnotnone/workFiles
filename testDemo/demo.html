@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态获取下标</title>
+</head>
+<body>
+
+
+
+    <div id="box">
+
+    </div>
+
+    <script src="jQuery-1.8.3.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $.ajax({
+                url : "https://app.gzwkh.com/",
+                type : "get",
+                dataType : "json",
+                success: function(data){
+                    var gotData = data.data;
+                    var html = "";
+                    console.log(gotData);
+                    for(var i=0;i<gotData.length;i++){
+                        html += '<p class="txt">'+gotData[i].txt+'</p>'
+                            +"</div>";
+                    }
+                    $("#box").html(html);
+                },
+                error : function(){
+                    console.log(2222222222222);
+                }
+            });
+
+            $("body").on("click","#box .txt",function(){
+                console.log($(this));
+                console.log($(this).index());
+            });
+
+
+
+            var obj1 = {
+                "name" : "zhangsan"
+            }
+
+            obj1.name = "lisi";
+            console.log(obj1);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>推荐好友</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/need/layer.css">
+    <link rel="stylesheet" href="css/recomFriends.css">
+</head>
+<body>
+
+    <div id="con">
+        <div class="top">
+            <img src="images/hy001.png" alt="">
+        </div>
+        <div class="con">
+            <div class="ruleDetails">
+                <p class="title">活动规则</p>
+                <div class="txts txtsHide">
+                    <p class="txt txt1">
+                        1、推荐手机：您成功推荐了1位好友办单，可以抽奖三次，100%中奖，最高可赢全额分期还款券，如您办理分期产品总额为5000元，将为您全额抵还。
+                    </p>
+                    <p class="txt txt2">
+                        2、推荐汽车：您的好友成功办理汽车业务，并成功放款后，您的好友可在佰仟汽车租赁的公众号上抽奖3次，100%中奖，300-1000元油卡。您也可于好友办单成功后，在分期购公众号收到抽奖通知，抽奖3次，100%中奖。
+                    </p>
+                    <p class="txt txt3">
+                        3、 您抽到还款抵用券，系统会自动从您最近一期的客服服务费和财务管理费抵扣，直至券额抵清。如果您之前未办理过佰仟手机业务，抽取的抵用券需办理佰仟手机业务后直接抵用，不可转增给他人使用。
+                    </p>
+                    <p class="txt txt4">
+                        5、您的推荐记录可在此公众号-更多服务-推荐管理处查询，每个推荐者，成功推荐次数越多，享受能抽到大奖的概率越大。
+                    </p>
+                    <p class="txt txt5">
+                        *本活动最终解释权归佰仟金融所有。
+                    </p>
+                </div>
+            </div>
+            <p class="controller">
+                <span>活动规则明细 点击打开</span>
+                <i class="down"></i>
+            </p>
+            <div class="perInfo">
+                <p class="title">填写推荐人信息</p>
+                <form id="info" action="">
+                    <div class="warp1">
+                        <p class="box box1">
+                            <span class="left">
+                                <i></i>
+                            </span>
+                            <input id="name" class="name" type="text" placeholder="您要推荐好友的姓名">
+                        </p>
+                        <p class="box box2">
+                            <span class="left">
+                                <i></i>
+                            </span>
+                            <input id="tel" class="tel" type="text"  placeholder="您要推荐好友的电话">
+                        </p>
+                        <div class="box box3 boxChoose">
+                            <span class="leftTxt">办理业务：</span>
+                            <div class="right">
+                                <p class="tip tip1">
+                                    <i class="checked"></i>
+                                    <span class="txt sp">手机</span>
+                                </p>
+                                <p class="tip tip1">
+                                    <i class="unchecked"></i>
+                                    <span class="txt">汽车</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="carInfo carInfoHide">
+                            <p class="box box4">
+                                <span class="left">
+                                    <i></i>
+                                </span>
+                                <input id="relation" class="relation" type="text" placeholder="您和要推荐好友的关系">
+                            </p>
+                            <div class="box box5 boxChoose">
+                                <span class="leftTxt">是否有驾照：</span>
+                                <div class="right">
+                                    <p class="tip tip1">
+                                        <i class="checked"></i>
+                                        <span class="txt sp">有</span>
+                                    </p>
+                                    <p class="tip tip1">
+                                        <i class="unchecked"></i>
+                                        <span class="txt">无</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="box box6">
+                                <span class="left">
+                                    <i></i>
+                                </span>
+                                <input id="estime" class="estime" type="text" placeholder="预计购车时间">
+                            </p>
+                        </div>
+                        <p class="remarkTxt1">工作人员将进行资料筛选，5个工作日内与被推荐人联系！</p>
+                        <button class="submitBtn" id="submitBtn" type="button">立即推荐</button>
+                        <div  class="share">
+                            <p id="shareBtn" class="shareBtn">
+                                更多分享
+                                <i></i>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+                <p class="remarkTxt2 remarkHide">推荐好友办汽车业务，您不仅可以领取还款抵用券，还能领取百元购物大礼包。您好友成功办理单后，您可以收到抽奖通知。</p>
+            </div>
+            <div class="goodLists">
+                <p class="title">奖品设置</p>
+                <p class="txt">您只要成功推荐好友，即可通过摇一摇获得以下奖品：</p>
+                <img class="goodImg" src="images/goodLists.png" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            // 活动规则打开关闭
+            var flag = true;
+            $(".controller").on("click",function(){
+                if(flag){
+                    $(".ruleDetails .txts").removeClass("txtsHide").addClass("txtsOpen");
+                    $(this).find("i").removeClass("down").addClass("up");
+                    $(this).find("span").html("活动规则明细 点击收起");
+                    flag = false;
+                } else {
+                    $(".ruleDetails .txts").removeClass("txtsOpen").addClass("txtsHide");
+                    $(this).find("i").removeClass("up").addClass("down");
+                    $(this).find("span").html("活动规则明细 点击打开");
+                    flag = true;
+                }
+            });
+
+            // 业务选择
+            $("#con .box3 .tip").on("click",function(){
+                $(this).find("i").removeClass("unchecked").addClass("checked");
+                $(this).find(".txt").addClass("sp");
+                $(this).siblings().find("i").removeClass("checked").addClass("unchecked");
+                $(this).siblings().find(".txt").removeClass("sp");
+
+                if($(this).index() == 1){
+                    $(".remarkTxt2").removeClass("remarkHide");
+                    $(".carInfo").removeClass("carInfoHide");
+                } else {
+                    $(".remarkTxt2").addClass("remarkHide");
+                    $(".carInfo").addClass("carInfoHide");
+                }
+            });
+
+            // 是否有驾照
+            $("#con .box5 .tip").on("click",function(){
+                $(this).find("i").removeClass("unchecked").addClass("checked");
+                $(this).find(".txt").addClass("sp");
+                $(this).siblings().find("i").removeClass("checked").addClass("unchecked");
+                $(this).siblings().find(".txt").removeClass("sp");
+            });
+
+            // 手机号码验证
+            var reg1 = /^1[3|4|5|7|8]\d{9}$/;
+            $("#tel").on("blur",function(){
+                var $telNum = $("#tel").val();
+                if(!reg1.test($telNum)){ // 手机号码格式错误
+                    layer.open({
+                        type: 1
+                        ,content: '<p style="font-size:0.32rem;color:red;height:100%;width:100%; line-height:50px;text-align:center; background:#fff;border-radius:10px;">手机号码格式错误，请重新填写!</p>'
+                        ,anim: 'up'
+                        ,style: 'position:fixed; bottom:50%; left:10%; width: 80%; height: 40px; padding:10px 0; border:none; background:transparent;'
+                    });
+                }
+            });
+
+            // 提交信息
+            $("#submitBtn").on("click",function(){
+
+                var name = $("#name").val();
+                var tel = $("#tel").val();
+
+                if(name && tel){
+                    if(!reg1.test(tel)){ // 手机号码格式错误
+                        layer.open({
+                            type: 1
+                            ,content: '<p style="font-size:0.32rem;color:red;height:100%;width:100%; line-height:50px;text-align:center; background:#fff;border-radius:10px;">手机号码格式错误，请重新填写!</p>'
+                            ,anim: 'up'
+                            ,style: 'position:fixed; bottom:50%; left:10%; width: 80%; height: 40px; padding:10px 0; border:none; background:transparent;'
+                        });
+                        return false;
+                    }
+
+                // 向后台提交数据
+
+
+                } else {
+                    layer.open({
+                        content: '请确保信息完整再提交!'
+                        ,skin: 'msg'
+                        ,time: 2 //2秒后自动关闭
+                    });
+                }
+            });
+
+            // 更多分享
+            $("#shareBtn").on("click",function(){
+                layer.open({
+                    type: 1
+                    ,content: '<div id="layer0">' +
+                    '<p class="remark"><img class="remarkImg" src="images/remark01.png" alt=""></p> <p class="remarkBtn" onclick="layer.closeAll()"></p>' +
+                    '</div>'
+                    ,anim: 'up'
+                    ,style: 'position:fixed; left:0;top:0; height:5.2rem; width:100%;  border:none; background:transparent;'
+                });
+            });
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>进度查询</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/friendsList.css">
+</head>
+<body>
+    <div id="con">
+        <p class="remarkTitle">快通知一下未办理的好友，即刻领取最高<span class="sp">3330抵扣券</span></p>
+        <div class="friendsList">
+            <div class="f-list underLine">
+                <p class="per-Img">
+                    <img src="images/per-img.png" alt="">
+                </p>
+                <div class="re-info">
+                    <p class="part1">
+                        <span class="p-name">迪丽热巴</span>
+                        <span class="p-time">2017.5.17</span>
+                        <span class="p-state">未办理</span>
+                    </p>
+                    <p class="part2">手机分期</p>
+                </div>
+                <p class="remarkBtn">提醒他</p>
+            </div>
+            <div class="f-list underLine">
+                <p class="per-Img">
+                    <img src="images/per-img.png" alt="">
+                </p>
+                <div class="re-info">
+                    <p class="part1">
+                        <span class="p-name">迪丽热巴</span>
+                        <span class="p-time">2017.5.17</span>
+                        <span class="p-state">未办理</span>
+                    </p>
+                    <p class="part2">手机分期</p>
+                </div>
+                <p class="remarkBtn">提醒他</p>
+            </div>
+            <div class="f-list underLine">
+                <p class="per-Img">
+                    <img src="images/per-img.png" alt="">
+                </p>
+                <div class="re-info">
+                    <p class="part1">
+                        <span class="p-name">迪丽热巴</span>
+                        <span class="p-time">2017.5.17</span>
+                        <span class="p-state">未办理</span>
+                    </p>
+                    <p class="part2">手机分期</p>
+                </div>
+                <p class="remarkBtn">提醒他</p>
+            </div>
+            <div class="f-list underLine have-pay">
+                <p class="per-Img">
+                    <img src="images/per-img.png" alt="">
+                </p>
+                <div class="re-info ">
+                    <p class="part1">
+                        <span class="p-name">迪丽热巴</span>
+                        <span class="p-time">2017.5.17</span>
+                        <span class="p-state">已办理</span>
+                    </p>
+                    <p class="part2">手机分期</p>
+                </div>
+                <p class="remarkBtn ">提醒他</p>
+            </div>
+            <div class="f-list underLine">
+                <p class="per-Img">
+                    <img src="images/per-img.png" alt="">
+                </p>
+                <div class="re-info">
+                    <p class="part1">
+                        <span class="p-name">迪丽热巴</span>
+                        <span class="p-time">2017.5.17</span>
+                        <span class="p-state">未办理</span>
+                    </p>
+                    <p class="part2">手机分期</p>
+                </div>
+                <p class="remarkBtn">提醒他</p>
+            </div>
+            <div class="f-list underLine">
+                <p class="per-Img">
+                    <img src="images/per-img.png" alt="">
+                </p>
+                <div class="re-info">
+                    <p class="part1">
+                        <span class="p-name">迪丽热巴</span>
+                        <span class="p-time">2017.5.17</span>
+                        <span class="p-state">未办理</span>
+                    </p>
+                    <p class="part2">手机分期</p>
+                </div>
+                <p class="remarkBtn">提醒他</p>
+            </div>
+        </div>
+    </div>
+    <div class="lay-view lay-view-hide">
+        <p class="l-title">请尽快通知您的好友前来办理</p>
+        <div class="chooseCards">
+            <p class="c-card">
+                <img src="images/icon-phone.png" alt="">
+            </p>
+            <p class="c-card">
+                <img src="images/icon-message.png" alt="">
+            </p>
+            <p class="c-card">
+                <img src="images/icon-wechat.png" alt="">
+            </p>
+        </div>
+    </div>
+    <div class="over-view view-hide"></div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+
+        $(".remarkBtn").on("click",function(){
+            if(!$(this).parents(".f-list").hasClass("have-pay")){
+                $(".over-view").removeClass("view-hide");
+                $(".lay-view").removeClass("lay-view-hide").addClass("lay-view-open");
+            }
+        });
+
+        // 关闭弹窗
+        $(".over-view").on("click",function(){
+            $(this).addClass("view-hide");
+            $(".lay-view").removeClass("lay-view-open").addClass("lay-view-hide");
+        });
+
+    </script>
+</body>
+</html>

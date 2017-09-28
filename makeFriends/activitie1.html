@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>推荐好友</title>
+    <link rel="stylesheet" href="css/activitie1.css"/>
+    <link rel="stylesheet" href="css/need/layer.css"/>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        .layer_txt{line-height:0.4rem; font-size:0.36rem; color:red;}
+    </style>
+</head>
+<body>
+
+    <div id="top">
+        <img class="top_img" src="images/1.png" alt=""/>
+    </div>
+    <div id="con">
+        <div class="activeRule">
+            <div class="_title">
+                <span class="_img _imgLeft"></span>
+                <p class="txt">活动规则</p>
+                <span class="_img _imgRight"></span>
+            </div>
+            <div class="activeCon">
+                <p class="txt">
+                    1、推荐手机：您的好友成功办理一单手机业务，关注绑定分期购公众号后，现场可抽奖3次。您也可于第2天在分期购公众号上收到抽奖通知，抽奖3次，100%中奖。
+                </p>
+                <p class="txt">
+                    2、推荐汽车：您的好友成功办理汽车业务，并成功放款后，您的好友可在佰仟汽车租赁的公众号上抽奖3次，100%中奖，300-1000元油卡。您也可于好友办单成功后，在分期购公众号收到抽奖通知，抽奖3次，100%中奖。(自己可以推荐自己办理汽车业务)
+                </p>
+                <p class="txt">
+                    3、您抽到还款抵用券，系统会自动从您最近一期的客服服务费和财务管理费抵扣，直至券额抵清。如果您抽到全额免单，佰仟为您减免最近办理的全部剩余还款额，合同在第二天自动提前结清。
+                </p>
+                <p class="txt">
+                    4、本次活动时间（2017.4.10—10.10），在此活动期间推荐有效，您最多可成功推荐5个好友办单。
+                </p>
+                <p class="txt">
+                    5、对恶意不属实推荐客户，佰仟有权利收回客户的奖励。每个推荐者，被推荐的好友只有参与到抽奖环节，才能领取到奖品，最终活动解释权归佰仟金融所有。
+                </p>
+                <p class="txt">
+                    6、对每个推荐者，成功推荐的次数越多，享受能够抽取到大奖的概率越大。
+                </p>
+                <p class="txt">
+                    7、最终活动解释权归佰仟金融所有。
+                </p>
+            </div>
+        </div>
+        <div class="activeTitle">
+            <div class="box box1 ">
+                <p class="title">活动明细规则 点击展开</p>
+                <img class="mark_img" src="images/12.png" alt=""/>
+            </div>
+            <div class="box box2 box_hide">
+                <p class="title">活动明细规则 点击收起</p>
+                <img class="mark_img" src="images/13.png" alt=""/>
+            </div>
+        </div>
+        <div class="info_form">
+            <form id="infoForm" action="">
+                <p class="name _input">
+                    <img class="forward_img" src="images/21.png" alt=""/>
+                    <input id="name" type="text" placeholder="您要推荐好友的称呼"/>
+                </p>
+                <p class="tel _input">
+                    <img class="forward_img" src="images/22.png" alt=""/>
+                    <input id="tel" type="text" placeholder="您要推荐好友的电话"/>
+                </p>
+                <p class="_style _radio">
+                    <span class="s_txt">办理业务:</span>
+                    <label for="_phone">
+                        <i class="_enter"></i>
+                        <input id="_phone" type="radio" name="abb" checked="checked"/>
+                        <span class="_txt">手机</span>
+                    </label>
+                    <label for="_car" class="mar_none">
+                        <i class="_out"></i>
+                        <input id="_car" type="radio" name="abb"/>
+                        <span class="_txt">汽车</span>
+                    </label>
+                </p>
+                <div class="box3">
+                    <p class="friendship _input _select">
+                        <img class="forward_img" src="images/29.png" alt=""/>
+                        <input type="text" placeholder="和好友关系"/>
+                    </p>
+                    <p class="_can _radio">
+                        <span class="s_txt">是否有驾照:</span>
+                        <label for="_yes">
+                            <i class="_enter"></i>
+                            <input id="_yes" type="radio" name="can" checked="checked"/>
+                            <span class="_txt">有</span>
+                        </label>
+                        <label for="_no" class="mar_none">
+                            <i class="_out"></i>
+                            <input id="_no" type="radio" name="can"/>
+                            <span class="_txt">无</span>
+                        </label>
+                    </p>
+                    <p class="buytime _input _select">
+                        <img class="forward_img" src="images/28.png" alt=""/>
+                        <input type="text" placeholder="预计购车时间"/>
+                    </p>
+                </div>
+                <button class="submitBtn" type="button">
+                    立即推荐
+                </button>
+            </form>
+            <p class="mark_txt">
+                <i></i>
+                工作人员将进行资料筛选，5个工作日内与被推荐人联系！为保障您的推荐抽奖关联有效，请注意填写的好友手机号为意向办单手机号。
+
+            </p>
+        </div>
+        <div class="remind remind_hide">
+            当您填写完推荐好友汽车业务信息后，您的佰仟分期购微信上会收到推荐购车链接，需要将此链接发给好友进行填写，好友办单成功，双方可赢取好礼。
+        </div>
+        <div class="down_img">
+            <img src="images/3.png" alt=""/>
+        </div>
+
+        <div class="goodsList">
+            <div class="list_title">
+                <span class="_img _imgLeft"></span>
+                <p class="txt">奖品设置</p>
+                <span class="_img _imgRight"></span>
+            </div>
+            <div class="goods">
+                <!--<img src="images/2.png" alt=""/>-->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 打开关闭活动规则
+            var flag = true;
+            $(".activeTitle").on("click",function(){
+                if(flag){
+                    $(".activeRule").removeClass("activeRule_hide").addClass("activeRule_open");
+                    $(".activeTitle .box1").addClass("box_hide");
+                    $(".activeTitle .box2").removeClass("box_hide");
+                    flag = !flag;
+                } else {
+                $(".activeRule").removeClass("activeRule_open").addClass("activeRule_hide");
+                $(".activeTitle .box2").addClass("box_hide");
+                $(".activeTitle .box1").removeClass("box_hide");
+                flag = !flag;
+            }
+        });
+
+            // 单选按钮
+            var _stylelabel = $("#infoForm ._style label");
+            var _styleInput = $("#infoForm ._style label input");
+
+            var _canlabel = $("#infoForm ._can label");
+            var _canInput = $("#infoForm ._can label input");
+
+            _stylelabel.on("tap",function(){
+                _styleInput.eq($(this).index()-1).attr("checked" , "checked");
+                _stylelabel.eq($(this).index()-1).siblings().find("input").removeAttr("checked");
+
+                _styleInput.each(function(index,ele){
+                    if($(this).attr("checked")){
+                        $(this).prev().removeClass("_out").addClass("_enter");
+                    } else {
+                        $(this).prev().removeClass("_enter").addClass("_out");
+                    }
+                });
+                if($("#_car").attr("checked")){
+                    $(".box3").removeClass("box3_hide").addClass("box3_open");
+                    $(".remind").removeClass("remind_hide");
+                } else {
+                    $(".box3").removeClass("box3_open").addClass("box3_hide");
+                    $(".remind").addClass("remind_hide");
+                }
+            });
+
+            _canlabel.on("tap",function(){
+                _canInput.eq($(this).index()-1).attr("checked" , "checked");
+                _canlabel.eq($(this).index()-1).siblings().find("input").removeAttr("checked");
+
+                _canInput.each(function(index,ele){
+                    if($(this).attr("checked")){
+                        $(this).prev().removeClass("_out").addClass("_enter");
+                    } else {
+                        $(this).prev().removeClass("_enter").addClass("_out");
+                    }
+                });
+            });
+
+            // 手机号码验证
+            var reg1 = /^1[3|4|5|7|8]\d{9}$/ig;
+            $("#tel").on("blur",function(){
+                var $telNum = $("#tel").val();
+                if(!reg1.test($telNum)){ // 手机号码格式错误
+                    layer.open({
+                        type: 1
+                        ,content: '<p style="font-size:0.32rem;color:red;height:100%;width:100%; line-height:50px;text-align:center; background:#fff;border-radius:10px;">手机号码格式错误，请重新填写!</p>'
+                        ,anim: 'up'
+                        ,style: 'position:fixed; bottom:50%; left:10%; width: 80%; height: 40px; padding:10px 0; border:none; background:transparent;'
+                    });
+                }
+            });
+
+            // 提交信息
+            $(".submitBtn").on("tap",function(){
+                var _name = $("#name").val();
+                var _tel = $("#tel").val();
+                if($(".box3").hasClass("box3_open")){
+                    var _friship = $(".friendship input").val();
+                    var _buytime = $(".buytime input").val();
+                    if(_name && _tel && _friship && _buytime){
+                        layer.open({
+                            type: 1
+                            ,content: '<div class="layer_con"><img class="_close" onclick="layer.closeAll();"  src="images/close.png" alt=""/><div class="con_box"><img src="images/success.png" alt=""/><p class="_txt _txt1">感谢参与！</p><p class="_txt _txt2">您的好友成功办理手机后，最迟在第二天 您可以收到抽奖消息。如果是推荐汽车业 务，需要等您好友办理完业务，才收到抽 奖消息，请保持关注分期购</p> </div></div>'
+                            ,anim: 'up'
+                            ,style: 'height:6.67rem; width:5.2rem; position:absolute; left:50%; margin-left:-2.6rem; top:2.5rem; background:transparent;'
+                        });
+                    } else {
+                        layer.open({
+                            content: '请确保信息完整再提交!'
+                            ,skin: 'msg'
+                            ,time: 2 //2秒后自动关闭
+                        });
+                    }
+                } else {
+                    if(_name && _tel){
+                        layer.open({
+                            type: 1
+                            ,content: '<div class="layer_con"><img class="_close" onclick="layer.closeAll();"  src="images/close.png" alt=""/><div class="con_box"><img src="images/success.png" alt=""/><p class="_txt _txt1">感谢参与！</p><p class="_txt _txt2">您的好友成功办理手机后，最迟在第二天 您可以收到抽奖消息。如果是推荐汽车业 务，需要等您好友办理完业务，才收到抽 奖消息，请保持关注分期购</p> </div></div>'
+                            ,anim: 'up'
+                            ,style: 'height:6.67rem; width:5.2rem; position:absolute; left:50%; margin-left:-2.6rem; top:2.5rem; background:transparent;'
+                        });
+                    } else {
+                        layer.open({
+                            content: '请确保信息完整再提交!'
+                            ,skin: 'msg'
+                            ,time: 2 //2秒后自动关闭
+                        });
+                    }
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>

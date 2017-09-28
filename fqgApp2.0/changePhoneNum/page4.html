@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>更改手机号</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/page4.css">
+</head>
+<body>
+    <div class="nav-bar-box underLine">
+        <div class="navBar">
+            <p class="empty-bar"></p>
+            <p class="nav-title">更改手机号</p>
+            <span class="backBtn"><img src="images/icon-back.png" alt=""></span>
+        </div>
+    </div>
+    <div id="con">
+        <p class="emptyBox"></p>
+        <img class="icon-success" src="images/icon_Success.png" alt="">
+        <p class="r-txt">您的手机号申请变更成功</p>
+        <p class="r-txt2">手机号变更申请成功后立即生效</p>
+        <p class="over-btn">我知道了</p>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 返回
+            $(".backBtn").on("click",function(){
+                history.back();
+            });
+            console.log(history.length);
+
+            var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
+            if(isAndroid){
+                $(".nav-bar-box").addClass("conHide");
+                $("#con").css({"padding-top" : "0"});
+            }
+        });
+
+
+    </script>
+</body>
+</html>

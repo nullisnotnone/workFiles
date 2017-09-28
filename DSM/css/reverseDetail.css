@@ -1,0 +1,186 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#92a1a8;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+textarea{-webkit-appearance: none;}
+*::-webkit-input-placeholder { color: #a9bac2; }
+
+#con p{margin:0;}
+
+
+#con{min-height:100%;width:100%; background:#f0f4f5;}
+#con .underLine:after{content:""; display:block; height:1px; width:100%; background:#c0d2db;position:absolute;left:0;bottom:0; -webkit-transform: scaleY(0.5); transform: scaleY(0.5); }
+#con .infoCards{height:0.7rem;padding:0 0.24rem; background:#fff;overflow-x:scroll;position:relative;}
+#con .infoCards .cardBox{float:left;height:0.7rem;min-width:8.2rem; }
+#con .infoCards .infoCard{float:left;-webkit-box-sizing:border-box; box-sizing:border-box; height:0.7rem;line-height:0.7rem;margin-right:0.7rem; position:relative;}
+#con .infoCards .infoCardChecked{ border-bottom:2px solid #2e82fc; color:#2e82fc;  }
+#con .infoCards .infoCardChecked i{height:5px;width:5px;background:#2e82fc;-webkit-transform: rotate(45deg);transform: rotate(45deg); position:absolute;left:50%;margin-left:-3px;bottom:-3px;}
+
+
+#con .infoPart{min-height:3.0rem;}
+#con .infoPartHide{display:none;}
+
+
+#con .conHide{display:none;}
+#con .infoPart1{padding:0 0.24rem; font-size:0.24rem;}
+#con .infoPart1 .shoperName{min-height:1.25rem;width:100%;margin-bottom:0.2rem;}
+#con .infoPart1 .txt1{height:0.48rem;line-height:0.48rem;padding-left:0.3rem; color:#000; border-bottom:0.01rem solid #c0d2db; position:relative;}
+#con .infoPart1  .txt1 i{display:block;height:6px;width:6px;background:#92a1a8;border-radius:3px; position:absolute;left:0.05rem;top:50%;margin-top:-3px;}
+#con .infoPart1  .txt2{padding-top:0.2rem;padding-left:0.3rem;line-height:0.38rem;}
+#con .infoPart1 .upTime .txt1{margin-bottom:0.2rem;}
+#con .infoPart1 .upTime .txt1 .time{color:#92a1a8;}
+
+#con .infoPart1 .flexBox{display:flex; display:-webkit-flex; margin-bottom:0.2rem;}
+#con .infoPart1  .progressStep .step{ flex:1;-webkit-flex:1; height:1.3rem; text-align:center; }
+#con .infoPart1  .progressStep .step .stateBox{height:0.36rem; width:100%; margin:0.16rem auto; position:relative;}
+#con .infoPart1  .progressStep .step .stateBox i{display:block; height:0.2rem; width:0.2rem; background:#caced2; position:absolute;left:50%; margin-left:-0.1rem; top:50%;margin-top:-0.1rem; border-radius:0.1rem; z-index:10}
+#con .infoPart1  .progressStep .step .stateBox .over{ display:none;height:0.36rem;width:0.36rem; background:url("../images/stepOver.jpg") no-repeat left top; background-size:100% 100%; position:absolute;left:50%;margin-left:-0.18rem; top:50%; margin-top:-0.18rem; z-index:100  }
+#con .infoPart1  .progressStep .step .stateBox .line-left{height:2px;width:50%; position:absolute;left:0;top:50%;margin-top:-1px; background:#caced2; z-index:10}
+#con .infoPart1  .progressStep .step .stateBox .line-right{height:2px;width:50%; position:absolute;right:0;top:50%;margin-top:-1px; background:#caced2;z-index:10}
+#con .infoPart1  .progressStep .step .stepName{line-height:0.3rem;text-align:center;}
+#con .infoPart1  .progressStep .step .stepTime{line-height:0.3rem;text-align:center;}
+#con .infoPart1  .progressStep .stepOver .stepName{color:#2e82fc;}
+#con .infoPart1  .progressStep .stepOver .stateBox i{display:none}
+#con .infoPart1  .progressStep .stepOver .stateBox .over{display:block;}
+#con .infoPart1  .progressStep .stepOver .stateBox .line-left{background:#71aafe;}
+#con .infoPart1  .progressStep .stepOver .stateBox .line-right{background:#71aafe;}
+
+#con .infoPart1  .progressStep .stepUnOver .stepName{color:#f05474;}
+#con .infoPart1  .progressStep .stepUnOver .stateBox i{display:none}
+#con .infoPart1  .progressStep .stepUnOver .stateBox .over{display:block;background:url("../images/stepUnPass.jpg") no-repeat left top; background-size:100% 100%;}
+#con .infoPart1  .progressStep .stepUnOver .stateBox .line-left{background:#f05474;}
+#con .infoPart1  .progressStep .stepUnOver .stateBox .line-right{background:#f05474;}
+#con .infoPart1  .reason .txt2{color:#f05474; padding-top:0;}
+#con .infoPart1  .reason .txt1{margin-bottom:0.2rem;}
+
+#con .infoPart1 .partInfo{margin-bottom:0.3rem;}
+
+
+
+
+#con .emptyBox{height:0.3rem;width:100%;}
+#basicInfo{min-height:4.0rem;width:100%; padding-bottom:0.2rem;}
+#basicInfo .formLists{min-height:4.0rem; width:100%;}
+#basicInfo .formLists .list{min-height:0.8rem; width:100%; margin-bottom:0.2rem; background:#fff;}
+#basicInfo .formLists .list .listTitle{height:0.4rem; padding:0.24rem 0.2rem;position:relative;}
+#basicInfo .formLists .list .listTitle .left{float:left;height:0.4rem;line-height:0.4rem;padding-left:0.1rem;font-size:0.28rem;color:#000;border-left:4px solid #2e82fc;}
+#basicInfo .formLists .list .listTitle .state{float:right;height:0.4rem;width:1.7rem;margin:0;}
+#basicInfo .formLists .list .listTitle .state i{float:left;height:0.28rem;width:0.28rem;margin-right:0.15rem;margin-top:0.06rem;}
+#basicInfo .formLists .list .listTitle .state .over{background:url(../images/page2-01.png) no-repeat left top; background-size:100% 100%;}
+#basicInfo .formLists .list .listTitle .state .editing{background:url(../images/page2-02.png) no-repeat left top; background-size:100% 100%;}
+#basicInfo .formLists .list .listTitle .state .noStared{background:url(../images/page2-03.png) no-repeat left top; background-size:100% 100%;}
+#basicInfo .formLists .list .listTitle .state .stateTxt{float:left; height:0.4rem; line-height:0.4rem;}
+#basicInfo .formLists .list .listTitle .state .remarkBg{float:right; height:0.18rem; width:0.28rem; margin-top:0.11rem;}
+#basicInfo .formLists .list .listTitle .state .close{background:url("../images/close.png") no-repeat left top; background-size:100% 100%;}
+#basicInfo .formLists .list .listTitle .state .open{background:url("../images/open.png") no-repeat left top; background-size:100% 100%;}
+/*#basicInfo .formLists .list .infoBox{height:6.0rem;padding:0 0.2rem;background:#fefefe; overflow:hidden;}*/
+#basicInfo .formLists .list .infoBox{min-height:0.8rem;padding:0 0.2rem; padding-bottom:0.2rem;background:#fefefe; overflow:hidden;}
+#basicInfo .formLists .list .infoBox .part{padding-top:0.2rem; height:0.64rem;width:100%; position:relative;}
+#basicInfo .formLists .list .infoBox .part .infoName{float:left;height:0.64rem;line-height:0.64rem;width:2.0rem;padding-right:0.1rem;text-align:right;}
+#basicInfo .formLists .list .infoBox .part .infoCon{float:left;height:0.4rem;width:3.4rem;padding:0.1rem 0.2rem; color:#000; border:1px solid #c0d2db;border-radius:5px;}
+#basicInfo .formLists .list .infoBox .part .infoConError{border-color:red;  box-shadow: 0 0 1px 1px red;}
+#basicInfo .formLists .list .infoBox .partHide{display:none;}
+#basicInfo .formLists .list .infoBox .part .remarkBtn{display:block;height:0.26rem;width:0.26rem;position:absolute;left:5.5rem;top:0.38rem;background:url("../images/remarkBg.png") no-repeat left top;background-size:100% 100%;}
+
+#basicInfo .formLists .list .infoBox .said{min-height:1.5rem;width:100%;}
+#basicInfo .formLists .list .infoBox .said .txt1{height:0.54rem;line-height:0.54rem;padding-left:0.2rem;}
+#said{height:1.6rem;width:100%;padding:0.2rem; box-sizing: border-box; -webkit-box-sizing: border-box; border:1px solid #c0d2db; border-radius:5px; resize:none;}
+
+#basicInfo .formLists .list .con-radio{float:left;height:0.64rem;width:3.4rem;margin:0;}
+#basicInfo .formLists .list .con-radio label{float:left;height:0.64rem;padding-left:0.5rem;width:0.8rem;margin:0 0.2rem; position:relative;}
+#basicInfo .formLists .list .con-radio label input{position:absolute;left:-9999px;top:0;}
+#basicInfo .formLists .list .con-radio label .txt{float:left; height:0.64rem; line-height:0.64rem;}
+#basicInfo .formLists .list .con-radio label i{display:block; height:0.26rem; width:0.26rem; position:absolute;left:0;top:0.19rem;}
+#basicInfo .formLists .list .con-radio label .checked{background:url("../images/checkedBtn.png") no-repeat left top; background-size:100% 100%;}
+#basicInfo .formLists .list .con-radio label .unchecked{background:url("../images/uncheckedBtn.png") no-repeat left top; background-size:100% 100%;}
+
+#basicInfo .formLists .list .sel-box{float:left;height:0.4rem;width:3.01rem;padding:0.1rem 0.2rem; padding-right:0.58rem; color:#000; border:1px solid #c0d2db;border-radius:5px; margin:0;position:relative;}
+#basicInfo .formLists .list .sel-box i{display:block;height:0.18rem;width:0.28rem;position:absolute;right:0.15rem;top:0.21rem;background:url("../images/selectBg.png") no-repeat left top; background-size:100% 100%; z-index:10;}
+#basicInfo .formLists .list .sel-box .sel-value{float:left;height:0.4rem;width:3.0rem;border-right:0.01rem solid #b0bec5;}
+#basicInfo .formLists .list .sel-box select{display:block;height:0.6rem;width:0.58rem;position:absolute;right:0;top:0; opacity:0; z-index:100; }
+
+/*#basicInfo .formLists .list .boxHide{min-height:3.0rem; transition: all 0.5s linear; -webkit-transition: all 0.5s linear;}*/
+#basicInfo .formLists .list .boxHide{display:none;}
+#basicInfo .formLists .list .boxOpen{min-height:3.0rem; display:block;}
+
+#basicInfo .submitBtn{display:block; height:0.74rem; width:5.0rem; line-height:0.74rem; text-align:center; margin:0 auto; margin-top:0.4rem; background:#2e82fc; font-size:0.28rem; color:#fff;border-radius:6px;}
+
+
+
+#shopsInfo{min-height:1.0rem;width:100%;}
+#shopsInfo .shopLists{min-height:1.0rem;width:100%;}
+#shopsInfo .shopLists .shopList{min-height:0.8rem; width:100%; margin-bottom:0.2rem; background:#fff;}
+#shopsInfo .shopLists .shopList .listTitle{height:0.4rem; padding:0.24rem 0.2rem;position:relative;}
+#shopsInfo .shopLists .shopList .listTitle .left{float:left;height:0.4rem;line-height:0.4rem;padding-left:0.1rem;font-size:0.28rem;color:#000;border-left:4px solid #2e82fc;}
+#shopsInfo .shopLists .shopList .listTitle .state{float:right;height:0.4rem;width:1.7rem;margin:0;}
+#shopsInfo .shopLists .shopList .listTitle .state .remarkBg{float:right; height:0.18rem; width:0.28rem; margin-top:0.11rem;}
+#shopsInfo .shopLists .shopList .listTitle .state .close{background:url("../images/close.png") no-repeat left top; background-size:100% 100%;}
+#shopsInfo .shopLists .shopList .listTitle .state .open{background:url("../images/open.png") no-repeat left top; background-size:100% 100%;}
+#shopsInfo .shopInfo{min-height:0.8rem;padding:0 0.2rem; padding-bottom:0.2rem;background:#fefefe; overflow:hidden;}
+#shopsInfo .shopInfo  .part{padding-top:0.2rem; height:0.64rem;width:100%; position:relative;}
+#shopsInfo .shopInfo  .part .infoName{float:left;height:0.64rem;line-height:0.64rem;width:2.0rem;padding-right:0.1rem;text-align:right;}
+#shopsInfo .shopInfo  .part .infoCon{float:left;height:0.4rem;width:3.4rem;padding:0.1rem 0.2rem; color:#000; border:1px solid #c0d2db;border-radius:5px;}
+#shopsInfo .shopInfo  .part .infoConError{border-color:red;  box-shadow: 0 0 1px 1px red;}
+#shopsInfo .boxHide{display:none;}
+#shopsInfo .boxOpen{min-height:3.0rem; display:block;}
+
+
+#con .infoPart3{padding-bottom:0.5rem;}
+#con .infoPart3 .con-title{height:0.7rem; line-height:0.7rem; padding:0 0.24rem;}
+#con .infoPart3 .con-title .txt{float:left; height:0.7rem; line-height:0.7rem;}
+#con .infoPart3 .con-title .outLink{float:right;height:0.7rem; line-height:0.7rem; color:#2e82fc;}
+
+#con .fileCon{min-height:5.0rem; width:100%;}
+#con .infoPart3 .part{min-height:2.0rem; width:100%; padding-bottom:0.2rem; margin-bottom:0.2rem; background:#fff;}
+#con .infoPart3 .part{padding-top:0.4rem;}
+#con .infoPart3 .part .fileBox{ min-height:2.1rem; width:5.0rem; margin:0 auto;}
+#con .infoPart3 .fileBox .box{float:left; height:2.1rem; width:2.2rem; position:relative;}
+#con .infoPart3 .fileBox .box:nth-child(2n){float:right;}
+#con .infoPart3 .fileBox .box .viewBox{height:1.15rem; width:2.2rem; padding-top:0.45rem; background:#f0f4f5;position:relative;}
+
+#con .infoPart3 .viewBox .conHide{ display:none;}
+
+#con .infoPart3 .viewBox .fileBg{height:0.72rem; width:0.72rem; margin:0 auto;}
+#con .infoPart3 .viewBox .secBtn{height:0.4rem; padding:0 0.3rem; width:100%; -webkit-box-sizing: border-box;box-sizing: border-box; background:rgba(56,56,56,0.5);position:absolute;left:0;bottom:0;}
+#con .infoPart3 .viewBox .secBtn i{float:left;height:0.18rem;width:0.18rem;margin-top:0.1rem;margin-right:0.2rem; background:url("../images/icon001.png") no-repeat left top; background-size:100% 100%;}
+#con .infoPart3 .viewBox .secBtn span{float:left;height:0.4rem; line-height:0.4rem;color:#fff;font-size:0.2rem;}
+#con .infoPart3 .viewBox .progress{height:0.4rem; width:1.8rem; position:absolute; left:0.2rem;bottom:0.1rem;}
+#con .infoPart3 .viewBox .progress .txt{height:0.3rem; line-height:0.3rem; font-size:0.2rem;}
+#con .infoPart3 .viewBox .progress .progressBar{height:0.06rem; width:1.8rem; border:0.01rem solid #96bcf4;border-radius:0.03rem; background:#fff;}
+#con .infoPart3 .box .fileName{height:0.28rem; width:100%; padding:0.15rem 0;}
+#con .infoPart3 .box .fileName .stateBg{float:left;height:0.28rem; width:0.28rem; background:url("../images/icon002.png") no-repeat left top; background-size:100% 100%;}
+#con .infoPart3 .box .fileName .nameTxt{float:left;padding-left:0.1rem;height:0.28rem; line-height:0.28rem; color:#000;}
+#con .infoPart3 .part .partName{float:left; height:0.88rem; width:100%; line-height:0.88rem; }
+#con .infoPart3 .part .partName i{float:right; height:0.4rem;width:0.4rem;margin-top:0.22rem; background:url("../images/icon003.png") no-repeat left top; background-size:100% 100%;}
+
+#con .infoPart3 .partBox{min-height:0.8rem;padding:0 0.24rem; background:#fff; margin-bottom:0.2rem;}
+#con .infoPart3 .partBox .titleTxt{height:0.8rem;width:100%;line-height:0.8rem;color:#000;font-size:0.28rem; position:relative;}
+#con .infoPart3 .partBox .titleTxt span{color:#92a1a8; font-size:0.24rem;}
+#con .infoPart3 .partBox .titleTxt i{float:right;height:0.4rem;width:0.4rem;margin-top:0.22rem; background:url("../images/icon003.png") no-repeat left top; background-size:100% 100%;}
+
+#con .infoPart3 .box .deleteBtn{height:0.34rem;width:0.34rem; background:url("../images/icon004.png") no-repeat left top; background-size:100% 100%; position:absolute;right:0;top:0; z-index:100;}
+#con .infoPart3 .submitBtn{height:0.74rem;width:5.0rem;line-height:0.74rem;text-align:center; background:#2e82fc;color:#fff;font-size:0.32rem; border-radius:5px;margin:0.6rem auto;}
+#con .infoPart3 .remarkTxt{padding:0 0.24rem;display:-webkit-flex; display:flex; }
+#con .infoPart3 .remarkTxt .txtLeft{display:block;height:0.8rem;line-height:0.36rem;width:1.4rem;}
+#con .infoPart3 .remarkTxt .txtRight{flex:1; -webkit-flex:1;line-height:0.36rem;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

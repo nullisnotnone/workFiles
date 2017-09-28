@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>推荐办单</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/listDetails.css">
+</head>
+<body>
+
+    <div id="con">
+        <div class="part1">
+            <div id="box" class="box">
+                <p class="txt1">
+                    <span class="num" id="countNum">10</span>
+                    <span class="text">位</span>
+                </p>
+                <p class="txt2">已办单好友</p>
+                <canvas id="canvas" height="162" width="162"></canvas>
+            </div>
+
+            <div class="btns">
+                <p class="btn btn1">
+                    <i></i>
+                    <span>中奖记录</span>
+                </p>
+                <p class="btn btn2">
+                    <i></i>
+                    <span>活动规则</span>
+                </p>
+            </div>
+            <a class="outLink" href="javascript:;">邀请好友</a>
+        </div>
+        <div class="part2">
+            <ul class="friendsList">
+                <li class="list">
+                    <div class="left">
+                        <img class="selfImg" src="images/selfImg.png" alt="">
+                        <p class="name">王小毛</p>
+                        <p class="concatNum">13555848151545</p>
+                    </div>
+                    <div class="right">
+                        <p class="state">
+                            <span class="txt">已办单</span>
+                            <span class="shakeBtn stateHide">戳一下</span>
+                        </p>
+                        <p class="time">推荐时间：<span>2017/5/12</span></p>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="left">
+                        <img class="selfImg" src="images/selfImg.png" alt="">
+                        <p class="name">王大毛</p>
+                        <p class="concatNum">13555848151545</p>
+                    </div>
+                    <div class="right">
+                        <p class="state">
+                            <span class="txt stateHide">已办单</span>
+                            <span class="shakeBtn">戳一下</span>
+                        </p>
+
+                        <p class="time">推荐时间：<span>2017/5/12</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/countUp.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+
+
+
+        });
+
+        // 数字动画
+        demo = new CountUp('countNum', 0, 10, 0, 1.5);
+        demo.start();
+
+        // 绘制圆圈
+        var box = document.getElementById("box");
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        var basicWidth = box.clientWidth;
+        window.onload = function(){
+            var timer = null,n=0;
+            function loadCycle(nowT){
+                var timer = setInterval(function(){
+                    if(n > nowT ){
+                        clearInterval(timer);
+                    } else {
+                        n = n + 0.01;
+                        drawCycle(n);
+                        console.log(1);
+                    }
+                },20);
+
+            }
+            loadCycle(9/10);
+            timer = null;
+        };
+
+        function drawCycle(n){
+            var m = Number(n) * 2 + 0.5;
+            var x = basicWidth * 0.5 ;
+            var y = basicWidth * 0.5 ;
+            var r = basicWidth * 0.4 ;
+
+            canvas.setAttribute("height",basicWidth);
+            canvas.setAttribute("width",basicWidth);
+            context.beginPath();
+            context.arc(x,y,r,0.5*Math.PI,m*Math.PI,false);
+            context.strokeStyle = "yellow";
+            context.lineWidth = 8;
+            context.stroke();
+            context.closePath();
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#a9b2b9;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+*::-webkit-input-placeholder {  color: #d6d6db;}
+
+
+
+body{min-width:300px;max-width:640px;margin:0 auto;}
+.noScroll{height:100%;width:100%;overflow:hidden;}
+#con{min-height:100%;width:100%;background:#eef1f6; display:flex; display:-webkit-flex; -webkit-flex-direction: column;flex-direction: column;}
+#con .underLine:after{content:""; display:block;height:0;width:100%;border-bottom:1px dashed #eef1f6;  transform: scaleY(0.5); -webkit-transform: scaleY(0.5); position:absolute;left:0;bottom:0;}
+.emptyBox{height:0.2rem;width:100%;}
+.con-parts{flex:1; -webkit-flex:1; position:relative;width:5.6rem;min-height:8.0rem;margin:0 auto;padding:0 0.2rem; padding-bottom:0.6rem; background:#fff; border-radius:10px; margin-bottom:1.0rem;}
+.con-parts .part1{height:0.3rem;width:100%;padding:0.4rem 0;position:relative;}
+.con-parts .part1 .p-left{ float:left;height:0.4rem;line-height:0.4rem; font-size:0.28rem; padding-left:0.2rem;border-left:4px solid #ffbd18; color:#222; }
+.con-parts .part1 .p-right{float:right;height:0.4rem;line-height:0.4rem;}
+.con-parts .part1 .p-right span{color:#222;}
+
+.con-parts .info{height:0.8rem;width:100%;position:relative;}
+.con-parts .info .i-left{float:left;height:0.8rem;width:50%;}
+.con-parts .info .i-left .i-l-key{float:left;height:0.8rem;line-height:0.8rem;margin-right:0.28rem;}
+.con-parts .info .i-left .i-l-value{float:left;height:0.8rem;line-height:0.8rem;color:#222;}
+.con-parts .info .i-right{float:left;height:0.8rem;width:50%;}
+.con-parts .info .i-right .i-r-key{float:left;height:0.8rem;line-height:0.8rem;margin-right:0.28rem;}
+.con-parts .info .i-right .i-r-value{float:left;height:0.8rem;line-height:0.8rem;color:#222;}
+.con-parts .info .is-left{float:left;height:0.8rem;line-height:0.8rem;margin-right:0.28rem;}
+.con-parts .info .is-right{float:left;height:0.8rem;line-height:0.8rem;color:#222}
+
+.con-parts .info5 .is-right .c-box{margin-top:0.1rem;position:relative;height:0.6rem;width:1.5rem;border:1px solid #eef1f6; border-radius:5px;}
+.con-parts .info5 .is-right .c-box .resultValue{float:left;height:0.6rem;width:1.2rem;line-height:0.6rem;text-align:center;}
+.con-parts .info5 .is-right .c-box .q-choose{position:absolute;left:0;top:0;display:block;height:0.6rem;width:1.5rem;opacity:0;z-index:10;}
+.con-parts .info5 .is-right .c-box i{position:absolute;right:0.1rem;top:0.25rem;display:block;width:0.2rem;height:0.1rem;background:url("../images/icon-more.png") no-repeat left top; background-size:100% 100%;}
+
+.con-parts .part3{padding-top:0.2rem;}
+.con-parts .part3 .p-txt{line-height:0.38rem;color:#db2442;font-size:0.24rem;}
+.con-parts .img-bg{position:absolute;left:0;bottom:0;height:0.2rem;width:100%;background:url("../images/conBg.png") no-repeat left top; background-size:100% 100%;}
+.con-parts .icon-circle{display:block;height:0.2rem;width:0.2rem;background:#eef1f6; border-radius:50%;}
+.con-parts .icon-circle1{position:absolute;left:-0.1rem;top:1.0rem;}
+.con-parts .icon-circle2{position:absolute;right:-0.1rem;top:1.0rem;}
+
+.part-bottom{height:0.95rem;width:100%;background:#fff;border-top:0.02rem solid #dee3e8;}
+.part-bottom .cancel-btn{height:0.7rem;width:4.0rem;margin:0 auto;margin-top:0.12rem;line-height:0.7rem;text-align:center;color:#fff;background:#ffbd18;border-radius:5px;}
+
+.con-parts .part4{height:1.5rem;width:100%;padding-top:0.1rem;}
+.con-parts .part4 .p-part1{height:0.6rem;width:100%;margin-bottom:0.2rem;}
+.con-parts .part4 .p-part1 .lookLink{display:block;height:0.6rem;width:1.74rem;line-height:0.58rem;text-align:center;color:#222; box-sizing: border-box; -webkit-box-sizing: border-box; border:1px solid #eef1f6; border-radius:5px;}
+.con-parts .part4 .p-part2{height:0.6rem;width:100%;}
+.con-parts .part4 .p-part2 p{float:left;height:0.6rem;width:1.74rem;border:1px solid #eef1f6;box-sizing: border-box; -webkit-box-sizing: border-box; border-radius:5px; margin-right:0.2rem;}
+.con-parts .part4 .p-part2 p input{float:left;height:100%;width:100%;line-height:0.58rem;text-align:center;}
+.con-parts .part4 .p-part2 p:nth-child(2){border-color:#ffbd18;}
+.con-parts .part4 .p-part2 p button{float:left;height:100%;width:100%;line-height:0.58rem;text-align:center;background:#fff; color:#ffbd18;border-radius:10px;}
+
+
+/*查看合同弹窗*/
+#layOutView{height:9.0rem;width:6.0rem;background:transparent;margin:0 auto;position:relative;}
+#layOutView .closeBtn{position:absolute;right:0.2rem;top:0.2rem;display:block;height:0.4rem;width:0.4rem;padding:0.1rem; z-index:100;}
+#layOutView .closeBtn>img{float:left;height:100%;width:100%;}
+.b-con{ height:9.0rem;width:6.0rem; border-radius:10px;margin:0 auto;font-size:0.28rem; background:#fff; color:#333; overflow-y:scroll;}
+.b-con .b-title{line-height:0.4rem;font-size:0.4rem;text-align:center;padding-top:0.4rem;}
+.b-con .b-body{padding:0 0.2rem;padding-top:0.4rem; margin-bottom:1.0rem;}
+.b-con .b-body .h-txt{font-weight:600;color:#000;font-size:0.28rem; margin-bottom:0.2rem;}
+.b-con .b-body .h-txt .t-title{text-align:left;line-height:0.46rem;}
+.b-con .b-body .h-txt .p-txt{text-indent: 2em; line-height:0.46rem;}
+.b-con .b-body .part-txt{margin-bottom:10px;}
+.b-con .b-body .part-txt .p-title{line-height:0.36rem;text-align:left;}
+.b-con .b-body .part-txt .p-txt{min-height:0.4rem;width:100%;position:relative; margin-bottom:0.2rem;}
+.b-con .b-body .part-txt .p-txt .part1{position:absolute;left:0.2rem;top:0;min-height:0.4rem;line-height:0.4rem;}
+.b-con .b-body .part-txt .p-txt .part2{float:left;padding-left:0.6rem;line-height:0.4rem;min-height:0.4rem;}
+.b-con .b-foot{padding-bottom:1.0rem;}
+.b-con .b-foot .perInfo{ padding-right:0.6rem;text-align:right;}
+

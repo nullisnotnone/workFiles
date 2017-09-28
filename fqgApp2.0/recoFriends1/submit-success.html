@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>添加好友</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#333;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #555; }
+
+        #con{height:100%; width:100%; background:#fff;}
+        #con .state-img{ height:1.28rem;width:100%;padding-top:1.22rem; margin-bottom:0.64rem; }
+        #con .state-img>img{height:1.28rem;width:1.28rem;margin:0 auto;}
+        #con .txt1{height:0.7rem;line-height:0.7rem;text-align:center;font-size:0.32rem;color:#280000;}
+        #con .txt2{height:0.5rem;line-height:0.5rem;text-align:center;color:#888;}
+        #con .recommendBtn{ margin:0.5rem auto; height:1.04rem;width:5.0rem;line-height:1.04rem;text-align:center; font-size:0.32rem; background:#ffda44;color:#280000;border-radius:1.0rem; }
+        #l-con{position:absolute;left:0;top:0;height:100%;width:100%;background:rgba(0,0,0,0.7); display:none;}
+        #con .advert{min-height:1.0rem;width:4.2rem;margin:0 auto;}
+        #con .advert .good-img{position:relative;height:6.0rem;width:4.2rem;background:url("images/getAwardsBg.png") no-repeat left top; background-size:100% 100%;}
+        #con .advert .good-img .closeBtn{ position:absolute;right:0.3rem; top:50%; display:block; height:0.6rem;width:0.6rem; }
+        #con .advert .good-img .closeBtn i{margin:0.15rem auto; display:block;height:0.3rem;width:0.3rem;background:url(images/closeBtn.png) no-repeat left top; background-size:100% 100%;}
+        #con .advert .link-btn{height:0.6rem;width:2.5rem; margin:0 auto; margin-top:0.25rem; line-height:0.6rem;text-align:center;background:#ffda44; color:#333;border-radius:0.3rem;font-size:0.32rem;}
+
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <p class="state-img">
+            <img src="images/icon-success.png" alt="">
+        </p>
+        <p class="txt1">信息提交成功</p>
+        <p class="txt2">佰仟销售代表会尽快和您取得联系</p>
+        <p class="recommendBtn">继续推荐好友</p>
+
+        <div id="l-con">
+            <div class="advert">
+                <p class="good-img">
+                <span class="closeBtn">
+                    <i></i>
+                </span>
+                </p>
+                <p class="link-btn">
+                    <a href="javascriopt:;">去领奖</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="js/zepto/zepto.js"></script>
+    <script type="text/javascript">
+        $(function(){
+           setTimeout(function(){
+             $("#l-con").css({"display":"block"});
+           },900);
+
+            // 关闭按钮
+            $(".closeBtn").on("click",function(){
+               $("#l-con").css({"display":"none"});
+            });
+        });
+    </script>
+
+</body>
+</html>

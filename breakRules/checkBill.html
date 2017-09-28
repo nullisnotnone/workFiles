@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>订单确认</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/need/layer.css">
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#999;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        *::-webkit-input-placeholder {color: #d6d6db;}
+
+        /*#con{min-height:100%; width:100%; background:#edf1f2; display:flex; display:-webkit-flex; flex-direction: column;-webkit-flex-direction: column; }*/
+        body{min-height:100%;}
+        #con{min-height:100%; width:100%; background:#edf1f2; box-sizing: border-box; -webkit-box-sizing: border-box; padding-bottom:1.2rem;  }
+        #con .underLine:after{content:"";display:block;height:1px;width:100%;background:#e6e8e8;position:absolute;left:0;bottom:0;transform: scaleY(0.5); -webkit-transform: scaleY(0.5);}
+        #con .con{flex:1; -webkit-flex:1;}
+        #con .con .info{min-height:0.85rem;padding:0 0.24rem;background:#fff; position:relative; font-size:0.28rem; color:#000;}
+        #con .con .info .count-txt{float:left;height:0.85rem;line-height:0.85rem;}
+        #con .con .info .left{float:left;height:0.85rem;line-height:0.85rem;width:50%;}
+        #con .con .info .left span{float:left;height:0.85rem;line-height:0.85rem;}
+        #con .con .info .right{float:left;height:0.85rem;line-height:0.85rem;width:50%;text-align:right;}
+        #con .con .info2{padding-top:0.06rem;padding-bottom:0.1rem;}
+        #con .con .info2 .txt{height:0.48rem;width:100%;}
+        #con .con .info2 .txt .txt-key{float:left;height:0.48rem;line-height:0.48rem;width:50%;}
+        #con .con .info2 .txt .txt-value{float:left;height:0.48rem;line-height:0.48rem;width:50%;text-align:right}
+        #con .con .info2 .txt .txt-value .sp{color:#ff7143;}
+        #con .con .remarktxt{padding:0.2rem 0.24rem;line-height:0.4rem; position:relative;}
+        #con .con .info3{height:0.85rem;padding:0 0.24rem;}
+        #con .con .info3 .left{float:left;height:0.85rem;line-height:0.85rem;width:30%;}
+        #con .con .info3 .tel{float:right;height:0.4rem;padding:0.22rem 0;width:3.0rem;text-align:right;}
+
+        #con .con .billCon{min-height:1.0rem;padding:0 0.24rem; padding-bottom:0.6rem;}
+        #con .con .listDetail{min-height:1.5rem;width:100%;margin-top:0.25rem; background:#fff; border:0.01rem solid #e6e8e8; border-top:0.1rem solid #999;border-radius:5px;}
+        #con .con .checkedBorder{border-top:0.1rem solid #ff7143;}
+        #con .con .listDetail .partTop{height:1.14rem;padding-left:0.4rem; position:relative;}
+        #con .con .listDetail .partTop .TempID{height:0;width:0; overflow:hidden; visibility: hidden;}
+        #con .con .listDetail .partTop .part{float:left;height:1.14rem;}
+        #con .con .listDetail .partTop .part1{width:0.6rem; text-align:left;}
+        #con .con .listDetail .partTop .part2{width:1.2rem;}
+        #con .con .listDetail .partTop .part3{width:0.9rem;margin-right:0.6rem;}
+        #con .con .listDetail .partTop .part2{margin:0 0.9rem;}
+        #con .con .listDetail .partTop .part .txt1{display:block; height:0.64rem; line-height:0.64rem; width:100%; text-align:center;}
+        #con .con .listDetail .partTop .part .txt2{display:block; height:0.24rem; line-height:0.24rem; color:#ff7143; width:100%; text-align:center;}
+        #con .con .listDetail .partTop .state{float:left;height:1.14rem;width:1.2rem;}
+        #con .con .listDetail .partTop .stateHide{display:none;}
+        #con .con .listDetail .partTop .stateTxt{float:left;height:1.14rem;line-height:1.14rem;color:#67b2f8}
+        #con .con .listDetail .partTop .state .stateMark{float:left;height:0.4rem;width:0.4rem;margin-top:0.37rem;background:url("images/unchecked.png") no-repeat left top; background-size:100% 100%;}
+        #con .con .listDetail .partTop .state .checked{background:url("images/checked.png") no-repeat left top; background-size:100% 100%;}
+
+        #con .con .listDetail .partDown{min-height:1.55rem; padding-top:0.06rem;padding-left:0.4rem; padding-bottom:0.1rem;}
+        #con .con .listDetail .partDown .breakReason{min-height:0.4rem; line-height:0.4rem; font-size:0.28rem; color:#000;padding:0.1rem 0;padding-right:0.2rem; }
+        #con .con .listDetail .partDown .breakAddress{min-height:0.3rem; line-height:0.3rem; font-size:0.28rem; margin-bottom:0.1rem; padding-right:0.2rem}
+        #con .con .listDetail .partDown .breakTime{height:0.44rem; line-height:0.44rem; font-size:0.20rem;}
+
+        #con .bottomPart{height:1.2rem; width:100%; position:fixed; left:0; bottom:0;}
+        #con .bottomPart .left{float:left; height:1.2rem; width:70%; box-sizing: border-box; -webkit-box-sizing: border-box;padding-left:0.24rem; background:#fff;}
+        #con .bottomPart .left .top{height:0.7rem; line-height:0.7rem; color:#ff7143; font-size:0.32rem;}
+        #con .bottomPart .left .down{height:0.3rem; line-height:0.3rem; font-size:0.28rem;}
+        #con .bottomPart .right{float:left;height:1.2rem;width:30%;}
+        #con .bottomPart .right .checkBtn{float:left;height:100%;width:100%;line-height:1.2rem;text-align:center;background:#ff7143;font-size:0.32rem;color:#fff;}
+        .count-score , .count-money{color:#ff7143;}
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div class="con">
+            <div class="info underLine">
+                <p class="left">
+                    <span class="carNum">粤B02017</span>
+                    <span class="breakReason">违章</span>
+                </p>
+                <p class="right">
+                    共<span class="count-num">2</span>条
+                </p>
+            </div>
+            <div class="info underLine">
+                <span class="count-txt">合计</span>
+            </div>
+            <div class="info info2">
+                <div class="txt txt1">
+                    <p class="txt-key">扣分情况</p>
+                    <p class="txt-value">
+                        <span class="sp">8</span>分
+                    </p>
+                </div>
+                <div class="txt txt2">
+                    <p class="txt-key">罚款金额</p>
+                    <p class="txt-value">
+                        <span class="sp">350</span>元
+                    </p>
+                </div>
+                <div class="txt txt3">
+                    <p class="txt-key">服务费</p>
+                    <p class="txt-value">
+                        <span class="sp">45</span>元
+                    </p>
+                </div>
+            </div>
+            <p class="remarktxt underLine">
+                请绑定手机号，办理结果将以短信通知您！办理时间2-5个工作日。
+            </p>
+            <div class="info info3 underLine">
+                <p class="left">联系方式</p>
+                <input class="tel" id="tel" type="text" placeholder="请输入手机号">
+            </div>
+
+            <div class="billCon">
+                <div class="listDetail checkedBorder">
+                    <div class="partTop underLine ">
+                        <p class="part part1">
+                            <span class="txt1">扣分</span>
+                            <span class="txt2">6分</span>
+                        </p>
+                        <p class="part part2">
+                            <span class="txt1">罚款金额</span>
+                            <span class="txt2">¥200</span>
+                        </p>
+                        <p class="part part3">
+                            <span class="txt1">服务费</span>
+                            <span class="txt2">¥20</span>
+                        </p>
+                    </div>
+                    <div class="partDown">
+                        <p class="breakReason">驾驶机动车违反道路交通信号灯通行驾驶机动车违反道路交通信号灯通行驾驶机动车违反道路交通信号灯通行</p>
+                        <p class="breakAddress">福田区彩田路路口(广东深圳)</p>
+                        <p class="breakTime">2017-04-24 14:36</p>
+                    </div>
+                </div>
+                <div class="listDetail checkedBorder">
+                    <div class="partTop underLine ">
+                        <p class="part part1">
+                            <span class="txt1">扣分</span>
+                            <span class="txt2">2分</span>
+                        </p>
+                        <p class="part part2">
+                            <span class="txt1">罚款金额</span>
+                            <span class="txt2">¥150</span>
+                        </p>
+                        <p class="part part3">
+                            <span class="txt1">服务费</span>
+                            <span class="txt2">¥25</span>
+                        </p>
+                    </div>
+                    <div class="partDown">
+                        <p class="breakReason">驾驶机动车违反道路交通信号灯通行</p>
+                        <p class="breakAddress">福田区彩田路路口(广东深圳)</p>
+                        <p class="breakTime">2017-04-24 14:36</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottomPart">
+            <div class="left">
+                <p class="top">合计<span> 2 </span>笔</p>
+                <p class="down">扣<span class="count-score"> 8 </span>分，共<span class="count-money"> 395 </span>元</p>
+            </div>
+            <div class="right">
+                <button type="button" class="checkBtn">去支付</button>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

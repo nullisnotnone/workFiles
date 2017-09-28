@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>咨询服务</title>
+    <link rel="stylesheet" href="css/need/layer.css"/>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#888;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        *::-webkit-input-placeholder {color: #98b3d4;}
+
+        body{height:100%;width:100%; background:rgba(0,0,0,0.9);}
+        #layer3{height:5.0rem;width:5.0rem; margin:0 auto;  position:relative;}
+        #layer3 .top{height:0.65rem;width:100%; background:transparent;}
+        #layer3 .top .closeBtn{float:right;height:0.73rem;width:0.41rem; background:url("images/closeBtn.png") no-repeat left top; background-size:100% 100%;}
+        #layer3 .con{height:4.35rem;width:100%; background:#fff; border-radius:5px;}
+        #layer3 .con .txt1{height:1.18rem;width:100%; line-height:1.18rem;text-align:center;font-size:0.32rem;color:#000;}
+        #layer3 .con .cards{height:0.58rem;width:3.4rem;margin:0 auto; margin-bottom:0.3rem; }
+        #layer3 .con .cards .card{float:left;height:0.36rem;width:1.3rem; padding:0.1rem;border:0.01rem solid #c1c1c1;border-radius:4px; position:relative; }
+        #layer3 .con .cards .card2{float:right;}
+
+        #layer3 .con .cards .card i{ float:left;height:0.34rem;width:0.36rem;margin-right:0.1rem;}
+        #layer3 .con .cards .card span{float:left;height:0.36rem;line-height:0.36rem; font-size:0.24rem;}
+        #layer3 .con .cards .card1 i{background:url("images/icon4.png") no-repeat left top; background-size:100% 100%;}
+        #layer3 .con .cards .card2 i{background:url("images/icon5.png") no-repeat left top; background-size:100% 100%;}
+        #layer3 .con .said{height:0.36rem; padding:0.1rem 0; width:3.4rem; margin:0 auto; border-bottom:0.01rem solid #c1c1c1; margin-bottom:0.4rem;}
+        #said{height:0.36rem; width:100%; line-height:0.36rem; overflow-y:scroll; background:transparent; resize:none; }
+        #layer3 .yesBtn{height:0.62rem;width:3.66rem;line-height:0.62rem;text-align:center; margin:0 auto; background:#ffbd18; color:#fff; border-radius:0.35rem;}
+
+        #layer4{min-height:1.65rem; width:4.9rem; background:#fff; border-radius:4px; margin:0 auto;}
+        #layer4 .txt{padding:0.2rem 0; width:4.3rem; margin:0 auto; line-height:.46rem; color:#333; text-align:center;}
+        #layer4 .yesBtn{height:0.63rem; width:4.7rem;  line-height:0.63rem; text-align:center; margin:0 auto;border-top:0.01rem solid #e6e6e6; color:#ffbd18; }
+
+
+    </style>
+</head>
+<body>
+    <div id="layer3">
+        <p class="top">
+            <span class="closeBtn"></span>
+        </p>
+        <div class="con">
+            <p class="txt1">是否解决了你的问题</p>
+            <div class="cards">
+                <p class="card card1">
+                    <i></i>
+                    <span>已解决</span>
+                </p>
+                <p class="card card2">
+                    <i></i>
+                    <span>未解决</span>
+                </p>
+            </div>
+            <p class="said">
+                <textarea name="" id="said"  placeholder="可填写你对客服的评价"></textarea>
+            </p>
+            <p class="yesBtn">确定</p>
+        </div>
+    </div>
+
+    <div id="layer4">
+        <p class="txt">您已成功提交服务评价，感谢您的支持，期待与您再会！</p>
+        <p class="yesBtn">确定</p>
+    </div>
+
+
+    <div id="layer5">
+
+    </div>
+
+    <script type="text/javascript">
+        var string = '[abc] d e fggggdd e ';
+        var reg1 = '[abc]';
+        string.replace(reg1 , '111');
+        console.log(string.replace(reg1 , '111'));
+        console.log(string);
+        console.log(string.replace(/\s+/g , ""));
+
+    </script>
+</body>
+</html>

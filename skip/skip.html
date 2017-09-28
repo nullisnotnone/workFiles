@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link REL = "shortcut icon" href="favicon.ico">
+    <title>跳转</title>
+    <style type="text/css">
+        *{padding:0;margin:0;}
+        html,body{height:100%;width:100%; background:url("bg.png") no-repeat left top; background-size:100% 100%; position:relative; font-family: "microsoft Yahei";}
+        .content{height:120px;width:180px; position:absolute;left:50%;margin-left:-90px;top:50%; }
+        .content .time{height:24px;line-height:24px;font-size:24px;color:#000; }
+        .content .time .num{color:#f1570b;}
+        .content .outLink{display:block;text-decoration:none;height:44px;line-height:44px;width:165px;text-align:center;background:#f1570b;border-radius:10px; color:#fff;font-size:16px; position:absolute;left:7px;bottom:0;}
+        .bottom{height:122px;width:100%;text-align:center;font-size:14px;position:absolute;left:0;bottom:0;}
+        .bottom .txt1{height:31px;line-height:31px;width:100%;text-align:center; color:#f1570b;}
+        .bottom .txt2{height:31px;line-height:31px;width:100%;text-align:center; color:#f1570b;}
+        .bottom .txt3{height:60px;width:100%; background:#4c4c4c; line-height:60px;text-align:center;color:#fff;font-size:14px;position:absolute;left:0;bottom:0;}
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <p class="time">
+            <span class="num">3</span>
+            秒后自动跳转
+        </p>
+        <a class="outLink" href="javascript:;">立刻前往</a>
+    </div>
+
+    <div class="bottom">
+        <p class="txt1">bilfinance.com 域名作为官网将持续到五月底, 届时将作它用.</p>
+        <p class="txt2">佰仟金融唯一官网：billionsfinance.cn</p>
+        <p class="txt3">粤ICP备14012749号-3 深圳市佰仟金融服务有限公司</p>
+    </div>
+    <script src="jQuery-1.8.3mini.js"></script>
+    <script type="text/javascript">
+        var num = $(".num").html();
+        setInterval(function(){
+            if(num > 0){
+                num-=1;
+                $(".num").html(num);
+            } else {
+                window.location.href = "http://www.baidu.com";
+            }
+        },1000)
+    </script>
+</body>
+</html>

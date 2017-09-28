@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>理赔资料提交</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <!--<link rel="stylesheet" href="">-->
+    <!--<link rel="stylesheet" href="css/shenqing.css">-->
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#999;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        *::-webkit-input-placeholder {  color: #d6d6db;}
+
+        body{height:100%; width:100%; background:rgba(0,0,0,0.9);}
+        /*#box{min-height:2.84rem;width:4.48rem; padding:0 0.2rem; margin:0 auto; background:#fff; border-radius:5px; }*/
+        /*#box .title{ height:0.96rem;line-height:0.96rem;width:100%; text-align:center;color:#000; font-weight:600;}*/
+        /*#box .txt{padding:0 0.5rem; line-height:0.36rem;text-align:center; border-bottom:0.01rem solid #e6e8e8;font-size:0.24rem; padding-bottom:0.36rem;}*/
+        /*#box .btns{height:0.44rem;width:100%; margin-top:0.18rem;}*/
+        /*#box .btns p{float:left;height:100%;line-height:0.44rem;width:50%;text-align:center;}*/
+        /*#box .btns .left{box-sizing: border-box; -webkit-box-sizing: border-box; border-right:0.01rem solid #e6e8e8; }*/
+        /*#box .btns .right{color:#ff7143;}*/
+
+        #box{min-height:2.84rem;width:4.48rem; padding:0 0.2rem; margin:0 auto; background:#fff; border-radius:5px; }
+        #box .title{ height:0.96rem;line-height:0.96rem;width:100%; text-align:center;color:#000; font-weight:600;}
+        #box .txt{padding:0 0.5rem; line-height:0.36rem;text-align:center; font-size:0.24rem; padding-bottom:0.36rem;}
+        #box .btn{ height:0.5rem;width:1.8rem;line-height:0.5rem;text-align:center; background:#2e82fc;color:#fff;border-radius:4px;margin: 0 auto; }
+
+        #payLayer{min-height:2.0rem;width:5.0rem;background:#fff; margin:0 auto; border-radius:5px;}
+        #payLayer .p-title{height:0.8rem;width:100%;line-height:0.8rem;text-align:center;font-size:0.28rem;color:#000;font-weight:600;}
+        #payLayer .p-con{min-height:0.4rem;padding:0 0.3rem;line-height:0.4rem; border-bottom:0.01rem solid #aaa; font-size:0.24rem;padding-bottom:0.2rem;}
+        #payLayer .btns{height:0.8rem;width:100%;}
+        #payLayer .btns span{float:left;height:100%;width:50%;line-height:0.8rem;text-align:center;-webkit-box-sizing: border-box;box-sizing: border-box;}
+        #payLayer .btns .yes-btn{float:right;border-left:0.01rem solid #aaa; color:#ff7143;}
+
+        #layer3{margin:0 auto; min-height:1.0rem;width:3.0rem;padding:0.2rem 0.3rem; background:#fff; border-radius:5px;}
+        .ly-txt{line-height:0.4rem;padding-left:0.5rem;font-size:0.24rem;color:#333;}
+        .ly-txt3 span{ color:#ff7143; }
+        .sureBtn{display:block; margin:0 auto; margin-top:0.2rem; height:0.4rem; width:1.2rem;line-height:0.4rem; text-align:center; background:#ff7143; border-radius:5px; color:#fff; }
+
+    </style>
+</head>
+<body>
+
+
+    <!--<div id="box">-->
+        <!--<p class="title">注意</p>-->
+        <!--<p class="txt">请确认填写的理赔信息准确无误<br>否则可能影响理赔流程</p>-->
+        <!--<div class="btns">-->
+            <!--<p class="left">取消</p>-->
+            <!--<p class="right">确定</p>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div id="box">
+        <p class="title">注意</p>
+        <p class="txt">请确认填写的理赔信息准确无误<br>否则可能影响理赔流程</p>
+        <p class="btn">确定</p>
+    </div>
+    <div id="payLayer">
+        <p class="p-title">请确认</p>
+        <p class="p-con">本次支付首付金额: 16900.00元；点击确认进行微信支付</p>
+        <p class="btns">
+            <span class="cancel-btn">取消</span>
+            <span class="yes-btn">确认</span>
+        </p>
+    </div>
+    <div id="layer3">
+        <p class="ly-txt">已支付：<span>10000元</span></p>
+        <p class="ly-txt ly-txt2">未支付：<span>6000元</span></p>
+        <p class="ly-txt ly-txt3">去支付：<span id="goToPay">6000元</span></p>
+        <button class="sureBtn" type="button">继续支付</button>
+    </div>
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#box").on("click",function(){
+               alert(11111);
+            });
+
+            var obj1 = {
+                "name" : "zhangsan",
+                "age" : 18,
+                "like" : "milk",
+                "city" : "shenzhen",
+                "country" : 'china'
+            };
+
+            console.log(Object.keys(obj1)[0]);
+        })
+    </script>
+</body>
+</html>

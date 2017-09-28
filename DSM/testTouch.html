@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 忽略将页面中的数字识别为电话号码-->
+    <meta name="format-detection" content="telephone=no">
+    <!-- 控制页面放缩比例-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <!-- 当网站添加到主屏幕快速启动方式，可隐藏地址栏，仅针对ios的safari-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 忽略安卓平台对邮箱地址的识别-->
+    <meta name="format-detection" content="email=no" />
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <title>滑动出现左边栏</title>
+    <style type="text/css">
+        *{padding:0;margin:0}
+        html,body{height:100%;width:100%;overflow:hidden;}
+        #bgBox{height:100%;width:100%;background:green;text-align:center;font-size:30px;}
+        #leftBox{height:100%;width:100px;background:deepskyblue;position:absolute;right:-100px;top:0;}
+
+    </style>
+</head>
+<body>
+
+
+    <div id="bgBox">
+        左滑出现，右滑隐藏
+        <!--<input type="text" speech x-webkit-speech />-->
+    </div>
+    <div id="leftBox">
+        左边信息栏
+        <button id="btn">变色</button>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <!--<script src="jQuery-1.8.3mini.js"></script>-->
+    <script type="text/javascript">
+
+        document.querySelector('body').addEventListener('touchmove', function (ev) {
+            event.preventDefault();
+        });
+
+        $(function(){
+            $(document).swipeLeft(function(){ // 左滑动出现
+                $("#leftBox").animate({right:"0"});
+                alert(111);
+            });
+
+            $(document).swipeRight(function(){ // 右滑动消失
+                $("#leftBox").animate({right:"-100px"},500);
+            });
+
+            $("#btn").click(function(){
+                $("#bgBox").css({"background":"pink"});
+            });
+        });
+
+        function sum(n1,n2,n3){
+            var a = n3;
+            if( a == null){ // 第三个参数没有传，就替换为10;
+                a = 10;
+            }
+            console.log(a); // 10
+            console.log(n1+n2+a); // 13
+        }
+        sum(1,2);
+
+
+        console.log(document.getElementsByTagName("html")[0].offsetWidth);
+        console.log(document.body.clientWidth);
+
+        var num3 = "12.310";
+        var str1 = num3.split(".")[1];
+
+        console.log(str1); // '310'
+        console.log(str1[2]);
+        console.log(typeof str1[2]);
+
+    </script>
+</body>
+</html>

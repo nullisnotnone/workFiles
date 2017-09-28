@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>搜索</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#92a1a8;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #a9bac2; }
+
+        #con{min-height:100%;width:100%;background:#f0f4f5;}
+        #con .topPart{min-height:1.8rem;padding:0 0.24rem; background:#fff; margin-bottom:0.25rem;}
+        #con .topPart .searchBox{padding-top:0.36rem; height:0.6rem;width:5.6rem;margin:0 auto; border-radius:5px;}
+        #con .topPart .searchBox .inputTxt{float:left;height:0.6rem;width:4.5rem;padding:0 0.2rem;background:#f0f4f5; border-radius:5px 0 0 5px; }
+        #con .topPart .searchBox .searchBtn{float:left;height:0.6rem;width:0.68rem;background:#2e82fc;border-radius:0 5px 5px 0;position:relative; }
+        #con .topPart .searchBox .searchBtn:active{background:blue;}
+        #con .topPart .searchBox .searchBtn i{display:block;height:0.38rem;width:0.38rem;background:url("images/searchBtn.png") no-repeat left top; background-size:100% 100%; position:absolute;left:0.15rem;top:0.11rem;}
+
+        #con .filterStyle{height:0.8rem;display:flex; display:-webkit-flex;}
+        #con .filterStyle .filterName{height:0.8rem;width:1.2rem;line-height:0.8rem;text-align:center;}
+        #con .filterStyle .filterBox{flex:1; -webkit-flex:1; display:flex; display:-webkit-flex;}
+        #con .filterStyle .filterBox .fil{flex:1;-webkit-flex:1;text-align:center; padding-top:0.2rem;}
+        #con .filterStyle .filterBox .fil span{padding:0.1rem;margin-top:0.2rem;}
+        #con .filterStyle .filterBox .fil .filActive{background:#e4e6e7;color:#000; border-radius:5px;}
+
+        #con .con{padding:0 0.24rem;min-height:5.0rem;}
+        #con .con .styleShopCards1{min-height:3.0rem;width:100%;}
+        #con .con .styleShopCards1 .infoCard{min-height:2.0rem;padding:0 0.25rem;padding-bottom:0.3rem;background:#fff;margin-bottom:0.2rem;border-radius:8px;}
+        #con .con .styleShopCards1 .infoCard .info1{height:0.8rem;width:100%;border-bottom:0.01rem dashed #cdd3d6;}
+        #con .con .styleShopCards1 .infoCard .info1 span{height:0.8rem;line-height:0.8rem;}
+        #con .con .styleShopCards1 .infoCard .info1 .txt2{color:#000;}
+
+        #con .con .styleShopCards1 .infoCard .cardInfo{display:flex;display:-webkit-flex;min-height:0.36rem;padding-top:0.2rem;}
+        #con .con .styleShopCards1 .infoCard .cardInfo .txt1{line-height:0.36rem;margin-right:0.1rem;}
+        #con .con .styleShopCards1 .infoCard .cardInfo .txt2{flex:1;-webkit-flex:1; line-height:0.36rem;}
+        #con .con .styleShopCards1 .btns{margin-top:0.3rem;height:0.48rem;color:#2e82fc;}
+        #con .con .styleShopCards1 .btns .deleteBtn{float:right;height:0.48rem;width:0.5rem;padding-left:0.2rem;position:relative;}
+        #con .con .styleShopCards1 .btns .deleteBtn i{display:block;height:0.18rem;width:0.14rem;background:url("images/delete01.png") no-repeat left top; background-size:100% 100%;position:absolute;left:0;top:0.15rem;}
+        #con .con .styleShopCards1 .btns .deleteBtn span{float:left;height:0.48rem;line-height:0.48rem;}
+        #con .con .styleShopCards1 .btns .continueBtn{float:right;margin-left:0.2rem;height:0.46rem;width:1.38rem;line-height:0.46rem;text-align:center;border:0.01rem solid #2e82fc;border-radius:5px; }
+
+        #con .con .shoperCard .flexBox{display:flex;display:-webkit-flex;margin-top:0.2rem;}
+        #con .con .shoperCard .progressStep .step{ flex:1;-webkit-flex:1; height:1.3rem; text-align:center; }
+        #con .con .shoperCard .progressStep .step .stateBox{height:0.36rem; width:100%; margin:0.16rem auto; position:relative;}
+        #con .con .shoperCard .progressStep .step .stateBox i{display:block; height:0.2rem; width:0.2rem; background:#caced2; position:absolute;left:50%; margin-left:-0.1rem; top:50%;margin-top:-0.1rem; border-radius:0.1rem; z-index:10}
+        #con .con .shoperCard .progressStep .step .stateBox .over{ display:none;height:0.36rem;width:0.36rem; background:url("images/stepOver.jpg") no-repeat left top; background-size:100% 100%; position:absolute;left:50%;margin-left:-0.18rem; top:50%; margin-top:-0.18rem; z-index:100  }
+        #con .con .shoperCard .progressStep .step .stateBox .line-left{height:2px;width:50%; position:absolute;left:0;top:50%;margin-top:-1px; background:#caced2; z-index:10}
+        #con .con .shoperCard .progressStep .step .stateBox .line-right{height:2px;width:50%; position:absolute;right:0;top:50%;margin-top:-1px; background:#caced2;z-index:10}
+        #con .con .shoperCard .progressStep .step .stepName{line-height:0.3rem;text-align:center;}
+        #con .con .shoperCard .progressStep .step .stepTime{line-height:0.3rem;text-align:center;font-size:0.22rem;}
+        #con .con .shoperCard .progressStep .stepOver .stepName{color:#2e82fc;}
+        #con .con .shoperCard .progressStep .stepOver .stateBox i{display:none}
+        #con .con .shoperCard .progressStep .stepOver .stateBox .over{display:block;}
+        #con .con .shoperCard .progressStep .stepOver .stateBox .line-left{background:#71aafe;}
+        #con .con .shoperCard .progressStep .stepOver .stateBox .line-right{background:#71aafe;}
+
+        #con .con .shoperCard  .progressStep .stepUnOver .stepName{color:#f05474;}
+        #con .con .shoperCard  .progressStep .stepUnOver .stateBox i{display:none}
+        #con .con .shoperCard  .progressStep .stepUnOver .stateBox .over{display:block;background:url("images/stepUnPass.jpg") no-repeat left top; background-size:100% 100%;}
+        #con .con .shoperCard  .progressStep .stepUnOver .stateBox .line-left{background:#f05474;}
+        #con .con .shoperCard  .progressStep .stepUnOver .stateBox .line-right{background:#f05474;}
+
+        /*删除确认弹窗*/
+        #layerCon .title{height:1.06rem;line-height:1.06rem;text-align:center;font-size:0.30rem;font-weight:600; color:#000;}
+        #layerCon .reamrkTxt{line-height:0.36rem;padding:0 0.4rem;}
+        #layerCon .btns{height:0.77rem;width:100%;border-top:0.01rem solid #c0d2db; position:absolute;left:0;bottom:0;}
+        #layerCon .btns .btn{float:left;height:0.77rem;width:50%;line-height:0.77rem;text-align:center; box-sizing:border-box; -webkit-box-sizing: border-box;}
+        #layerCon .btns .btn1{border-right:0.01rem solid #c0d2db;}
+        #layerCon .btns .btn2{color:#2e82fc;}
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div class="topPart">
+            <p class="searchBox">
+                <input class="inputTxt" type="text" placeholder="输入店名关键词">
+                <span class="searchBtn"><i></i></span>
+            </p>
+            <div class="filterStyle">
+                <span class="filterName">筛选分类</span>
+                <div class="filterBox">
+                    <p class="fil style1 ">
+                        <span class="filActive">全部</span>
+                    </p>
+                    <p class="fil style2">
+                        <span>商户</span>
+                    </p>
+                    <p class="fil style3">
+                        <span>门店</span>
+                    </p>
+                    <p class="fil style4">
+                        <span>移动POS</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="con">
+            <div class="styleShopCards styleShopCards1">
+                <div class="shopCard infoCard">
+                    <div class="info1">
+                        <span class="txt1">零售商名称 :</span>
+                        <span class="txt2">中域连锁通讯</span>
+                    </div>
+                    <div class="info2 cardInfo">
+                        <p class="txt1">上次填写时间:</p>
+                        <p class="txt2">2017/04/22  12:31:30</p>
+                    </div>
+                    <div class="btns">
+                        <p class="continueBtn">
+                            继续填写
+                        </p>
+                        <p class="deleteBtn">
+                            <i></i>
+                            <span>撤销</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="shoperCard infoCard">
+                    <div class="info1">
+                        <span class="txt1">零售商名称 :</span>
+                        <span class="txt2">中域连锁通讯</span>
+                    </div>
+                    <div class="info2 cardInfo">
+                        <span class="txt1">门店名称 :</span>
+                        <span class="txt2">广东省深圳市罗湖区华强一路100号恒宇手机通讯全国连锁店</span>
+                    </div>
+                    <div class="info3 cardInfo">
+                        <span class="txt1">提交时间 :</span>
+                        <span class="txt2">2017/04/22  12:31:30</span>
+                    </div>
+
+                    <div class="progressStep flexBox">
+                        <div class="step step1 stepOver">
+                            <p class="stateBox">
+                                <i></i>
+                                <span class="over"></span>
+                                <span class="line-right"></span>
+                            </p>
+                            <p class="stepName">初审通过</p>
+                            <p class="stepTime">2017/06/23</p>
+                        </div>
+                        <div class="step step2">
+                            <p class="stateBox">
+                                <i></i>
+                                <span class="over"></span>
+                                <span class="line-left"></span>
+                                <span class="line-right"></span>
+                            </p>
+                            <p class="stepName">协议审核</p>
+                            <p class="stepTime"></p>
+                        </div>
+                        <div class="step step3">
+                            <p class="stateBox">
+                                <i></i>
+                                <span class="over"></span>
+                                <span class="line-left"></span>
+                            </p>
+                            <p class="stepName">全部审核</p>
+                            <p class="stepTime"></p>
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <p class="continueBtn">
+                            继续填写
+                        </p>
+                        <p class="deleteBtn">
+                            <i></i>
+                            <span>撤销</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 撤销弹窗
+            $(".btns .deleteBtn").on("click",function(){
+                layer.open({
+                    type: 1
+                    ,content: '<div id="layerCon">' +
+                    '<p class="title">删除确认</p>' +
+                    '<p class="reamrkTxt">删除后将不再受理审核，您确定删除此申请？</p>' +
+                    '<div class="btns">' +
+                    '<p class="btn btn1" onclick="layer.closeAll();">关闭</p>' +
+                    '<p class="btn btn2" >确定</p>' +
+                    '</div>' +
+                    '</div>'
+                    ,anim: 'up'
+                    ,style: 'position:fixed; height:2.9rem; width:4.2rem; left:0; top:0; background:#fff; position:relative; border-radius:5px;'
+                });
+            });
+            // 筛选切换
+            $(".fil").on("click",function(){
+                $(this).find("span").addClass("filActive").parent().siblings().find("span").removeClass("filActive");
+            });
+        })
+
+    </script>
+</body>
+</html>

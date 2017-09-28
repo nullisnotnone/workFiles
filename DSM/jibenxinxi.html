@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>基本信息</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/mobiscroll-2.13.2.full.min.css">
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#92a1a8;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #a9bac2; font-size:0.2rem;}
+        .unscroll{height:100%;overflow:hidden;}
+
+        #con{min-height:100%;width:100%; background:#f0f4f5;}
+        #con .underLine:after{content:"";display:block;height:1px;width:100%;background:#c0d2db;position:absolute;left:0;bottom:0;transform: scaleY(0.5); -webkit-transform: scaleY(0.5);}
+        #con .emptyBox{height:0.3rem;width:100%;}
+        #basicInfo{min-height:4.0rem;width:100%; padding-bottom:0.2rem;}
+        #basicInfo .formLists{min-height:4.0rem; width:100%;}
+        #basicInfo .formLists .list{min-height:0.8rem; width:100%; margin-bottom:0.2rem; background:#fff;}
+        #basicInfo .formLists .list .listTitle{height:0.4rem; padding:0.24rem 0.2rem;position:relative;}
+        #basicInfo .formLists .list .listTitle .left{float:left;height:0.4rem;line-height:0.4rem;padding-left:0.1rem;font-size:0.28rem;color:#000;border-left:4px solid #2e82fc;}
+        #basicInfo .formLists .list .listTitle .state{float:right;height:0.4rem;width:1.7rem;margin:0;}
+        #basicInfo .formLists .list .listTitle .state i{float:left;height:0.28rem;width:0.28rem;margin-right:0.15rem;margin-top:0.06rem;}
+        #basicInfo .formLists .list .listTitle .state .over{background:url(images/page2-01.png) no-repeat left top; background-size:100% 100%;}
+        #basicInfo .formLists .list .listTitle .state .editing{background:url(images/page2-02.png) no-repeat left top; background-size:100% 100%;}
+        #basicInfo .formLists .list .listTitle .state .noStared{background:url(images/page2-03.png) no-repeat left top; background-size:100% 100%;}
+        #basicInfo .formLists .list .listTitle .state .stateTxt{float:left; height:0.4rem; line-height:0.4rem;}
+        #basicInfo .formLists .list .listTitle .state .remarkBg{float:right; height:0.18rem; width:0.28rem; margin-top:0.11rem;}
+        #basicInfo .formLists .list .listTitle .state .close{background:url("images/close.png") no-repeat left top; background-size:100% 100%;}
+        #basicInfo .formLists .list .listTitle .state .open{background:url("images/open.png") no-repeat left top; background-size:100% 100%;}
+        /*#basicInfo .formLists .list .infoBox{height:6.0rem;padding:0 0.2rem;background:#fefefe; overflow:hidden;}*/
+        #basicInfo .formLists .list .infoBox{min-height:0.8rem;padding:0 0.2rem; padding-bottom:0.2rem;background:#fefefe; overflow:hidden;}
+        #basicInfo .formLists .list .infoBox .part{padding-top:0.2rem; height:0.64rem;width:100%; position:relative;}
+        #basicInfo .formLists .list .infoBox .part .infoName{float:left;height:0.64rem;line-height:0.64rem;width:2.0rem;padding-right:0.1rem;text-align:right;}
+        #basicInfo .formLists .list .infoBox .part .infoCon{float:left;height:0.4rem;width:3.4rem;padding:0.1rem 0.2rem; color:#000; border:1px solid #c0d2db;border-radius:5px;}
+        #basicInfo .formLists .list .infoBox .part .city-picker{position:absolute;left:2.1rem;top:0.12rem; opacity:0;}
+        #basicInfo .formLists .list .infoBox .part .infoConArea{font-size:0.28rem; float:left;height:0.4rem; resize:none; width:3.4rem;padding:0.1rem 0.2rem; color:#000; border:1px solid #c0d2db;border-radius:5px; font-family:"microsoft yahei";}
+
+        #basicInfo .formLists .list .infoBox .part .infoConError{border-color:red;  box-shadow: 0 0 1px 1px red;}
+
+        #basicInfo .formLists .list .infoBox .partHide{display:none;}
+        #basicInfo .formLists .list .infoBox .part .remarkBtn{display:block;height:0.26rem;width:0.26rem;position:absolute;left:5.36rem;top:0.24rem;}
+        #basicInfo .formLists .list .infoBox .part .remarkBtn i{float:left;height:100%;width:100%;background:url("images/remarkBg.png") no-repeat left top;background-size:100% 100%;}
+
+        #basicInfo .formLists .list .infoBox .said{min-height:1.5rem;width:100%;}
+        #basicInfo .formLists .list .infoBox .said .txt1{height:0.54rem;line-height:0.54rem;padding-left:0.2rem;}
+        #said{height:1.6rem;width:100%;padding:0.2rem; box-sizing: border-box; -webkit-box-sizing: border-box; border:1px solid #c0d2db; border-radius:5px; resize:none;}
+
+        #basicInfo .formLists .list .con-radio{float:left;height:0.64rem;width:3.4rem;margin:0;}
+        #basicInfo .formLists .list .con-radio label{float:left;height:0.64rem;padding-left:0.5rem;width:0.8rem;margin:0 0.2rem; position:relative;}
+        #basicInfo .formLists .list .con-radio label input{position:absolute;left:-9999px;top:0;}
+        #basicInfo .formLists .list .con-radio label .txt{float:left; height:0.64rem; line-height:0.64rem;}
+        #basicInfo .formLists .list .con-radio label i{display:block; height:0.26rem; width:0.26rem; position:absolute;left:0;top:0.19rem;}
+        #basicInfo .formLists .list .con-radio label .checked{background:url("images/checkedBtn.png") no-repeat left top; background-size:100% 100%;}
+        #basicInfo .formLists .list .con-radio label .unchecked{background:url("images/uncheckedBtn.png") no-repeat left top; background-size:100% 100%;}
+
+        #basicInfo .formLists .list .sel-box{float:left;height:0.4rem;width:3.01rem;padding:0.1rem 0.2rem; padding-right:0.58rem; color:#000; border:1px solid #c0d2db;border-radius:5px; margin:0;position:relative;}
+        #basicInfo .formLists .list .sel-box i{display:block;height:0.18rem;width:0.28rem;position:absolute;right:0.15rem;top:0.21rem;background:url("images/selectBg.png") no-repeat left top; background-size:100% 100%; z-index:10;}
+        #basicInfo .formLists .list .sel-box .sel-value{float:left;height:0.4rem;width:3.0rem;border-right:0.01rem solid #b0bec5; border-radius:0;}
+        #basicInfo .formLists .list .sel-box .selBox{display:block;height:0.6rem;width:0.58rem;position:absolute;right:0;top:0; opacity:0; z-index:100; }
+
+
+        #basicInfo .formLists .list .sel-date-box{float:left;height:0.6rem;width:3.8rem; color:#000;  margin:0;position:relative;}
+        #basicInfo .formLists .list .sel-box i{display:block;height:0.18rem;width:0.28rem;position:absolute;right:0.15rem;top:0.21rem;background:url("images/selectBg.png") no-repeat left top; background-size:100% 100%; z-index:10;}
+        #basicInfo .formLists .list .sel-date-box .sel-date-value{float:left;height:0.4rem;width:2.6rem;padding:0.1rem 0.2rem;border:1px solid #c0d2db;border-radius:5px; margin-right:0.1rem; }
+        #basicInfo .formLists .list .sel-date-box #signDatePicker{width:3.4rem; margin-right:0;}
+        #basicInfo .formLists .list .sel-date-box .foreverBtn{float:left;height:0.4rem;width:0.6rem;line-height:0.4rem;text-align:center;margin-top:0.1rem; background:#2e82fc;color:#fff; border-radius:5px;font-size:0.2rem; }
+        #basicInfo .formLists .list .sel-box .selBox{display:block;height:0.6rem;width:0.58rem;position:absolute;right:0;top:0; opacity:0; z-index:100; }
+
+        #basicInfo .formLists .list3 .d-box{display:none;}
+        #basicInfo .formLists .list3 #addressPicker .addressChoose{float:left;height:0.6rem;width:3.8rem; color:#000;}
+        #addressPicker .addressChoose input{float:left;height:0.6rem;width:1.2rem;line-height:0.6rem;text-align:center;box-sizing: border-box; -webkit-box-sizing: border-box; border:1px solid #c0d2db;border-radius:5px;}
+        #addressPicker .addressChoose input:nth-child(2){margin:0 0.1rem;}
+        #provinceData_dummy , #cityData_dummy , #townData_dummy{position:absolute;left:-9999px;top:0;}
+        #bank-provinceData_dummy , #bank-cityData_dummy{position:absolute;left:-9999px;top:0;}
+
+        #basicInfo .formLists .list4 .d-box{display:none;}
+        #basicInfo .formLists .list4 #cityPicker .addressChoose{float:left;height:0.6rem;width:3.8rem; color:#000;}
+        #cityPicker .addressChoose input{float:left;height:0.6rem;width:1.8rem;line-height:0.6rem;text-align:center;box-sizing: border-box; -webkit-box-sizing: border-box; border:1px solid #c0d2db;border-radius:5px;}
+        #cityPicker .addressChoose input:nth-child(1){margin-right:0.2rem;}
+
+        #basicInfo .formLists .list .boxHide{display:none;}
+        #basicInfo .formLists .list .boxOpen{min-height:3.0rem; display:block;}
+        #basicInfo .submitBtn{display:block; height:0.74rem; width:5.0rem; line-height:0.74rem; text-align:center; margin:0 auto; margin-top:0.4rem; background:#2e82fc; font-size:0.28rem; color:#fff;border-radius:6px;}
+
+        /* 提示信息弹窗 */
+        #layer2{min-height:2.0rem;width:3.9rem;padding:0 0.45rem; padding-bottom:0.2rem;background:#fff; border-radius:5px; margin:0 auto;}
+        #layer2 .title{height:1.0rem;line-height:1.0rem;width:100%;text-align:center; font-size:0.28rem;color:#000;font-weight:600;}
+        #layer2 .txt2{height:0.3rem;line-height:0.3rem;width:100%;margin-bottom:0.1rem;}
+        #layer2 .txt3{line-height:0.4rem;width:100%;text-indent: 1.8em;}
+        #layer2 .backBtn{display:block;height:0.58rem;width:2.72rem;line-height:0.58rem;text-align:center;color:#fff;background:#2e82fc;font-size:0.28rem;border-radius: 5px;margin:0 auto;margin-top:0.4rem;}
+
+
+        /*银行列表弹窗*/
+        .banksList{ height:6.0rem; width:100%; background:#fff; position:fixed;left:0;bottom:0;-webkit-transition: height 0.3s linear;transition: height 0.3s linear;z-index:1000;}
+        .banksList .info-bar{ height:1.5rem; width:100%;border-bottom:0.01rem dashed #ededed;margin-bottom:0.2rem;}
+        .banksList .info-bar .info-input{float:left; height:1.5rem; width:60%;  }
+        .banksList .info-bar .info-input .i-info{float:left; height:0.75rem; width:100%; padding:0.1rem 0.2rem; box-sizing:border-box;-webkit-box-sizing:border-box;}
+        .banksList .info-bar .info-input .i-info .i-txt{float:left;font-size:0.2rem;height:0.55rem; width:1.2rem; line-height:0.55rem;text-align:center;}
+        .banksList .info-bar .info-input .i-info .txtInput{ box-sizing: border-box; -webkit-box-sizing: border-box;height:0.55rem; width:2.2rem; padding:0 0.2rem;border:0.01rem solid #ededed; }
+        .banksList .info-bar .i-btns{float:left;height:1.5rem;width:40%;box-sizing: border-box; -webkit-box-sizing: border-box;padding:0.2rem; padding-left:0;}
+        .banksList .info-bar .i-btns .i-btn{float:left;height:0.4rem;width:1.0rem;line-height:0.4rem;text-align:center; border:0.01rem solid #ededed; background:#2e82fc;color:#fff; border-radius:4px;  margin-right:0.1rem!important;margin-bottom:0.2rem!important;}
+        .banksList  .list-box{ height:4.2rem;width:100%;overflow-y:scroll; }
+        #bank-list{height:auto;width:6.0rem;margin:0 auto; }
+        #bank-list .b-list1{ color:#000; font-weight:600; }
+        #bank-list tr{height:0.5rem;width:100%;}
+        #bank-list tr td{height:0.5rem;line-height:0.5rem;text-align:center;border:0.01rem dashed #ededed;}
+        #bank-list tr .bank-code{width:40%;}
+        #bank-list .b-list-checked{background:skyblue;}
+        #bank-list .b-list-checked td{color:#fff;}
+
+    </style>
+    <link rel="stylesheet" href="css/layOutWindow.css">
+</head>
+<body>
+
+    <div id="con">
+        <p class="emptyBox"></p>
+        <form id="basicInfo" action="">
+            <ul class="formLists">
+                <li class="list list1">
+                    <div class="listTitle">
+                        <span class="left">注册信息</span>
+                        <p class="state">
+                            <i class="noStared"></i>
+                            <span class="stateTxt">待完成</span>
+                            <span class="remarkBg close"></span>
+                        </p>
+                    </div>
+                    <div class="infoBox registerInfo boxHide">
+                        <div class="part part1">
+                            <span class="infoName" >商户注册号</span>
+                            <input id="shopsNum" class="infoCon " type="text" placeholder="R">
+                        </div>
+                        <div class="part part2">
+                            <span class="infoName">所属业务公司</span>
+                            <div class="sel-box">
+                                <i></i>
+                                <span class="sel-value"></span>
+                                <select class="selBox" name="" id="sel-company">
+                                    <option value="0">所属公司</option>
+                                    <option value="1">佰仟金融</option>
+                                    <option value="2">聚成惠鑫</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="part part3">
+                            <span class="infoName">商户名称</span>
+                            <!--<input id="shopName" class="infoCon"  type="text"  maxlength="40" placeholder="不超过40个字符">-->
+                            <textarea name="" class=" infoConArea " id="shopName" maxlength="30" placeholder="不超过40个字符"></textarea>
+
+                        </div>
+                        <div class="part part4">
+                            <span class="infoName">商户类型</span>
+                            <p class="sel-box">
+                                <i></i>
+                                <span class="sel-value"></span>
+                                <select class="selBox" name="" id="shopType">
+                                    <option value="0">商户类型</option>
+                                    <option value="1">连锁商家</option>
+                                    <option value="1">商场商家</option>
+                                    <option value="1">独立商家</option>
+                                    <option value="1">IT MALL</option>
+                                </select>
+                            </p>
+                        </div>
+                        <div class="part part5">
+                            <span class="infoName">是否大商户</span>
+                            <p class="con-radio">
+                                <label for="big-yes">
+                                    <input id="big-yes" class="big-yes" type="radio" name="bigShop" >
+                                    <span class="txt">是</span>
+                                    <i class="unchecked"></i>
+                                </label>
+                                <label for="big-no">
+                                    <input id="big-no" class="big-no" type="radio" name="bigShop" >
+                                    <span class="txt">否</span>
+                                    <i class="unchecked"></i>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="part part6 partHide">
+                            <span class="infoName">大商户简称</span>
+                            <input id="bigShop" class="infoCon" type="text"  readonly  value="佰仟金融3">
+                            <span class="remarkBtn"><i></i></span>
+                        </div>
+                        <div class="part part7">
+                            <span class="infoName">是否个体户</span>
+                            <p class="con-radio">
+                                <label for="single-yes">
+                                    <input id="single-yes" class="single-yes" type="radio" name="singleShop" >
+                                    <span class="txt">是</span>
+                                    <i class="unchecked"></i>
+                                </label>
+                                <label for="single-no">
+                                    <input id="single-no" class="single-no" type="radio" name="singleShop" >
+                                    <span class="txt">否</span>
+                                    <i class="unchecked"></i>
+                                </label>
+                            </p>
+                            <i class="remarkBtn"></i>
+                        </div>
+                        <div class="part part7">
+                            <span class="infoName">分店数量</span>
+                            <input class="infoCon" type="number" >
+                        </div>
+                        <div class="part part8">
+                            <span class="infoName">商户商品范畴</span>
+                            <input id="produceScope" class="infoCon" type="text" readonly value="电脑,摩托车,单车,黑色家电">
+                        </div>
+                    </div>
+                </li>
+                <li class="list list2">
+                    <div class="listTitle">
+                        <span class="left">业务信息</span>
+                        <p class="state">
+                            <i class="noStared"></i>
+                            <span class="stateTxt">待完成</span>
+                            <span class="remarkBg close"></span>
+                        </p>
+                    </div>
+                    <div class="infoBox boxHide">
+                        <div class="part part1">
+                            <span class="infoName">法人代表名称</span>
+                            <input id="corporateName" class="infoCon" type="text" placeholder="法人姓名" >
+                        </div>
+                        <div class="part part2">
+                            <span class="infoName">法人身份证号</span>
+                            <input id="idCard" class="infoCon" type="text" >
+                        </div>
+                        <div class="part part3">
+                            <span class="infoName">营业执照有效期</span>
+                            <div class="sel-date-box">
+                                <input class="sel-date-value" type="text" name="startDatePicker" id="startDatePicker"  placeholder="截至当前有效期在一个月以上" readonly>
+                                <span class="foreverBtn">永久</span>
+                                <!--<input class="sel-date" type="date" flag="startDate">-->
+                            </div>
+                        </div>
+                        <div class="part part4">
+                            <span class="infoName">营业执照注册时间</span>
+                            <div class="sel-date-box">
+                                <input class="sel-date-value" type="text" name="signDatePicker" id="signDatePicker" placeholder="截至当前注册时间超过三个月" readonly >
+                            </div>
+                        </div>
+                        <div class="part part5">
+                            <span class="infoName">主要联系人姓名</span>
+                            <input class="infoCon sp-infoCon" type="text"  maxlength="20">
+                        </div>
+                        <div class="part part6">
+                            <span class="infoName">主要联系人手机号</span>
+                            <input id="tel" class="infoCon tel" type="text" placeholder="11位手机号" maxlength="13">
+                        </div>
+                        <div class="part part2">
+                            <span class="infoName">主要联系人邮箱</span>
+                            <input id="email" class="infoCon email" type="text" >
+                        </div>
+                    </div>
+                </li>
+                <li class="list list3">
+                    <div class="listTitle">
+                        <span class="left">地址信息</span>
+                        <p class="state">
+                            <i class="noStared"></i>
+                            <span class="stateTxt">待完成</span>
+                            <span class="remarkBg close"></span>
+                        </p>
+                    </div>
+                    <div class="infoBox boxHide">
+                        <div class="part part1" id="addressPicker">
+                            <span class="infoName">商户所在城市</span>
+                            <p class="addressChoose">
+                                <input type="text" placeholder="--省--" id="province" name="provinceData"  readonly @click="listShow">
+                                <input type="text" placeholder="--市--" id="city" name="cityData"  readonly @click="listShow">
+                                <input type="text" placeholder="-区/县-" id="town" name="townData" readonly @click="listShow">
+                            </p>
+                            <div>
+                                <ul id="provinceData" class="d-box p-box" name="province">
+                                    <template v-for="data in provinceData">
+                                        <li>{{data.name}}</li>
+                                    </template>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul id="cityData" class="d-box c-box" name="city">
+                                    <template v-for="data in cityData">
+                                        <li>{{data.name}}</li>
+                                    </template>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul id="townData" class="d-box t-box" name="town">
+                                    <template v-for="data in townData">
+                                        <li>{{data.name}}</li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="part part3">
+                            <span class="infoName">街道</span>
+                            <input class="infoCon" type="text" >
+                        </div>
+                        <div class="part part6">
+                            <span class="infoName">商户具体地址</span>
+                            <input class="infoCon" type="text" >
+                            <span class="remarkBtn"><i></i></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="list list4">
+                    <div class="listTitle">
+                        <span class="left">结算账户信息</span>
+                        <p class="state">
+                            <i class="noStared"></i>
+                            <span class="stateTxt">待完成</span>
+                            <span class="remarkBg close"></span>
+                        </p>
+                    </div>
+                    <div class="infoBox boxHide">
+                        <div class="part part1">
+                            <span class="infoName">结算账号</span>
+                            <input id="accountNum" class="infoCon" type="text" >
+                        </div>
+                        <div class="part part2">
+                            <span class="infoName">结算账号开户名</span>
+                            <input id="accountName" class="infoCon" type="text" >
+                        </div>
+                        <div class="part part3">
+                            <span class="infoName">结算账号开户行</span>
+                            <input id="bank-name"  class="infoCon" type="text" >
+                        </div>
+                        <div class="part part4" id="cityPicker">
+                            <span class="infoName">开户行所在省市</span>
+                            <p class="addressChoose">
+                                <input type="text" placeholder="--省--" id="bank-province" name="bank-provinceData"  readonly   @click="bank_listShow">
+                                <input type="text" placeholder="--市--" id="bank-city" name="bank-cityData"  readonly    @click="bank_listShow">
+                            </p>
+                            <div>
+                                <ul id="bank-provinceData" class="d-box p-box" name="bank-province">
+                                    <template v-for="data in provinceData">
+                                        <li>{{data.name}}</li>
+                                    </template>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul id="bank-cityData" class="d-box c-box" name="bank-city">
+                                    <template v-for="data in cityData">
+                                        <li>{{data.name}}</li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="part part5">
+                            <span class="infoName">开户行所在支行</span>
+                            <input id="part-bank-name" class="infoCon" type="text" value="无锡南长支行3">
+                        </div>
+                        <div class="part part6">
+                            <span class="infoName">结算账户类型</span>
+                            <input id="accountType" class="infoCon" type="text" >
+                        </div>
+                        <div class="part part7">
+                            <span class="infoName">是否对私账户</span>
+                            <p class="con-radio">
+                                <label for="per-yes">
+                                    <input id="per-yes" class="per-yes" type="radio" name="perAccount" >
+                                    <span class="txt">是</span>
+                                    <i class="unchecked"></i>
+                                </label>
+                                <label for="per-no">
+                                    <input id="per-no" class="per-no" type="radio" name="perAccount" >
+                                    <span class="txt">否</span>
+                                    <i class="unchecked"></i>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="p-box partHide">
+                            <div class="part part8 ">
+                                <span class="infoName">开户许可法人</span>
+                                <input id="f-name" class="infoCon" type="text" placeholder="法人姓名">
+                            </div>
+                            <div class="part part9">
+                                <span class="infoName">法人联系电话</span>
+                                <input id="f-tel" class="infoCon tel" type="text" placeholder="11位手机号" maxlength="13">
+                            </div>
+                        </div>
+
+                        <div class="part part10 partHide">
+                            <span class="infoName">户名身份证号</span>
+                            <input class="infoCon" type="text" >
+                        </div>
+                    </div>
+                </li>
+                <li class="list list5">
+                    <div class="listTitle">
+                        <span class="left">其他财务信息</span>
+                        <p class="state">
+                            <i class="noStared"></i>
+                            <span class="stateTxt">待完成</span>
+                            <span class="remarkBg close"></span>
+                        </p>
+                    </div>
+                    <div class="infoBox boxHide">
+                        <p class="part part1">
+                            <span class="infoName">财务人员姓名</span>
+                            <input class="infoCon sp-infoCon" type="text" placeholder="必填" maxlength="20">
+                        </p>
+                        <p class="part part2">
+                            <span class="infoName">财务联系人电话</span>
+                            <input class="infoCon tel" type="text" placeholder="必填" maxlength="13">
+                        </p>
+                        <p class="part part3">
+                            <span class="infoName">财务人员邮箱</span>
+                            <input id="finance-email" class="infoCon email" type="text" placeholder="必填">
+                        </p>
+                        <p class="part part4">
+                            <span class="infoName">商务服务费率(%)</span>
+                            <input class="infoCon" type="number" placeholder="必填">
+                        </p>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="infoBox">
+                        <p class="said">
+                            <span class="txt1">·备注(选填)</span>
+                            <textarea name="" id="said" placeholder="请限制在200字以内" maxlength="200"></textarea>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+            <button type="button" class="submitBtn">提交</button>
+        </form>
+        <div class="layOutView con-hide">
+            <div class="searchBar">
+                <button class="cancel-btn" type="button"></button>
+                <p class="txtInput">
+                    <i></i>
+                    <input type="text" id="searchVal" placeholder="请输入完整的姓名或ID">
+                </p>
+                <button class="search-btn" type="button">搜索</button>
+            </div>
+            <div class="searchResult">
+                <div class="dataBox">
+                    <ul class="dataLists clearfix">
+                        <li class="dataList underLine ">
+                            <p class="data-name">佰仟金融1</p>
+                            <p class="data-btn ">
+                                <span class="state"></span>
+                            </p>
+                        </li>
+                        <li class="dataList underLine">
+                            <p class="data-name">佰仟金融2</p>
+                            <p class="data-btn ">
+                                <span class="state"></span>
+                            </p>
+                        </li>
+                        <li class="dataList underLine">
+                            <p class="data-name">佰仟金融</p>
+                            <p class="data-btn ">
+                                <span class="state"></span>
+                            </p>
+                        </li>
+                        <li class="dataList underLine">
+                            <p class="data-name">佰仟金融3</p>
+                            <p class="data-btn ">
+                                <span class="state"></span>
+                            </p>
+                        </li>
+                        <li class="dataList underLine">
+                            <p class="data-name">佰仟金融4</p>
+                            <p class="data-btn ">
+                                <span class="state"></span>
+                            </p>
+                        </li>
+                        <li class="dataList underLine">
+                            <p class="data-name">佰仟金融</p>
+                            <p class="data-btn ">
+                                <span class="state"></span>
+                            </p>
+                        </li>
+                        <li class="dataList underLine">
+                            <p class="data-name">佰仟金融5</p>
+                            <p class="data-btn ">
+                                <span class="state"></span>
+                            </p>
+                        </li>
+                    </ul>
+                    <p class="yesBtn">确定</p>
+                </div>
+            </div>
+        </div>
+        <div class="productsList con-hide">
+            <p class="p-choose-btns">
+                <span class="p-yesBtn p-btn">确认</span>
+                <span class="p-cancelBtn p-btn">取消</span>
+            </p>
+            <div class="listBox">
+                <table id="productsList" cellpadding="0" cellspacing="0">
+                    <tr class="p-list1">
+                        <td>范畴代码</td>
+                        <td>范畴名称</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>2</td>
+                        <td class="l-value">电脑</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>6</td>
+                        <td class="l-value">摩托车</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>9</td>
+                        <td class="l-value">电动车</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>12</td>
+                        <td class="l-value">单车</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>7</td>
+                        <td class="l-value">白色家电</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>8</td>
+                        <td class="l-value">黑色家电</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>4</td>
+                        <td class="l-value">时尚消费品</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>3</td>
+                        <td class="l-value">家具</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>10</td>
+                        <td class="l-value">教育</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>11</td>
+                        <td class="l-value">健身</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>20160615</td>
+                        <td class="l-value">驾校</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>20140526000000006</td>
+                        <td class="l-value">医疗美容</td>
+                        <td class="checkState"><i></i><input type="checkBox"></td>
+                    </tr>
+                    <tr class="p-list">
+                        <td>20160719</td>
+                        <td class="l-value">投产验证商品</td>
+                        <td class="checkState"><i class="unchecked"></i><input type="checkBox"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="banksList con-hide">
+            <div class="info-bar">
+                <div class="info-input">
+                    <div class="i-info i-info1">
+                        <p class="i-txt">支行代码：</p>
+                        <input class="txtInput" type="text">
+                    </div>
+                    <div class="i-info i-info2">
+                        <p class="i-txt">支行名称：</p>
+                        <input class="txtInput" type="text">
+                    </div>
+                </div>
+                <div class="i-btns">
+                    <p class="i-btn s-btn">查询</p>
+                    <p class="i-btn c-btn">清空</p>
+                    <p class="i-btn y-btn">确认</p>
+                    <p class="i-btn n-btn">取消</p>
+                </div>
+            </div>
+            <div class="list-box">
+                <table id="bank-list" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr class="b-list1">
+                        <td>支行代码</td>
+                        <td>支行名称</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行1</td>
+                        </tr>
+                        <tr class="b-list ">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行2</td>
+                        </tr>
+                        <tr class="b-list ">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行3</td>
+                        </tr>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行4</td>
+                        </tr>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行5</td>
+                        </tr>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行1</td>
+                        </tr>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行2</td>
+                        </tr>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行</td>
+                        </tr>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行4</td>
+                        </tr>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行5</td>
+                        </tr>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行1</td>
+                        </tr>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行2</td>
+                        </tr>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行3</td>
+                        </tr>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行4</td>
+                        </tr>
+                        <tr class="b-list">
+                            <td class="bank-code">1032302002092</td>
+                            <td class="bank-name">无锡南长支行5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="overView con-hide"></div>
+    </div>
+
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/layer.js"></script>
+    <script src="js/mobiscroll-2.13.2.full.min.js"></script>
+    <script src="js/vue1.0.min.js"></script>
+    <script src="js/cityPicker.js"></script>
+    <script src="js/basicInfo.js"></script>
+
+</body>
+</html>

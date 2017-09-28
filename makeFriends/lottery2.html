@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>推荐好友</title>
+    <link rel="stylesheet" href="css/lottery2.css"/>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        .layui-m-layerbtn{background:orange;color:#fff;font-size:0.4rem;}
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <div class="menu">
+            <div class="box1">
+                <ul class="lists">
+                    <li class="txt">手机号码13838385681  抽到<span>精美抽纸</span></li>
+                    <li class="txt">手机号码13838385682  抽到<span>平衡车</span></li>
+                    <li class="txt">手机号码13838385683  抽到<span>精美抽纸</span></li>
+                    <li class="txt">手机号码13838385684  抽到<span>平衡车</span></li>
+                    <li class="txt">手机号码13838385685  抽到<span>精美抽纸</span></li>
+                    <li class="txt">手机号码13838385686  抽到<span>平衡车</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="_shake">
+            <p class="logoTitle">
+                <img src="images/bqmove.png" alt=""/>
+            </p>
+        </div>
+        <div class="bottom">
+            <p class="txt1">摇一摇起来</p>
+            <p class="txt2">奖品请以实物奖为主</p>
+            <img class="shake_img" src="images/bq-move3.png" alt=""/>
+            <img class="-txt" src="images/bq-move5.png" alt=""/>
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+
+        layer.open({
+            content: '祝你今天好运！'
+            ,btn : "开始"
+            ,style :"width:6.0rem;position:absolute; left:50%; margin-left:-3.0rem; top:2.5rem; background:rgba(255,255,255,0.5);font-size:0.4rem; color:red;"
+        });
+
+        // 预加载摇动音频
+        var shakeAudio = new Audio();
+        shakeAudio.preload = 'auto';
+        shakeAudio.src = 'http://xunlei.sc.chinaz.com/files/download/sound1/201410/5018.wav';
+        document.body.addEventListener('touchstart', function() {
+            shakeAudio.load();
+        },false);
+
+        // 预加载结果音频
+        var resultAudio = new Audio();
+        resultAudio.preload = 'auto';
+        resultAudio.src = 'http://jsdx.sc.chinaz.com/files/download/sound1/201410/5012.wav';
+        document.body.addEventListener('touchstart', function() {
+            resultAudio.load();
+        },false);
+
+
+        $(function(){
+            setInterval(function(){
+                $(".lists").animate({"margin-top":"-0.54rem"},1000,function(){
+                    $(this).css("margin-top" , "0").children().eq(0).appendTo($(this))
+                })
+            },3000);
+
+
+            //获取加速度信息
+            //通过监听上一步获取到的x, y, z 值在一定时间范围内的变化率，进行设备是否有进行晃动的判断。
+            //而为了防止正常移动的误判，需要给该变化率设置一个合适的临界值。
+            var SHAKE_THRESHOLD = 4000;
+            var last_update = 0;
+            var x, y, z, last_x = 0, last_y = 0, last_z = 0;
+            var  lock = true;
+           function  deviceMotionHandler(eventData) {
+                var acceleration =eventData.accelerationIncludingGravity;
+                var curTime = new Date().getTime();
+                if ((curTime-last_update)> 100 && lock) {
+                    var diffTime = curTime -last_update;
+                    last_update = curTime;
+                    x = acceleration.x;
+                    y = acceleration.y;
+                    z = acceleration.z;
+                    var speed = Math.abs(x +y + z - last_x - last_y - last_z) / diffTime * 10000;
+                    if ((speed > SHAKE_THRESHOLD)) {
+                            shakeAudio.play();
+                            lock = !lock;
+                            $(".shake_img").addClass("shake_img1");
+                            clearInterval(timer);
+                           var timer =  setTimeout(function(){
+                                resultAudio.play();
+                               $(".shake_img").removeClass("shake_img1");
+                                   layer.open({
+                                       type: 1
+                                       ,content: '<div class="layer_con"><img class="_close" onclick="layer.closeAll();"  src="images/close.png" alt=""/><div class="con_box"><img src="images/bq-move7.png" alt=""/><p class="_txt _txt1">恭喜你</p><p class="_txt _txt2">摇到<span>100元</span>京东购物卡</p> </div></div>'
+                                       ,anim: 'up'
+                                       ,style: 'height:6.67rem; width:5.2rem; position:absolute; left:50%; margin-left:-2.6rem; top:2.5rem; background:transparent;'
+                                   });
+                               lock = !lock;
+                               lastTime = new Date().getTime();
+                            }, 2500);
+                    }
+                    last_x = x;
+                    last_y = y;
+                    last_z = z;
+                }
+            }
+
+            //运动事件监听
+            if (window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion',deviceMotionHandler,false);
+            }
+        })
+    </script>
+</body>
+</html>

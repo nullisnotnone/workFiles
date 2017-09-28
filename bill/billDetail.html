@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>佰仟分期购</title>
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css"/>
+    <link rel="stylesheet" href="css/billDetail.css"/>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+
+        #audioBox{height:1.0rem; width:1.0rem; position:absolute; right:0.2rem; bottom:0.2rem; z-index:100;}
+        #audioBox .static{ height:0.8rem; width:0.8rem; position:absolute; left:0.1rem; top:0.1rem; animation: rotate 3s linear infinite;}
+        #audioBox .active{float:left; height:1.0rem; width:1.0rem;}
+        @keyframes rotate {
+            0%{transform: rotate(0deg);}
+            100%{transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div id="audioBox">
+            <img class="static" src="images/music_off.png" alt=""/>
+            <img class="active" src="images/music.gif" alt=""/>
+            <audio src="BGmusic.mp3" preload="auto" loop="loop" autoplay="autoplay" ></audio>
+        </div>
+        <div class="btns" >
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide1">
+                    <div class="top ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                        <p class="num">1笔</p>
+                        <img class="topImg topImg3" src="images/slide1-001-1.png" alt=""/>
+                    </div>
+                    <div class="middle ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="2s" >
+
+                    </div>
+                    <div class="bottom ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s">
+                        <p class="txt ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">
+                            分期压力本来就不大 ,<br/>但结清后感觉更赞了
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide slide2">
+                    <div class="top ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                        <p class="num">364天</p>
+                        <img class="topImg" src="images/slide2-001.png" alt=""/>
+                    </div>
+                    <div class="middle ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s" >
+
+                    </div>
+                    <div class="bottom ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">
+                        <p class="txt ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.8s" >
+                            让我们继续牵手一千零一夜
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide slide3">
+                    <div class="top ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                        <p class="num">5000元</p>
+                        <img class="topImg" src="images/slide3-001.png" alt=""/>
+                    </div>
+                    <div class="middle ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s" >
+                        <div class="part1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">
+                            <p class="txt">
+                                >7000<br/>0.78%
+                            </p>
+                            <p class="bg-img"></p>
+                        </div>
+                        <div class="part2  ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1.5s">
+                            <p class="txt">
+                                <2000<br/>18.7%
+                            </p>
+                            <p class="bg-img"></p>
+                        </div>
+                        <div class="part3 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="1.7s">
+                            <p class="txt">
+                                2000-4000<br/>51.21%
+                            </p>
+                            <p class="bg-img"></p>
+                        </div>
+                        <div class="part4 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1.9s">
+                            <p class="txt">
+                                4000-7000<br/>25.87%
+                            </p>
+                            <p class="bg-img"></p>
+                        </div>
+                        <div class="center">
+
+                        </div>
+                    </div>
+                    <div class="bottom ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="2.3s">
+                        <p class="txt ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="2.8s">
+                            2000--4000元是大家<br/>最喜欢的分期额度
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide slide4">
+                    <div class="top ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                        <p class="num">24期</p>
+                        <img class="topImg" src="images/slide4-001.png" alt=""/>
+                    </div>
+                    <div class="middle ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s" >
+
+                    </div>
+                    <div class="bottom ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s" >
+                        <p class="txt ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.8s" >
+                            近五成人喜欢12期和24期<br/>你喜欢哪一期？
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide slide5">
+                    <div class="top ani"  swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                        <p class="num">20次逾期</p>
+                        <img class="topImg topImg1 con-hide" src="images/slide5-001-1.png" alt=""/>
+                        <img class="topImg topImg2 " src="images/slide5-001-2.png" alt=""/>
+                    </div>
+                    <div class="middle middleType2 ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="2s">
+
+                    </div>
+                    <div class="bottom ani" swiper-animate-effect="fadeIn"  swiper-animate-duration="0.5s" swiper-animate-delay="0.8s">
+                        <p class="txt ani"  swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">
+                            你是白银信用小公举
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide slide6">
+                    <div class="top ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                        <p class="num">10位</p>
+                        <img class="topImg topImg2" src="images/slide6-002.png" alt="" />
+                        <img class="topImg topImg1 con-hide" src="images/slide6-003.png" alt=" " />
+                    </div>
+                    <div class="middle ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="2s">
+
+                    </div>
+                    <div class="bottom ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s" >
+                        <p class="txt ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">
+                            据统计，平均每推荐10人<br/>就有两人办单哦
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide slide7">
+                    <div class="top ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s" >
+                        <p class="num">银行代扣</p>
+                        <img class="topImg" src="images/slide7-001.png" alt="" />
+                    </div>
+                    <div class="middle ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="2s" >
+
+                    </div>
+                    <div class="bottom ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s"  >
+                        <p class="txt ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s" >
+                            96.4%的客户选择<br/>银行代扣的还款方式
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide slide9">
+                    <div class="top ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s" >
+                        <img class="topImg" src="images/slide9-top.png" alt="" />
+                    </div>
+                    <div class="middle ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="2s" >
+
+                    </div>
+                    <div class="bottom ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s"  >
+                        <p class="txt ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s" >
+                            感恩陪伴，佰仟同行
+                        </p>
+                    </div>
+                </div>
+                <div class="swiper-slide slide8">
+                    <div class="txts">
+                        <p class="txt txt1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s">一段旅程的结束</p>
+                        <p class="txt txt2 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.3s">是后续里程的开始</p>
+                        <p class="txt txt3 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.5s">下一旅程</p>
+                        <p class="txt txt4 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.7s">让我们继续红尘作伴</p>
+                        <p class="txt txt5 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.9s">潇潇洒洒</p>
+                    </div>
+                    <a class="commitBtn ani" href="commit2.html" swiper-animate-effect="fadeInUp" swiper-animate-duration="1s" swiper-animate-delay="1.9s" >去评分</a>
+                </div>
+                <div class="swiper-slide slide10">
+                    <div class="top ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s" >
+                        <img class="topImg" src="images/slide10-top.png" alt="" />
+                    </div>
+                    <div class="middle ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1s" >
+
+                    </div>
+                    <a class="downBtn ani"  href="http://kh.billionsfinance.cn/recommend/index?type=6" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">点我推荐</a>
+                </div>
+                <div class="swiper-slide slide11">
+                    <div class="top ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s" >
+                        <img class="topImg" src="images/slide11-top.png" alt="" />
+                    </div>
+                    <div class="middle ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1s" >
+
+                    </div>
+                    <p class="downLoadBtn ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">点我下载</p>
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/swiper.animate1.0.2.min.js"></script>
+    <script src="js/downloadApp.js"></script>
+    <script type="text/javascript">
+
+    $(function(){
+
+        // 音乐播放控制
+        $('html').one('touchstart',function(){
+            $("audio")[0].play();
+        });
+
+        var flag = true;
+
+        $("#audioBox").on("click",function(){
+            if(flag){
+                $("audio")[0].pause();
+                flag = false;
+                $(".active").css({"display":"none"});
+                $(".static").css({'animation':"none"});
+            }else{
+                $("audio")[0].play();
+                flag = true;
+                $(".active").css({"display":"block"});
+                $(".static").css({"animation":"rotate 3s linear infinite"});
+            }
+        });
+
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'vertical',
+            loop: false,
+            // 如果需要分页器
+            pagination: '.swiper-pagination',
+
+            onInit: function(swiper){  //Swiper2.x的初始化是onFirstInit
+                swiperAnimateCache(swiper);  //隐藏动画元素
+                swiperAnimate(swiper);  //初始化完成开始动画
+            },
+
+            onSlideChangeEnd: function(swiper){
+                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+                console.log(swiper.activeIndex);
+                if(swiper.activeIndex == 9 || swiper.activeIndex == 10){
+                    $(".btns").css({"display":"none"});
+                } else {
+                    $(".btns").css({"display":"block"});
+                }
+            }
+        });
+
+        if($(".slide5 .num").html() == "0次逾期"){
+            $(".slide5 .topImg").eq(0).removeClass("con-hide");
+            $(".slide5 .topImg").eq(1).addClass("con-hide");
+            $(".slide5 .middle").removeClass("middleType2").addClass("middleType1");
+            $(".slide5 .bottom .txt").html("你是黄金信用小公举");
+        }
+
+        if($(".slide6 .num").html() == "0位"){
+            $(".slide6 .topImg").eq(1).removeClass("con-hide").siblings().addClass("con-hide");
+        }
+    });
+
+    // 下载app
+    $(".downLoadBtn").on("click",function(){
+        webDownload('https://itunes.apple.com/cn/app/bai-qian-fen-qi-gou/id1138372591?mt=8','http://a.app.qq.com/o/simple.jsp?pkgname=com.billionsfinance.repayment','downLoad')
+    });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>提取流量</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/page2.css">
+</head>
+<body>
+
+
+    <div id="con">
+        <div class="getInfo">
+            <div class="info-part info-part1 underLine">
+                <p class="left">提取到</p>
+                <p class="right">18688669988</p>
+            </div>
+            <div class="info-part info-part2 underLine">
+                <p class="left">提取流量</p>
+                <p class="right">
+                    <span>M</span>
+                    <input id="inputNum" type="text">
+                </p>
+            </div>
+            <div class="info-part info-part3">
+                <p class="info-detail">当前账户有流量 ： <span class="sp">200M</span></p>
+                <p class="info-detail">当前可提取流量次数 ： <span class="sp">3次</span></p>
+            </div>
+        </div>
+        <p class="getBtn">立即提取</p>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".getBtn").on("click",function(){
+                layer.open({
+                    type : 1,
+                    content :' <p class="remarkTxt" style="height:0.84rem;width:3.1rem; line-height:0.84rem;text-align:center; font-size:0.32rem; color:#fff; background:#000;border-radius:1.0rem;">领取成功！</p>',
+                    anim : 'up',
+                    style :'background:transparent;'
+                });
+            });
+        })
+    </script>
+</body>
+</html>

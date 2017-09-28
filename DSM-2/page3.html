@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>报表说明</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box !important; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#999;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        *::-webkit-input-placeholder {  color: #d6d6db;}
+
+
+        #con{min-height:100%; width:100%; background:#f0f4f5;}
+        #con .timeArea{height:0.8rem; padding:0 0.24rem;}
+        #con .timeArea .txt{float:left; height:0.8rem; line-height:0.8rem; margin-right:0.2rem;}
+        #startTime{float:left; background:#fff; height:0.5rem; margin-top:0.15rem; width:1.8rem; margin-right:0.2rem;padding:0 0.2rem; font-size:0.2rem; position:relative;}
+        #con .timeArea .txt1{float:left; height:0.8rem; line-height:0.8rem; margin-right:0.2rem;}
+        #endTime{float:left;background:#fff; height:0.5rem;margin-top:0.15rem;width:1.8rem; padding:0 0.2rem; font-size:0.2rem;position:relative;}
+        .timeArea input{position:absolute;right:0; top:0.05rem; height:0.4rem;width:0.4rem; z-index:100; opacity:0;}
+        .timeArea i{display:block; height:0.4rem; width:0.4rem; background:url("images/dateBtn.png") no-repeat left top; background-size:100% 100%; position:absolute;right:0;top:0.05rem; z-index:10;}
+
+        #con .timeArea .timeValue{ float:left; height:0.5rem; width:1.5rem;line-height:0.5rem; color:#333; }
+        #con .con{min-height:3.0rem; padding:0 0.24rem; background:#fff;}
+        #infoShow{ min-height:3.0rem; width:100%;}
+        #infoShow tr td{height:0.9rem; text-align:center; vertical-align: middle;}
+        #infoShow .firstRow td{height:0.64rem; border-bottom:0.01rem solid #ededed;}
+        #infoShow .lastRow td{border-top:0.01rem solid #ededed;}
+        #infoShow tr td .sp{color:#9aa7ae; font-size:0.20rem;}
+        #infoShow .infoCon{color:#000;}
+
+    </style>
+
+</head>
+<body>
+
+    <div id="con">
+        <div class="timeArea">
+            <span class="txt">时间</span>
+            <p id="startTime">
+                <span class="timeValue">开始时间</span>
+                <input class="timeBtn1" type="date" >
+                <i></i>
+            </p>
+
+            <span class="txt1">至</span>
+            <p id="endTime">
+                <span class="timeValue">结束时间</span>
+                <input class="timeBtn2" type="date" >
+                <i></i>
+            </p>
+        </div>
+        <div class="con">
+            <table id="infoShow" cellpadding="0" cellspacing="0">
+                <tr class="firstRow">
+                    <td>SA</td>
+                    <td>总提单来量</td>
+                    <td>通过量</td>
+                    <td>协同办单/率</td>
+                </tr>
+                <tr class="infoCon">
+                    <td>
+                        王灿灿 <br>
+                        <span class="sp">00125456</span>
+                    </td>
+                    <td>52411</td>
+                    <td>40180</td>
+                    <td>
+                        10564 <br>
+                        <span class="sp">20.20%</span>
+                    </td>
+                </tr>
+                <tr class="infoCon">
+                    <td>
+                        王灿灿 <br>
+                        <span class="sp">001254568</span>
+                    </td>
+                    <td>52411</td>
+                    <td>40180</td>
+                    <td>
+                        10564<br>
+                        <span class="sp">20.20%</span>
+                    </td>
+                </tr>
+                <tr class="infoCon">
+                    <td>
+                        王灿灿<br>
+                        <span class="sp">001254568</span>
+                    </td>
+                    <td>52411</td>
+                    <td>40180</td>
+                    <td>
+                        10564<br>
+                        <span class="sp">20.20%</span>
+                    </td>
+                </tr>
+                <tr class="infoCon">
+                    <td>
+                        王灿灿<br>
+                        <span class="sp">001254568</span>
+                    </td>
+                    <td>52411</td>
+                    <td>40180</td>
+                    <td>
+                        10564<br>
+                        <span class="sp">20.20%</span>
+                    </td>
+                </tr>
+                <tr class="lastRow">
+                    <td>合计</td>
+                    <td>725450</td>
+                    <td>725450</td>
+                    <td>
+                        10564<br>
+                        <span class="sp">20.20%</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".timeBtn1").on("change",function(){
+                $(this).parent().find(".timeValue").html($(this).val());
+            });
+            $(".timeBtn2").on("change",function(){
+                $(this).parent().find(".timeValue").html($(this).val());
+            });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>添加好友</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/mobiscroll-2.13.2.full.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/appendFriends.css">
+
+    <style type="text/css">
+        .mbsc-android-holo .dwv{color:#ffda44; border-bottom: 2px solid #ffda44;}
+        .mbsc-android-holo .dwwol{border-color:#ffda44;}
+        .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{display:none;}
+    </style>
+</head>
+<body>
+
+    <div id="con">
+
+        <div class="part-index">
+            <p class="emptyBox"></p>
+            <div class="no-friends">
+                <img src="images/no-friends.png" alt="">
+                <p class="txt">还没有添加好友...</p>
+            </div>
+            <p class="addBtn">添加好友名单</p>
+        </div>
+        <div id="layout-view" class="con-hide">
+            <div class="l-part1">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide friendCard" >
+                            <img src="images/icon-name.png" alt="">
+                            <p class="name">---</p>
+                            <p class="phoneNum">------</p>
+                        </div>
+                        <div class="swiper-slide friendCard" >
+                            <img src="images/icon-name.png" alt="">
+                            <p class="name">---</p>
+                            <p class="phoneNum">------</p>
+                        </div>
+                        <div class="swiper-slide friendCard" >
+                            <img src="images/icon-name.png" alt="">
+                            <p class="name">---</p>
+                            <p class="phoneNum">------</p>
+                        </div>
+                        <div class="swiper-slide friendCard" >
+                            <img src="images/icon-name.png" alt="">
+                            <p class="name">---</p>
+                            <p class="phoneNum">------</p>
+                        </div>
+                        <div class="swiper-slide friendCard" >
+                            <img src="images/icon-name.png" alt="">
+                            <p class="name">---</p>
+                            <p class="phoneNum">------</p>
+                        </div>
+                        <div class="swiper-slide friendCard" >
+                            <img src="images/icon-name.png" alt="">
+                            <p class="name">---</p>
+                            <p class="phoneNum">------</p>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <div class="l-part2 ">
+                <span id="close-btn"><i></i></span>
+                <p class="part-title">
+                    <i class="t-left"></i>
+                    <span class="t-txt">填写信息</span>
+                    <i class="t-right"></i>
+                </p>
+                <div class="friend-info">
+                    <p class="name input-box">
+                        <span class="icon-img">
+                            <img src="images/icon-name.png" alt="">
+                        </span>
+                        <input id="name" type="text" placeholder="输入好友的姓名">
+                    </p>
+                    <p class="tel input-box">
+                        <span class="icon-img">
+                            <img src="images/icon-tel.png" alt="">
+                        </span>
+                        <input id="tel" type="text" placeholder="输入好友的手机号">
+                    </p>
+
+                    <p class="shop-info">
+                        <span class="chooseBtn c-btn1 btn-actived">去原门店办理</span>
+                        <span class="chooseBtn c-btn2">其他区域门店</span>
+                    </p>
+                    <div class="address-box box-hide" id="addressPicker">
+                        <span class="icon-img">
+                            <img src="images/c-address.png" alt="">
+                        </span>
+                        <p class="addressChoose">
+                            <input type="text" placeholder="--省--" id="province" name="provinceData"  readonly @click="listShow">
+                            <input type="text" placeholder="--市--" id="city" name="cityData"  readonly @click="listShow">
+                            <input type="text" placeholder="-区/县-" id="town" name="townData" readonly @click="listShow">
+                        </p>
+                        <div>
+                            <ul id="provinceData" class="d-box p-box" name="province">
+                                <template v-for="data in provinceData">
+                                    <li>{{data.name}}</li>
+                                </template>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul id="cityData" class="d-box c-box" name="city">
+                                <template v-for="data in cityData">
+                                    <li>{{data.name}}</li>
+                                </template>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul id="townData" class="d-box t-box" name="town">
+                                <template v-for="data in townData">
+                                    <li>{{data.name}}</li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="yesBtn">添加下一个好友</p>
+            </div>
+        </div>
+    </div>
+    <script src="js/layer.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/mobiscroll-2.13.2.full.min.js"></script>
+    <script src="js/vue1.0.min.js"></script>
+    <script src="js/cityPicker.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 打开添加好友窗口
+            $(".addBtn").on("click",function(){
+               $("#layout-view").removeClass("con-hide");
+                setTimeout(function(){
+                    $(".l-part2").removeClass("l-part2-close").addClass("l-part2-open");
+                },0);
+            });
+
+            // 好友卡片轮播
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                loop : true,
+                coverflow: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows : true
+                }
+            });
+
+            // 关闭添加好友窗口
+            $("#close-btn").on("click",function(){
+                $(this).parents(".l-part2").removeClass(".l-part2-open").addClass("l-part2-close");
+                setTimeout(function(){
+                    $("#layout-view").addClass("con-hide");
+                },200);
+            });
+
+            // 地址切换
+            $(".shop-info .chooseBtn").on("click",function(){
+                $(this).addClass("btn-actived").siblings().removeClass("btn-actived");
+                if($(this).index() == 1 && $(this).hasClass("btn-actived")){
+                    $(".address-box").removeClass("box-hide");
+                } else {
+                    $(".address-box").addClass("box-hide");
+                }
+            });
+
+            // 手机号码验证
+            var reg1 = /^1[3|4|5|7|8]\d{9}$/ig;
+            $("#tel").on("blur",function(){
+                var $telNum = $("#tel").val();
+                if(!reg1.test($telNum)){ // 手机号码格式错误
+                    layerInfo("手机号格式错误，请重新填写！");
+                }
+            });
+
+            var _count = 0;
+            // 添加下一个好友
+            $(".yesBtn").on("click",function(){
+                var $telNum = $("#tel").val();
+                var $name = $("#name").val();
+                if($name.length == 0){
+                    layerInfo("姓名不能为空，请填写后再提交！");
+                    return false;
+                }
+                if(!reg1.test($telNum)){ // 手机号码格式错误
+                    layerInfo("手机号格式错误，请重新填写后提交！");
+                    return false;
+                }
+
+                // 想后台提交数据
+                $(".friendCard").eq(0).find(".name").html($name);
+                $(".friendCard").eq(0).find(".phoneNum").html($name);
+
+                $(".shop-info .chooseBtn").eq(0).addClass("btn-actived").siblings().removeClass("btn-actived");
+                $(".address-box").addClass("box-hide");
+                $("input").each(function(index,ele){
+                    $(ele).val("");
+                });
+                _count++; // 个数加一
+            });
+
+            function layerInfo(str){
+                layer.open({
+                    content: str
+                    ,skin: 'msg'
+                    ,time: 2  //2秒后自动关闭
+                });
+            }
+        });
+    </script>
+</body>
+</html>

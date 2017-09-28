@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <link rel="stylesheet" href="css/need/layer.css"/>
+    <script src="js/public.js"></script>
+    <title>video测试</title>
+    <style type="text/css">
+        *{padding:0;margin:0;}
+        body,html{height:100%;width:100%; background:#000;}
+        .layer{height:3.2rem; width:4.8rem; margin:0 auto; background:#fff; padding-top:0.24rem; border-radius: 5px; position:relative;}
+        .layer .warnImg{display:block;height:0.7rem; width:0.7rem; margin:0.12rem auto; margin-bottom:0.24rem; }
+        .layer .txt1{width:100%;line-height:0.48rem; font-size:0.24rem; text-align:center;}
+        .layer .txt2{width:100%;line-height:0.48rem; font-size:0.24rem; text-align:center;}
+        .layer .txt1 span{color:#ff9800;}
+        .layer .closeBtn{height:0.8rem;line-height:0.8rem;width:100%;font-size:0.24rem;text-align:center;color:#1c74d9; font-weight:600;border-top:2px solid #ededed; position:absolute;left:0;bottom:0;}
+    </style>
+</head>
+<body>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var resultArr = [];
+            for(var i=10000000;i<100000000;i++){
+                var str = i + "";
+                var result1 = Number(str.substring(0,2)) % 2;
+                var result2 = Number(str.substring(0,3)) % 3;
+                var result3 = Number(str.substring(0,4)) % 4;
+                var result4 = Number(str.substring(0,5)) % 5;
+                var result5 = Number(str.substring(0,6)) % 6;
+                var result6 = Number(str.substring(0,7)) % 7;
+                var result7 = Number(str.substring(0,8)) % 8;
+                if(result1 == 0 && result2 == 0 && result3 == 0 && result4 == 0 && result5 == 0 && result6 == 0 && result7 == 0){
+                    resultArr.push(i);
+                } else {
+
+                }
+            }
+            console.log(resultArr);
+            var length = resultArr.length;
+            var sum = 0;
+            for(var k=0;k<length;k++){
+                var str1 = resultArr[k] + "";
+                var arr = str1.split("");
+
+                if(resArr(arr)){
+                    sum += resultArr[k];
+                }
+            }
+            console.log(sum);
+
+
+            function resArr(arr){
+                var arr1 = [arr[0]];
+                for(var m=1;m<arr.length;m++){
+                    var flag = false;
+                    for(var n=0;n<arr1.length;n++){
+                        if(arr[m] == arr1[n]){
+                            arr = 0;
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if(!flag){
+                        arr1.push(arr[m]);
+                    }
+                }
+                return arr;
+            }
+
+//            console.log(resArr([1,2,3,4,5,6]));
+        });
+    </script>
+</body>
+</html>

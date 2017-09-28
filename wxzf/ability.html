@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>佰仟融资租赁</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/ability.css">
+    <link rel="stylesheet" href="css/layer.css">
+</head>
+<body>
+
+    <div id="con">
+        <!--<div class="remarkTxt0">-->
+            <!--<p class="left">-->
+                <!--<i></i>-->
+            <!--</p>-->
+            <!--<div class="right">-->
+                <!--<div class="box">-->
+                    <!--<p class="txt">您已还款<span>600</span>元佰仟分期购佰仟分期购</p>-->
+                    <!--<p class="txt">尾号6789的合同已于17年5月2日支付款项600.00元，您可继续选择微信还款。（款项录入中，您可于下一工作日在微信号的”办理分期“——”近期还款“查看）</p>-->
+                    <!--<p class="txt">您已还款<span>800</span>元</p>-->
+                    <!--<p class="txt">您已还款<span>900</span>元</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="con">
+            <p class="txt1">
+                以下合同支持微信还款，请点击选择:
+            </p>
+            <div class="lists">
+                <div class="list list1">
+                    <input id="radio1" class="radio" type="radio" name="contract">
+                    <label class="label" for="radio1"></label>
+                    <div class="part1">
+                        <i class="markImg"></i>
+                    </div>
+                    <div class="part2">
+                        <p class="txt1">
+                            应还金额
+                            <span class="noticeTxt notice-hide">当日已支付</span>
+                        </p>
+                        <p class="txt2">
+                            合同号 13156156
+                        </p>
+                    </div>
+                    <div class="part3">
+                        <p class="money">
+                            <span class="rmb">¥</span>
+                            <span class="num">10</span>
+                        </p>
+                        <span class="deBtn">详情</span>
+                    </div>
+                </div>
+                <div class="list list2">
+                    <input id="radio2" class="radio" type="radio" name="contract" >
+                    <label class="label" for="radio2"></label>
+                    <div class="part1">
+                        <i class=" markImg"></i>
+                    </div>
+                    <div class="part2">
+                        <p class="txt1">
+                            应还金额
+                            <span class="noticeTxt notice-hide">当日已支付</span>
+                        </p>
+                        <p class="txt2">
+                            合同号 13156156
+                        </p>
+                    </div>
+                    <div class="part3">
+                        <p class="money">
+                            <span class="rmb">¥</span>
+                            <span class="num">1166.66</span>
+                        </p>
+                        <span class="deBtn">详情</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="otherInfo">
+                <div class="remarkTxt txt-hide">
+                    <p class="left">
+                        <i>*</i>
+                        <span class="txt">温馨提醒:</span>
+                    </p>
+                    <p class="right">
+                        请勾选您需要还款的合同
+                    </p>
+                </div>
+                <button class="payBtn" type="button">微信还款</button>
+                <div class="rules">
+                    <div class="leftPart">
+                        <p class="mark2">
+                            <i class=" state1 imgIn"></i>
+                        </p>
+                        <span class="txt">我已阅读并同意</span>
+                    </div>
+                    <div class="rightPart">
+                        <p class="sp" id="repaymentRules">《佰仟融资租赁微信还款协议》</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="bottomTxt">POWER BY 佰仟融资租赁</p>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 选择合同
+            $(".lists .label").on("click",function(){
+                if($(this).parent().hasClass("repaid")){
+                    return false;
+                } else {
+                    var listCards = $(".lists .list");
+                    $(this).parent().addClass("sp").siblings().removeClass("sp");
+                    for(var i=0; i<listCards.length; i++){
+                        if(listCards.eq(i).hasClass("sp")){
+                            listCards.eq(i).find(".markImg").addClass("checked");
+                        } else {
+                            listCards.eq(i).find(".markImg").removeClass("checked");
+                        }
+                    }
+                }
+            });
+
+            // 勾选还款协议
+            $(".rules .leftPart").on("click",function(){
+                $(this).find(".state1").toggleClass("imgIn");
+                if($(this).find(".state1").hasClass("imgIn")){
+                    $(".remarkTxt").addClass("txt-hide");
+                }
+            });
+
+            // 查看详情
+            $(".lists .list .deBtn").on("click",function(){
+                layer.open({
+                    type: 1
+                    ,content: '<div id="box">' +
+                    '<div class="con">' +
+                    '<p class="title">合同详情</p>' +
+                    '<div class="part1">' +
+                    '<p class="txt txt1"><span class="left">合同号</span><span class="right">123456789</span></p>'+
+                    '<p class="txt txt2"><span class="left">本期应还金额</span><span class="right">¥660.00</span></p>'+
+                    '<p class="txt txt3"><span class="left">催收工本费</span><span class="right">¥5.00</span></p>'+
+                    '<p class="txt txt4"><span class="left">罚息费用</span><span class="right">¥1.00</span></p>'+
+                    '</div>' +
+                    '<div class="part2">' +
+                    '<p class="txt txt5"><span class="left">已确认还款</span><span class="right">¥660.00</span></p>'+
+                    '<p class="txt txt6"><span class="left">待确认还款</span><span class="right">¥660.00</span></p>'+
+                    '<p class="txt txt7"><span class="left">小计</span><span class="right">¥660.00</span></p>'+
+                    '<p class="txt txt8"><span class="left">微信还款手续费</span><span class="right">¥0.66</span></p>'+
+                    '</div>' +
+                    '<div class="part3">' +
+                    '<p class="txt txt9"><span class="left">合计</span><span class="right">¥666.66</span></p>' +
+                    '</div>' +
+                    '<div class="part4">' +
+                    '<p class="txt txt10">*待确认金额为今日的还款金额，请于下一个工作日查看提交</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '<span class="closeBtn" onclick="layer.closeAll();"></span>' +
+                    '</div>'
+                    ,anim: 'up'
+                    ,style: 'min-height:7.4rem; width:4.8rem; border-radius:5px; background:rgba(0,0,0,0);  position:absolute; left:50%; margin-left:-2.4rem; top:1.0rem;'
+                });
+            });
+
+            // 进入微信还款
+            $(".payBtn").on("click",function(){
+                var flag = false;
+                var checkEle = $(".markImg");
+                for(var i=0;i<checkEle.length;i++){
+                    if(checkEle.eq(i).hasClass("checked")){
+                        flag = true;
+                        break;
+                    } else {
+                        flag = false;
+                    }
+                }
+                // 提醒选择合同号
+                if(!flag){
+                    $(".remarkTxt").removeClass("txt-hide");
+                    $(".remarkTxt").find(".right").html("请勾选您需要还款的合同");
+                    return false;
+                }
+                // 提醒同意微信还款协议
+                if(!$(".state1").hasClass("imgIn")){
+                    $(".remarkTxt").removeClass("txt-hide");
+                    $(".remarkTxt").find(".right").html("请勾选佰仟融资租赁微信还款协议");
+                    return false;
+                }
+            });
+
+            // 显示还款协议详细内容
+            $(".rules .rightPart").on("click",function(){
+                layer.open({
+                    type : 1,
+                    content :'<div id="layer3">' +
+                    '<p class="title">佰仟融资租赁微信还款协议</p>' +
+                    '<div class="con">' +
+                    '<p class="txt">本人作为佰仟融资租赁有限公司（以下简称佰仟公司）的客户，同意在微信公众号“bq_carfinance”中注册为会员并使用“微信支付”的方式向佰仟公司支付本人相关合同项下的应付款项（包括但不限于本金、利息、租金、管理费、违约金、催收工本费、违章罚款等）。针对前述支付行为本人承诺：</p>' +
+                    '<p class="txt">1.在“微信支付”中绑定的银行卡为本人名下合法有效有效的借记卡。</p>' +
+                    '<p class="txt">2.在使用“微信支付”过程中本人账户发生异常导致本人资金损失或者因本人的不当使用可能或已经产生的侵犯他人合法权利的行为由本人承担全部法律责任（如：绑定他人借记卡进行支付等），与佰仟公司无关。</p>' +
+                    '<p class="txt">3、在使用“微信支付”过程中产生的所有手续费（以“微信支付”发布的手续费率为准）由本人承担。</p>' +
+                    '<p class="txt">4.本人知晓并同意通过“微信支付”方式向佰仟公司支付款项自款项到达佰仟公司账户之日才视为本人已经向佰仟公司履行支付义务。</p>' +
+                    '</div>' +
+                    '<button class="closeBtn" type="button" onclick="layer.closeAll();">我知道了</button>' +
+                    '</div>' ,
+                    anim : 'up',
+                    style :'height:5.6rem; width:4.0rem; padding:0 0.4rem; background:#fff; border-radius:5px; position:absolute;;left:50%;margin-left:-2.4rem;bottom:3rem;'
+                })
+            });
+
+            // 系统维护时间
+            if(1){
+                layer.open({
+                    type : 1,
+                    content :'<div id="layer2">' +
+                    '<p class="title">温馨提醒</p>' +
+//                    '<p class="txt2">尊敬地用户：</p>' +
+                    '<p class="txt3">每日23:00 - 次日9:00为系统维护 时间段，无法进行微信还款。请明天 上午九点后再试。</p>' +
+                    '<a class="backBtn" href="javascript:;" onclick="layer.closeAll();">返回</a>' +
+                    '</div>',
+                    anim : 'up',
+                    style :'height:4.0rem;width:4.82rem;background:transparent;position:absolute;left:50%;margin-left:-2.41rem;bottom:4.0rem;'
+                })
+            }
+
+            // 当日再次进入还款页面提示
+//            layer.open({
+//                type : 1,
+//                content :'<div id="layer4">'+
+//                '<p class="title">温馨提示</p>'+
+//                '<p class="txt txt1">尾号5599的合同已于17年5月22日支付款项1002.00元，您可继续选择微信还款。（款项录入中，您可于下一工作日在微信号的”办理分期“——”近期还款“查看）,（款项录入中，您可于下一工作日在微信号的”办理分期“——”近期还款“查看）,（款项录入中，您可于下一工作日在微信号的”办理分期“——”近期还款“查看）</p>'+
+//                '<button class="closeBtn" type="button" onclick="layer.closeAll();" >好的</button>'+
+//                '</div>',
+//                anim : 'up',
+//                style :'height:5.2rem;width:4.0rem; padding:0 0.4rem; background:#fff;  border-radius:5px; position:absolute;left:50%;margin-left:-2.4rem;bottom:2.5rem;'
+//            });
+
+
+            // 通知消息滚动
+            if($(".remarkTxt0 .right .box .txt")){
+                txtMove();
+                setInterval(txtMove , 11000 );
+                function txtMove(){
+                    var aniWidth = $(".remarkTxt0 .right .box .txt").get(0).clientWidth;
+                    $(".remarkTxt0 .right .box").animate({"margin-left": -aniWidth + "px"} , 10000 , function(){
+                        $(this).css("margin-left" , "0").children().eq(0).appendTo($(this))
+                    });
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

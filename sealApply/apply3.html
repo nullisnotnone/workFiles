@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>公章备案详情</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/apply3.css">
+</head>
+<body>
+
+    <div id="con">
+        <p class="emptyBox"></p>
+        <div class="shopsList">
+            <div class="listBox">
+                <div class="list">
+                    <p class="list-title">请门店1填写信息</p>
+                    <div class="list-info list-info-code">
+                        <span class="left">代码</span>
+                        <span class="list-value"></span>
+                        <p class="right">
+                            <i></i>
+                            <select class="list-sel" name="" id="code1">
+                                <option value="0">01200120</option>
+                                <option value="1">01200121</option>
+                                <option value="1">01200122</option>
+                                <option value="1">01200123</option>
+                                <option value="1">01200124</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div class="list-info list-info-name">
+                        <p class="left">名称</p>
+                        <p class="name-value ">李云龙 中共中央党校国际战略研究院教授，中国人权研究会常务理事</p>
+                    </div>
+                </div>
+                <div class="list">
+                    <p class="list-title">请门店2填写信息</p>
+                    <div class="list-info list-info-code">
+                        <span class="left">代码</span>
+                        <span class="list-value"></span>
+                        <p class="right">
+                            <i></i>
+                            <select class="list-sel" name="" id="code2">
+                                <option value="0">01200120</option>
+                                <option value="1">01200121</option>
+                                <option value="1">01200122</option>
+                                <option value="1">01200123</option>
+                                <option value="1">01200124</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div class="list-info list-info-name">
+                        <p class="left">名称</p>
+                        <p class="name-value ">李云龙 中共中央党校国际战略研究院教授，中国人权研究会常务理事</p>
+                    </div>
+                </div>
+            </div>
+            <div class="addBtn">
+                <p class="btn-box">
+                    <i></i>
+                    添加其他同章门店
+                </p>
+            </div>
+        </div>
+        <div class="ba-con clearfix">
+            <div class="con-part">
+                <p class="part-name"><i></i>备案内容</p>
+                <textarea name="" id="said" maxlength="50" placeholder="请限制在50个字以内..."></textarea>
+            </div>
+            <div class="con-part">
+                <p class="part-name"><i></i>备案公章图片</p>
+                <div class="fileBox clearfix">
+                    <div class="box box4">
+                        <div class="viewBox">
+                            <img class="fileBg" src="images/addFile01.png" alt="">
+                            <p class="secBtn conHide">
+                                <i></i>
+                                <span>点击重新上传</span>
+                            </p>
+                            <div class="progress conHide">
+                                <p class="txt">正在上传...</p>
+                                <p class="progressBar"></p>
+                            </div>
+                        </div>
+                        <div class="fileName">
+                            <i class="stateBg"></i>
+                            <span class="nameTxt">白纸盖章照</span>
+                        </div>
+                    </div>
+                    <div class="box box-demo">
+                        <div class="viewBox">
+                            <img class="fileBg" src="images/demo.png" alt="">
+                        </div>
+                        <div class="fileName">
+                            <i class="stateBg"></i>
+                            <span class="nameTxt">示意图</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="submitBtn">提交</p>
+    </div>
+    <script src="js/jquery1.11.1.min.js"></script>
+
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".addBtn .btn-box").on("click",function(){
+                var num = $(".listBox .list").length + 1;
+                if(num < 6){
+                    $(".listBox").append(addShop(num));
+                } else {
+                    layer.open({
+                        content: '已到达门店数上限！'
+                        ,skin: 'msg'
+                        ,time: 2 //2秒后自动关闭
+                    });
+                }
+            });
+
+            function addShop(_index){
+                var str = '<div class="list">' +
+                        '<p class="list-title">请门店'+_index+'填写信息<i class="list-delete"></i></p>' +
+                        '<div class="list-info list-info-code">' +
+                        '<span class="left">代码</span><span class="list-value"></span>' +
+                        '<p class="right"><i></i>' +
+                        '<select class="list-sel" name="" id="code2">' +
+                        '<option value="0">01200120</option><option value="1">01200121</option>' +
+                        '<option value="1">01200122</option> <option value="1">01200123</option>' +
+                        '<option value="1">01200124</option></select></p></div>' +
+                        '<div class="list-info list-info-name"><p class="left">名称</p>' +
+                        '<p class="name-value"></p>' +
+                        '</div></div>';
+                return str;
+            }
+
+            // 删除门店列表
+            $("body").on("click",".list-delete",function(){
+                $(this).parents(".list").remove();
+                for(var i=0;i<$(".list").length;i++){
+                    $(".list-title").eq(i).html('请门店'+(i+1)+'填写信息');
+                    if(i>1){
+                        $(".list-title").eq(i).html('请门店'+(i+1)+'填写信息<i class="list-delete"></i>');
+                    }
+                }
+            });
+
+            $("body").on("input", ".list-sel",function(){
+                var str = $(this).find("option:selected").text();
+                $(this).parents(".list-info").find(".list-value").html(str);
+            });
+
+        })
+    </script>
+</body>
+</html>

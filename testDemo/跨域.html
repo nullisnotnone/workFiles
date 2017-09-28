@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #box{height:300px;width:800px;border:1px solid #000;margin:10px auto;}
+        #btn{display:block;height:40px;width:100px;background:skyblue;line-height:40px;text-align:center;margin:0 auto;}
+    </style>
+</head>
+<body>
+
+    <div id="box">
+
+    </div>
+    <button id="btn" type="button">click me</button>
+
+    <script src="jQuery-1.8.3.js"></script>
+    <script TYPE="text/javascript">
+//        $(function(){
+//
+//
+//
+//        })
+        jQuery(function($){
+
+//            $.ajax({
+//                type : "get",
+//                url : "https://app.gzwkh.com/index.php?m=home&c=index&a=test",
+//                dataType : "jsonp",
+//                success : function(data){
+//                    console.log(data);
+//                }
+//            })
+
+        });
+
+        function createScript(url){
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = url;
+            document.body.appendChild(script);
+        };
+        var test = function(data){
+            console.log(data);
+        };
+        var btn = document.getElementById("btn");
+        btn.onclick = function(){
+//            createScript('http://www.geonames.org/postalCodeLookupJSON?postalcode=10504&country=US&callback=test');
+            createScript('https://app.gzwkh.com/index.php?m=home&c=index&a=test&callback=test');
+
+        }
+
+    </script>
+
+</body>
+</html>

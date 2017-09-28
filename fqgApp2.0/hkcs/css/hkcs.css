@@ -1,0 +1,63 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+html {height: 100%;}
+body {width:100%; height:100%; font-family : "Microsoft YaHei",Arial,Helvetica,sans-serif; font-size: 0.28rem; color:#92a1a8;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+/*input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}*/
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+textarea{-webkit-appearance: none;}
+*::-webkit-input-placeholder { color: #a5a8af; }
+
+body{min-width:300px;max-width:640px; margin:0 auto;}
+.nav-bar-box{display:none;position:fixed;left:0;top:0;height:1.28rem;width:100%;background:#fff;z-index:100; border-bottom:0.01rem solid #f1f1f1;}
+.navBar{height:1.28rem;min-width:300px;max-width:640px;margin:0 auto; position:relative;}
+.navBar .empty-bar{height:0.4rem;width:100%; background:#fff;}
+.navBar .nav-title{ height:0.88rem;width:100%;line-height:0.88rem;text-align:center;font-size:0.32rem;color:#262626;background:#fff; }
+.navBar .backBtn{position:absolute;left:0.1rem;top:0.54rem;height:0.4rem;width:0.4rem;padding:0.1rem;}
+.navBar .backBtn>img{float:left;height:0.4rem;width:0.4rem;}
+
+#con{height:100%; padding:0 0.24rem; background:#fff; -webkit-box-sizing: border-box; box-sizing: border-box;}
+#con .iconHide{display:none;}
+#con .noData{height:4.0rem;width:100%; line-height:4.0rem;text-align:center;}
+
+#con .part{height:auto;width:100%;padding-top:0.3rem;}
+#con .part .p-title{height:0.6rem;line-height:0.6rem;color:#616673;}
+#con .part .listBox{min-height:0.4rem;width:5.8rem;margin:0 auto; margin-bottom:0.3rem;}
+#con .part .listBox .contractList{float:left;height:2.3rem;width:1.8rem;}
+#con .part .listBox .contractList:nth-child(even){margin:0 0.18rem;}
+#con .part .listBox .contractList .c-box{padding:0.14rem;height:1.8rem;width:1.8rem;box-sizing: border-box; -webkit-box-sizing: border-box;border:0.01rem solid #e5e5e5;border-radius:5px; background:#eef1f6;}
+#con .part .listBox .list-checked .c-box{background:#fff;border-color:#50bcee;}
+.listBox .contractList .p-icon{height:0.4rem;width:0.4rem;margin:0 auto;}
+.listBox .contractList .c-name{padding:0.15rem 0; font-size:0.28rem;line-height:0.28rem;text-align:center;color:#616673;}
+.listBox .contractList .c-num{ line-height:0.3rem; font-size:0.22rem; text-align:center; color:#a5a8af;}
+.listBox .contractList .c-num-txt{ line-height:0.3rem; font-size:0.2rem; text-align:center; color:#a5a8af;}
+.listBox .contractList .c-state{display:block;height:0.28rem;width:0.28rem;margin:0 auto; margin-top:0.18rem; }
+.listBox .contractList .c-state-checked{background:url("../images/icon-state-checked.png") no-repeat left top; background-size:100% 100%;}
+
+.m-num-box{height:1.1rem;padding:0.42rem 0 0.68rem 0;width:5.8rem;margin:0 auto; border-radius:10px;background:#eef1f6;margin-bottom:0.4rem;}
+.m-num-box .m-title{line-height:0.24rem;padding-bottom:0.3rem;height:0.24rem;font-size:0.24rem;text-align:center;color:#616673;}
+.m-num-box .m-num{height:0.56rem;width:100%;text-align:center;color:#508cee;}
+.m-num-box .m-num span:nth-child(1){display:inline-block;padding:0 0.1rem;padding-top:0.2rem;font-size:0.36rem;line-height:0.36rem;}
+.m-num-box .m-num span:nth-child(2){font-size:0.56rem;line-height:0.56rem;}
+
+.remarkBox{height:auto;width:100%;padding-bottom:0.8rem;}
+.remarkBox .r-part{margin-top:0.2rem;}
+.remarkBox .r-part .r-title{height:0.6rem;line-height:0.6rem;color:#616673;font-size:0.28rem;}
+.remarkBox .r-part .r-detail-txt{font-size:0.22rem;color:#a5a8af;line-height:0.36rem;text-indent: 2em;}
+
+
+/*弹窗*/
+#layerOut{width:5.4rem;padding:0.1rem 0 ;padding-bottom:0;height:4.5rem;background:#fff;border-radius:10px;margin:0 auto;}
+#layerOut .title{height:1.12rem;padding:0 0.5rem;line-height:1.12rem;text-align:center;font-size:0.32rem;color:#616673;}
+#layerOut .w-txt{line-height:0.3rem;margin-bottom:0.42rem;padding:0 0.4rem;font-size:0.28rem;}
+#layerOut .c-rules{padding:0 0.4rem;font-size:0.22rem;padding-bottom:0.4rem;border-bottom:0.01rem solid #e5e5e5;}
+#layerOut .c-rules .c-rule-title{line-height:0.3rem;padding-bottom:0.2rem;}
+#layerOut .c-rules .c-rule-txt{line-height:0.4rem;}
+#layerOut .l-bottom{text-align:center;line-height:0.9rem; color:#508cee; font-size:0.32rem;}
+
+
+
+

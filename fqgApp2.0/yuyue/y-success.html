@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>佰仟分期购</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#333;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #555; }
+
+
+        body{min-width:300px;max-width:640px; margin:0 auto;}
+        .nav-bar-box{position:fixed;left:0;top:0;height:1.28rem;width:100%;background:#fff;z-index:100;}
+        .navBar{height:1.28rem;min-width:300px;max-width:640px;margin:0 auto; position:relative;}
+        .navBar .empty-bar{height:0.4rem;width:100%; background:#fff;}
+        .navBar .nav-title{ height:0.88rem;width:100%;line-height:0.88rem;text-align:center;font-size:0.36rem;color:#000;background:#fff; }
+        .navBar .backBtn{position:absolute;left:0.1rem;top:0.54rem;height:0.4rem;width:0.4rem;padding:0.1rem;}
+        .navBar .backBtn>img{float:left;height:0.4rem;width:0.4rem;}
+
+        #con{padding:0 0.28rem;padding-top:1.28rem; -webkit-box-sizing:border-box;box-sizing:border-box;height:100%; width:100%; background:#eef1f6;}
+        #con .emptyBox{height:0.6rem;width:100%;}
+        .icon-success{height:1.1rem;width:1.1rem;margin:0.62rem auto;}
+        .r-txt{height:0.32rem;line-height:0.32rem;font-size:0.32rem;color:#616673;width:100%;text-align:center;}
+        .r-txt2{height:0.28rem;line-height:0.28rem;margin:0.2rem auto;text-align:center;color:#a5a8af;}
+        .over-btn{height:0.58rem;width:1.84rem;margin:0 auto; margin-top:0.7rem; line-height:0.58rem;text-align:center;color:#fff;background:#508cee;border-radius:5px;font-size:0.28rem;}
+
+
+    </style>
+</head>
+<body>
+    <div class="nav-bar-box">
+        <div class="navBar">
+            <p class="empty-bar"></p>
+            <p class="nav-title">预约成功</p>
+            <span class="backBtn"><img src="images/icon-back.png" alt=""></span>
+        </div>
+    </div>
+    <div id="con">
+        <p class="emptyBox"></p>
+        <img class="icon-success" src="images/icon_Success.png" alt="">
+        <p class="r-txt">我们已收到您的预约申请</p>
+        <p class="r-txt2">工作人员会在5个工作日内给您致电</p>
+        <p class="r-txt2">请留意400-998-7101的来电</p>
+        <p class="over-btn">返回首页</p>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
+            if(isAndroid){
+                $(".nav-bar-box").addClass("conHide");
+                $("#con").css({"padding-top" : "0"});
+            }
+
+            // 返回
+            $(".backBtn").on("click",function(){
+                backToNative("popToView://backToNative");
+            });
+
+            // 回到首页
+            $(".over-btn").on("click",function(){
+               // 返回原生首页
+                backToNative("popToView://backToNative");
+            });
+        })
+    </script>
+</body>
+</html>

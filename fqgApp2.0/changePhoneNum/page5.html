@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>更改手机号</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/page5.css">
+</head>
+<body>
+    <div class="nav-bar-box underLine">
+        <div class="navBar">
+            <p class="empty-bar"></p>
+            <p class="nav-title">更改手机号</p>
+            <span class="backBtn"><img src="images/icon-back.png" alt=""></span>
+        </div>
+    </div>
+    <div id="con">
+        <div class="s-bg">
+            <img class="bg_success" src="images/bg_Success.png" alt="">
+        </div>
+        <div class="s-progress">
+            <div class="step step1">
+                <span class="icon-left over"></span>
+                <p class="step-txt">提交成功</p>
+            </div>
+            <div class="step step2">
+                <span class="icon-left over"></span>
+                <p class="step-txt">审核中</p>
+            </div>
+            <div class="step step3">
+                <span class="icon-left "></span>
+                <p class="step-txt">手机号变更成功<br>(13022222234)</p>
+            </div>
+        </div>
+        <button type="button" class="s-btn">确认</button>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 返回
+            $(".backBtn").on("click",function(){
+                history.back();
+            });
+            console.log(history.length);
+            var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
+            if(isAndroid){
+                $(".nav-bar-box").addClass("conHide");
+                $("#con").css({"padding-top" : "0"});
+            }
+
+        });
+    </script>
+</body>
+</html>

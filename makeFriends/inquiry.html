@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>中奖查询</title>
+    <link rel="stylesheet" href="css/need/layer.css"/>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.32rem; color:#888;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+        html,body{height:100%;width:100%;}
+        #con{height:100%;width:100%;background:#e15c1b; position:relative;}
+        #con .top{height:0.93rem;width:6.0rem;margin:0 auto;padding-top:1.1rem;padding-bottom:0.45rem;}
+        #con .top>img{float:left;height:0.93rem;width:6.0rem;}
+
+        #selfInfo{min-height:4.4rem; width:6.4rem; margin:0 auto; position:relative;}
+        #selfInfo .box{height:1.64rem;width:5.6rem;padding:0 0.4rem;background:#f78953; border-radius:6px; }
+        #selfInfo .box .list{height:0.82rem;line-height:0.82rem;width:5.6rem;}
+        #selfInfo .box .list .txt1{float:left;height:0.82rem;width:1.5rem;font-size:0.28rem; color:#8a3916;text-align:inherit;}
+        #selfInfo .box .list .name ,#selfInfo .box .list .idCode {float:left;height:0.4rem;width:3.7rem;line-height:0.4rem;padding:0.21rem 0.2rem; background:transparent;}
+        #selfInfo .submitBtn{height:0.8rem;width:5.4rem;  line-height:0.8rem;text-align:center; border-radius:0.4rem;background:#fff;font-size:0.34rem;color:#e15e1e;box-shadow: 0 3px 0 0 #c25b29;-webkit-box-shadow: 0 3px 0 0 #c25b29; position:absolute;left:50%; margin-left:-2.7rem;bottom:0;}
+
+        #con .bottom{height:6.0rem;width:100%;  background:url("images/bq-move1.png") no-repeat left top; background-size:cover; position:absolute;left:0;bottom:0;}
+
+    </style>
+</head>
+<body>
+
+
+    <div id="con">
+        <div class="top">
+            <img src="images/inquiry01.png" alt=""/>
+        </div>
+
+        <form id="selfInfo" action="">
+            <div class="box">
+                <p class="list">
+                    <span class="txt1">姓名:</span>
+                    <span id="name" class="name">张三</span>
+                </p>
+                <p class="list">
+                    <span class="txt1">身份证号:</span>
+                    <span id="idCode" class="idCode">4211251994225142544</span>
+                </p>
+            </div>
+            <button class="submitBtn" type="button">查询是否中奖</button>
+        </form>
+        <div class="bottom">
+
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".submitBtn").on("tap",function(){
+
+            })
+        })
+    </script>
+
+</body>
+</html>

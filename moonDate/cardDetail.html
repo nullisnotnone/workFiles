@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>我送出的心愿卡</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#494949;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #a5abaf; font-size:0.24rem; }
+
+        #con{height:100%;width:100%;background:#f3f3f3;}
+        .title{height:3.8rem;width:6.4rem;margin:0 auto;}
+        .title>img{float:left;height:100%;width:100%;}
+        .txtBox{position:relative;min-height:1.0rem;width:5.3rem; padding:0.5rem 0.55rem; margin:auto; margin-bottom:0.76rem; background:#fff;}
+        .txtBox .box-bg{position:absolute;left:0;top:-0.15rem;height:0.3rem;width:100%;background:url("images/cardtxt_bg.png") no-repeat left top; background-size:100% 100%;}
+        .txtBox .box-bg2{position:absolute;left:0;bottom:-0.15rem;height:0.3rem;width:100%;background:url("images/cardtxt_bg.png") no-repeat left top; background-size:100% 100%;}
+        .txtBox .cardTxt{line-height:0.46rem;}
+
+        .gift{height:auto;width:100%; color:#7d5600;}
+        .gift .g-title{height:0.7rem;line-height:0.7rem;text-align:center;}
+        .gift .g-con{height:0.93rem;padding:0.16rem 0.38rem;width:4.27rem;margin:0 auto;background:url("images/coupon_orange.png") no-repeat left top; background-size:100% 100%;}
+        .gift .g-con .part1{float:left;height:0.7rem;width:1.5rem;font-size:0.7rem;color:#7d5600;}
+        .gift .g-con .part1 span{font-size:0.12rem;line-height:0.2rem;}
+        .gift .g-con .part2{ float:left;margin-top:0.16rem; height:0.6rem; font-size:0.28rem; line-height:0.3rem; padding-right:0.6rem; border-right:0.01rem solid #7d5600;  }
+        .gift .g-con .part3{ float:left;padding-left:0.4rem; }
+        .gift .g-con .part3 span{float:left;height:0.61rem; font-size:0.2rem; width:0.67rem;padding:0.13rem 0.1rem;line-height:0.3rem;text-align:center;background:url("images/btn_round.png") no-repeat left top; background-size:100% 100%;}
+
+        .conHide{display:none;}
+        #layoutView{position:absolute; left:0;top:0;height:100%;width:100%; background:rgba(0,0,0,0.6);}
+        .infoBox1 , .infoBox2{position:absolute;left:50%;margin-left:-2.58rem;top:2.6rem;height:4.46rem;width:5.16rem;background:#fff;border-radius:5px;}
+        .infoBox1 .closeBtn , .infoBox2 .closeBtn{position:absolute;right:-0.2rem;top:-0.2rem;display:block;height:0.58rem;width:0.58rem;background:url("images/cancel_black.png") no-repeat left top; background-size:100% 100%;}
+        #perInfo{height:100%;width:4.36rem;padding:0 0.4rem;}
+        #perInfo .i-title{padding-top:0.16rem;height:0.88rem;line-height:0.88rem;text-align:center;color:#494949;}
+        #perInfo .info-txt{height:0.8rem;width:100%;padding:0.2rem;box-sizing: border-box;-webkit-box-sizing: border-box; border:0.01rem solid #f1f1f1; margin-bottom:0.2rem;borderr-adius:5px;}
+        #perInfo .info-txt .icon-img{float:left;height:0.38rem;width:0.32rem;margin-right:0.24rem;}
+        #perInfo .i-name .icon-img{background:url("images/people.png") no-repeat left top; background-size:100% 100%;}
+        #perInfo .i-tel .icon-img{background:url("images/phone.png") no-repeat left top; background-size:100% 100%;}
+
+        #perInfo .info-txt input{float:left;height:0.38rem;width:3.3rem;}
+        #perInfo .submitBtn{display:block;height:0.83rem;width:4.16rem;margin:0 auto; line-height:0.83rem;text-align:center;background:url("images/btn-ability.png") no-repeat left top; background-size:100% 100%;color:#7d5600;font-size:0.34rem;}
+        #perInfo .btnDisabled{background:url("images/btnDisabled_bg.png") no-repeat left top; background-size:100% 100%;color:#fff;}
+
+        .infoBox2{height:3.1rem;width:4.36rem;padding:0.3rem 0.4rem;}
+        .infoBox2 img{display:block;height:1.04rem;width:1.04rem;margin:0 auto;}
+        .infoBox2 .txt1{height:0.9rem;line-height:0.9rem;text-align:center; font-size:0.4rem;color:#494949;}
+        .infoBox2 .txt2{line-height:0.46rem; text-align:center; color:#999; }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <p class="title"><img src="images/type_family.jpg" alt=""></p>
+        <div class="txtBox">
+            <p class="box-bg"></p>
+            <p class="cardTxt">月儿照九州，月饼解烦忧。尝一尝常开笑口，咬一咬好运拥有，瞧一瞧快乐牵手。闻一闻，幸福与你共白头。中秋愉快！</p>
+            <p class="box-bg2"></p>
+        </div>
+        <div class="gift">
+           <p class="g-title">小心意，请领取</p>
+            <div class="g-con">
+                <p class="part1">
+                    <span>¥</span>50
+                </p>
+                <p class="part2">佰仟<br>还款券</p>
+                <p class="part3">
+                    <span id="getGift">点击<br>领取</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="layoutView" class="conHide">
+        <div class="infoBox1  conHide" >
+            <i class="closeBtn"></i>
+            <form id="perInfo" action="">
+                <p class="i-title">完成信息填写，即可领券</p>
+                <p id="i-name" class="i-name info-txt">
+                    <i class="icon-img"></i>
+                    <input id="info-name" type="text" placeholder="请输入你的姓名">
+                </p>
+                <p id="i-tel" class="i-tel info-txt">
+                    <i class="icon-img"></i>
+                    <input id="info-tel" type="tel" placeholder="请输入你手机号" maxlength="11">
+                </p>
+                <button type="button" class="submitBtn btnDisabled" disabled="disabled">立即领取</button>
+            </form>
+        </div>
+        <div class="infoBox2 conHide">
+            <i class="closeBtn"></i>
+            <img src="images/success.png" alt="">
+            <p class="txt1">恭喜你，领券成功！</p>
+            <p class="txt2">佰仟小伙伴将在5个工作日内与您联系，请保持手机畅通</p>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 领取还款券弹窗
+            $("#getGift").on("click",function(){
+              $("#layoutView").removeClass("conHide");
+              $(".infoBox1").removeClass("conHide");
+            });
+
+            // 关闭
+            $(".closeBtn").on("click",function(){
+                $("#layoutView").addClass("conHide");
+                $(".infoBox1").addClass("conHide");
+                $(".infoBox2").addClass("conHide");
+            });
+
+            $("#info-tel").on("input",function(){
+               if($("#info-name").val().length != 0 && $(this).val().length == 11){
+                   $(".submitBtn").removeClass("btnDisabled").removeAttr("disabled");
+               } else {
+                   $(".submitBtn").addClass("btnDisabled").attr("disabled","disabled");
+               }
+            });
+            $("#info-name").on("input",function(){
+                if($("#info-tel").val().length == 11 && $(this).val().length != 0){
+                    $(".submitBtn").removeClass("btnDisabled").removeAttr("disabled");
+                } else {
+                    $(".submitBtn").addClass("btnDisabled").attr("disabled","disabled");
+                }
+            });
+
+
+            // 手机号验证
+            var reg1 = /^1[3|4|5|7|8]\d{9}$/;
+            $("#info-tel").on("blur",function(){
+                var $telNum = $("#info-tel").val();
+                if(!reg1.test($telNum)){ // 手机号码格式错误
+                    layerInfo("手机号格式错误，请重新填写。");
+                }
+            });
+
+            // 姓名验证
+            var regName = /[\u4E00-\u9FA5\uF900-\uFA2D]+/g;
+            $("#info-name").on("blur",function(){
+                var $telName = $("#info-name").val();
+                if($telName.length == 0){
+                    layerInfo("请填写姓名");
+                } else {
+                    if(!regName.test($telName)){ // 姓名非法字符检验
+                        layerInfo("您填写的姓名中有非法字符，请重新填写！");
+                    }
+                }
+            });
+
+
+            // 提交
+            $(".submitBtn").on("click",function(){
+                var name_value = $("#info-name").val();
+                var tel_value = $("#info-tel").val();
+
+
+
+                // 成功
+                if(1){
+                    $(".infoBox1 ").addClass("conHide");
+                    $(".infoBox2 ").removeClass("conHide");
+                }
+            });
+
+
+
+            // 弹窗信息
+            function layerInfo(str){
+                layer.open({
+                    content: str
+                    ,skin: 'msg'
+                    ,time: 2  //2秒后自动关闭
+                });
+            }
+        })
+    </script>
+</body>
+</html>

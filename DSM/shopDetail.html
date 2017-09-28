@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>门店详情</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#92a1a8;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #a9bac2; }
+
+
+        #con{min-height:100%;width:100%; background:#f0f4f5;}
+        #con .chooseBar{height:0.72rem;padding:0 0.24rem; background:#fff;border-bottom:0.01rem solid #c0d2db;overflow-x:scroll}
+        #con .chooseBar .choosers{ float:left;height:100%;min-width:9.3rem;}
+        #con .chooseBar .choosers .chooser{float:left;margin:0 0.2rem;position:relative;}
+        #con .chooseBar .choosers .chooser .txt{float:left;height:100%;width:100%;line-height:0.72rem;font-size:0.32rem;}
+        #con .chooseBar .choosers .choosed .txt{color:#2e82fc;}
+        #con .chooseBar .choosers .choosed i{display:block;height:0.11rem;width:100%;background:url("images/activedBg.png") no-repeat left top; background-size:100% 100%; position:absolute;left:0;bottom:0;}
+
+        #con .con{padding:0.45rem 0.24rem 0;}
+        #con .conHide{display:none;}
+        #con .con .shoperName{min-height:1.25rem;width:100%;margin-bottom:0.2rem;}
+        #con .con .txt1{height:0.48rem;line-height:0.48rem;padding-left:0.3rem; color:#000; border-bottom:0.01rem solid #c0d2db; position:relative;}
+        #con .con  .txt1 i{display:block;height:6px;width:6px;background:#92a1a8;border-radius:3px; position:absolute;left:0.05rem;top:50%;margin-top:-3px;}
+        #con .con  .txt2{padding-top:0.2rem;padding-left:0.3rem;line-height:0.38rem;}
+        #con .con .upTime .txt1{margin-bottom:0.2rem;}
+        #con .con .upTime .txt1 .time{color:#92a1a8;}
+
+        #con .con .flexBox{display:flex; display:-webkit-flex; margin-bottom:0.2rem;}
+        #con .con  .progressStep .step{ flex:1;-webkit-flex:1; height:1.3rem; text-align:center; }
+        #con .con  .progressStep .step .stateBox{height:0.36rem; width:100%; margin:0.16rem auto; position:relative;}
+        #con .con  .progressStep .step .stateBox i{display:block; height:0.2rem; width:0.2rem; background:#caced2; position:absolute;left:50%; margin-left:-0.1rem; top:50%;margin-top:-0.1rem; border-radius:0.1rem; z-index:10}
+        #con .con  .progressStep .step .stateBox .over{ display:none;height:0.36rem;width:0.36rem; background:url("images/stepOver.jpg") no-repeat left top; background-size:100% 100%; position:absolute;left:50%;margin-left:-0.18rem; top:50%; margin-top:-0.18rem; z-index:100  }
+        #con .con  .progressStep .step .stateBox .line-left{height:2px;width:50%; position:absolute;left:0;top:50%;margin-top:-1px; background:#caced2; z-index:10}
+        #con .con  .progressStep .step .stateBox .line-right{height:2px;width:50%; position:absolute;right:0;top:50%;margin-top:-1px; background:#caced2;z-index:10}
+        #con .con  .progressStep .step .stepName{line-height:0.3rem;text-align:center;}
+        #con .con  .progressStep .step .stepTime{line-height:0.3rem;text-align:center;}
+        #con .con  .progressStep .stepOver .stepName{color:#2e82fc;}
+        #con .con  .progressStep .stepOver .stateBox i{display:none}
+        #con .con  .progressStep .stepOver .stateBox .over{display:block;}
+        #con .con  .progressStep .stepOver .stateBox .line-left{background:#71aafe;}
+        #con .con  .progressStep .stepOver .stateBox .line-right{background:#71aafe;}
+
+        #con .con  .progressStep .stepUnOver .stepName{color:#f05474;}
+        #con .con  .progressStep .stepUnOver .stateBox i{display:none}
+        #con .con  .progressStep .stepUnOver .stateBox .over{display:block;background:url("images/stepUnPass.jpg") no-repeat left top; background-size:100% 100%;}
+        #con .con  .progressStep .stepUnOver .stateBox .line-left{background:#f05474;}
+        #con .con  .progressStep .stepUnOver .stateBox .line-right{background:#f05474;}
+        #con .con  .reason .txt2{color:#f05474; padding-top:0;}
+        #con .con  .reason .txt1{margin-bottom:0.2rem;}
+
+        #con .con .partInfo{margin-bottom:0.3rem;}
+        #con .con3 .partInfo .txt2{display:flex; display:-webkit-flex;}
+        #con .con3 .partInfo .txt2 .left{height:0.38rem;line-height:0.38rem;margin-right:0.1rem;}
+        #con .con3 .partInfo .txt2 .right{flex:1;-webkit-flex:1;line-height:0.38rem;}
+
+        #con .con4 .pictures .txt1{margin-bottom:0.2rem;}
+        #con .con4 .pictures .picsCon{height:1.40rem;padding:0 0.2rem; margin-bottom:0.4rem;overflow-x:scroll;  white-space:nowrap}
+        #con .con4 .pictures .picsCon>img{display:inline-block;height:1.28rem;width:1.78rem;margin-right:0.2rem;}
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div class="chooseBar">
+            <ul class="choosers">
+                <li class="chooser choosed">
+                    <span class="txt">审核信息</span>
+                    <i></i>
+                </li>
+                <li class="chooser">
+                    <span class="txt">关联商户信息</span>
+                    <i></i>
+                </li>
+                <li class="chooser">
+                    <span class="txt">基本信息</span>
+                    <i></i>
+                </li>
+                <li class="chooser">
+                    <span class="txt">附件信息</span>
+                    <i></i>
+                </li>
+            </ul>
+        </div>
+        <div class="conBox">
+            <div class="con con1 ">
+                <div class="shoperName">
+                    <p class="txt1">
+                        <i></i>
+                        门店名称
+                    </p>
+                    <p class="txt2">广东省深圳市罗湖区华强一路100号恒宇手机通讯全国连锁店</p>
+                </div>
+                <div class="upTime">
+                    <p class="txt1">
+                        <i></i>
+                        提交时间：<span class="time">2017/04/22 12:11:32</span>
+                    </p>
+                    <div class="detail progressStep flexBox">
+                        <div class="step step1 stepOver">
+                            <p class="stateBox">
+                                <i></i>
+                                <span class="over"></span>
+                                <span class="line-right"></span>
+                            </p>
+                            <p class="stepName">初审通过</p>
+                            <p class="stepTime">2017/06/23</p>
+                        </div>
+                        <div class="step step2 stepUnOver">
+                            <p class="stateBox">
+                                <i></i>
+                                <span class="over"></span>
+                                <span class="line-left"></span>
+                                <span class="line-right"></span>
+                            </p>
+                            <p class="stepName">协议审核不通过</p>
+                            <p class="stepTime">2017/06/23</p>
+                        </div>
+                        <div class="step step3">
+                            <p class="stateBox">
+                                <i></i>
+                                <span class="over"></span>
+                                <span class="line-left"></span>
+                            </p>
+                            <p class="stepName">全部审核</p>
+                            <p class="stepTime"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason">
+                    <p class="txt1">
+                        <i></i>
+                        打回原因
+                    </p>
+                    <p class="txt2">1、风险评估过大，不予准入。风险评估过大，不予准入。风险评估过大，不予准入。风险评估过大，不予准入</p>
+                    <p class="txt2">1、风险评估过大，不予准入。风险评估过大，不予准入。风险评估过大，不予准入。</p>
+                </div>
+            </div>
+            <div class="con con2 conHide">
+                <div class="shoperName partInfo">
+                    <p class="txt1">
+                        <i></i>
+                        零售商名称
+                    </p>
+                    <p class="txt2">广东省深圳市罗湖区华强一路100号恒宇手机通讯全国连锁店</p>
+                </div>
+                <div class="shoperReg1 partInfo">
+                    <p class="txt1">
+                        <i></i>
+                        商户注册号
+                    </p>
+                    <p class="txt2">20170214525452</p>
+                </div>
+                <div class="shoperReg2 partInfo">
+                    <p class="txt1">
+                        <i></i>
+                        门店注册号
+                    </p>
+                    <p class="txt2">0214454520</p>
+                </div>
+                <div class="shoperReg2 partInfo">
+                    <p class="txt1">
+                        <i></i>
+                        零售商名称
+                    </p>
+                    <p class="txt2">王灿灿</p>
+                </div>
+                <div class="shoperReg2 partInfo">
+                    <p class="txt1">
+                        <i></i>
+                        所在城市
+                    </p>
+                    <p class="txt2">广东省深圳市</p>
+                </div>
+            </div>
+            <div class="con con3 conHide">
+                <div class="info1 partInfo">
+                    <p class="txt1">
+                        <i></i>
+                        注册信息
+                    </p>
+                    <div class="txt2">
+                        <span class="left">门店名称: </span>
+                        <P class="right">
+                            广东省深圳市罗湖区华强一路100号恒宇手机通讯全国连锁店
+                        </P>
+                    </div>
+                    <p class="txt2">门店类型 : 连锁门店</p>
+                    <p class="txt2">是否门店从属承诺函 : 是</p>
+                    <p class="txt2">运作模式 : 自营</p>
+                </div>
+                <div class="info2 partInfo">
+                    <p class="txt1">
+                        <i></i>
+                        业务信息
+                    </p>
+                    <div class="txt2">
+                        <p class="left">营业时间 :</p>
+                        <p class="right">9:00-18:00</p>
+                    </div>
+                    <div class="txt2">
+                        <p class="left">主营品牌 : </p>
+                        <p class="right">oppo 、华为 、小米 、苹果等手机</p>
+                    </div>
+                    <div class="txt2">
+                        <p class="left">门店商品范畴 : </p>
+                        <p class="right">oppo R11 、华为荣耀</p>
+                    </div>
+                    <div class="txt2">
+                        <p class="left">负责人姓名 :</p>
+                        <p class="right">王灿灿</p>
+                    </div>
+                    <div class="txt2">
+                        <p class="left">负责人手机号 :</p>
+                        <p class="right">13815478269</p>
+                    </div>
+                    <div class="txt2">
+                        <p class="left">财务人员邮箱 :</p>
+                        <p class="right">lishjfei@126.com</p>
+                    </div>
+                    <div class="txt2">
+                        <p class="left">预计月分期贷款单量 :</p>
+                        <p class="right">999单</p>
+                    </div>
+                </div>
+            </div>
+            <div class="con con4 conHide">
+                <div class="pictures pictures1">
+                    <p class="txt1">
+                        <i></i>
+                        门店实拍照片
+                    </p>
+                    <div class="picsCon">
+                        <img src="images/filePic.jpg" alt="">
+                        <img src="images/filePic.jpg" alt="">
+                        <img src="images/filePic.jpg" alt="">
+                        <img src="images/filePic.jpg" alt="">
+                    </div>
+                </div>
+                <div class="pictures pictures2">
+                    <p class="txt1">
+                        <i></i>
+                        门店从属承诺函
+                    </p>
+                    <div class="picsCon">
+                        <img src="images/filePic.jpg" alt="">
+                        <img src="images/filePic.jpg" alt="">
+                        <img src="images/filePic.jpg" alt="">
+                        <img src="images/filePic.jpg" alt="">
+                    </div>
+                </div>
+                <div class=" pictures pictures3">
+                    <p class="txt1">
+                        <i></i>
+                        上门审查表
+                    </p>
+                    <div class="picsCon">
+                        <img src="images/filePic.jpg" alt="">
+                        <img src="images/filePic.jpg" alt="">
+                        <img src="images/filePic.jpg" alt="">
+                        <img src="images/filePic.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/zepto/zepto.js"></script>
+    <script type="text/javascript">
+
+       $(function(){
+           $(".chooser").on("click",function(){
+               $(this).addClass("choosed").siblings().removeClass("choosed");
+               $(".con").eq($(this).index()).removeClass("conHide").siblings().addClass("conHide");
+           })
+       })
+
+    </script>
+</body>
+</html>

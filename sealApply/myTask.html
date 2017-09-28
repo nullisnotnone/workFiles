@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>任务</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/myTask.css">
+</head>
+<body>
+
+    <div id="con">
+        <div class="taskLists clearfix">
+            <a class="task-list underLine" href="JavaScript:;">
+                <span class="task-name">我的任务</span>
+                <p class="task-state">
+                    <i></i>
+                    <span class="num">99+</span>
+                </p>
+            </a>
+            <a class="task-list" href="JavaScript:;">
+                <span class="task-name">任务管理报表</span>
+                <p class="task-state">
+                    <i></i>
+                    <span class="num">99+</span>
+                </p>
+            </a>
+        </div>
+        <div class="taskTools">
+            <p class="title-name">任务工具</p>
+            <div class="tools-cards clearfix">
+                <a class="tool-card" href="JavaScript:;">
+                    <img class="iconImg" src="images/icon-tool1.png" alt="">
+                    <span class="num">99+</span>
+                    <span class="tool-name">协同办单审批</span>
+                </a>
+                <a class="tool-card" href="JavaScript:;">
+                    <img class="iconImg"  src="images/icon-tool2.png" alt="">
+                    <span class="num">99+</span>
+                    <span class="tool-name">推荐办单管理</span>
+                </a>
+                <a class="tool-card" href="JavaScript:;">
+                    <img class="iconImg"  src="images/icon-tool3.png" alt="">
+                    <span class="num">99+</span>
+                    <span class="tool-name">佰仟门店采集</span>
+                </a>
+                <a class="tool-card" href="JavaScript:;">
+                    <img class="iconImg"  src="images/icon-tool4.png" alt="">
+                    <span class="num">99+</span>
+                    <span class="tool-name">非佰仟门店采集</span>
+                </a>
+                <a class="tool-card" href="JavaScript:;">
+                    <img class="iconImg"  src="images/icon-tool5.png" alt="">
+                    <span class="num">100</span>
+                    <span class="tool-name">门店公章备案</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function(){
+            var numEle = document.getElementsByClassName("num");
+            Array.from(numEle).forEach(function(ele){
+                if(parseInt(ele.innerHTML) > 99){
+                    ele.innerHTML = "99+";
+                }
+            })
+        }
+    </script>
+
+</body>
+</html>

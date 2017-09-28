@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>添加好友</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/page4.css">
+</head>
+<body>
+
+    <div class="nav-bar-box underLine">
+        <div class="navBar">
+            <p class="empty-bar"></p>
+            <p class="nav-title">意见反馈</p>
+            <span class="backBtn"><img src="images/icon-back.png" alt=""></span>
+        </div>
+    </div>
+    <div id="con">
+        <div class="qe-choose">
+            <p class="c-con">
+                <span id="qw-name">请选择您需要反馈的问题</span>
+                <i></i>
+            </p>
+        </div>
+        <div class="qe-direction">
+            <textarea name="" id="qe-direction" placeholder="请描述一下问题"></textarea>
+        </div>
+        <div class="img-file">
+            <p class="upImg"><img src="images/icon_Add.png" alt=""></p>
+            <p class="upImg"><img src="images/icon_Add.png" alt=""></p>
+            <p class="upImg"><img src="images/icon_Add.png" alt=""></p>
+        </div>
+        <p class="submitBtn">提交</p>
+    </div>
+    <div class="layOutView conHide">
+        <div class="l-con">
+            <ul class="c-lists">
+                <li class="c-list">
+                    <i class="unchecked"></i>
+                    <label for="list1">系统使用</label>
+                    <input type="radio" id="list1" name="qwCard">
+                </li>
+                <li class="c-list">
+                    <i class="unchecked"></i>
+                    <label for="list2">分期购代理</label>
+                    <input type="radio" id="list2" name="qwCard">
+                </li>
+                <li class="c-list">
+                    <i class="unchecked"></i>
+                    <label for="list3">还款方式</label>
+                    <input type="radio" id="list3" name="qwCard">
+                </li>
+                <li class="c-list">
+                    <i class="unchecked"></i>
+                    <label for="list4">还款异常</label>
+                    <input type="radio" id="list4" name="qwCard">
+                </li>
+                <li class="c-list">
+                    <i class="unchecked"></i>
+                    <label for="list5">其他问题</label>
+                    <input type="radio" id="list5" name="qwCard">
+                </li>
+            </ul>
+            <div class="btns">
+                <p class="cancel-btn btn">取消</p>
+                <p class="sure-btn btn">确认</p>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".c-con").on("click",function(){
+                $(".layOutView").removeClass("conHide");
+            });
+            $(".c-list").on("click",function(){
+                $(this).find('i').removeClass("unchecked").addClass("checked");
+                $(this).siblings().find('i').removeClass("checked").addClass("unchecked");
+            });
+            $(".cancel-btn").on("click",function(){
+                $(".layOutView").addClass("conHide");
+            });
+            $(".sure-btn").on("click",function(){
+                var resultStr = null;
+                for(var i=0; i<$(".c-list").length; i++){
+                    if($(".c-list").eq(i).find("i").hasClass("checked")){
+                        resultStr = $(".c-list").eq(i).find("label").html();
+                    }
+                }
+                $("#qw-name").html(resultStr);
+                $(".layOutView").addClass("conHide");
+            });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>佰仟融资租赁</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/repayment.css">
+    <link rel="stylesheet" href="css/layer.css">
+</head>
+<body>
+
+
+    <div id="con">
+        <div class="part1">
+            <p class="txt1">应还金额</p>
+            <p class="txt2">
+                <span class="rmb">¥</span>
+                <span class="num">1666.66</span>
+            </p>
+            <p class="txt3">
+                <span class="con1">当前还款合同号</span>
+                <span class="con2">123456789</span>
+            </p>
+        </div>
+        <p class="part2">请输入本次还款金额:</p>
+        <p class="part3">
+            <span>¥</span>
+            <input class="txtInput" type="number" placeholder="请输入还款金额">
+        </p>
+        <p class="remarkTxt1">
+            <span class="txt1">今日已还</span>
+            <span class="txt2">¥600</span>
+        </p>
+        <button class="upBtn" type="button">确认还款</button>
+    </div>
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            console.log("1235.45999".indexOf("."));
+            $(".txtInput").attr("placeholder",$(".part1 .num").html());
+
+            $(".txtInput").on("input",function(){
+                var result = Number($(this).val());
+                var shouldPay = Number($(".part1 .num").html());
+                var index = $(this).val().lastIndexOf("."); // 小数点位置
+                var len = $(this).val().length - index - 1;
+                if(result < shouldPay){
+                    if(index > 0 && len > 2){
+                        result = result.toFixed(2);
+                        $(this).val(result);
+                    }
+                    return false;
+                }
+                if(result >= shouldPay){
+                    $(this).val(shouldPay);
+                    return false;
+                }
+            });
+
+            // 还款
+            $(".upBtn").on("click",function(){
+                var repayMoney = $(".txtInput").val();
+                if(!Number($(".txtInput").val())){
+                    repayMoney = $(".part1 .num").html();
+                }
+
+                var brokerage = '¥' + (Number(repayMoney) * 0.001).toFixed(2);
+                    resultMoney = '¥'+ (Number(repayMoney) * 1.001).toFixed(2);
+                    repayMoney = '¥' + (Number(repayMoney)).toFixed(2);
+
+                layer.open({
+                    type : 1,
+                    content :'<div id="layer5">'+
+                    '<div class="box">' +
+                    '<p class="title">实际还款</p>'+
+                    '<p class="txt txt1"><span class="l-left">输入还款</span><span class="l-right">'+repayMoney+'</span></p>'+
+                    '<p class="txt txt2"><span class="l-left">微信还款手续费</span><span class="l-right">'+brokerage+'</span></p>'+
+                    '<p class="txt txt3"><span class="l-left">实际还款金额</span><span class="l-right">'+resultMoney+'</span></p>'+
+                    '<button class="repayBtn" type="button" onclick="layer.applySome()">确认还款</button>' +
+                    '</div>' +
+                    '<span class="closeBtn" onclick="layer.closeAll();"></span>' +
+                    '</div>',
+                    anim : 'up',
+                    style :'height:5.2rem; width:4.8rem;  background:transparent;  border-radius:5px; position:absolute; left:50%; margin-left:-2.4rem; bottom:3.0rem;'
+                })
+            });
+
+            // 调用微信支付接口完成付款
+            layer.applySome = function(){
+//                alert(111111);
+            }
+
+        })
+    </script>
+
+</body>
+</html>

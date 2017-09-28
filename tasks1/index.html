@@ -1,0 +1,83 @@
+﻿<!Doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="css/bootstrap3.0.min.css">
+<script type="text/javascript" src="js/jquery2.1.1.min.js"></script>
+<style>
+.all{position:absolute;height:100%;overflow:auto;width:100%;background-color:rgb(240,244,245);}
+.wdrw,.rwbbgl{height:7rem;line-height:7rem;padding-left:5.5rem;position:relative;}
+.bqmdxxcj,.fbqmdxxcj{height:7rem;padding-left:5.5rem;position:relative;border-radius:0.5rem;}
+.wdrw{background:url(images/wdrw.png) no-repeat left center/4.5rem;}
+.rwbbgl{background:url(images/rwbbgl.png) no-repeat left center/4.5rem;}
+.bqmdxxcj{background:white url(images/bqmdxxcj.png) no-repeat 1rem center/3.5rem;}
+.fbqmdxxcj{background:white url(images/fbqmdxxcj.png) no-repeat 1rem center/3.5rem;margin-top:1rem;}
+.head{background-color:white;padding:0 1.5rem;}
+.wdrw:after{content: "";display: block;position: absolute;left:-50%;width:200%;
+height:1px;background:rgb(200,200,200);-ms-transform: scale(0.5);/* IE 9 */-webkit-transform:scale(0.5);/* Safari */transform: scale(0.5); /* 标准语法 */}
+.color_gray{color:rgb(146,161,168);}
+.right_ico{position:absolute;right:0;height:100%;width:3.5rem;top:0;background:url('images/right_ico.png') no-repeat center center/auto 2rem}
+@media screen and (max-width:350px){
+	.right_ico{width:2rem}
+}
+.content{margin:2.5rem 1.5rem 0;}
+.first{height:4rem;line-height:5.5rem;font-size:120%;}
+.last{height:3rem;line-height:2rem;color:rgb(146,161,168)}
+.con{position:absolute;left:2.5rem;top:1rem;background-color:rgb(240,84,116);padding:0 0.7rem;border-radius:1.5rem;color:white;}
+.nav{position:absolute;bottom:0;width:100%;background-color:white;}
+.nav:after{content: "";display:block;position:absolute;left:-50%;width:200%;
+height:1px;background:rgb(146,161,168);top:0;-ms-transform: scale(0.5);/* IE 9 */-webkit-transform:scale(0.5);/* Safari */transform: scale(0.5); /* 标准语法 */}
+.nav div{height:5.5rem;text-align:center;padding-top:3.5rem;}
+.bak_gl{background:url(images/gl.png) no-repeat center 0.2rem/auto 100%;color:rgb(146,161,168);}
+.bak_rw{background:url(images/rw.png) no-repeat center 0.2rem/auto 100%;color:rgb(46,130,252);}
+.bak_tz{background:url(images/tz.png) no-repeat center 0.2rem/auto 100%;color:rgb(146,161,168);}
+.bak_wd{background:url(images/wd.png) no-repeat center 0.2rem/auto 100%;color:rgb(146,161,168);}
+</style>
+</head>
+
+<body>
+
+	<div class="all">
+		<div class="head">
+			<div class="wdrw">我的任务</div>
+			<div class="rwbbgl">
+				任务管理报表
+				<div class="right_ico" style="right:0"></div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="color_gray">我的项目(2)</div>
+			<div class="bqmdxxcj">
+				<div class="con">04</div>
+				<div class="first">佰仟门点信息采集</div>
+				<div class="last">完成情况: 20/40</div>
+				<div class="right_ico"></div>
+			</div>
+			<div class="fbqmdxxcj">
+				<div class="con">03</div>
+				<div class="first">非佰仟门点信息采集</div>
+				<div class="last">完成情况: 20/40</div>
+				<div class="right_ico"></div>
+			</div>
+		</div>
+
+		<div class="nav overhid">
+			<div class="col-xs-3 bak_gl">管理</div>
+			<div class="col-xs-3 bak_rw">任务</div>
+			<div class="col-xs-3 bak_tz">挑战</div>
+			<div class="col-xs-3 bak_wd">我的</div>
+		</div>
+	</div>
+		
+		
+
+<script>
+$(document).ready(function(){
+
+});
+</script>
+</body>
+
+</html>

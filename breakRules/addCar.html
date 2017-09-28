@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>添加车辆</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/sm.min.css">
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box !important; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#999;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        *::-webkit-input-placeholder {  color: #d6d6db;}
+        p{margin:0 ; }
+
+        #con {height:100%; padding:0 0.24rem; background:#edf1f2;}
+        #con .underLine:after{content:""; display:block; height:1px; width:100%; background:#e6e8e8;position:absolute;left:0;bottom:0;transform: scaleY(0.5); -webkit-transform: scaleY(0.5);}
+        #con .break-title{height:0.66rem; width:100%; line-height:0.66rem; font-size:0.22rem;}
+        #con .con{min-height:5.0rem; width:100%;}
+        #con .con .searchBox{min-height:3.0rem;padding:0 0.3rem; margin:0 auto; background:#fff;border:0.01rem solid #e6e8e8;border-radius:10px;}
+        #con .con .searchBox .partInfo{height:0.32rem; padding:0.26rem; display:block;  position:relative;}
+        #con .con .searchBox .partInfo .left{display:block;height:0.32rem; line-height:0.32rem; width:1.34rem; position:absolute;left:0.26rem; top:0.26rem; border-right:0.01rem solid #999; font-size:0.28rem; color:#000; margin-right:0.2rem;}
+        #con .con .searchBox .partInfo .right{padding-left:1.5rem; position:relative;}
+        #con .con .searchBox .partInfo .right i{display:block;height:0.3rem;width:0.3rem; position:absolute; right:0.2rem;top:0.02rem;}
+        #con .con .searchBox .partInfo .right .remarkBtn{background:url("images/remarkBth.png") no-repeat left top; background-size:100% 100%;}
+        #con .con .searchBox .info1 .right .cityBg{display:block;height:0.32rem;width:0.19rem; background:url("images/serCityBg.png") no-repeat left top; background-size:100% 100%;position:absolute;left:; }
+        #con .con .searchBox input{float:left;width:3.2rem; height:0.32rem;line-height:0.32rem;}
+        #con .con .searchBox .info2 .chooseBox{float:left; font-size:0.28rem; height:0.4rem; line-height:0.4rem; width:0.8rem; margin-right:0.2rem; margin-top:-0.04rem; color:#2993f7; padding-left:0.2rem; background:url("images/chooseBtnBg.png") no-repeat left top; background-size:100% 100%; }
+        #con .con .searchBox .info2 input{float:left; width:2.0rem; height:0.32rem; line-height:0.32rem; }
+
+        #con .con .searchBtn{display:block;height:0.8rem;line-height:0.8rem;width:4.8rem;text-align:center;background:#ff7143; margin:0.8rem auto; font-size:0.32rem; color:#fff; border-radius:5px;}
+
+
+
+        #con .comInfo{height:0.7rem;width:100%;position:fixed;left:0;bottom:0.2rem;}
+        #con .comInfoHide{display:none;}
+        #con .comInfo .txt1{height:0.4rem;line-height:0.4rem;width:100%;text-align:center;color:#000; font-size:0.24rem;}
+        #con .comInfo .txt2{height:0.3rem;line-height:0.4rem;width:100%;text-align:center; font-size:0.24rem;}
+        .provinces{min-height:1.0rem;padding:0.02rem 0.2rem; background:#c9c9c9; position:fixed;left:0;bottom:0; z-index:10;}
+        .provincesHide{display:none;}
+        .provinces .ProvinceCard{float:left;height:0.78rem; width:0.58rem; margin:0.15rem 0.04rem;line-height:0.78rem;text-align:center;background:#ededed;font-size:0.36rem;color:#000;border-top:0.01rem solid #fff;border-bottom:0.01rem solid #959595;border-radius:5px;}
+        .provinces .cardChecked{background:#fff; color:#2993f7; font-weight:700;}
+
+        #layer0 .txt{float:left; min-height:0.88rem; width:100%; line-height:0.44rem; font-size:0.28rem;color:#fff;text-align:center;}
+        #layer1 .con{width:4.48rem; height:3.0rem; margin:0 auto; margin-bottom:0.3rem; background:url("images/paper.png") no-repeat left top; background-size:100% 100%;  }
+        #layer1 .btn{height:0.58rem;width:2.7rem; line-height:0.58rem; text-align:center; background:#ff7143; color:#fff; margin:0 auto; border-radius:5px;}
+
+
+        /*城市选择器*/
+        .picker-columns{height:5.2rem;width:100%;}
+        .picker-items{font-size:0.40rem;background:#fff; -webkit-mask-box-image:none;}
+        .topPart{height:1.5rem;width:100%;background:#fff;position:relative; color:#000;border-bottom:1px solid #ededed;}
+        .top-title{height:1.5rem;line-height:1.5rem;width:100%;text-align:center;font-size:0.36rem;}
+        .close-picker{display:block;height:0.6rem;width:1.4rem;line-height:0.6rem;text-align:center;font-size:0.36rem;  color:#fff; border-radius:5px;}
+        .sureBtn{position:absolute;right:0.4rem;top:0.45rem; background:#ff795c;}
+        .cancelBtn{position:absolute;left:0.4rem;top:0.45rem; background:#999;}
+        .picker-center-highlight{margin-top:-58px;}
+        .picker-items-col-wrapper{margin-top:-40px;}
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <p class="break-title">所填信息位当地交管局查询所需，您的信息将严格保密</p>
+        <div class="con">
+            <div class="searchBox">
+                <div class="partInfo info1 underLine">
+                    <span class="left">查询城市</span>
+                    <p class="right">
+                        <input id="cityBox" type="text">
+                        <i class="cityBg"></i>
+                    </p>
+                </div>
+                <div class="partInfo info2 underLine">
+                    <span class="left">车牌号码</span>
+                    <div class="right">
+                        <p class="chooseBox" id="chooseBox">
+                            省
+                        </p>
+                        <input id="carNum" type="text" placeholder="请输入车牌号码">
+                    </div>
+                </div>
+                <div class="partInfo info3 underLine" id="carBody">
+                    <span class="left">车架号码</span>
+                    <p class="right">
+                        <input id="bodyNum" type="text" placeholder="请输入车架号后6位">
+                        <i class="remarkBtn"></i>
+                    </p>
+                </div>
+                <div class="partInfo info4" id="carEngine">
+                    <span class="left">发动机号</span>
+                    <p class="right">
+                        <input id="engineNum" type="text" placeholder="请输入发动机号后4位">
+                        <i class="remarkBtn"></i>
+                    </p>
+                </div>
+            </div>
+            <button type="button" class="searchBtn" >查询</button>
+        </div>
+        <div class="comInfo">
+            <p class="txt1">如有任何疑问，可联系车行易客服: 400-6022-688</p>
+            <p class="txt2">当前技术由车行易提供</p>
+        </div>
+    </div>
+    <div class="provinces provincesHide">
+        <span class="ProvinceCard">京</span>
+        <span class="ProvinceCard">津</span>
+        <span class="ProvinceCard">沪</span>
+        <span class="ProvinceCard">渝</span>
+        <span class="ProvinceCard">冀</span>
+        <span class="ProvinceCard">豫</span>
+        <span class="ProvinceCard">云</span>
+        <span class="ProvinceCard">辽</span>
+        <span class="ProvinceCard">黑</span>
+        <span class="ProvinceCard">湘</span>
+        <span class="ProvinceCard">皖</span>
+        <span class="ProvinceCard">鲁</span>
+        <span class="ProvinceCard">新</span>
+        <span class="ProvinceCard">苏</span>
+        <span class="ProvinceCard">浙</span>
+        <span class="ProvinceCard">赣</span>
+        <span class="ProvinceCard">鄂</span>
+        <span class="ProvinceCard">桂</span>
+        <span class="ProvinceCard">甘</span>
+        <span class="ProvinceCard">晋</span>
+        <span class="ProvinceCard">蒙</span>
+        <span class="ProvinceCard">陕</span>
+        <span class="ProvinceCard">吉</span>
+        <span class="ProvinceCard">闽</span>
+        <span class="ProvinceCard">贵</span>
+        <span class="ProvinceCard">粤</span>
+        <span class="ProvinceCard">青</span>
+        <span class="ProvinceCard">藏</span>
+        <span class="ProvinceCard">川</span>
+        <span class="ProvinceCard">宁</span>
+        <span class="ProvinceCard">琼</span>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/sm.min.js"></script>
+    <script src="js/sm-city-picker1.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+
+        // 禁止页面上下滚动
+//        document.querySelector('body').addEventListener('touchstart', function (ev) {
+//            event.preventDefault();
+//        });
+
+        if(document.referrer){
+            location.reload();
+        }
+
+
+        $(function(){
+            var flag = false;
+            var carnumber = "";
+            var carcode = "";
+            var cardrivenumber = "";
+            var cityid = "";
+            var CarCodeLen = 0;
+            var CarEngineLen = 0;
+            var jsonObj = {
+                "1301": {
+                    "CityID": 1301,
+                    "CityName": "河北石家庄",
+                    "Name": "石家庄",
+                    "CarNumberPrefix": "冀A",
+                    "CarCodeLen": 4,
+                    "CarEngineLen": 0,
+                    "CarOwnerLen": 0
+                },
+                "1302": {
+                    "CityID": 1302,
+                    "CityName": "河北唐山",
+                    "Name": "唐山",
+                    "CarNumberPrefix": "冀B",
+                    "CarCodeLen": 4,
+                    "CarEngineLen": 0,
+                    "CarOwnerLen": 0
+                },
+                "1303": {
+                    "CityID": 1303,
+                    "CityName": "河北秦皇岛",
+                    "Name": "秦皇岛",
+                    "CarNumberPrefix": "冀C",
+                    "CarCodeLen": 4,
+                    "CarEngineLen": 0,
+                    "CarOwnerLen": 0
+                },
+                "1304": {
+                    "CityID": 1304,
+                    "CityName": "河北邯郸",
+                    "Name": "邯郸",
+                    "CarNumberPrefix": "冀D",
+                    "CarCodeLen": 4,
+                    "CarEngineLen": 0,
+                    "CarOwnerLen": 0
+                },
+                "1305": {
+                    "CityID": 1305,
+                    "CityName": "河北邢台",
+                    "Name": "邢台",
+                    "CarNumberPrefix": "冀E",
+                    "CarCodeLen": 4,
+                    "CarEngineLen": 0,
+                    "CarOwnerLen": 0
+                },
+                "1306": {
+                    "CityID": 1306,
+                    "CityName": "河北保定",
+                    "Name": "保定",
+                    "CarNumberPrefix": "冀F",
+                    "CarCodeLen": 4,
+                    "CarEngineLen": 4,
+                    "CarOwnerLen": 0
+                }
+
+            };
+//            var postData = {
+//                "carnumber" : "",
+//                "carcode" : "",
+//                "cardrivenumber" : "",
+//                "cityid" : ""
+//            };
+            // 城市选择器
+            $("#cityBox").cityPicker({
+                toolbarTemplate: '<header class="topPart">\
+                <button class=" sureBtn  close-picker">确定</button>\
+                <div class="top-title">选择所在城市</div>\
+                </header>'
+            });
+
+            // 查询要求变化
+            $("#cityBox").on("change",function(){
+                $("#carNum").val("");
+                $("#bodyNum").val("");
+                $("#engineNum").val("");
+                $("#chooseBox").html("省");
+                $("#carBody").show();
+                $("#carEngine").show();
+            });
+
+            // 省份选择框弹出
+            $("#chooseBox").on("click",function(){
+                var _index = 0;
+                $(".provinces").removeClass("provincesHide");
+                $("#carBody").show();
+                $("#bodyNum").val("");
+                $("#engineNum").val("");
+                $("#carEngine").show();
+                CarCodeLen = 0;
+                CarEngineLen = 0;
+
+                var strCity =  $("#cityBox").val().replace(" ","");
+                var strCity_z = strCity.substring(0,2);
+                if(strCity_z == "北京" || strCity_z == "上海" || strCity_z == "天津" || strCity_z == "重庆"){
+                    strCity = strCity_z;
+                }
+                console.log(strCity);
+                for(var x in jsonObj){
+                    _index++;
+                    if(strCity == jsonObj[x].CityName ){
+                        console.log(jsonObj[x].CarEngineLen == 0);
+                        cityid = jsonObj[x].CityID;
+                        CarCodeLen = jsonObj[x].CarCodeLen;
+                        CarEngineLen = jsonObj[x].CarEngineLen;
+                        if(jsonObj[x].CarCodeLen == 0){
+                            $("#carBody").hide();
+                        } else if(jsonObj[x].CarCodeLen == 99){
+                            $("#bodyNum").attr("placeholder" , "请输入完整的车架号码")
+                        } else {
+                            $("#bodyNum").attr("placeholder" , '请输入车架号码后'+ jsonObj[x].CarCodeLen +'位')
+                        }
+                        if(jsonObj[x].CarEngineLen == 0){
+                            $("#carEngine").hide();
+                        } else if(jsonObj[x].CarEngineLen == 99){
+                            $("#engineNum").attr("placeholder" , "请输入完整的车架号码")
+                        } else {
+                            $("#engineNum").attr("placeholder" , '请输入发动机号码后'+ jsonObj[x].CarEngineLen +'位')
+                        }
+                        break;
+                    } else if(_index == Object.getOwnPropertyNames(jsonObj).length){
+                        $(".provinces").addClass("provincesHide");
+                        layer.open({
+                            type : 1,
+                            content :'<div id="layer0">' +
+                            '<p class="txt">该城市暂时无法提供查询服务</p>' +
+                            '</div>',
+                            anim : 'up',
+                            style :'min-height:0.88rem; width:3.0rem; padding:0.45rem  0.3rem; background:#000; border-radius:5px;'
+                        });
+                    }
+                }
+            });
+
+            // 选择省份
+            $(".ProvinceCard").on("click",function(){
+                $(this).addClass("cardChecked").siblings().removeClass("cardChecked");
+                $("#chooseBox").html($(this).html());
+                $(".provinces").addClass("provincesHide");
+            });
+
+            // 提示消息
+            $(".remarkBtn").on("click",function(){
+                layer.open({
+                    type : 1,
+                    content :'<div id="layer1">' +
+                    '<p class="con"></p>' +
+                    '<p class="btn" onclick="layer.closeAll()">确定</p>' +
+                    '</div>',
+                    anim : 'up',
+                    style :'height:4.1rem; padding-top:0.2rem; width:4.8rem; margin:0 auto; border-radius:5px;'
+                });
+            });
+
+            // 车牌号转大写
+            $("#carNum").on("input",function(){
+                $(this).val($(this).val().toUpperCase());
+            });
+
+            // 车牌号校验
+            var reg1 = /[A-Z0-9]{6}/g;
+            $("#carNum").on("blur",function(){
+                $(".comInfo").removeClass("comInfoHide");
+                if(!reg1.test($("#carNum").val())){
+                    layer.open({
+                        type : 1,
+                        content :'<div id="layer0">' +
+                        '<p class="txt">车牌号信息输入有误<br>请确认后重填</p>' +
+                        '</div>',
+                        anim : 'up',
+                        style :'min-height:0.88rem; width:3.0rem; padding:0.45rem  0.3rem; background:#000; border-radius:5px;'
+                    });
+                    $(this).val("");
+                }
+            });
+
+            // 车架号校验
+            $("#bodyNum").on("blur",function(){
+                $(".comInfo").removeClass("comInfoHide");
+                if(CarCodeLen != 0 && CarCodeLen != 99){
+                    if($(this).val().length != CarCodeLen){
+                        layer.open({
+                            content: '车架号码格式不正确，请重新填写'
+                            ,skin: 'msg'
+                            ,time: 2 //2秒后自动关闭
+                        });
+                    }
+                    $(this).val("");
+                    return false;
+                }
+            });
+
+            // 引擎号校验
+            $("#engineNum").on("blur",function(){
+                $(".comInfo").removeClass("comInfoHide");
+                if(CarEngineLen != 0 && CarEngineLen != 99){
+                    if($(this).val().length != CarEngineLen){
+                        layer.open({
+                            content: '引擎号码格式不正确，请重新填写'
+                            ,skin: 'msg'
+                            ,time: 2 //2秒后自动关闭
+                        });
+                    }
+                    $(this).val("");
+                    return false;
+                }
+            });
+
+
+            // 查询
+            $(".searchBtn").on("click",function(){
+                var carnumber = $("#chooseBox").html() + $("#carNum").val();
+                var carcode = $("#bodyNum").val();
+                var cardrivenumber = $("#engineNum").val();
+
+//                console.log(CarCodeLen);
+//                console.log(CarEngineLen);
+                if(CarCodeLen>0 && CarEngineLen>0 ){
+                    if(carcode && cardrivenumber){
+                        flag = true;
+                    }
+                } else if(CarCodeLen>0 && CarEngineLen == 0 ){
+                    if(carcode){
+                        flag = true;
+                    }
+                } else if(CarCodeLen == 0 && CarEngineLen>0 ){
+                    if(cardrivenumber){
+                        flag = true;
+                    }
+                }
+
+                if(flag) {
+                    $.ajax({
+                        "url": "",
+                        "type": "post",
+                        "data": {
+                            "carnumber": carnumber,
+                            "carcode": carcode,
+                            "cardrivenumber": cardrivenumber,
+                            "cityid": cityid
+                        },
+                        "dataType": "json",
+                        "success": function (data) {
+                            if (data.code == "100") {
+                                location.href = "";
+
+                            } else if (data.code == "10000") {
+
+                                location.href = "";
+
+                            } else if (data.code == "10001") {
+                                layer.open({
+                                    type: 1,
+                                    content: '<div id="layer0">' +
+                                    '<p class="txt">您填写的信息输入有误<br>请确认后重填</p>' +
+                                    '</div>',
+                                    anim: 'up',
+                                    style: 'min-height:0.88rem; width:3.0rem; padding:0.45rem  0.3rem; background:#000; border-radius:5px;'
+                                });
+                            }
+                        }
+                    });
+                } else {
+                    layer.open({
+                        type: 1,
+                        content: '<div id="layer0">' +
+                        '<p class="txt">您填写的信息不完整<br>请填写完整后在提交</p>' +
+                        '</div>',
+                        anim: 'up',
+                        style: 'min-height:0.88rem; width:3.0rem; padding:0.45rem  0.3rem; background:#000; border-radius:5px;'
+                    });
+                }
+            });
+
+            $("input").on("focus",function(){
+                if($(this).get(0).id != "cityBox"){
+                    $(".comInfo").addClass("comInfoHide");
+                }
+            });
+        })
+    </script>
+</body>
+</html>

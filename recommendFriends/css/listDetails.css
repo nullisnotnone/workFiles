@@ -1,0 +1,57 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#888;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+
+
+#con{min-height:100%; width:100%; background:#efefef;}
+
+#con .part1{height:4.2rem;padding:0  0.3rem; padding-top:0.55rem;background:#f4415f; margin-bottom:0.88rem; position:relative;}
+#con .part1 .box{height:3.24rem;width:3.24rem;background:url("../images/t01.png") no-repeat left top; background-size:100% 100%; margin:0 auto; position:relative;}
+#canvas{height:100%;width:100%;position:absolute;left:0;top:0;}
+#con .part1 .box .txt1{padding-top:1.0rem;height:0.78rem;width:100%;line-height:0.78rem;text-align:center;font-size:0.78rem;color:#fff;margin-bottom:0.35rem;}
+#con .part1 .box .txt1 .text{height:0.28rem;line-height:0.28rem;font-size:0.28rem;}
+#con .part1 .box .txt2{height:0.28rem;line-height:0.28rem;color:#fff;width:100%;text-align:center;}
+#con .part1 .btns{width:6.0rem;height:0.5rem;margin:0 auto;}
+#con .part1 .btns .btn1{float:left; height:0.5rem;}
+#con .part1 .btns .btn2{float:right; height:0.5rem;}
+#con .part1 .btns .btn i{float:left; height:0.3rem; width:0.3rem;margin-right:0.1rem; margin-top:0.1rem;}
+#con .part1 .btns .btn span{float:left;height:0.5rem;line-height:0.5rem;color:#fff;}
+#con .part1 .btns .btn1 i{background:url("../images/t02.png") no-repeat left top;background-size:100% 100%; }
+#con .part1 .btns .btn2 i{background:url("../images/t02.png") no-repeat left top;background-size:100% 100%; }
+#con .part1 .outLink{display:block;height:0.98rem;width:6.0rem;line-height:0.98rem;text-align:center;background:#fff;color:#984e21;font-size:0.36rem;margin:0 auto;border-radius:5px;}
+
+#con .part2{height:auto;width:100%;background:#fff;}
+#con .part2 .friendsList{height:auto; width:100%;}
+#con .part2 .friendsList .list{height:1.0rem; padding:0.3rem; position:relative;}
+#con .part2 .friendsList .list:after{content:""; display:block; height:1px; width:100%; background:#e4e4e4;transform: scaleY(0.5);-webkit-transform: scaleY(0.5);position:absolute;left:0;bottom:0;}
+#con .part2 .friendsList .list .left{float:left;height:100%;width:4.0rem;}
+#con .part2 .friendsList .list .left .selfImg{float:left; height:1.0rem; width:1.0rem;border-radius:50%;border:1px  solid #e4e4e4; margin-right:0.2rem; }
+#con .part2 .friendsList .list .left .name{float:left;height:0.5rem;line-height:0.5rem;width:2.7rem;font-size:0.28rem;}
+#con .part2 .friendsList .list .left .concatNum{float:left; height:0.5rem; line-height:0.5rem; width:2.7rem;}
+#con .part2 .friendsList .list .right{float:right;height:1.0rem;position:relative;}
+#con .part2 .friendsList .list .right .state{height:0.5rem;line-height:0.5rem;font-size:0.28rem;color:#984e21;text-align:right;}
+#con .part2 .friendsList .list .right .state .shakeBtn{display:block;height:0.5rem;line-height:0.5rem;width:1.2rem;text-align:center;color:#fff;background:#f4415f;position:absolute;right:0;bottom:0;border-radius:4px;}
+#con .part2 .friendsList .list .right .state .stateHide{display:none;}
+#con .part2 .friendsList .list .right{float:right;height:0.5rem;line-height:0.5rem;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

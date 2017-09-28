@@ -1,0 +1,50 @@
+@charset "utf-8";
+* {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.32rem; color:#888;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+
+
+#top{height:6.34rem;width:100%;}
+#top .top_img{float:left;height:6.34rem;width:100%;}
+
+#con{min-height:5.0rem; width:100%; background:#ec5e24;}
+#con .remark_txt{ height:1.5rem; width:90%; margin:0 auto;line-height:1.5rem; color:#fff;font-size:0.28rem; }
+
+#checkboxs{min-height: 3.3rem; width:80%; margin-left:15%; }
+#checkboxs label{display:block; height:0.56rem; width:100%; padding-left:0.8rem;line-height:0.56rem; color:#f8cabf; box-sizing:border-box; -webkit-box-sizing: border-box; position:relative;}
+#checkboxs ._checked{color:#fff;}
+#checkboxs label input{position:absolute; left:-999px;top:0; }
+#checkboxs label ._out{height:0.28rem;width:0.28rem;position:absolute;left:0;top:0.14rem; background:url("../images/32.png") no-repeat left top ; background-size:cover;}
+#checkboxs label  ._enter{height:0.28rem;width:0.28rem;position:absolute;left:0;top:0.14rem; background:url("../images/31.png") no-repeat left top ; background-size:cover;}
+#checkboxs .submitBtn{height:0.78rem;width:5.0rem;line-height:0.78rem;text-align:center; font-weight:700;font-size:0.32rem;color:#ec5e24;border-radius:6px;background:#fff;box-shadow: 0 5px 0 0  #888; font-family: "Microsoft YaHei"; margin:0.7rem 0;}
+
+
+.layer_con {height:5.2rem; width:5.2rem; }
+.layer_con ._close { height:0.65rem; width:0.65rem; margin:0 auto; margin-bottom:0.3rem; }
+.layer_con .con_box {height:4.25rem;width:100%;background:#fff;padding-top:0.64rem; border-radius: 10px}
+.layer_con .con_box>img {height:1.5rem;width:1.5rem;margin:0 auto; margin-bottom:0.54rem;}
+.layer_con .con_box ._txt { width:100%;text-align:center; }
+.layer_con .con_box ._txt1{height:0.38rem; font-size:0.38rem; line-height:0.38rem; font-weight:700; color:#ec5e24; margin-bottom:0.25rem;}
+.layer_con .con_box ._txt2{height:0.32rem;width:85%; margin:0 auto;font-size:0.24rem; line-height:0.40rem;color:#999; text-align:center;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

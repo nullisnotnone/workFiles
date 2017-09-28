@@ -1,0 +1,85 @@
+/**** for index *****/
+.logo-head a{
+   float: left;
+   margin-top: 1rem;
+}
+.logo-head span{
+	float: left;
+	margin-top: 1.5rem;
+}
+.linear-line {
+	background:#ffea02;
+}
+.icon-introduce {
+	position: relative;
+}
+.head-title {
+	margin: 0 auto;
+}
+.title3-img {
+	margin-top: 8rem;
+}
+.swiper-container-vertical > .swiper-pagination-bullets {
+	top: 40%;
+}
+.icon-left {
+	top: 33%;
+}
+.title4-img {
+	margin-top: 5rem;
+}
+.title2-img {
+	margin-top: 8rem;
+}
+.ie-center {
+	margin-left: 9rem;
+}
+
+/***** for detail *****/
+.form-title {
+	overflow: hidden;
+}
+.form-title p{
+	text-align: center;
+	margin-top: 1rem;
+	display: block;
+}
+.submit button {
+	display: block;
+	margin: 0 auto;
+}
+.icon-introduce {
+	text-align: center;
+}
+.tips {
+	margin:0 auto;
+	margin-top: 39px;
+}
+.foot-contact span a {
+	display: block;
+	margin-top: 6px;
+}
+.end-list, .end p{
+	margin-top: 20px;
+}
+.third-container .icon-list li {
+	text-align: center;
+}
+.four-container .icon-list {
+	text-align: center;
+}
+.class {
+	display: inline-block;
+}
+.third-container .icon-list img {
+	display: inline;
+}
+.four-container .icon-list li:nth-child(2n) img {
+	margin-top: 1.2rem;
+}
+.yanzhengma {
+	text-align: center;
+}
+.yanzhengma img {
+	margin-top: 5px
+}

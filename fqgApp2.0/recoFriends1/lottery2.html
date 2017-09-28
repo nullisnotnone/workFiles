@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>抽奖</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/lottery2.css">
+</head>
+<body>
+
+    <div id="con">
+        <div class="topPart">
+            <div class="lotteryMed">
+                <div class="l-part1">
+                    <div class="p-box">
+                        <div class="box box1">
+                            <p class="img-list img-list1 clearfix">
+                                <span class="num-card">6</span>
+                            </p>
+                        </div>
+                        <div class="box box2">
+                            <p class="img-list img-list2 clearfix">
+                                <span class="num-card">6</span>
+                            </p>
+                        </div>
+                        <div class="box box3">
+                            <p class="img-list img-list3 clearfix">
+                                <span class="num-card">6</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <p class="l-txt">PLAY , 立即摇奖</p>
+                <div class="btn-box"><p class="startBtn">PLAY</p></div>
+                <p class="p-bottom"></p>
+            </div>
+        </div>
+        <div class="downPart">
+            <div class="awardsNames">
+                <p class="t-bg"></p>
+                <p class="emptyBox"></p>
+                <div class="n-con">
+                    <p class="n-con-title">
+                        <span class="left"></span>
+                        <span class="middle">中奖名单</span>
+                        <span class="right"></span>
+                    </p>
+                    <div class="n-con-lists">
+                        <div class="list-box">
+                            <div class="nc-list">
+                                <p class="phoneNum">18523653056</p>
+                                <p class="award-name">10元抵扣券</p>
+                            </div>
+                            <div class="nc-list">
+                                <p class="phoneNum">18523653056</p>
+                                <p class="award-name">10元抵扣券</p>
+                            </div>
+                            <div class="nc-list">
+                                <p class="phoneNum">18523653056</p>
+                                <p class="award-name">10元抵扣券</p>
+                            </div>
+                            <div class="nc-list">
+                                <p class="phoneNum">18523653056</p>
+                                <p class="award-name">10元抵扣券</p>
+                            </div>
+                            <div class="nc-list">
+                                <p class="phoneNum">18523653056</p>
+                                <p class="award-name">10元抵扣券</p>
+                            </div>
+                            <div class="nc-list">
+                                <p class="phoneNum">18523653056</p>
+                                <p class="award-name">10元抵扣券</p>
+                            </div>
+                            <div class="nc-list">
+                                <p class="phoneNum">18523653056</p>
+                                <p class="award-name">10元抵扣券</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="do-btns">
+                <p class="rule-btn btn">查看活动规则</p>
+                <p class="rule-record btn">中奖记录</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/layer.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var eleStr0 = '<span class="num-card">0</span>';
+            var eleStr1 = '<span class="num-card">0</span><span class="num-card">1</span>';
+            var eleStr2 = '<span class="num-card">0</span><span class="num-card">1</span><span class="num-card">2</span>';
+            var eleStr3 = '<span class="num-card">0</span><span class="num-card">1</span><span class="num-card">2</span><span class="num-card">3</span>';
+            var eleStr4 = '<span class="num-card">0</span><span class="num-card">1</span><span class="num-card">2</span><span class="num-card">3</span><span class="num-card">4</span>';
+            var eleStr5 = '<span class="num-card">0</span><span class="num-card">1</span><span class="num-card">2</span><span class="num-card">3</span><span class="num-card">4</span><span class="num-card">5</span>';
+            var eleStr6 = '<span class="num-card">0</span><span class="num-card">1</span><span class="num-card">2</span><span class="num-card">3</span><span class="num-card">4</span><span class="num-card">5</span><span class="num-card">6</span>';
+            var eleStr7 = '<span class="num-card">0</span><span class="num-card">1</span><span class="num-card">2</span><span class="num-card">3</span><span class="num-card">4</span><span class="num-card">5</span><span class="num-card">6</span><span class="num-card">7</span>';
+            var eleStr8 = '<span class="num-card">0</span><span class="num-card">1</span><span class="num-card">2</span><span class="num-card">3</span><span class="num-card">4</span><span class="num-card">5</span><span class="num-card">6</span><span class="num-card">7</span><span class="num-card">8</span>';
+            var eleStr9 = '<span class="num-card">0</span><span class="num-card">1</span><span class="num-card">2</span><span class="num-card">3</span><span class="num-card">4</span><span class="num-card">5</span><span class="num-card">6</span><span class="num-card">7</span><span class="num-card">8</span><span class="num-card">9</span>';
+            var eleStr10 = '<span class="num-card"><i></i></span>';
+            var flag = false , awardResult = null;
+            function moveCircle(num1){
+                var numIn = num1 + "";
+                var n1 = numIn.substr(0,1);
+                var n2 = 0;
+                var n3 = numIn.substr(2,1);
+
+                console.log(n1 , n2 , n3);
+
+                for(var i=1; i<=3;i++){
+                    if(i == 3){
+                        if(n1 == 0){
+                            $(".img-list1").append(eleStr0);
+                        } else if(n1 == 1){
+                            $(".img-list1").append(eleStr1);
+                        } else if(n1 == 2){
+                            $(".img-list1").append(eleStr2);
+                        } else if(n1 == 3) {
+                            $(".img-list1").append(eleStr3);
+                        } else if(n1 == 4) {
+                            $(".img-list1").append(eleStr4);
+                        } else if(n1 == 5) {
+                            $(".img-list1").append(eleStr5);
+                        } else if(n1 == 6) {
+                            $(".img-list1").append(eleStr6);
+                        } else if(n1 == 7) {
+                            $(".img-list1").append(eleStr7);
+                        } else if(n1 == 8) {
+                            $(".img-list1").append(eleStr8);
+                        } else if(n1 == 9) {
+                            $(".img-list1").append(eleStr9);
+                        }
+                        break;
+                    } else {
+                        $(".img-list1").append(eleStr9);
+                    }
+                }
+                for(var i=1; i<=4;i++){
+                    if(i == 4){
+                        $(".img-list2").append(eleStr10);
+                        break;
+                    } else {
+                        $(".img-list2").append(eleStr9);
+                    }
+                }
+                for(var i=1; i<=5;i++){
+                    if(i == 5){
+                        if(n3 == 0){
+                            $(".img-list3").append(eleStr0);
+                        } else if(n3 == 1){
+                            $(".img-list3").append(eleStr1);
+                        } else if(n3 == 2){
+                            $(".img-list3").append(eleStr2);
+                        } else if(n3 == 3) {
+                            $(".img-list3").append(eleStr3);
+                        } else if(n3 == 4) {
+                            $(".img-list3").append(eleStr4);
+                        } else if(n3 == 5) {
+                            $(".img-list3").append(eleStr5);
+                        } else if(n3 == 6) {
+                            $(".img-list3").append(eleStr6);
+                        } else if(n3 == 7) {
+                            $(".img-list3").append(eleStr7);
+                        } else if(n3 == 8) {
+                            $(".img-list3").append(eleStr8);
+                        } else if(n3 == 9) {
+                            $(".img-list3").append(eleStr9);
+                        }
+                        break;
+                    } else {
+                        $(".img-list3").append(eleStr9);
+                    }
+                }
+                var  move_len1 = move_len2 = move_len3 = null;
+                move_len1 = 15.0 * 3 + (n1) * 1.5;
+                move_len2 = 15.0 * 4 ;
+                move_len3 = 15.0 * 5 + (n3) * 1.5;
+
+    //                console.log(move_len1);
+    //                console.log(move_len2);
+    //                console.log(move_len3);
+
+                $(".img-list").eq(0).animate({"margin-top" : -move_len1 + "rem"},2000,"linear",function(){
+                    console.log(1);
+                });
+
+                $(".img-list").eq(1).animate({"margin-top" : -move_len2 + "rem"},2500,"linear",function(){
+                    console.log(2);
+                });
+
+                $(".img-list").eq(2).animate({"margin-top" : -move_len3 + "rem"},3000,"linear",function(){
+                    flag = !flag;
+                    console.log(3);
+                });
+            }
+
+            $(".startBtn").on("click",function(){
+                $(".img-list").each(function(index , ele){
+                    $(ele).css({"margin-top":"0"});
+                    $(ele).empty().append(eleStr9);
+                });
+                moveCircle("5.5");
+                setTimeout(function(){
+                    if(flag){
+                        getAward(awardResult);
+                        flag = !flag;
+                    }
+                },3200);
+            });
+
+            // 关闭抽奖提示弹窗
+            $("body").on("click",".ok-btn1",function(){
+                layer.closeAll();
+                // 再次请求第二次抽奖结果
+
+            });
+
+            // 抽奖排行榜滚动
+            setInterval(function(){
+                $(".list-box").animate({"margin-top":"-0.6rem"},1000,function(){
+                    $(this).css({"margin-top" : "0"}).find("tr").eq(0).appendTo($(this));
+                })
+            },2000);
+
+            // 打开活动规格
+            $(".rule-btn").on("click",function(){
+                layer.open({
+                    shadeClose : false,
+                    type : 1,
+                    content :'<div id="rulesOut">' +
+                    '<p class="r-title"><span class="t-left"></span><span class="t-middle">活动规则</span><span class="t-right"></span></p>' +
+                    '<div class="rule-con"><p class="rule-list"><span>1.</span>活动时间：2017.09.01 -- 2017.12.31</p>' +
+                    '<p class="rule-list"><span>2.</span> 活动期间，成功推荐好友办理佰仟手机分期业务，您和好友最高可享666元还款福利。</p>' +
+                    '<p class="rule-list"> <span>3.</span>参与方式：通过本活动页面提交好友信息且好友成功办单后，您和好友均可在5个工作日内获得“佰仟分期购”官方微信推送的抽奖机会，100%中奖。 </p>' +
+                    '<p class="rule-list"><span>4.</span>活动奖品：本期奖品为还款抵扣券，可抵扣您每月还款中的客户服务费和财务管理费。如当前无可抵扣合同或未办理佰仟业务，抵扣券可作为您下次办理佰仟手机分期时使用。券金额抵扣完前，该券始终有效。不可转赠他人使用。所得奖品及具体使用规则，可于“佰仟分期购官方微信号-推荐好友-我的战绩“中查看。 <br>推荐管理：您可在“我的战绩”里看到您推荐的好友信息及其办理进度，以及所获取礼品的情况。</p>'+
+                    '<p class="rule-list"><span>5.</span>对提交虚假信息等有恶意行为的用户，佰仟有权进行奖励回收。*最终活动解释权归佰仟金融所有。</p></div>' +
+                    '<p class="ok-btn1">朕，已阅</p>' +
+                    '</div>',
+                    anim : 'up',
+                    style :'min-height:3.0rem;width:4.8rem;padding:0.4rem; background:#fff;border-radius:8px;'
+                });
+            });
+
+            // 中奖弹窗
+            function getAward(str){
+                layer.open({
+                    shadeClose : false,
+                    type : 1,
+                    content :'<div id="rulesOut">' +
+                    '<p class="r-title"><span class="t-left"></span><span class="t-middle">中奖提醒</span><span class="t-right"></span></p>' +
+                    '<div class="rule-con">' +
+                    '<p class="rule-list">恭喜您，获得'+ str +'元还款抵扣券！您可于“佰仟分期购官方微信号-推荐好友-我的战绩”中查看。</p>' +
+                    '<p class="ok-btn1">我知道了</p>' +
+                    '</div>',
+                    anim : 'up',
+                    style :'min-height:3.0rem;width:4.8rem;padding:0.4rem; background:#fff;border-radius:8px;'
+                });
+            }
+
+        })
+    </script>
+</body>
+</html>

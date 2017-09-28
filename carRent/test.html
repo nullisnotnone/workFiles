@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>牵台车</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        #con{height:100%;width:100%; font-size:0.32rem;}
+        #con .txt{height:0.6rem;line-height:0.6rem;}
+        #con .addBtn{display:block;height:0.6rem;width:1.5rem;line-height:0.6rem;text-align:center;border:1px solid #000;}
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div class="txtBox">
+            <p class="txt">hjioajd</p>
+            <p class="txt">hjioajd</p>
+            <p class="txt">hjioajd</p>
+            <p class="txt">hjioajd</p>
+            <p class="txt">hjioajd</p>
+        </div>
+        <button class="addBtn" type="button">添加</button>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function(){
+            var conEle = document.querySelector("#con");
+            console.log(conEle);
+            var txtEle = document.createElement("p");
+            txtEle.setAttribute("class","txt");
+            txtEle.textContent = "hhdeinj ";
+            console.log(conEle.querySelector(".txt"));
+            console.log(conEle.getElementsByClassName("txt"));
+
+
+            var addBtn = document.querySelector(".addBtn");
+            addBtn.addEventListener("click",function(){
+                var txtEle = document.createElement("p");
+                txtEle.setAttribute("class","txt");
+                txtEle.textContent = "hhdeinj";
+                conEle.querySelector(".txtBox").appendChild(txtEle);
+                console.log(conEle.getElementsByClassName("txt"));
+            });
+
+            var txtEles = conEle.getElementsByClassName("txt");
+            console.log(txtEles);
+            for(var i=0;i<txtEles.length;i++){
+                console.log(i);
+                txtEles[i].addEventListener("click",function(){
+                    alert(i);
+                });
+            }
+
+        }
+    </script>
+</body>
+</html>

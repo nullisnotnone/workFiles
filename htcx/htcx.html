@@ -1,0 +1,677 @@
+﻿<!Doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<script src="js/jquery2.1.1.min.js"></script>
+<script src="js/mobiscroll-2.13.2.full.min.js"></script>
+<script src="js/vue1.0.min.js"></script>
+<link rel="stylesheet" href="css/mobiscroll-2.13.2.full.min.css">
+<link rel="stylesheet" href="css/bootstrap3.0.min.css">
+<link rel="stylesheet" href="css/initial.css">
+</head>
+<body id="htcx">
+	<!--条件选择区-->
+	<div class="headdiv" v-show="headdiv_tog" transition="move" style="z-index:10">
+		<div class="top col-xs-12">
+			<div class="col-xs-3 text-left" @click="headdiv_tog=false">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</div>
+			<div class="col-xs-6 title text-center">筛选条件</div>
+			<div class="col-xs-3 text-right" @click="reset">清空</div>
+		</div>
+		<!--选择合同是否逾期-->
+		<div class="group col-xs-12">
+			<div class="line">
+				<div class="col-xs-5">{{key_state.description}}</div>
+				<label for="state2" class="col-xs-3 labelarea" >
+					<input id="state2"  type="radio" name="const_state" v-model="yq_state" value="no">
+					<i  :class="[yq_state =='no'? 'state-checked':'' , 'state-img']"></i>
+					<span class="state-txt">{{key_state.state2}}</span>
+				</label>
+				<label for="state1" class="col-xs-3 labelarea" >
+					<input id="state1"  type="radio" name="const_state" v-model="yq_state" value="yes">
+					<i  :class="[yq_state =='yes'? 'state-checked':'' , 'state-img']"></i>
+					<span class="state-txt">{{key_state.state1}}</span>
+				</label>
+			</div>
+		</div>
+
+		<div class="group col-xs-12">
+			<template v-for="data in keybosi">
+				<div class="line">
+					<div class="col-xs-4">{{data.description}}</div>
+					<input class="col-xs-8" placeholder="请输入" v-model="data.value">
+				</div>
+			</template>
+		</div>
+		<div class="group col-xs-12">
+			<template v-for="data in keybobi">
+				<div class="line">
+					<div class="col-xs-4">{{data.description}}</div>
+					<input class="col-xs-8" placeholder="请输入" v-model="data.value">
+				</div>
+			</template>
+			<template v-for="data in selectbot">
+				<div class="line">
+					<div class="col-xs-4">{{data.description}}</div>
+					<div :class="['col-xs-8','text-right',data.key===''?'lightgray':'color_auto']" name="{{data.name}}" @click="bot_tog">{{data.value}}<span class="icon_right" v-show="data.value==='请选择'"></span></div>
+				</div>
+			</template>
+			<template v-for="data in selectcal">
+				<div class="line">
+						<div class="col-xs-4">{{data.description}}</div>
+						<div :class="['col-xs-8','text-right',data.selected_code===''?'lightgray':'color_auto']" id="{{data.id}}" name="{{data.name}}" @click="cal_show">{{data.selected_name}}<span class="icon_right" v-show="data.selected_name==='请选择'"></span></div>
+				</div>
+			</template>
+		</div>
+		<div class="group col-xs-12">
+			<div class="calend overhid">
+				<template v-for="data in date">
+					<template v-if="$index%2===0">
+						<div class="col-xs-4">{{data.description.slice(0,2)}}日期</div>
+						<input class="col-xs-3 text-center" id="{{data.id}}" readonly placeholder="选择开始">
+						<div class="col-xs-2 text-center">---</div>
+					</template>
+					<template v-else>
+						<input class="col-xs-3 text-center" id="{{data.id}}" readonly placeholder="选择结束">
+					</template>
+				</template>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<button :class="['btn','btn-block',submit?'disalbed_color':'btn-info']" :disabled="submit" @click="search">确定</button>
+		</div>
+		<div class="col-xs-12 text-center text-danger">{{tip}}</div>
+	</div>
+	
+	<!--状态选择区-->
+	<template v-for="data in selectbot">
+		<div class="bottom_div" v-show="data.show" transition="totop" style="z-index:100">
+			<div class="col-xs-12 text-center title">
+				请选择合同状态
+			</div>
+			<div class="col-xs-12 bottom_body">
+				<template v-for="child_data in data.gains">
+					<div class="overhid select_line" @click="selectbot_sel" :class=[child_data.key===data.key_backup?'text-primary':'color_auto']>
+						<div key={{child_data.key}} value="{{child_data.value}}" tar="{{data.id}}">{{child_data.value}}</div>
+						<span class="sel_sign" v-show="child_data.key===data.key_backup"></span>
+					</div>
+				</template>
+			</div>
+			<div class="col-xs-12 bottom_btn">
+				<button class="btn btn-default col-xs-6" name="{{data.name}}" @click="bot_confirm">确定</button>
+				<button class="btn btn-default col-xs-6" name="{{data.name}}" @click="bot_tog">取消</button>
+			</div>
+		</div>
+	</template>
+	
+	<!--遮罩层-->
+	<div v-show="cover_show" transition="cover" @click="cover_click"></div>
+	
+	<!--selectcal列表-->
+	<template v-for="data in selectcal">
+		<ul id="{{data.id}}_list" style="display:none">
+			<template v-for="data in data.gains">
+				<template v-if="data.status==='2'">
+					<li><div data-value="{{data.code}}">{{data.name}}</div></li>
+				</template>
+				<template v-else>
+					<li>
+						<template v-if="data.status==='1'">
+							<div data-value="{{data.code}}">{{data.name}}</div>
+							<ul>
+								<template v-for="child_data in data.contents">
+									<li data-value="{{child_data.code}}">{{child_data.name}}</li>
+								</template>
+							</ul>
+						</template>
+					</li>
+				</template>
+			</template>
+		</ul>
+	</template>
+	
+	<!--查询结果-->
+	<div class="head">
+		<div class="top col-xs-12 text-center">
+			<!--div class="col-xs-2 list"></div-->
+			<div class="col-xs-8 title col-xs-offset-2">查询合同</div>
+			<div class="col-xs-2 filter" @click="headdiv_show"></div>
+		</div>
+		<div class="content" @scroll="result_scroll" id="result" :class='[result_data===""?"blankpage":"fillpage"]'>
+			<template v-for="data in result_data">
+				<div class="result_line">
+					<div :class="['result_head',data.CONTRACTSTATUS==='超期未注册'|'已否决'?'cqwzc_yfj_div':data.CONTRACTSTATUS==='审核中'|'审核通过'?'shz_shtg_div':data.CONTRACTSTATUS==='已签署'?'yqs_div':'']">
+						<div class="col-xs-8">
+							<span class="b_font">合同编码&nbsp:&nbsp</span>{{data.SERIALNO}}
+						</div>
+						<div class="col-xs-4 text-right" index="{{$index}}" @click="select_show">
+							<span :class="[data.CONTRACTSTATUS==='超期未注册'|'已否决'?'cqwzc_yfj_span':data.CONTRACTSTATUS==='审核中'|'审核通过'?'shz_span':data.CONTRACTSTATUS==='已签署'?'yqs_span':'']">{{data.CONTRACTSTATUS}}</span>
+							<span class="icon_rightc"></span>
+						</div>
+					</div>
+					<div class="result_intro">
+						<div class="col-xs-7">客户名称:{{data.CUSTOMERNAME}}</div>
+						<div class="col-xs-5 right">销售经理:{{data.SALESMANAGERNAME}}</div>
+						<div class="col-xs-7">提单日期:{{data.SALESUBMITTIME}}</div>
+						<div class="col-xs-5 right">销售代表ID:{{data.SALESEXECUTIVE}}</div>
+					</div>
+				</div>
+			</template>
+		</div>
+		<div class="topico" v-show="topico_show" @click="toTop">
+		</div>
+	</div>
+	
+	<!--结果详情-->
+	<div class="headdiv" transition="move" v-show="detail_tog" style="z-index:10">
+		<div class="top col-xs-12">
+			<div class="col-xs-2 icon" @click="detail_tog=false"><span class="glyphicon glyphicon-chevron-left"></span></div>
+			<div class="col-xs-8 title text-center">合同详情</div>
+		</div>
+		<div class="content">
+			<template v-for="data in result_format">
+				<div class="series">
+					<div class="overhid">
+						<div class="col-xs-12 series_title"><span class="onend"></span>{{$key}}</div>
+					</div>
+					<template v-for="child_data in data">
+						<div :class="[yq_state == 'no' && ($key == '客户手机号'|| $key == '客户身份证号'|| $key == '现居住地地址'|| $key == '户籍地址') ?'con-hide': '', 'overhid']">
+							<div class="col-xs-4 text-muted">{{$key}}</div>
+							<div class="col-xs-8">
+								<template v-if="$key!=='合同状态'">{{selected_data[child_data]}}</template>
+								<template v-else><span :class="[selected_data[child_data]==='超期未注册'|'已否决'?'cqwzc_yfj_span':selected_data[child_data]==='审核中'|'审核通过'?'shz_span':selected_data[child_data]==='已签署'?'yqs_span':'']">{{selected_data[child_data]}}</span></template>
+							</div>
+						</div>
+					</template>
+				</div>
+			</template>
+		</div>
+	</div>
+	<link rel="stylesheet" href="css/need/layer.css">
+	<script src="js/layer.js"></script>
+<script>
+function renderHTML(key_state ,keybosi,keybobi,selectbot,selectcal,date,url,result_format){
+	var keybosi_key=Object.keys(keybosi),keybosi_length=keybosi_key.length,
+		keybobi_key=Object.keys(keybobi),keybobi_length=keybobi_key.length,
+		selectbot_key=Object.keys(selectbot),selectbot_length=selectbot_key.length,
+		selectcal_key=Object.keys(selectcal),selectcal_length=selectcal_key.length,
+		date_key=Object.keys(date),date_length=date_key.length;
+//		result_key = Object.keys(result_format),result_format_length = result_key.length;
+
+		console.log(keybosi_key);
+		console.log(keybobi_key);
+		console.log(selectbot_key);
+		console.log(selectcal_key);
+		console.log(date_key);
+		console.log(result_format);
+
+	function initial(){
+		for(var i=0;i<keybosi_length;i++){
+			var item=keybosi_key[i];
+			keybosi[item].id=item;
+			keybosi[item].value='';
+		}
+		for(var i=0;i<keybobi_length;i++){
+			var item=keybobi_key[i];
+			keybobi[item].id=item;
+			keybobi[item].value='';
+		}
+		for(var i=0;i<selectbot_length;i++){
+			var item=selectbot_key[i];
+			selectbot[item].id=item;
+			selectbot[item].name=item;
+			selectbot[item].key_backup='';
+			selectbot[item].value_backup='';
+			selectbot[item].key='';
+			selectbot[item].value='请选择';
+			selectbot[item].show=false;
+			selectbot[item].gains='';
+		}
+		for(var i=0;i<selectcal_length;i++){
+			var item=selectcal_key[i];
+			selectcal[item].name=item;
+			selectcal[item].id=item;
+			selectcal[item].treelist=false;
+			selectcal[item].selected_code='';
+			selectcal[item].selected_name='请选择';
+			selectcal[item].gains='';
+		}
+		for(var i=0;i<date_length;i++){
+			var item=date_key[i];
+			date[item].id=item;
+			date[item].value='';
+		}
+
+		console.log(keybosi);
+		console.log(keybobi);
+		console.log(selectbot);
+		console.log(selectcal);
+		console.log(date);
+	}
+	initial();
+
+	var htcx=new Vue({
+		el:'#htcx',
+		data:function(){
+			return {
+				yq_state : "no",
+				key_state : key_stateNew,
+				keybosi:keybosi,
+				keybobi:keybobi,
+				selectbot:selectbot,
+				selectcal:selectcal,
+				date:date,
+				url:url,
+				result_format:result_format,
+				result_data:'', //查询到的数据
+				headdiv_tog:true,
+				detail_tog:false,
+				selected:'',//查看详细结果时生成的index
+				treelist:false,
+				topico_show:false,
+				submit:true,
+				cover_show:false,
+				tip:''
+			}
+		},
+		computed:{
+			selected_data:function(){return this.result_data[this.selected]},//查看详细结果时截取的部分
+			param:{
+				get:function(){
+					var param = {};
+					param.yq_state = this.yq_state;
+					for(var i=0;i<keybosi_length;i++){
+						var item=keybosi_key[i];
+						param[item]=this.keybosi[item].value;
+					}
+					for(var i=0;i<keybobi_length;i++){
+						var item=keybobi_key[i];
+						param[item]=this.keybobi[item].value;
+					}
+					for(var i=0;i<selectbot_length;i++){
+						var item=selectbot_key[i];
+						param[item]=this.selectbot[item].key!=='请选择'?this.selectbot[item].key:'';
+					}
+					for(var i=0;i<selectcal_length;i++){
+						var item=selectcal_key[i];
+						param[item]=this.selectcal[item].selected_code!=='请选择'?this.selectcal[item].selected_code:'';
+					}
+					for(var i=0;i<date_length;i++){
+						var item=date_key[i];
+						param[item]=this.date[item].value;
+					}
+					console.log(param);
+					return param;
+				},
+				set:function(newValue){
+					this.yq_state = newValue.yq_state;
+					for(var i=0;i<keybosi_length;i++){
+						var item=keybosi_key[i];
+						this.keybosi[item].value=newValue[item];
+					}
+					for(var i=0;i<keybobi_length;i++){
+						var item=keybobi_key[i];
+						this.keybobi[item].value=newValue[item];
+					}
+					for(var i=0;i<selectbot_length;i++){
+						var item=selectbot_key[i];
+						this.selectbot[item].key=newValue[item];
+						this.selectbot[item].value=newValue[item]?'':'请选择';
+					}
+					for(var i=0;i<selectcal_length;i++){
+						var item=selectcal_key[i];
+						this.selectcal[item].selected_code=newValue[item];
+						this.selectcal[item].selected_name=newValue[item]?'':'请选择';
+					}
+					for(var i=0;i<date_length;i++){
+						var item=date_key[i];
+						this.date[item].value=newValue[item];
+					}
+					console.log(param);
+				}
+			}
+		},
+		watch:{
+			param:function(newValue){
+				var param_keys=Object.keys(newValue);
+				var group_date=(this.date.inputdate.value!=='' && this.date.inputdateend.value!=='') || (this.date.salesubmittime.value!=='' && this.date.salesubmittimeend.value!=='');
+				for(var i=0;i<param_keys.length;i++){
+					if(newValue[param_keys[i]]!==''){
+						if(param_keys[i] in this.keybosi){
+							this.submit=false;
+							this.tip='';
+							return;
+						}else if(param_keys[i] in this.keybobi || param_keys[i] in this.selectbot || param_keys[i] in  this.selectcal){
+							if(group_date){
+								this.submit=false;
+								this.tip='';
+								return;
+							}else{
+								this.tip='请选择申请日期或提交日期';
+							}
+						}else if(!group_date){
+							this.tip='请完成至少一组日期的选择';
+						}else{
+							this.tip='请选择需要查询的项目';
+						}
+					}
+				}
+				this.submit=true;
+			}
+		},
+		methods:{
+			ajax_selectbot:function(){
+				var that=this;
+				function circle_ajax(i){
+					var item=selectbot_key[i];
+					$.ajax({
+						url:selectbot[item].url,
+						cache:false,
+						success:function(result){
+							console.log('['+result.replace(/("\d+"):("[\u4e00-\u9fa5]+")/g,'"key":$1,"value":$2'));
+							var result_str='['+result.replace(/("\d+"):("[\u4e00-\u9fa5]+")/g,'"key":$1,"value":$2').replace(/([\u4e00-\u9fa5]+)",/g,'$1"},').replace(/},"key"/g,'},{"key"')+']';
+
+							console.log(result_str);
+							that.selectbot[item].gains=JSON.parse(result_str);
+							if(i<selectbot_length-1){
+								i++;
+								circle_ajax(i);
+							}
+						}
+					})
+				}
+				circle_ajax(0)
+			},
+			cover_click:function(){
+				this.cover_show=false;
+				for(var i=0;i<selectbot_length;i++){
+					var item=selectbot_key[i];
+					selectbot[item].show=false;
+				}
+			},
+			bot_tog:function(){
+				var name=event.currentTarget.getAttribute('name');
+				if(!this.cover_show){
+					this.selectbot[name].key_backup='';
+					this.selectbot[name].value_bakcup='';
+				}
+				this.cover_show=!this.cover_show;
+				this.selectbot[name].show=!this.selectbot[name].show;
+			},
+			bot_confirm:function(){
+				var name=event.target.getAttribute('name');
+				if(this.selectbot[name].key_backup){
+					this.selectbot[name].key=this.selectbot[name].key_backup;
+					this.selectbot[name].value=this.selectbot[name].value_backup;
+				}
+				this.cover_show=!this.cover_show;
+				this.selectbot[name].show=false;
+			},
+			result_scroll:function(event){
+				var scrollTop=event.target.scrollTop;
+				if(scrollTop>0){this.topico_show=true}
+				else{this.topico_show=false;}
+			},
+			toTop:function(){
+				$('#result').animate({'scrollTop':0})
+			},
+			headdiv_show:function(){
+				this.headdiv_tog=true;
+			},
+			ajax_selectcal:function(){
+				var that=this;
+				function circle_ajax(i){
+					var item=selectcal_key[i];
+					$.ajax({
+						url:selectcal[item].url,
+						cache:false,
+						success:function(result){
+							var calendarC_filter=result.replace(/({"code":"\d+","name":"[\u4e00-\u9fa5]+","status":"1")},/g,'$1,"contents":[').replace(/({"code":"\d+","name":"[\u4e00-\u9fa5]+","status":"0"}),({"code":"\d+","name":"[\u4e00-\u9fa5]+","status":"[12]")/g,'$1]},$2')+']}';
+							calendarC_filter=JSON.parse(calendarC_filter);
+							that.selectcal[item].gains=calendarC_filter.data;
+							setTimeout(that.treelistdo,500);
+							if(i<selectcal_length-1){
+								i++;
+								circle_ajax(i);
+							}
+						}
+					})
+				}
+				circle_ajax(0)
+			},
+			treelistdo:function(){
+				var that=this;
+				if(!that.treelist){
+					for(var i=0;i<selectcal_length;i++){
+						var id=selectcal_key[i];
+						var description=selectcal[id].description;
+						$("#"+id+"_list").mobiscroll().treelist({
+							theme: "android-ics light",
+							display: 'bottom',
+							lang: "zh",
+							headerText: '请选择'+description,
+							defaultValue: [1,0],
+							onSelect: function (valueText,inst){
+								var n = valueText.split(' ');
+								var m1 = $(this).children("li").eq(n[0]).find("div").html();
+								var m1_id = $(this).children("li").eq(n[0]).find("div").attr("data-value");
+								var m2 = $(this).children("li").eq(n[0]).find("li").eq(n[1]).html();
+								var m2_id = $(this).children("li").eq(n[0]).find("li").eq(n[1]).attr("data-value");
+								that.selectcal[id].selected_name=m2?m2:m1;
+								that.selectcal[id].selected_code=m2_id?m2_id:m1_id;
+							}
+						});
+					}
+				}
+				that.treelist=true;
+			},
+			cal_show:function(){
+				var name=event.currentTarget.getAttribute('name');
+				$("#"+name+"_list_dummy").focus();
+			},
+			select_show:function(){
+				this.selected=event.currentTarget.getAttribute('index');
+				this.detail_tog=true;
+			},
+			selectbot_sel:function(event){
+				var target=event.target.getAttribute('tar');
+				var key=event.target.getAttribute('key');
+				var value=event.target.getAttribute('value');
+				this.selectbot[target].key_backup=key;
+				this.selectbot[target].value_backup=value;
+			},
+			reset:function(){
+				var param_keys=Object.keys(this.param);
+				var param_backup={};
+				for(var i=0;i<param_keys.length;i++){
+					param_backup[param_keys[i]]='';
+				}
+				this.param=param_backup;
+				for(var i=0;i<date_length;i++){
+					var id=date_key[i];
+					$('#'+id).val('');
+				}
+			},
+			search:function(){
+				this.headdiv_tog=false;
+				var that=this;
+				if(that.yq_state === "yes"){
+					var url_checked = that.url[1];
+				} else {
+					var url_checked = that.url[0];
+				};
+				layer.open({
+					type: 2
+					,content: '加载中'
+				});
+				setTimeout(function(){
+					$.ajax({
+						type: "POST",
+						url: url_checked,
+						cache: false,  //禁用缓存
+						data: that.param,   //传入组装的参数
+						dataType:'json',
+						success:function(result){
+							layer.closeAll();
+							if(result.data.length == 0){
+								alert("没有合同数据,请检查查询条件后再查询！");
+							} else {
+								that.result_data=result.data;
+							}
+							console.log(result.data);
+						},
+						error:function(result){
+							layer.closeAll();
+							alert('服务器请求失败，请稍后重试');
+						}
+					})
+				},350)
+			}
+		},
+		ready:function(){
+			this.ajax_selectbot();
+			this.ajax_selectcal();
+			var that=this;
+			function mobis(id){
+				var opt={};
+				var min_date=new Date().setDate(new Date().getDate()-7);
+				opt.date={preset:'date'};
+				opt.datetime={preset:'datetime'};
+				opt.time={preset:'time'};
+				opt.default={
+					theme:'android-ics light',
+					display:'bottom',
+					lang:'zh',
+					minDate:new Date(min_date),
+					maxDate:new Date(),
+					headerText:'请选择'+that.date[id].description,
+					onSelect: function (valueText){
+						that.date[id].value=valueText;
+					}
+				};
+				$("#"+id).val('').scroller('destroy').scroller($.extend(opt['date'], opt['default']));
+			}
+			for(var i=0;i<date_length;i++){
+				var item=date_key[i];
+				mobis(item)
+			}
+		}
+	})
+}
+
+var key_stateNew = {
+	"description" : "合同是否逾期",
+	"state1" : "是",
+	"state2" : "否"
+};
+
+var keybosiNew={
+	serialno:{description:'合同号'},
+	customername:{description:'客户名称'},
+	certid:{description:'身份证'}
+};
+var keybobiNew={
+	salesmanager:{description:"销售经理ID"},
+	salesexecutive:{description:"销售代表ID"},
+	stores:{description:"门店代码"}
+};
+var selectbotNew={
+	contractstatus:{description:'门店状态',url:'ajax/statusInfo'}
+};
+var selectcalNew={
+	cityname:{description:"门店城市",url:'ajax/cityInfo'}
+};
+var dateNew={
+	inputdate:{description:"申请日期开始"},
+	inputdateend:{description:"申请日期结束"},
+	salesubmittime:{description:"提交日期开始"},
+	salesubmittimeend:{description:"提交日期结束"}
+};
+var urlNew = ["ajax/htInfo","ajax/yq"];
+var result_formatNew={
+	'基本资料':{
+		'合同编码':'SERIALNO',
+		'合同状态':'CONTRACTSTATUS',
+		'客户名称':'CUSTOMERNAME',
+		'客户编码':'CUSTOMERID',
+		'客户手机号' : 'MOBILETELEPHONE',
+		'客户身份证号' : 'CERTID',
+		'现居住地地址': 'CURRENT_ADDRESS',
+		'户籍地址' : 'REGISTED_ADDRESS',
+		'销售经理':'SALESMANAGERNAME',
+		'销售代表ID':'SALESEXECUTIVE'
+	},
+	'产品信息':{
+		'产品代码':'BUSINESSTYPE',
+		'产品类型':'SUBPRODUCTTYPE',
+		'贷款本金':'BUSINESSSUM',
+		'总价格':'TOTALPRICE',
+		'分期期数':'PERIODS',
+		'月还款额':'MONTHREPAYMENT'
+	},
+	'还款信息':{
+		'还款账户':'REPAYMENTNO',
+		'还款方式':'REPAYMENTWAY',
+		'代扣/放款账号':'REPLACEACCOUNT'
+	},
+	'合同日期':{
+		'申请日期':'INPUTDATE',
+		'提单日期':'SALESUBMITTIME',
+		'签署日期':'SHIFTDOCDESCRIBE',
+		'注册日期':'REGISTRATIONDATE'
+	},
+	'其他':{
+		'合同标识':'CREDITATTRIBUTE',
+		'运作模式':'OPERATORMODE',
+		'质量等级':'QUALITYGRADE',
+		'质量标注':'QUALITYTAGGING',
+		'放款标识':'PUTOUTFLAG',
+		'申请类型':'PRODUCTID',
+		'来源':'SURETYPE'
+	}
+};
+//var result_formatNew2={
+//	'基本资料':{
+//		'合同编码':'SERIALNO',
+//		'合同状态':'CONTRACTSTATUS',
+//		'客户名称':'CUSTOMERNAME',
+//		'客户编码':'CUSTOMERID',
+//		'销售经理':'SALESMANAGERNAME',
+//		'销售代表ID':'SALESEXECUTIVE'
+//	},
+//	'产品信息':{
+//		'产品代码':'BUSINESSTYPE',
+//		'产品类型':'SUBPRODUCTTYPE',
+//		'贷款本金':'BUSINESSSUM',
+//		'总价格':'TOTALPRICE',
+//		'分期期数':'PERIODS',
+//		'月还款额':'MONTHREPAYMENT'
+//	},
+//	'还款信息':{
+//		'还款账户':'REPAYMENTNO',
+//		'还款方式':'REPAYMENTWAY',
+//		'代扣/放款账号':'REPLACEACCOUNT'
+//	},
+//	'合同日期':{
+//		'申请日期':'INPUTDATE',
+//		'提单日期':'SALESUBMITTIME',
+//		'签署日期':'SHIFTDOCDESCRIBE',
+//		'注册日期':'REGISTRATIONDATE'
+//	},
+//	'其他':{
+//		'合同标识':'CREDITATTRIBUTE',
+//		'运作模式':'OPERATORMODE',
+//		'质量等级':'QUALITYGRADE',
+//		'质量标注':'QUALITYTAGGING',
+//		'放款标识':'PUTOUTFLAG',
+//		'申请类型':'PRODUCTID',
+//		'来源':'SURETYPE'
+//	}
+//};
+
+renderHTML(key_stateNew,keybosiNew,keybobiNew,selectbotNew,selectcalNew,dateNew,urlNew,result_formatNew);
+</script>
+</body>
+</html>

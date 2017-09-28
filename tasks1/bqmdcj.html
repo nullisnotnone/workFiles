@@ -1,0 +1,400 @@
+﻿<!Doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="css/bootstrap3.0.min.css">
+<script type="text/javascript" src="js/jquery2.1.1.min.js"></script>
+<style>
+.daifenpei,.yifenpei,.daishenhe,.yiwancheng,.bianjizhong{padding:0 1.5rem 1.5rem;position:absolute;width:100%;top:4rem;bottom:0;overflow:auto;}
+.yifenpei,.daishenhe,.yiwancheng,.bianjizhong{display:none}
+.nopad{padding:0}
+.mendian{background:url('images/store_ico.png') no-repeat 1rem center/1.5rem;padding-left:3.5rem;margin-bottom:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.line{background-color:white;position:relative;padding-top:1rem;padding-bottom:1rem;margin-bottom:1rem;margin-top:1rem;border-radius:0.5rem;}
+.line:last-child{margin-bottom:0}
+.mendian_info{display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content: space-between;}
+.no_fenpei,.fenpei{margin-left:3.5rem;width:8rem;text-align:center;height:3rem;line-height:3rem;margin-top:auto;margin-bottom:auto}
+.no_fenpei{border-color:rgb(146,161,168);color:rgb(146,161,168);border:1px solid rgb(146,161,168);border-radius:4px}
+.fenpei{background-color:rgb(46,130,252);color:white;}
+.jz_date{color:red;margin-top:auto;margin-bottom:auto}
+.right_ico{position:absolute;right:0;height:100%;width:3.5rem;top:0;background:url('images/right_ico.png') no-repeat center center/auto 2rem}
+.title{line-height:3.5rem;color:rgb(146,161,168);margin-bottom:-1rem}
+.cover{z-index:99;background:rgba(0,0,0,0.7);position:fixed;width:100%;height:100%;left:0;top:0;display:none}
+.cover_div{position:absolute;bottom:0;width:100%;background-color:white;padding-left:1.5rem;padding-right:1.5rem;padding-bottom:1rem}
+.circle{display:inline-block;width:0.5rem;height:0.5rem;border-radius:0.25rem;background-color:rgb(169,186,94)}
+.cover_top{line-height:5rem;}
+.cover_select{display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content: space-between;border-top:1px solid rgb(240,244,245)}
+.select_l{line-height:5rem}
+.select_l div{display:inline-block;width:8rem;}
+.cover_fenpei{background-color:rgb(46,130,252);color:white;margin-top:auto;margin-bottom:auto;width:8rem;text-align:center;height:3rem;line-height:3rem;}
+.name{margin-left:3.5rem;color:rgb(146,161,168)}
+.text_blue{color:rgb(46,130,252)}
+.overhid{overflow:hidden}
+.nav{color:rgb(146,161,168);font-size:110%;background-color:white;padding-top:1rem;padding-bottom:0.5rem;}
+.nav [name]{height:2rem;line-height:2rem;width:20%;float:left;}
+.daohang_line{height:0.2rem;width:20%;display:flex;display:-webkit-flex;padding:0 0.9rem;background-color:rgb(46,130,252);background-clip:content-box;margin-top:0.3rem;}
+.daohang_line:after{content:'';border-left:0.25rem solid transparent;border-right:0.25rem solid transparent;border-bottom:0.35rem solid rgb(46,130,252);margin-left:auto;margin-right:auto;position:relative;top:-0.35rem;}
+.all{position:absolute;height:100%;overflow:auto;width:100%;background-color:rgb(240,244,245);}
+@media screen and (max-width:350px){
+    .mendian{background:url(images/store_ico.png) no-repeat 0.5rem center/1rem;padding-left:2rem}
+	.name{margin-left:2rem}
+	.right_ico{width:2rem}
+	.no_fenpei, .fenpei{margin-left:2rem}
+}
+.fix{position:fixed;width:100%;overflow:hidden}
+.verticalBar{width:1px;height:80%;background-color:rgb(146,161,168);margin-left:0.8rem;margin-right:0.8rem;}
+.name span{display:inline-block;vertical-align:middle;}
+.zztx_text{padding-left:1.5rem;background:url(images/rc.jpg) no-repeat left center/auto 80%;color:rgb(46,130,252);margin-right:0.8rem;display:inline-block;vertical-align:middle;}
+.fp{background-color:rgb(46,130,252);display:inline-block;color:white;font-size:95%;padding:0.2rem 1rem;border-radius:0.8rem;vertical-align:middle;margin-right:0.8rem;}
+.no_record{color:rgb(146,161,168);margin-top:3rem;}
+</style>
+</head>
+
+<body>
+
+	<div class="all">
+
+	<!--导航-->
+	<div class="nav">
+		<div class="overhid text-center">
+			<div name="daifenpei" style="color:rgb(46,130,252)">待分配</div>
+			<div name="yifenpei">已分配</div>
+			<div name="bianjizhong">编辑中</div>
+			<div name="daishenhe">待审核</div>
+			<div name="yiwancheng">已完成</div>
+		</div>
+		<div><div class="daohang_line"></div></div>
+	</div>
+
+	<!--待分配-->
+	<div class="daifenpei">
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span class="jz_date">截止2017-04-28</span>
+				</div>
+				<div class="zztx"><span class="zztx_text">自主填写</span><span class="fp" onclick="cover_show()">分配</span></div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span class="jz_date">截止2017-04-28</span>
+				</div>
+				<div class="zztx"><span class="zztx_text">自主填写</span><span class="fp" onclick="cover_show()">分配</span></div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span class="jz_date">截止2017-04-28</span>
+				</div>
+				<div class="zztx"><span class="zztx_text">自主填写</span><span class="fp" onclick="cover_show()">分配</span></div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span class="jz_date">截止2017-04-28</span>
+				</div>
+				<div class="zztx"><span class="zztx_text">自主填写</span><span class="fp" onclick="cover_show()">分配</span></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="cover">
+		<div class="cover_div">
+			<div class="cover_top"><span class="circle"></span>&nbsp&nbsp请分配与此门店绑定的消费代表</div>
+			<div style="max-height:25rem;min-height:10rem;overflow:auto">
+				<div class="cover_select">
+					<div class="select_l">
+						<div>李振居</div>
+						<div>234321</div>
+					</div>
+					<div class="btn nopad cover_fenpei" onclick="fenpei()">分配</div>
+				</div>
+				<div class="cover_select">
+					<div class="select_l">
+						<div>李振居</div>
+						<div>234321</div>
+					</div>
+					<div class="btn nopad cover_fenpei" onclick="fenpei()">分配</div>
+				</div>
+				<div class="cover_select">
+					<div class="select_l">
+						<div>李振居</div>
+						<div>234321</div>
+					</div>
+					<div class="btn nopad cover_fenpei" onclick="fenpei()">分配</div>
+				</div>
+				<div class="cover_select">
+					<div class="select_l">
+						<div>李振居</div>
+						<div>234321</div>
+					</div>
+					<div class="btn nopad cover_fenpei" onclick="fenpei()">分配</div>
+				</div>
+				<div class="cover_select">
+					<div class="select_l">
+						<div>李振居</div>
+						<div>234321</div>
+					</div>
+					<div class="btn nopad cover_fenpei" onclick="fenpei()">分配</div>
+				</div>
+				<div class="cover_select">
+					<div class="select_l">
+						<div>李振居</div>
+						<div>234321</div>
+					</div>
+					<div class="btn nopad cover_fenpei" onclick="fenpei()">分配</div>
+				</div>
+				<div class="cover_select">
+					<div class="select_l">
+						<div>李振居</div>
+						<div>234321</div>
+					</div>
+					<div class="btn nopad cover_fenpei" onclick="fenpei()">分配</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--已分配-->
+	<div class="yifenpei">
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span class="jz_date">截止2017-04-28</span>
+				</div>
+				<div class="zztx"><span class="zztx_text">自主填写</span></div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span class="jz_date">截止2017-04-28</span>
+				</div>
+				<div class="zztx"><span class="zztx_text">自主填写</span></div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span class="jz_date">截止2017-04-28</span>
+				</div>
+				<div class="zztx"><span class="zztx_text">自主填写</span></div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span class="jz_date">截止2017-04-28</span>
+				</div>
+				<div class="zztx"><span class="zztx_text">自主填写</span></div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span class="jz_date">截止2017-04-28</span>
+				</div>
+				<div class="zztx"><span class="zztx_text">自主填写</span></div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span class="jz_date">截止2017-04-28</span>
+				</div>
+				<div class="zztx"><span class="zztx_text">自主填写</span></div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span class="jz_date">截止2017-04-28</span>
+				</div>
+				<div class="zztx"><span class="zztx_text">自主填写</span></div>
+			</div>
+		</div>
+	</div>
+	
+	<!--编辑中-->
+	<div class="bianjizhong">
+		<div class="line">
+			<div class="mendian">手机通讯连锁店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span class="jz_date">截止2017-04-28</span>
+				</div>
+				<div class="zztx"><span class="zztx_text">分配</span><span class="fp">继续填写</span></div>
+			</div>
+		</div>
+	</div>
+
+	<!--待审核-->
+	<div class="daishenhe">
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span class="jz_date">截止2017-04-28</span>
+				</div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span class="jz_date">截止2017-04-28</span>
+				</div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span class="jz_date">截止2017-04-28</span>
+				</div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span class="jz_date">截止2017-04-28</span>
+				</div>
+			</div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span class="jz_date">截止2017-04-28</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--已完成-->
+	<div class="yiwancheng">
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span>完成时间 2017-04-28</span>
+				</div>
+			</div>
+			<div class="right_ico"></div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span>完成时间 2017-04-28</span>
+				</div>
+			</div>
+			<div class="right_ico"></div>
+		</div>
+		<div class="line">
+			<div class="mendian">深圳市福特旗舰店</div>
+			<div class="mendian_info">
+				<div class="name">
+					<span>黄小七</span><!--
+					--><span class="verticalBar"></span><!--
+					--><span>完成时间 2017-04-28</span>
+				</div>
+			</div>
+			<div class="right_ico"></div>
+		</div>
+	</div>
+	
+	</div>
+		
+</body>
+
+<script>
+function cover_show(){
+	$('.cover').css('display','block');
+	$('.all').addClass('fix');
+};
+function fenpei(){
+	//这里输入分配操作的代码
+	//分配完成后跳转页面
+	$('.cover').css('display','none');
+	$('.all').removeClass('fix');
+	$('[name=yifenpei]').trigger('click');
+}
+$(document).ready(function(){
+	$('.cover').click(function(event){
+		if($(event.target).hasClass('cover')){
+			$('.cover').css('display','none');
+			$('.all').removeClass('fix');
+		}
+	})
+	$('.nav div[name]').click(function(event){
+		var margin_left={
+			'daifenpei':'0',
+			'yifenpei':'20%',
+			'bianjizhong':'40%',
+			'daishenhe':'60%',
+			'yiwancheng':'80%'
+		}
+		var name=($(event.target).attr('name'));
+		$('.nav [name]').css('color','rgb(146,161,168)');
+		$(event.target).css('color','rgb(46,130,252)');
+		$('.daifenpei,.yifenpei,.daishenhe,.yiwancheng,.bianjizhong').not('.'+name).hide();
+		$('.daohang_line').animate({'margin-left':margin_left[name]},200);
+		$('.'+name).show();
+	})
+	$('.daifenpei,.yifenpei,.daishenhe,.yiwancheng,.bianjizhong').each(function(){
+		if($(this).find('.line').length===0) $(this).html(
+			'<div class="text-center no_record">\
+				<img src="images/no_record.png" width="100%">\
+				<div>您还没有任何记录...</div>\
+			</div>'
+		)
+	})
+});
+</script>
+
+</html>

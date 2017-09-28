@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>推荐好友</title>
+    <link rel="stylesheet" href="css/feedback.css"/>
+    <link rel="stylesheet" href="css/need/layer.css"/>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        .layer_txt{line-height:0.4rem; font-size:0.36rem; color:red;}
+    </style>
+</head>
+<body>
+
+    <div id="top">
+        <img class="top_img" src="images/activitie3_01.png" alt=""/>
+    </div>
+    <div id="con">
+        <p class="remark_txt">您还没有办单，原因是什么呢？</p>
+        <form id="checkboxs" action="">
+            <label for="checkbox1">
+                <i class="_out"></i>
+                <input id="checkbox1" type="checkbox"/>
+                <span class="txt">联系不上佰仟的同事</span>
+            </label>
+
+            <label for="checkbox2">
+                <i class="_out"></i>
+                <input id="checkbox2" type="checkbox"/>
+                <span class="txt">最近没空</span>
+            </label>
+
+            <label for="checkbox3">
+                <i class="_out"></i>
+                <input id="checkbox3" type="checkbox"/>
+                <span class="txt">过段时间再处理</span>
+            </label>
+
+            <label for="checkbox4">
+                <i class="_out"></i>
+                <input id="checkbox4" type="checkbox"/>
+                <span class="txt">我现在没有新的手机办理需求</span>
+            </label>
+
+            <label for="checkbox5">
+                <i class="_out"></i>
+                <input id="checkbox5" type="checkbox"/>
+                <span class="txt">我已经办理过手机业务</span>
+            </label>
+
+            <label for="checkbox6">
+                <i class="_out"></i>
+                <input id="checkbox6" type="checkbox"/>
+                <span class="txt">手机信息被干扰填写，请再勿打扰</span>
+            </label>
+
+            <button class="submitBtn" type="button">
+                立即提交
+            </button>
+        </form>
+    </div>
+
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var $_input = $("input");
+            var $_i = $("i");
+            var $_txt = $("label .txt");
+            var resultArr = [];
+
+            $("label").on("tap",function(){
+                if($_input.eq($(this).index()).attr("checked")){
+                    $(this).removeClass("_checked");
+                    $_input.eq($(this).index()).removeAttr("checked");
+                    $_i.eq($(this).index()).removeClass("_enter").addClass("_out");
+                } else {
+                    $_input.eq($(this).index()).attr("checked","checked");
+                    $_i.eq($(this).index()).removeClass("_out").addClass("_enter");
+                    $(this).addClass("_checked");
+                }
+            });
+
+            $(".submitBtn").on("tap",function(){
+                resultArr = [];
+                var length1 = $_i.length;
+                for(var i=0;i<length1;i++){
+                    if($_i.eq(i).hasClass("_enter")){
+                        resultArr.push($_txt.eq(i).html());
+                    }
+                }
+                console.log(resultArr);
+                if(resultArr.length != 0){
+                    layer.open({
+                        type: 1
+                        ,content: '<div class="layer_con"><img class="_close" onclick="layer.closeAll();"  src="images/close.png" alt=""/><div class="con_box"><img src="images/success.png" alt=""/><p class="_txt _txt1">感谢您提交的信息！</p><p class="_txt _txt2">佰仟同事会为您提供更好的服务！</p> </div></div>'
+                        ,anim: 'up'
+                        ,style: 'height:5.2rem; width:5.2rem; position:absolute; left:50%; margin-left:-2.6rem; top:2.5rem; background:transparent;'
+                    });
+                } else {
+                    layer.open({
+                        content: '为了能提供更好的服务，请在所列选项中至少选择一项再提交，谢!'
+                        ,skin: 'msg'
+                        ,time: 2 //2秒后自动关闭
+                    });
+                }
+
+//                layer.open({
+//                    type: 1
+//                    ,content: '<div></div>  '
+//                    ,anim: 'up'
+//                    ,style: 'height:5.2rem; width:5.2rem; position:absolute; left:50%; margin-left:-2.6rem; top:2.5rem; background:transparent;'
+//                });
+
+            })
+        })
+    </script>
+
+</body>
+</html>

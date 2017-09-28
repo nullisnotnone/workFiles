@@ -1,0 +1,66 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#333;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+textarea{-webkit-appearance: none;}
+*::-webkit-input-placeholder { color: #a9bac2; }
+
+
+
+
+#con{min-height:100%;width:100%;background:#f4f4f4;}
+#con .underLine:after{position:absolute;left:0;bottom:0;content:"";display:block;height:1px;width:100%;background:#d8d8d8; -webkit-transform: scaleY(0.5); transform: scaleY(0.5);}
+#con .remarkTitle{height:0.7rem;width:100%; margin-bottom:0.3rem; color:#ff6806; background:#fdeda9;}
+#con .remarkTitle a{float:left;height:0.7rem;width:100%;line-height:0.7rem;text-align:center;color:#ff6806; }
+#con .remarkTitle a .r-box{height:0.7rem;width:4.0rem;padding-right:0.4rem;margin:0 auto;position:relative; }
+#con .remarkTitle a i{display:inline-block;position:absolute;right:0;top:0.18rem;width:0.19rem;height:0.34rem;background:url("../images/icon-right.png") no-repeat left top; background-size:100% 100%;}
+
+#con .awardsList{height:auto;padding:0 0.2rem;}
+.awardsList .a-list{ min-height:1.0rem;width:100%;background:#fff;border-left:3px solid #ffca29;border-radius:6px; box-sizing: border-box; -webkit-box-sizing: border-box; margin-bottom:0.3rem;}
+.awardsList .a-list .part-top{height:1.6rem;width:100%;display:flex; display:-webkit-flex;position:relative;}
+.awardsList .a-list .part-top .left-circle{height:0.3rem;width:0.3rem;background:#f4f4f4;position:absolute;left:-0.15rem;bottom:-0.15rem;border-radius:50%; z-index:10;}
+.awardsList .a-list .part-top .right-circle{height:0.3rem;width:0.3rem;background:#f4f4f4;position:absolute;right:-0.15rem;bottom:-0.15rem;border-radius:50%;z-index:10;}
+
+.awardsList .a-list .part-top .pt-left{height:1.2rem;width:1.6rem;padding-top:0.4rem;}
+.awardsList .a-list .part-top .pt-left .pt-left-1{height:0.75rem;width:100%; color:#ffca29;}
+.a-list .part-top .pt-left-1 .rmb{float:left;height:0.2rem;width:0.2rem;padding-left:0.2rem;margin-top:0.45rem;line-height:0.2rem;text-align:center;font-size:0.18rem;}
+.a-list .part-top .pt-left-1 .rmb-num{float:left;height:0.75rem;line-height:0.75rem;font-size:0.75rem;}
+.a-list .part-top .pt-left-2{height:0.24rem;line-height:0.24rem;text-align:center;font-size:0.2rem;}
+
+.a-list .part-top .pt-right{flex:1;-webkit-flex:1; position:relative;padding-top:0.52rem;padding-right:0.2rem;box-sizing: border-box;-webkit-box-sizing: border-box;}
+.a-list .part-top .pt-right .aw-state{height:0.4rem;width:1.05rem;line-height:0.4rem;text-align:center;position:absolute;right:0;top:0.1rem;color:#fff;}
+.a-list .part-top .pt-right .use-ing{background:url("../images/use-ing.png") no-repeat left top; background-size:100% 100%;}
+.a-list .part-top .pt-right .use-over{background:url("../images/use-over.png") no-repeat left top; background-size:100% 100%;}
+.a-list .part-top .pt-right .a-use{line-height:0.4rem;color:#000;font-size:0.24rem;}
+
+.a-list  .part-down{padding:0 0.2rem; padding-top:0.1rem; display:flex; display:-webkit-flex;position:relative;}
+.a-list  .part-down .pd-left{flex:1; -webkit-flex:1;margin-right:0.2rem;padding-bottom:0.2rem;}
+.a-list  .part-down .pd-left-close{height:0.4rem;line-height:0.36rem;white-space: normal;overflow: hidden; text-overflow: ellipsis;}
+.a-list  .part-down .pd-left-open{min-height:0.4rem; line-height:0.36rem;}
+.a-list  .part-down .pd-right{width:0.7rem;height:100%;}
+.a-list  .part-down .pd-right .detailBtn{height:0.36rem;width:0.7rem;line-height:0.36rem;text-align:center;background:#ff6806;color:#fff;border-radius:5px;font-size:0.2rem;position:absolute;right:0.2rem;bottom:0.2rem;}
+
+#con .ruleLink{height:0.4rem;width:100%;padding-bottom:0.4rem;text-align:center;}
+#con .ruleLink a{display:inline-block;margin:0 auto;height:0.4rem;text-align:center;line-height:0.4rem;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

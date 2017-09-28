@@ -1,0 +1,100 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#888;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+*::-webkit-input-placeholder { color: #dcd4d5; }
+
+
+#con{min-height:100%; width:100%;}
+#con .top{height:6.58rem; width:100%;}
+#con .top>img{float:left; height:100%; width:100%;}
+#con .con{min-height:3.0rem;padding:0 0.3rem; padding-top:0.4rem; background:#f42b4d;}
+#con .con .ruleDetails{height:auto;width:100%;overflow:hidden;}
+/*#con .con .ruleDetailsOpen{height:7.2rem; transition: all 0.5s linear; -webkit-transition: all 0.5s linear; }*/
+/*#con .con .ruleDetailsHide{height:0; transition: all 0.5s linear; -webkit-transition: all 0.5s linear; }*/
+
+#con .con .ruleDetails .title{height:0.58rem;width:100%; line-height:0.58rem; text-align:center; font-size:0.32rem;color:#984e21; margin-bottom:0.5rem;background:url("../images/hy002.png") no-repeat left top; background-size:100% 100%;}
+/*#con .con .ruleDetails .txts{height:6.2rem;width:100%; margin-bottom:0.3rem; }*/
+#con .con .ruleDetails .txts{height:0;width:100%;  }
+#con .con .ruleDetails .txtsOpen{height:6.2rem;transition: all 0.5s linear; -webkit-transition: all 0.5s linear;}
+#con .con .ruleDetails .txtsHide{height:0;transition: all 0.5s linear; -webkit-transition: all 0.5s linear;}
+
+#con .con .ruleDetails .txts .txt{line-height:0.36rem; font-size:0.28rem; color:#fff; margin-bottom:0.1rem;}
+#con .con .ruleDetails .txts .txt5{color:#fcc934;}
+#con .con  .controller{height:0.5rem; width:3.4rem; text-align:center; margin:0 auto; color:#e4bdc1;}
+#con .con  .controller span{display:inline-block; height:0.5rem;line-height:0.5rem;}
+#con .con  .controller i{display:inline-block; height:0.14rem; width:0.27rem; margin-top:0.18rem;}
+#con .con  .controller .up{ background:url("../images/up.png") no-repeat left top; background-size:100% 100%; }
+#con .con  .controller .down{ background:url("../images/down.png") no-repeat left top; background-size:100% 100%; }
+#con .con .perInfo{padding-top:0.3rem;width:100%; padding-bottom:0.23rem;}
+#con .con .perInfo .title{height:0.58rem;width:100%; line-height:0.58rem; text-align:center; font-size:0.32rem;color:#984e21; margin-bottom:0.5rem;background:url("../images/hy002.png") no-repeat left top; background-size:100% 100%;}
+
+#info{display:block; min-height:5.0rem; width:100%; padding-top:0.58rem; background:#e12646; padding-bottom:0.16rem;margin-bottom:0.2rem;}
+#info .carInfoHide{ display:none; }
+#info .box{height:0.88rem; width:5.9rem; margin:0 auto; margin-bottom:0.16rem;color: #dcd4d5;}
+#info .box .left{float:left; height:0.86rem; width:0.68rem;border:1px solid #d3d3d3;border-radius:4px 0 0 4px; position:relative;}
+#info .box1 .left i{display:block;height:0.36rem;width:0.35rem;background:url("../images/013.png") no-repeat left top; background-size:100% 100%; position:absolute;left:0.16rem;top:0.25rem;}
+#info .box2 .left i{display:block;height:0.43rem;width:0.37rem;background:url("../images/014.png") no-repeat left top; background-size:100% 100%; position:absolute;left:0.15rem;top:0.21rem;}
+#info .box6 .left i{display:block;height:0.30rem;width:0.28rem;background:url("../images/28.png") no-repeat left top; background-size:100% 100%; position:absolute;left:0.2rem;top:0.28rem;}
+#info .box4 .left i{display:block;height:0.28rem;width:0.3rem;background:url("../images/29.png") no-repeat left top; background-size:100% 100%; position:absolute;left:0.19rem;top:0.29rem;}
+#info .box input{float:left;height:0.86rem;width:4.7rem; padding:0 0.2rem;font-size:0.28rem;color: #dcd4d5; background:transparent;border:1px solid #d3d3d3;border-radius:0 4px 4px 0;}
+
+#info .boxChoose .leftTxt{float:left; height:0.88rem;line-height:0.88rem; margin-right:0.5rem;font-size:0.28rem;}
+#info .boxChoose .right{float:left; height:0.88rem; width:3.0rem; }
+#info .boxChoose .right .tip{float:left; height:0.28rem;width:1.0rem;line-height:0.28rem;padding:0.3rem 0;font-size:0.28rem;}
+#info .boxChoose .right .tip i{float:left; height:0.28rem; width:0.28rem;margin-right:0.1rem;}
+#info .boxChoose .right .tip .txt{float:left;height:0.28rem;line-height:0.28rem;}
+#info .boxChoose .right .tip .sp{color:#fcc934;}
+#info .boxChoose .right .tip .checked{background:url("../images/checked.png") no-repeat left top; background-size:100% 100%;}
+#info .boxChoose .right .tip .unchecked{background:url("../images/unchecked.png") no-repeat left top; background-size:100% 100%;}
+#info .boxChoose .right .tip1{margin-right:0.5rem;}
+#info .remarkTxt1{line-height:0.4rem; width:5.9rem; margin:0 auto; font-size:0.2rem; margin-bottom:0.2rem;color:#dcd4d5;}
+#info .submitBtn{display:block;height:0.98rem; width:6.0rem;line-height:0.98rem;text-align:center;font-size:0.32rem;color:#bd4e27;background:#fcc934;border-radius:5px;margin:0 auto;}
+#info .share{ height:0.8rem;line-height:0.8rem;width:100%;margin:0 auto; }
+#info .shareBtn{height:0.8rem;line-height:0.8rem;float:right; padding-right:0.8rem; text-decoration: underline;color:#dcd4d5; position:relative;}
+#info .share i{display:block;height:0.49rem;width:0.65rem;background:url("../images/finger.png") no-repeat left top; background-size:100% 100%; position:absolute;right:0;top:0.3rem;}
+
+#con .con .remarkTxt2{width:6.5rem; line-height:0.4rem; padding:0.1rem 0.2rem; background:#e12646; color:#dcd4d5; margin:0 auto;}
+#con .con .remarkHide{display:none;}
+
+#con .con .goodLists{min-height:3rem; width:100%; padding-bottom:0.6rem;}
+#con .con .goodLists .title{height:0.58rem; width:100%; line-height:0.58rem; text-align:center; font-size:0.32rem;color:#984e21; margin-bottom:0.5rem;background:url("../images/hy002.png") no-repeat left top; background-size:100% 100%;}
+#con .con .goodLists .txt{height:0.84rem; width:100%; line-height:0.84rem; text-align:center; color:#fff;}
+#con .con .goodLists .goodImg{height:6.69rem;width:6.42rem;margin:0 auto;}
+
+
+/*分享弹窗*/
+#layer0 .remark{padding-top:0.8rem;height:3.24rem; width:4.89rem;  margin: 0 auto; margin-left:20%; margin-bottom:0.4rem;  }
+#layer0 .remark .remarkImg{float:left;height:100%;width:100%;}
+#layer0 .remarkBtn{ height:0.9rem;width:2.09rem; margin:0 auto; background:url("../images/remarkBtn.png") no-repeat left top; background-size:100% 100%;  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

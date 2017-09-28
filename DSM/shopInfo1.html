@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>关联商户信息</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#92a1a8;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #a9bac2; }
+
+        #con{min-height:100%; width:100%; background:#f0f4f5;}
+        #con .emptyBox{height:0.2rem;width:100%;}
+        #info1{min-height:2.0rem; padding:0.2rem;  background:#fff;}
+        #info1 .infoBox{  min-height:2.0rem;width:100%; }
+        #info1 .infoBox .part .conBox{height:0.64rem;width:6.0rem;margin:0 auto;}
+        #info1 .infoBox .part{padding-top:0.2rem; height:0.64rem;width:100%; position:relative;}
+        #info1 .infoBox .part .infoName{float:left;height:0.64rem;line-height:0.64rem;width:2.0rem;padding-right:0.1rem;text-align:right;}
+        #info1 .infoBox .part .infoCon{float:left;height:0.4rem;width:3.4rem;padding:0.1rem 0.2rem; color:#000; border:1px solid #c0d2db;border-radius:5px;}
+
+        #con .btns{height:0.6rem;width:5.0rem; margin:0 auto; margin-top:0.6rem;}
+        #con .btns p{float:left;height:0.58rem;width:1.8rem;line-height:0.58rem;color:#fff;text-align:center;background:#2e82fc;border:0.01rem solid #ededed;border-radius:4px;}
+        #con .btns .nextBtn{float:right;}
+
+        #con .con-hide{height:0; -webkit-transition: all 0.3s linear; transition: all 0.3s linear;}
+        .overView{height:100%;width:100%;background:rgba(0,0,0,0.6);position:absolute;left:0;top:0;z-index:10;}
+        /*零售商名称*/
+        .shopsView{ height:6.0rem; width:100%; background:#fff; position:fixed;left:0;bottom:0;-webkit-transition: height 0.3s linear;transition: height 0.3s linear;z-index:1000;}
+        .shopsView .searchBar{height:0.6rem; padding:0.2rem;  display:flex; display:-webkit-flex;}
+        .shopsView .searchBar .cancel-btn{float:left; height:0.4rem; width:0.4rem; margin-right:0.2rem; margin-top:0.1rem;background:url("images/cancel-btn.png") no-repeat left top; background-size:100% 100%;}
+        .shopsView .searchBar .txtInput{flex:1; -webkit-flex:1; border-radius:8px; position:relative;background:#eef4f4;margin-right:0.24rem;}
+        .shopsView .searchBar .txtInput i{ float:left; height:0.4rem; width:0.42rem; margin:0.1rem 0.2rem; background:url("images/icon-search.png") no-repeat left top; background-size:100% 100%;}
+        .shopsView .searchBar .txtInput input{float:left;font-size:0.2rem;padding:0 0.1rem; width:3.0rem; background:#eef4f4; height:0.4rem; margin-top:0.1rem;border-left:0.01rem solid #a5b8bf; border-radius:0; }
+        .shopsView .searchBar .search-btn{float:left; height:0.6rem; width:1.0rem; line-height:0.6rem;text-align:center;color:#2e82fc;font-weight:600;background:#eef4f4;border-radius:8px;font-size:0.28rem;}
+        .shopsView .list-box {height:5.0rem;width:6.4rem;margin:0 auto;overflow-y:scroll; }
+
+        #shops-lists{ height:auto; width:6.3rem; margin:0 auto; }
+        #shops-lists tr {height:0.4rem; width:100%;}
+        #shops-lists tr td{height:0.4rem; line-height:0.4rem; text-align:center; box-sizing: border-box; -webkit-box-sizing: border-box;border:0.01rem dashed #ededed;}
+        #shops-lists .s-list-choosed{background:skyblue; color:#fff;}
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <p class="emptyBox"></p>
+        <form action="" id="info1">
+            <div class="infoBox">
+                <div class="part part1">
+                    <div class="conBox">
+                        <span class="infoName" >零售商名称</span>
+                        <input id="shopsName" class="infoCon" type="text" placeholder="必填">
+                        <i class="remarkBtn"></i>
+                    </div>
+                </div>
+                <div class="part part1">
+                    <div class="conBox">
+                        <span class="infoName" >商户注册号</span>
+                        <input id="shopsNum" class="infoCon" type="text" placeholder="请先填写零售商名称">
+                        <i class="remarkBtn"></i>
+                    </div>
+                </div>
+                <div class="part part1">
+                    <div class="conBox">
+                        <span class="infoName" >商户法人代表</span>
+                        <input id="shopsAgent" class="infoCon" type="text" placeholder="请先填写零售商名称">
+                        <i class="remarkBtn"></i>
+                    </div>
+                </div>
+                <div class="part part1">
+                    <div class="conBox">
+                        <span class="infoName" >所在省市</span>
+                        <input id="address" class="infoCon" type="text" placeholder="请先填写零售商名称">
+                        <i class="remarkBtn"></i>
+                    </div>
+                </div>
+                <div class="part part1">
+                    <div class="conBox">
+                        <span class="infoName" >门店注册号</span>
+                        <input id="shopNum" class="infoCon" type="text" placeholder="必填">
+                        <i class="remarkBtn"></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="btns">
+            <p class="backBtn">返回</p>
+            <p class="nextBtn">下一步</p>
+        </div>
+
+        <div class="shopsView con-hide">
+            <div class="searchBar">
+                <button class="cancel-btn" type="button"></button>
+                <p class="txtInput">
+                    <i></i>
+                    <input id="searchArea" type="text" placeholder="请输入商户代码或者商户名称">
+                </p>
+                <button class="search-btn" type="button">搜索</button>
+            </div>
+            <div class="list-box">
+                <table id="shops-lists" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr class="s-list1">
+                            <td>商户代码</td>
+                            <td>商户名称</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr class="s-list">-->
+                            <!--<td class="shop_code">1100000657</td>-->
+                            <!--<td class="shop_name">德玛西亚1</td>-->
+                        <!--</tr>-->
+                        <!--<tr class="s-list">-->
+                            <!--<td class="shop_code">152223198304204958</td>-->
+                            <!--<td class="shop_name">德玛西亚德玛西亚2</td>-->
+                        <!--</tr>-->
+                        <!--<tr class="s-list">-->
+                            <!--<td class="shop_code">1100000657</td>-->
+                            <!--<td class="shop_name">德玛西亚3</td>-->
+                        <!--</tr>-->
+                        <!--<tr class="s-list">-->
+                            <!--<td class="shop_code">1100000657</td>-->
+                            <!--<td class="shop_name">德玛西亚4</td>-->
+                        <!--</tr>-->
+                        <!--<tr class="s-list">-->
+                            <!--<td class="shop_code">1100000657</td>-->
+                            <!--<td class="shop_name">德玛西亚5</td>-->
+                        <!--</tr>-->
+                        <!--<tr class="s-list">-->
+                            <!--<td class="shop_code">1100000657</td>-->
+                            <!--<td class="shop_name">德玛西亚6</td>-->
+                        <!--</tr>-->
+                        <!--<tr class="s-list">-->
+                            <!--<td class="shop_code">1100000657</td>-->
+                            <!--<td class="shop_name">德玛西亚7</td>-->
+                        <!--</tr>-->
+                        <!--<tr class="s-list">-->
+                            <!--<td class="shop_code">1100000657</td>-->
+                            <!--<td class="shop_name">德玛西亚8</td>-->
+                        <!--</tr>-->
+                        <!--<tr class="s-list">-->
+                            <!--<td class="shop_code">1100000657</td>-->
+                            <!--<td class="shop_name">德玛西亚9</td>-->
+                        <!--</tr>-->
+                        <!--<tr class="s-list">-->
+                            <!--<td class="shop_code">1100000657</td>-->
+                            <!--<td class="shop_name">德玛西亚10</td>-->
+                        <!--</tr>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="overView con-hide"></div>
+    </div>
+
+
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var page_num = 1;
+            //显示弹窗
+            $("#shopsName").on("click",function(){
+                $(".overView").removeClass("con-hide");
+                $(".shopsView").removeClass("con-hide");
+            });
+
+            // 关闭弹窗
+            $(".overView").on("click",function(){
+                $(".overView").addClass("con-hide");
+                $(".shopsView").addClass("con-hide");
+            });
+
+            $(".cancel-btn").on("click",function(){
+                $("#cloud-view").addClass("conHide");
+                $(".layOutView").addClass("con-hide");
+            });
+
+            // 选择零售商
+            $("tbody").on("click",".s-list",function(){
+                $("#shopsName").val($(this).find(".shop_name").html());
+            });
+
+//            // 上一页
+//            $(".prev-btn").on("click",function(){
+//                var pageNum = page_num - 1;
+//                if(pageNum > 0){
+//                    $("#pageNum").val(pageNum);
+//                    var url_str = "http://fcdsmtest.52baiqian.com/webview/store/shops?api_token=lizhenju.token&offset=" + pageNum;
+//                    getData(url_str);
+//                    var start_num = (Number(page_num) - 1) * 10;
+//                    var end_num = Number(page_num)  * 10;
+//
+//                    $(".date-start").html(start_num);
+//                    $(".date-end").html(end_num);
+//                } else{
+//                    layerInfo("无法查询到数据，请确保页数正确");
+//                }
+//            });
+
+//            // 下一页
+//            $(".next-btn").on("click",function(){
+//                var pageNum = page_num + 1;
+//                if( pageNum > Number($(".total-num").html())){
+//                    layerInfo("无法查询到数据，请确保页数正确");
+//                } else {
+//                    $("#pageNum").val(pageNum);
+//                    var url_str = "http://fcdsmtest.52baiqian.com/webview/store/shops?api_token=lizhenju.token&offset=" + pageNum;
+//                    getData(url_str);
+//                    var start_num = (Number(page_num) - 1) * 10;
+//                    var end_num = Number(page_num)  * 10;
+//
+//                    $(".date-start").html(start_num);
+//                    $(".date-end").html(end_num);
+//                }
+//            });
+
+//            // go
+//            $(".jump-go").on("click",function(){
+//                var pageNum = $("#pageNum").val();
+//                if(pageNum <=0 || pageNum > Number($(".total-num").html())){
+//                    layerInfo("无法查询到数据，请确保页数正确");
+//                } else {
+//                    var url_str = "http://fcdsmtest.52baiqian.com/webview/store/shops?api_token=lizhenju.token&offset=" + pageNum;
+//                    getData(url_str);
+//                    var start_num = (Number(page_num) - 1) * 10;
+//                    var end_num = Number(page_num)  * 10;
+//
+//                    $(".date-start").html(start_num);
+//                    $(".date-end").html(end_num);
+//                }
+//            });
+
+
+
+//            // 确认
+//            $(".y-btn").on("click",function(){
+//                var listELe = $("tbody .s-list");
+//               for(var i=0;i<listELe.length;i++){
+//                   if(listELe.eq(i).hasClass("s-list-choosed")){
+//                       $("#shopsName").val(listELe.eq(i).find(".shop_name").html());
+//                       break;
+//                   }
+//               }
+//                $(".overView").addClass("con-hide");
+//                $(".shopsView").addClass("con-hide");
+//            });
+
+
+            function getData(url){
+                var str = "";
+                $.ajax({
+                    url: url,
+                    type: 'get',
+                    dataType: 'json',
+                    cache : false,
+                    async : false,
+                    success: function(data) {
+                        console.log(data);
+                        if(data.code === "0"){
+                            if(data.data.total && (data.data.total!==0)){
+                                page_num = data.data.page;
+                                var getData = data.data.dataList;
+                                $(".total-num").html(data.data.total);
+
+                                for(var i=0;i<getData.length;i++){
+                                    str +='<tr class="s-list">' +
+                                            '<td class="shop_code">'+getData[i].legalId+'</td>' +
+                                            ' <td class="shop_name">'+getData[i].retailName+'</td>' ;
+                                }
+                                $("#shops-lists tbody").empty().append(str);
+                            }
+                        }else{
+                            layerInfo("没有更多数据了...");
+                        }
+                    }
+                })
+            }
+            function layerInfo(str){
+                layer.open({
+                    content: str
+                    ,skin: 'msg'
+                    ,time: 2  //2秒后自动关闭
+                });
+            }
+
+        })
+    </script>
+</body>
+</html>

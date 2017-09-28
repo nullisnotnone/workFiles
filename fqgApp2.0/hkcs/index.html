@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>佰仟分期购</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/hkcs.css">
+</head>
+<body>
+
+
+    <div class="nav-bar-box">
+        <div class="navBar">
+            <p class="empty-bar"></p>
+            <p class="nav-title">提前还款测算</p>
+            <span class="backBtn"><img src="images/icon-back.png" alt=""></span>
+        </div>
+    </div>
+    <div id="con">
+        <div class="noData iconHide">没有查询到可以试算的合同</div>
+        <div class="part part1">
+            <p class="p-title">请选择试算合同:</p>
+            <div class="listBox clearfix">
+            </div>
+            <div class="m-num-box">
+                <p class="m-title">预计还款金额</p>
+                <p class="m-num">
+                    <span>¥</span>
+                    <span id="m-num-value">X.XX</span>
+                </p>
+            </div>
+        </div>
+        <div class="remarkBox">
+            <div class="r-part">
+                <p class="r-title">温馨提示：</p>
+                <p class="r-detail-txt">温馨提示 : 以上试算金额仅供参考，具体还款额度请致电客服查询，如 需办理提前还款，请在还款日前15天致电客服申请。</p>
+            </div>
+            <div class="r-part">
+                <p class="r-title">什么事提前还款测算：</p>
+                <p class="r-detail-txt">即对剩余未还期款所需金额的计算，对经济能力有限的消费者，提前还款会打乱原有计划，增加生活压力，建议谨慎申请提前还款。</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 返回
+            $(".backBtn").on("click",function(){
+                history.back();
+            });
+
+            var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
+            if(isAndroid){
+                $(".nav-bar-box").css({"display":"none"});
+                $("#con").css({"padding-top":"0"});
+            }
+
+            $.ajax({
+                type : "GET",
+                url : "http://pre.52baiqian.com/newapi/payments/contracts?customerid=10575173",
+                dataType : 'json',
+                success: function(data){
+                    if(data.code == '200'){
+                        $(".listBox").html(appendDOM(data.data));
+                    } else if(data.code == '400'){
+                        layerInfo("没有查询到合同！");
+                        $(".noData").removeClass("iconHide");
+                        $(".part1").addClass("iconHide");
+                    }
+                }
+            });
+
+
+            // 选择合同
+            $("body").on("click", ".contractList" ,function(){
+                $(this).addClass("list-checked").siblings().removeClass("list-checked");
+                $(this).find(".c-state").addClass("c-state-checked");
+                $(this).find(".p-icon1").addClass("iconHide");
+                $(this).find(".p-icon2").removeClass("iconHide");
+                var serialno_value =  $(this).find(".c-num-txt").html();
+                for(var i=0;i<$(".contractList").length ; i++){
+                    if(! $(".contractList").eq(i).hasClass("list-checked")){
+                        $(".contractList").eq(i).find(".p-icon2").addClass("iconHide");
+                        $(".contractList").eq(i).find(".p-icon1").removeClass("iconHide");
+                        $(".contractList").eq(i).find(".c-state").removeClass("c-state-checked");
+                    }
+                }
+                layer.open({
+                    type: 2
+                    ,content: '查询中...'
+                });
+
+                setTimeout(function(){
+                    $.ajax({
+                        type : "GET",
+                        url : 'http://pre.52baiqian.com/newapi/payments/verpay?serialno='+ serialno_value ,
+                        dataType : 'json',
+                        success : function(data){
+                            layer.closeAll();
+                            if(data.code == '200'){
+                                $("#m-num-value").html(data.data.prepayment);
+                            } else if(data.code == '400'){
+                                layer.open({
+                                    shadeClose : false,
+                                    type: 1
+                                    ,content: '<div id="layerOut">' +
+                                    '<p class="title">很抱歉</p>' +
+                                    '<p class="w-txt">无法查询该笔合同当前提前还款金额</p>' +
+                                    '<div class="c-rules">' +
+                                    '<p class="c-rule-title">查询需同时满足以下两个条件：</p>' +
+                                    '<p class="c-rule-txt">1 、当前无欠款</p>' +
+                                    '<p class="c-rule-txt">2 、距离还款日至少15天</p>' +
+                                    '</div>' +
+                                    '<p class="l-bottom" onclick="layer.closeAll();">知道了</p>' +
+                                    '</div>'
+                                    ,anim: 'up'
+                                    ,style: ' height: 40px; padding:10px 0; border:none; background:transparent;'
+                                });
+                            }
+                        }
+                    });
+                },500);
+            });
+
+            function appendDOM(data){
+                var str = "";
+                for(var i=0; i<data.length ;i++){
+                    str += ' <div class="contractList">' +
+                            '<div class="c-box">' ;
+                    if(data[i].subproducttype == '消费分期'){
+                        str = str + '<img class="p-icon p-icon1" src="images/icon-xf.png" name="product_1" alt="">' +
+                                '<img class="p-icon p-icon2 iconHide" src="images/icon-xf-checked.png" name="product_1" alt="">'
+                    } else if(data[i].subproducttype == '仟姿分期'){
+                        str = str + '<img class="p-icon" src="images/icon-qz.png" name="product_1" alt="">' +
+                                '<img class="p-icon p-icon2 iconHide" src="images/icon-qz-checked.png" name="product_1" alt="">'
+                    } else if(data[i].subproducttype == '现金分期'){
+                        str = str + '<img class="p-icon" src="images/icon-xj.png" name="product_1" alt="">'+
+                                '<img class="p-icon p-icon2 iconHide" src="images/icon-xj-checked.png" name="product_1" alt="">'
+
+                    }
+                    str += '<p class="c-name">'+data[i].subproducttype+'</p>' +
+                            '<p class="c-num">合同号</p>' +
+                            ' <p class="c-num-txt">'+ data[i].serialno+'</p>' +
+                            '</div>' +
+                            '<i class="c-state"></i>' +
+                            '</div>';
+                }
+
+                return str;
+            }
+
+            // 提示消息弹窗
+            function layerInfo(str){
+                layer.open({
+                    content: str
+                    ,skin: 'msg'
+                    ,time: 2  //2秒后自动关闭
+                });
+            }
+        });
+    </script>
+</body>
+</html>

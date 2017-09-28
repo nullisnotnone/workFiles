@@ -1,0 +1,65 @@
+@charset "utf-8";
+* {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.32rem; color:#888;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+
+
+#top{height:6.34rem;width:100%;}
+#top .top_img{float:left;height:6.34rem;width:100%;}
+
+#con{min-height:6.0rem; width:100%; background:#ec5e24;}
+#con .remark_txt{height:0.36rem;width:5.1rem;margin:0 auto;line-height:0.36rem;margin-bottom:0.3rem; color:#f2f2f2;}
+#infoForm{width:5.0rem;margin:0 auto; font-family: "Microsoft YaHei";}
+#infoForm p{height:0.78rem; width:100%; line-height:0.78rem; margin-bottom:0.16rem; }
+#infoForm ._input{background:#c7f1ff;  width:4.2rem; height:0.48rem; padding:0.15rem  0  0.15rem 0.78rem; border-radius: 6px;position:relative;}
+#infoForm ._input .forward_img{height:0.47rem;width:0.38rem; position:absolute;left:0.2rem; top:0.15rem;}
+#infoForm ._input input{float:left;height:0.48rem;width:3.98rem; font-size:0.32rem;padding:0 0.1rem; border-left:1px solid #f7a07d;background:#c7f1ff; border-radius:0; -webkit-border-radius:0;}
+#infoForm ._select .selectbg{position:absolute; right:0.2rem; top:0.27rem; height:0.24rem; width:0.28rem;}
+#infoForm ._input select{float:left;height:0.48rem;width:3.7rem;font-size:0.32rem; padding:0 0.1rem; border-left:1px solid #f7a07d;color:#888;background:transparent;border-radius:0; -webkit-border-radius:0;}
+
+#infoForm  ._radio .s_txt{float:left;padding-left:0.1rem;margin-right:0.4rem; color:#fff;}
+
+#infoForm  ._radio label{float:left;height:0.78rem;width:1.2rem;margin-right:0.2rem; position:relative; }
+#infoForm  ._radio .mar_none{margin-right:0;}
+/*#infoForm  ._radio ._box label{float:left;height:0.78rem;width:1.2rem;}*/
+#infoForm  ._radio label span{padding-left:0.5rem;float:left; color:#ffded0;}
+#infoForm  ._radio label input{position:absolute;left:-9999px;top:0;}
+#infoForm  ._radio  ._out{height:0.28rem;width:0.28rem;position:absolute;left:0;top:0.25rem; background:url("../images/32.png") no-repeat left top ; background-size:cover;}
+#infoForm  ._radio  ._enter{height:0.28rem;width:0.28rem;position:absolute;left:0;top:0.25rem; background:url("../images/31.png") no-repeat left top ; background-size:cover;}
+#infoForm .submitBtn{height:0.78rem;width:5.0rem;line-height:0.78rem;text-align:center; font-weight:700;font-size:0.32rem;color:#ec5e24;border-radius:6px;background:#fff;box-shadow: 0 5px 0 0  #888; font-family: "Microsoft YaHei"; margin:0.7rem 0;}
+
+
+.layer_con {height:5.2rem; width:5.2rem; }
+.layer_con ._close { height:0.65rem; width:0.65rem; margin:0 auto; margin-bottom:0.3rem; }
+.layer_con .con_box {height:4.25rem;width:100%;background:#fff;padding-top:0.64rem; border-radius: 10px}
+.layer_con .con_box>img {height:1.5rem;width:1.5rem;margin:0 auto; margin-bottom:0.54rem;}
+.layer_con .con_box ._txt { width:100%;text-align:center; }
+.layer_con .con_box ._txt1{height:0.38rem; font-size:0.38rem; line-height:0.38rem; font-weight:700; color:#ec5e24; margin-bottom:0.25rem;}
+.layer_con .con_box ._txt2{height:0.32rem;width:80%; margin:0 auto;font-size:0.24rem; line-height:0.40rem;color:#999; text-align:center;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

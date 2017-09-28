@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>订单详情</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style  type="text/css" >
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.26rem; color:#999;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        *::-webkit-input-placeholder {  color: #d6d6db;}
+
+        #con{min-height:100%;width:100%; background:#edf1f2;display:flex; display:-webkit-flex; flex-direction: column; -webkit-flex-direction: column;}
+        #con .underLine:after{content:"";display:block;height:1px;width:100%;background:#e6e8e8;position:absolute;left:0;bottom:0;transform: scaleY(0.5); -webkit-transform: scaleY(0.5);}
+        #con .infoResult{height:2.0rem;padding:0 0.24rem;background:#fff; }
+        #con .infoResult .carNum{height:1.08rem;width:100%; line-height:1.08rem;color:#000;font-weight:600;font-size:0.28rem;}
+        #con .infoResult .infoList{display:flex;display:-webkit-flex; height:0.74rem;width:100%;}
+        #con .infoResult .infoList .list{flex:1; -webkit-flex:1;box-sizing:border-box; -webkit-box-sizing: border-box;}
+        #con .infoResult .infoList .list2{border-left:0.01rem solid #e6e8e8; border-right:0.01rem solid #e6e8e8; }
+        #con .infoResult .infoList .list .txt1{float:left;height:0.24rem;line-height:0.24rem;width:100%;text-align:center;margin-bottom:0.2rem;}
+        #con .infoResult .infoList .list .txt2{float:left;height:0.3rem;line-height:0.3rem;font-size:0.28rem;color:#000;width:100%;text-align:center}
+        #con .b-con{flex:1; -webkit-flex:1; padding:0 0.24rem; padding-top:1.4rem;}
+        #con .b-con .remarkImg{ height:0.84rem;width:4.0rem; margin:0 auto; background:url("images/noBreak.png") no-repeat left top; background-size:100% 100%;  }
+
+        #con .bottomPart{height:2.72rem;width:100%;padding-bottom:0.48rem;}
+        #con .bottomPart .partCon{ height:2.72rem;width:100%;background:url("images/noBreakBg.png") no-repeat left top; background-size:100% 100%; }
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div class="infoResult">
+            <p class="carNum">粤B02017</p>
+            <div class="infoList">
+                <p class="list list1">
+                    <span class="txt1">违章条数</span>
+                    <span class="txt2">0条</span>
+                </p>
+                <p class="list list2">
+                    <span class="txt1">罚款金额</span>
+                    <span class="txt2">0元</span>
+                </p>
+                <p class="list list3">
+                    <span class="txt1">扣分</span>
+                    <span class="txt2">0分</span>
+                </p>
+            </div>
+        </div>
+        <div class="b-con">
+            <p class="remarkImg"></p>
+        </div>
+        <div class="bottomPart">
+            <p class="partCon"></p>
+        </div>
+    </div>
+</body>
+</html>

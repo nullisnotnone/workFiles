@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>准入进度</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/need/layer.css">
+    <link rel="stylesheet" href="css/dropload.css">
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#92a1a8;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+        #con{min-height:100%; width:100%; background:#f0f4f5;}
+        #con .topPart{height:1.68rem;width:100%;position:fixed;left:0;top:0;}
+        #con .progressStyle{height:0.88rem; width:100%; display:flex; display:-webkit-flex; background:#fff; border-bottom:0.01rem solid #c0d2db;}
+        #con .progressStyle .sty{flex:1; -webkit-flex:1; position:relative;  }
+        #con .progressStyle .styActive i{display:block;height:0.11rem;width:1.0rem;background:url("images/activedBg.png") no-repeat left top; background-size:100% 100%; position:absolute;left:50%;margin-left:-0.5rem;bottom:0;}
+        #con .progressStyle .sty .styleName{float:left; padding-top:0.2rem; height:0.28rem;line-height:0.28rem; width:100%;text-align:center; font-size:0.28rem;}
+        #con .progressStyle .styActive .styleName{color:#2e82fc;}
+        #con .progressStyle .sty .countNum{float:left;height:0.3rem; line-height:0.3rem;width:100%;text-align:center;}
+        #con .con{min-height:2.0rem;padding:0 0.24rem;}
+        #con .filterStyle{height:0.8rem;padding:0 0.24rem;display:flex; display:-webkit-flex;}
+        #con .filterStyle .filterName{height:0.8rem;width:1.2rem;line-height:0.8rem;text-align:center;}
+        #con .filterStyle .filterBox{flex:1; -webkit-flex:1; display:flex; display:-webkit-flex;}
+        #con .filterStyle .filterBox .fil{flex:1;-webkit-flex:1;text-align:center; padding-top:0.2rem;}
+        #con .filterStyle .filterBox .fil span{padding:0.1rem;margin-top:0.2rem;}
+        #con .filterStyle .filterBox .fil .filActive{background:#e4e6e7;color:#000; border-radius:5px;}
+        #con .con .styleShopCards1{min-height:3.0rem;width:100%;}
+        #con .con .styleShopCards1 .shopCard{min-height:2.2rem;padding:0.2rem; background:#fff; border-radius:10px; margin-bottom:0.2rem;}
+        #con .con .styleShopCards1 .shopCard .info1{min-height:0.42rem;width:100%; display:flex; display:-webkit-flex;}
+        #con .con .styleShopCards1 .shopCard .info1 .txt1{height:0.42rem;width:1.35rem;line-height:0.42rem;text-align:center;}
+        #con .con .styleShopCards1 .shopCard .info1 .txt2{flex:1; -webkit-flex:1;line-height:0.42rem;}
+        #con .con .styleShopCards1 .shopCard .info2{height:0.42rem;width:100%; }
+        #con .con .styleShopCards1 .shopCard .info2 .txt1{float:left;height:0.42rem;width:1.35rem;line-height:0.42rem;text-align:center;}
+        #con .con .styleShopCards1 .shopCard .info2 .txt2{ float:left;line-height:0.42rem;}
+        #con .con .styleShopCards1 .btns{margin-top:0.3rem;height:0.48rem;color:#2e82fc;}
+        #con .con .styleShopCards1 .btns .deleteBtn{float:right;height:0.48rem;width:0.5rem;padding-left:0.2rem;position:relative;}
+        #con .con .styleShopCards1 .btns .deleteBtn i{display:block;height:0.18rem;width:0.14rem;background:url("images/delete01.png") no-repeat left top; background-size:100% 100%;position:absolute;left:0;top:0.15rem;}
+        #con .con .styleShopCards1 .btns .deleteBtn span{float:left;height:0.48rem;line-height:0.48rem;}
+        #con .con .styleShopCards1 .btns .continueBtn{float:right;margin-left:0.2rem;height:0.46rem;width:1.38rem;line-height:0.46rem;text-align:center;border:0.01rem solid #2e82fc;border-radius:5px; }
+        #con .con .styleShopCards1 .shoperCard{min-height:2.9rem; margin-bottom:0.2rem;padding:0.2rem;background:#fff;border-radius:10px;}
+        #con .con .styleShopCards1 .shoperCard .info1{height:0.8rem; line-height:0.8rem;width:100%;border-bottom:0.01rem dashed #c0d2db;margin-bottom:0.2rem;}
+        #con .con .styleShopCards1 .shoperCard .info1 .txt2{color:#000;}
+        #con .con .styleShopCards1 .shoperCard .cardInfo{line-height:0.46rem; display:flex; display:-webkit-flex; }
+        #con .con .styleShopCards1 .shoperCard .cardInfo .txt1{display:block;height:0.46rem;line-height:0.46rem;margin-right:0.1rem;}
+        #con .con .styleShopCards1 .shoperCard .cardInfo .txt2{flex:1; -webkit-flex:1;line-height:0.46rem;}
+
+
+
+        /*删除确认弹窗*/
+        #layerCon .title{height:1.06rem;line-height:1.06rem;text-align:center;font-size:0.30rem;font-weight:600; color:#000;}
+        #layerCon .reamrkTxt{line-height:0.36rem;padding:0 0.4rem;}
+        #layerCon .btns{height:0.77rem;width:100%;border-top:0.01rem solid #c0d2db; position:absolute;left:0;bottom:0;}
+        #layerCon .btns .btn{float:left;height:0.77rem;width:50%;line-height:0.77rem;text-align:center; box-sizing:border-box; -webkit-box-sizing: border-box;}
+        #layerCon .btns .btn1{border-right:0.01rem solid #c0d2db;}
+        #layerCon .btns .btn2{color:#2e82fc;}
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div class="progressStyle">
+            <a class="sty style1 styActive" href="javascript:;">
+                <span class="styleName">待提交</span>
+                <span class="countNum">(2314)</span>
+                <i></i>
+            </a>
+            <a class="sty style2 " href="javascript:;">
+                <span class="styleName">审核中</span>
+                <span class="countNum">(2314)</span>
+                <i></i>
+            </a>
+            <a class="sty style3" href="javascript:;">
+                <span class="styleName">已被拒</span>
+                <span class="countNum">(2314)</span>
+                <i></i>
+            </a>
+            <a class="sty style4" href="javascript:;">
+                <span class="styleName">已完成</span>
+                <span class="countNum">(2314)</span>
+                <i></i>
+            </a>
+        </div>
+        <div class="filterStyle">
+            <span class="filterName">筛选分类</span>
+            <div class="filterBox">
+                <p class="fil style1 ">
+                    <span class="filActive">全部</span>
+                </p>
+                <p class="fil style2">
+                    <span>商户</span>
+                </p>
+                <p class="fil style3">
+                    <span>门店</span>
+                </p>
+                <p class="fil style4">
+                    <span>移动POS</span>
+                </p>
+            </div>
+        </div>
+        <div class="con">
+            <div class="styleShopCards styleShopCards1">
+                <div class="shopCard">
+                    <div class="info1">
+                        <p class="txt1">门店名称:</p>
+                        <p class="txt2">广东省深圳市罗湖区华强一路100号恒宇手机通讯连锁店</p>
+                    </div>
+                    <div class="info2">
+                        <p class="txt1">提交时间:</p>
+                        <p class="txt2">2017/04/22  12:31:30</p>
+                    </div>
+                    <div class="btns">
+                        <p class="continueBtn">
+                            继续填写
+                        </p>
+                        <p class="deleteBtn">
+                            <i></i>
+                            <span>删除</span>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="shoperCard">
+                    <div class="info1">
+                        <span class="txt1">零售商名称 :</span>
+                        <span class="txt2">中域连锁通讯</span>
+                    </div>
+                    <div class="info2 cardInfo">
+                        <span class="txt1">提交时间 :</span>
+                        <span class="txt2">2017/04/22  12:31:30</span>
+                    </div>
+                    <div class="info3 cardInfo">
+                        <span class="txt1">备注 :</span>
+                        <span class="txt2">你在SIMS申请此批准，也能在DSM APP上操作</span>
+                    </div>
+                    <div class="btns">
+                        <p class="continueBtn">
+                            继续填写
+                        </p>
+                        <p class="deleteBtn">
+                            <i></i>
+                            <span>删除</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/dropload.min.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".sty").on("click",function(){
+                $(this).addClass("styActive").siblings().removeClass("styActive");
+            });
+
+            $(".fil").on("click",function(){
+                $(this).find("span").addClass("filActive").parent().siblings().find("span").removeClass("filActive");
+            });
+
+            $(".styleShopCards").on("click",".deleteBtn",function(){
+                layer.open({
+                    type: 1
+                    ,content: '<div id="layerCon">' +
+                    '<p class="title">删除确认</p>' +
+                    '<p class="reamrkTxt">删除后将不再受理审核，您确定删除此申请？</p>' +
+                    '<div class="btns">' +
+                    '<p class="btn btn1" onclick="layer.closeAll();">关闭</p>' +
+                    '<p class="btn btn2" >确定</p>' +
+                    '</div>' +
+                    '</div>'
+                    ,anim: 'up'
+                    ,style: 'position:fixed;height:2.9rem;width:4.2rem;left:0;top:0;background:#fff;position:relative; border-radius:5px;'
+                });
+            });
+
+            // 加载更多
+            // 页数
+            var page = 0;
+            // 每页展示5个
+            var size = 5;
+
+            // dropload
+            $('.con').dropload({
+                scrollArea : window,
+                loadDownFn : function(me){
+                    page++;
+                    // 拼接HTML
+                    var result = '';
+                    $.ajax({
+                        type: 'GET',
+//                        url: 'http://ons.me/tools/dropload/json.php?page='+page+'&size='+size,
+                        url: 'http://fcdsmtest.52baiqian.com/webview/shop/status0?api_token=DSqctiKizmHeNtV0q4w4lrET64Dw8qHgB4Z3YhWSSvIfff&offset='+page+'&isAjax=1',
+                        dataType: 'text',
+//                        beforeSend: function(request) {
+//                            request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+//                        },
+                        success: function(data){
+                            console.log(data);
+                            if(data){
+                                result = data;
+                                // 如果没有数据
+                            }else{
+                                // 锁定
+                                me.lock();
+                                // 无数据
+                                me.noData();
+                            }
+                            // 为了测试，延迟1秒加载
+                            setTimeout(function(){
+                                // 插入数据到页面，放到最后面
+                                $('.styleShopCards').append(result);
+                                // 每次数据插入，必须重置
+                                me.resetload();
+                            },1000);
+                        },
+                        error: function(xhr, type){
+                            alert('Ajax error!');
+                            // 即使加载出错，也得重置
+//                            me.resetload();
+
+                        }
+                    });
+                }
+            });
+        })
+    </script>
+</body>
+</html>

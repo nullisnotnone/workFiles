@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第三页</title>
+    <style type="text/css">
+        #box{height:100px;width:500px;background:skyblue;}
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        第三页
+    </div>
+
+    <script type="text/javascript">
+
+        var box = document.getElementById("box");
+        box.addEventListener("click",function(){
+            history.back();
+        },false);
+
+        window.onpopstate = function(event){
+            alert("location: " +document.location + "satate: "+ JSON.stringify(event.state));
+//            location.href = "page2.html";
+            location.href = "https://www.baidu.com";
+        };
+        history.pushState({page : 2}, 'title2' , 'page2.html');
+    </script>
+
+</body>
+</html>

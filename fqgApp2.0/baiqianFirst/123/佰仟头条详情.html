@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>佰仟头条</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css">
+		<script src="../js/public.js"></script>
+		<style>
+			.nav-bar-box{position:fixed;left:0;top:0;height:64px;width:100%;background:#fff;z-index:110; border-bottom:0.01rem solid #f1f1f1;}
+			.navBar{height:64px;min-width:300px;max-width:640px;margin:0 auto; position:relative;background:red;}
+			.navBar .empty-bar{height:20px;width:100%; background:#fff;}
+			.navBar .nav-title{ height:44px;width:100%;line-height:44px;text-align:center;font-size:0.32rem;color:#262626;background:#fff; }
+			.navBar .backBtn{position:absolute;left:5px;top:27px;height:20px;width:20px;padding:0.1rem;}
+			.navBar .backBtn>img{float:left;height:20px;width:20px;}
+			.navBar .shareBtn{position:absolute;right:15px;top:35px;display:block;height:20px;width:19px;}
+			.navBar .shareBtn>img{float:left;height:100%; width:100%;}
+
+			html,body{height:100%;width:100%;}
+			.main-cont{padding-top:64px;min-height:100%;display:flex; display:-webkit-flex; flex-direction: column; -webkit-flex-direction: column;  box-sizing: border-box; -webkit-box-sizing: border-box;}
+			.a-detail{background-color: #fff;padding-bottom: 1px; flex:1; -webkit-flex:1;}
+			.a-detail img{display: block;width: 100%;max-width: 768px;margin: 0 auto;}
+			.a-detail .a-title{color: #616673;font-size: 0.29rem;text-align: center;line-height: 0.4rem;margin: 0.2rem 0.5rem 0.1rem;word-break: break-word;font-weight: bold;}
+			.a-detail .a-info{color: #a5a8af;font-size: 0.2rem;text-align: center;}
+			.a-detail .a-info span{margin: 0 0.1rem;}
+			.a-detail .a-txt{color: #616673;font-size: 0.25rem;margin: 0.3rem;line-height: 0.4rem;text-align: justify;}
+			.comment{height:2.3rem;width:100%;}
+			.comment .c-ul{overflow: auto;background-color: #fff;padding: 0.48rem 0;}
+			.comment .c-ul li{width: 33.33%;float: left;text-align: center;}
+			.comment .c-ul li>a{display: inline-block;}
+			.comment .c-ul li>a .c-img{display: block;margin: 0 auto;width: 0.4rem;height: 0.4rem;}
+			.comment .c-ul li>a .c-txt{color: #616673;font-size: 0.24rem;margin-top: 0.1rem;}
+			.comment .c-ul li>a .c-num{color: #a5a8af;font-size: 0.2rem;}
+
+			.a-bouncein{-webkit-animation:0.5s ease-out backwards;-moz-animation:0.5s ease-out backwards;-ms-animation:0.5s ease-out backwards;animation:0.5s ease-out backwards;}
+			.a-bouncein{-webkit-animation-name:bouncein;-moz-animation-name:bouncein;-ms-animation-name:bouncein;animation-name:bouncein;}
+			/* 弹入 */
+			@-webkit-keyframes bouncein{
+			    0%{opacity:0;-webkit-transform:scale(0.3);}
+			    50%{opacity:1;-webkit-transform:scale(1.05);}
+			    70%{-webkit-transform:scale(0.9);}
+			    100%{-webkit-transform:scale(1);}
+			}
+			@-moz-keyframes bouncein{
+			    0%{opacity:0;-moz-transform:scale(0.3);}
+			    50%{opacity:1;-moz-transform:scale(1.05);}
+			    70%{-moz-transform:scale(0.9);}
+			    100%{-moz-transform:scale(1);}
+			}
+			@-ms-keyframes bouncein{
+			    0%{opacity:0;-ms-transform:scale(0.3);}
+			    50%{opacity:1;-ms-transform:scale(1.05);}
+			    70%{-ms-transform:scale(0.9);}
+			    100%{-ms-transform:scale(1);}
+			}
+			@keyframes bouncein{
+			    0%{opacity:0;transform:scale(0.3);}
+			    50%{opacity:1;transform:scale(1.05);}
+			    70%{transform:scale(0.9);}
+			    100%{transform:scale(1);}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav-bar-box">
+			<div class="navBar">
+				<p class="empty-bar"></p>
+				<p class="nav-title">提前还款测算</p>
+				<span class="backBtn"><img src="../images/icon-back.png" alt=""></span>
+				<span class="shareBtn"><img src="../images/icon-share1.png" alt=""></span>
+			</div>
+		</div>
+		<div class="main-cont">
+			<div class="a-detail">
+				<img src="../images/i-7.png" alt="">
+				<p class="a-title">作为一名搅局者的自我修养，<br/>魅族Flow耳塞体验</p>
+				<p class="a-info"><span>手机</span>|<span>2017-08-14</span></p>
+				<p class="a-txt">最近耳机圈子不怎么太平，很多用户的舆论风向也是惊人的一致，要说其实也并不是什么复杂的事情，只不过是有些走着不同路的人，带着一些不同的想法，走进了一个传统的存在。后果可想而知，与大家的不同即是它的过错，引起的波澜也即是舆论的导火线。讽刺的是，耳机本身就是一件十分成熟的产品，在一款成熟的产品上做出差异化其实很难，大多数人也一直在鼓励着这种创新性的行为，可偏偏这次换了个品牌，效果却截然不同，这个品牌叫魅族。</p>
+				<p class="a-txt">这个月魅族在珠海的发布会除了带来了新旗舰PRO7系列，李欗也上台介绍了魅族目前的旗舰耳机——Flow，虽说耳塞本身是旗舰定位，但实际上Flow的售价也仅仅只为599元，这对于大多数普通用户都是负担得起的。</p>
+				<img src="../images/i-8.png" alt="">
+				<p class="a-txt">期初，Flow的售价被谣传到了4999元，还把AKG的当家产品K3K3拿来当做对比参考的对象，勾起了不少人对它的兴趣，魅族自身也是做音频起家，现在突然高出一个高端耳塞大家也是抱着相信的态度，而且重新回归音频相信是不少老魅友所期待的。不过后续我收到实物时也说了，我自己是不信Flow真的会定价到4999元，理由嘛，声音方面是一个，做工方面也是一个。</p>
+			</div>
+			<div class="comment">
+				<ul class="c-ul">
+					<li>
+						<a class="c-item" href="javascript:;">
+							<img class="c-img" src="../images/i-9.png" alt="">
+							<p class="c-txt">喜欢</p>
+							<p class="c-num">(<span>456</span>)</p>
+						</a>
+					</li>
+					<li>
+						<a class="c-item" href="javascript:;">
+							<img class="c-img" src="../images/i-10.png" alt="">
+							<p class="c-txt">喜欢</p>
+							<p class="c-num">(<span>456</span>)</p>
+						</a>
+					</li>
+					<li>
+						<a class="c-item" href="javascript:;">
+							<img class="c-img" src="../images/i-11.png" alt="">
+							<p class="c-txt">喜欢</p>
+							<p class="c-num">(<span>456</span>)</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="../plugin/jquery/jquery-2.1.4.js"></script>
+		<script>
+			$(function(){
+				// 返回
+				$(".backBtn").on("click",function(){
+					history.back();
+				});
+
+				var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
+				if(isAndroid){
+					$(".nav-bar-box").css({"display":"none"});
+					$(".main-cont").css({"padding-top":"0"});
+
+				}
+
+				$('.c-ul .c-item').on('click',function(){
+					console.log(this);
+					var item = $(this);
+					if(!item.hasClass('voted')){
+
+						var $num = item.find('.c-num>span');
+						$num.text(parseInt($num.text())+1);
+						
+						item.addClass('a-bouncein').addClass('voted')
+						item.parents('li').siblings().find('.c-item').addClass('voted');
+						setTimeout(function(){
+				            item.removeClass('a-bouncein');
+				        },1000);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

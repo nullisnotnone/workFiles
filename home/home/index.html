@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name ="viewport" content ="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+    <title>佰仟金融</title>
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">  
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/pub.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--[if lt IE 10]>
+    <link rel="stylesheet" type="text/css" href="css/forIE9.css">
+    <style type="text/css">
+    .shadow3:hover {
+        background-color:rgba(0,0,0,0.5)
+    }
+    .shadow1:hover {
+        background-color:rgba(0,0,0,0.5)
+    }
+    .shadow2:hover {
+        background-color:rgba(0,0,0,0.7)
+    }
+    </style>
+    <![endif]-->
+
+    <!-- Demo styles -->
+    <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #eee;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .head {
+        position: absolute;
+    }
+    .head-title {
+        margin-top: 0px;
+        margin:0 auto;
+    }
+    </style>
+</head>
+<body>
+<div class="detailBox">
+    <p class="back-box">
+        <span class="part1">返回</span>
+        <span class="part2"></span>
+    </p>
+    <ul class="detailList detail1">
+        <li class="list list1 underLine">
+            <a href="JavaScript:;">
+                <span>首页</span>
+                <i></i>
+            </a>
+        </li>
+        <li class="list list2 underLine">
+            <a href="JavaScript:;">
+                <span>产品分期</span>
+                <i></i>
+            </a>
+        </li>
+        <li class="list list3 underLine">
+            <a href="JavaScript:;">
+                <span>商户合作</span>
+                <i></i>
+            </a>
+        </li>
+        <li class="list list4 underLine">
+            <a href="JavaScript:;">
+                <span>关于佰仟</span>
+                <i></i>
+            </a>
+        </li>
+        <li class="list list5 underLine">
+            <a href="JavaScript:;">
+                <span>联系我们</span>
+                <i></i>
+            </a>
+        </li>
+        <li class="list list6">
+            <a href="JavaScript:;">
+                <span>佰仟真信</span>
+                <i></i>
+            </a>
+        </li>
+    </ul>
+    <ul class="detailList detail2 detailHide">
+        <li class="list underLine">
+            <a href="javascript:;">
+                <span>产品分期</span>
+                <i></i>
+            </a>
+        </li>
+        <li class="list">
+            <a href="javascript:;">
+                <span>消费分期</span>
+                <i></i>
+            </a>
+        </li>
+    </ul>
+    <ul class="detailList detail3 detailHide">
+        <li class="list underLine">
+            <a href="javascript:;">
+                <span>佰仟简介</span>
+                <i></i>
+            </a>
+        </li>
+        <li class="list">
+            <a href="javascript:;">
+                <span>视频专区</span>
+                <i></i>
+            </a>
+        </li>
+        <li class="list underLine">
+            <a href="javascript:;">
+                <span>佰仟资讯</span>
+                <i></i>
+            </a>
+        </li>
+        <li class="list underLine">
+            <a href="javascript:;">
+                <span>佰仟公益</span>
+                <i></i>
+            </a>
+        </li>
+        <li class="list underLine">
+            <a href="javascript:;">
+                <span>佰仟荣誉</span>
+                <i></i>
+            </a>
+        </li>
+    </ul>
+    <ul class="detailList detail4 detailHide">
+        <li class="list underLine">
+            <a href="javascript:;">
+                <span>联系方式</span>
+                <i></i>
+            </a>
+        </li>
+        <li class="list">
+            <a href="javascript:;">
+                <span>在线反馈</span>
+                <i></i>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="backTop">
+    <span></span>
+</div>
+<div id="con">
+    <div class="headPart">
+        <p class="left">
+            <a class="bqLogo" href="javascript:;"></a>
+            <span class="bqSlogan"></span>
+        </p>
+        <div class="right">
+            <span class="detailBtn"></span>
+        </div>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        <header class="head">
+                            <div class="head-center">
+                                <div class="logo-head flex">
+                                    <a href="index.html" style="display: block;">
+                                        <img src="img/bq.png">
+                                    </a>
+                                    <span>
+                                        <img src="img/head-logo.png" style="    display: block; margin-left: 20px; margin-top: 10px;">
+                                    </span>
+                                </div>
+                                <div class="head-content flex">
+                                    <ul class="head-list"  >
+                                        <li class="flex-list"><a href="index.html">首页</a></li>
+                                        <li class="dropdown-control flex-list" >
+                                            <a href="javascript:void(0)">产品分期</a>
+                                            <ul class="dropdown dropdown1">
+                                                <li class="dropdown-background"></li>
+                                                <li class="first-li" >
+                                                    <a href="消费分期.html"><span>消费分期</span></a>
+                                                    <i></i>
+                                                </li>
+                                                <li class="second-li" >
+                                                    <a href="现金分期.html"><span>现金分期</span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="flex-list"><a href="商户合作.html">商户合作</a></li>
+                                        <li class="dropdown-control flex-list"  >
+                                            <a href="javascript:void(0)" >关于佰仟</a>
+                                            <ul class="dropdown dropdown2" >
+                                                <li class="dropdown-background"></li>
+                                                <li>
+                                                    <a href="关于佰仟.html"><span>佰仟简介</span></a>
+                                                    <i></i>
+                                                </li>
+                                                <li>
+                                                    <a href="更多视频.html"><span>视频专区</span></a>
+                                                    <i></i>
+                                                </li>
+                                                <li>
+                                                    <a href="佰仟资讯.html"><span>佰仟资讯</span></a>
+                                                    <i></i>
+                                                </li>
+                                                <li>
+                                                    <a href="佰仟公益.html"><span>佰仟公益</span></a>
+                                                    <i></i>
+                                                </li>
+                                                <li style="margin-right: 0px">
+                                                    <a href="佰仟荣誉.html"><span>佰仟荣誉</span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-control flex-list" >
+                                            <a href="联系我们.html">联系我们</a>
+                                            <ul class="dropdown dropdown3">
+                                                <li class="dropdown-background"></li>
+                                                <li>
+                                                    <a href="联系我们.html"><span>联系方式</span></a>
+                                                    <i></i>
+                                                </li>
+                                                <li style="margin-right: 0px;">
+                                                    <a href="在线反馈.html"><span>在线反馈</span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li style="padding-right: 0px" class="flex-list"><a href="佰仟真信.html">佰仟真信</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </header>
+            <div class="swiper-slide">
+                <div class="slide-wrapper">
+                    <div class="wrap">
+                        <div class="ani shadow3" swiper-animate-effect="shadow3" swiper-animate-duration="0.8s">
+                            <div class="center-wrap" style="width: 100%">
+                                <div class="first-content">
+                                    <div>
+                                        <div class="ani head-title" swiper-animate-effect="fadeInUp" swiper-animate-duration="2.0s" swiper-animate-delay="0s">
+                                             <img src="img/title1.png" class="title1-img">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="second-content">
+                    <div class="shadow1 shadow ani" swiper-animate-effect="shadow1" swiper-animate-duration="0.8s">
+                        <div class="wrap2">
+                            <div class="title3 flex">
+                                <div class="ani secondCon"  swiper-animate-effect="fadeInUp" swiper-animate-duration="2s">
+                                        <img src="img/title3.png" class="title3-img">
+                                        <small>
+                                            从成立至今，佰仟不断发展，逐步覆盖全国，服务涵盖消费金融和互联网金融等，致力为客户提供综合金融解决方案。
+                                        </small>
+                                        <p class="smallTxt">从成立至今，佰仟不断发展，逐步覆盖全国，服务涵盖消费金融和互联网金融等，致力为客户提供综合金融解决方案。</p>
+                                    <div class="ul-container ani " swiper-animate-effect="fadeInUp" swiper-animate-duration="2s" swiper-animate-delay="0.5s" style="height: 200px;"> 
+                                        <div class="circle-container">
+                                            <span class="circle circle1">
+                                                <span class="circle circle2">
+                                                    <span class="circle circle3"></span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <span class="line5"></span>
+                                        <ul>
+                                            <li class="line1">
+                                                <div class="number">
+                                                    <img src="img/1000.png">
+                                                </div>
+                                                <div class="number-content">佰仟用户</div>
+                                                <span class="line"></span>
+                                            </li>
+                                            <li class="line2">
+                                                <div class="number">
+                                                    <img src="img/316.png">
+                                                </div>
+                                                <div class="number-content">覆盖城市</div>
+                                                <span class="line"></span>
+                                            </li>
+                                            <li  class="line3"">
+                                                <div class="number">
+                                                    <img src="img/10.png">
+                                                </div>
+                                                <div class="number-content">合作伙伴商家</div>
+                                                <span class="line"></span>
+                                            </li>
+                                            <li class="line4"> 
+                                                <div class="number"><img src="img/4.png"></div>
+                                                <div class="number-content">佰仟员工</div>
+                                                <span class="line"></span>
+                                            </li>
+                                        </ul>   
+                                    </div>
+                                    <div class="page2-con-img ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s" swiper-animate-delay="0.5s">
+
+                                    </div>
+                                </div> 
+                            </div>                 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="third-content">
+                    <div class="shadow1 shadow ani" swiper-animate-effect="shadow1" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
+                        <div class="wrap2">
+                            <div class="title2 flex">
+                                <div class="ani thirdCon"  swiper-animate-effect="fadeInUp" swiper-animate-duration="2s" swiper-animate-delay="0.5s">
+                                    <img class="title2-img" src="img/title2.png" >
+                                    <img class="title2-img-phone" src="img/page3-img.png" >
+
+                                    <small>
+                                       构建人人信用社会，致力于让信用成就人生，佰仟助力千千万万有梦想的人们早日实现美好梦想。
+                                    </small>
+                                    <p class="smallTxt">构建人人信用社会，致力于让信用成就人生，佰仟助力千千万万有梦想的人们早日实现美好梦想。</p>
+                                    <div class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s" swiper-animate-delay="1.5s">
+                                         <div class="flex" style="margin-top: 120px;margin-top: 120px;"> 
+                                            <ul class="flex ie-center">
+                                                <li class="third-icon">
+                                                    <img src="img/bailing.png">
+                                                    <div class="number-content">白领</div>
+                                                </li>
+                                                <li class="third-icon">
+                                                    <img src="img/lanling.png">
+                                                    <div class="number-content">蓝领</div>
+                                                </li>
+                                                <li class="third-icon">
+                                                    <img src="img/qiyezhu.png">
+                                                    <div class="number-content">企业主</div>
+                                                </li>
+                                                <li class="third-icon" style="margin: 0px;"> 
+                                                    <img src="img/gengduo.png">
+                                                    <div class="number-content">更多</div>
+                                                </li>
+                                            </ul>  
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>             
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="four-content">
+                    <div style="height: 100%;width: 100%;background-color: rgba(255,255,255,0.9);position: absolute;"></div>
+                    <div style="height: 100%;width: 100%;background-color: rgba(81,81,81,0.2);position: absolute;"></div>
+                    <div class="shadow">
+                        <div class="wrap2">
+                            <div class="title2">
+                                <div   class="ani fourthCon"
+                                swiper-animate-effect="fadeInUp" swiper-animate-duration="2.5s">
+                                    <img class="title4-img" src="img/title4.png" >
+                                    <small style="margin-bottom: 100px;">
+                                       佰仟有遍布全国、涵盖多个领域的合作伙伴，并为多方面实现用户需求而一直努力。
+                                    </small>
+                                    <p class="smallTxt">佰仟有遍布全国、涵盖多个领域的合作伙伴，并为多方面实现用户需求而一直努力。</p>
+                                    <div class="parter ani" style="height: 200px;" swiper-animate-effect="fadeInUp" swiper-animate-duration="2.5s" swiper-animate-delay="0.5s">
+                                        <div class="parter-list">
+                                            <div class="logo-parter">
+                                                <img src="img/parter/1.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/2.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/3.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/4.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/5.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/6.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/7.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/8.png">
+                                            </div>
+                                            <!-- <div class="logo-parter">
+                                                <img src="img/parter/9.png">
+                                            </div> -->
+                                            <div class="logo-parter">
+                                                <img src="img/parter/10.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/11.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/12.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/13.png">
+                                            </div>
+                                            <!-- <div class="logo-parter">
+                                                <img src="img/parter/14.png">
+                                            </div> -->
+                                            <div class="logo-parter">
+                                                <img src="img/parter/15.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/16.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/17.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/18.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/19.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/20.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/21.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/22.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/23.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/24.png">
+                                            </div>
+                                            <div class="logo-parter">
+                                                <img src="img/parter/25.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div> 
+                    </div>
+                    <footer class="foot">
+                         <div>
+                              <p>
+                                  深圳市佰仟金融服务有限公司 版权所有 粤ICP备 14012749-4号
+                              </p>
+                        </div>           
+                    </footer>       
+                </div>   
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="icon-left">
+            <div><a class="icon-0" href="javascript:;"></a></div>
+            <div><a href="佰仟真信.html" class="icon-1" ></a></div>
+            <div><a href="联系我们.html" class="icon-2" title="联系方式"> </a></div>
+            <div><a href="在线反馈.html" class="icon-3" title="在线反馈"></a></div>
+            <div><a href="帮助中心.html" class="icon-4" title="常见问题"></a></div>
+            <div><a href="javascript:void(0)" class="icon-5" title="回到顶部" style="display: none;"></a></div>
+        </div>
+        <div class="icons">
+            <span class="icon-0 iconBlock"></span>
+            <div class="iconBox">
+                <a href="javascript:;" class="icon-1"></a>
+                <a href="javascript:;" class="icon-2" title="联系方式"></a>
+                <a href="javascript:;" class="icon-3" title="在线反馈"></a>
+                <a href="javascript:;" class="icon-4" title="常见问题"></a>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Swiper JS -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/swiper.jquery.min.js"></script>
+    <script src="js/swiper.animate1.0.2.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'vertical',
+        centeredSlides:false,
+        slidesPerColumnFill:'row',
+        speed :600,
+        mousewheelControl : true,
+        onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+            swiperAnimateCache(swiper); //隐藏动画元素 
+            swiperAnimate(swiper); //初始化完成开始动画
+        }, 
+        onSlideChangeEnd: function(swiper){ 
+            swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+        },
+        onSlideChangeStart: function(swiper){
+            $('.swiper-slide').find('.ani').removeClass('fadeInUp').show();
+            var index = swiper.activeIndex;
+            var icon5 = $('.icon-5');
+            if(index === 0) {
+                icon5.fadeOut();
+            } else {
+                icon5.fadeIn();
+            }
+        }
+    });
+    $('.icon-5').click(function(event) {
+        /* Act on the event */
+        swiper.slideTo(0);
+    });
+    $('.dropdown-control').hover(function() {
+        $('.dropdown-background').stop(true,true);
+        $(this).find('.dropdown').stop(true,true);
+        $('.dropdown-background').fadeIn(200);
+        $(this).find('.dropdown').fadeIn(200);
+    }, function() {
+        /* Stuff to do when the mouse leaves the element */
+        $('.dropdown-background').stop(true,true);
+        $(this).find('.dropdown').stop(true,true);
+        $('.dropdown-background').fadeOut(200);
+        $(this).find('.dropdown').fadeOut(200);
+    });
+
+
+
+        // 移动端首页
+        $(".right .detailBtn").on("click",function(){
+            $(".detailBox").animate({"right":"0"},500);
+        });
+        // 返回
+        $(".detailBox .back-box .part1").on("click",function(){
+            $(".detailBox .detailList").eq(0).removeClass("detailHide").siblings().addClass("detailHide");
+            $(".detailBox .back-box").removeClass("detailHide");
+            $(".detailBox .back-box .part1").css({"display":"none"});
+        });
+
+        // 点击关闭
+        $(".detailBox .back-box .part2").on("click",function(){
+            $(".detailBox").animate({"right":"-2.5rem"},500);
+        });
+
+        // 点击产品分期
+        $(".detail1 .list2").on("click",function(){
+            $(".detailBox .detailList").eq(1).removeClass("detailHide").siblings().addClass("detailHide");
+            $(".detailBox .back-box").removeClass("detailHide");
+            $(".detailBox .back-box .part1").css({"display":"block"});
+        });
+
+        // 点击关于佰仟
+        $(".detail1 .list4").on("click",function(){
+            $(".detailBox .detailList").eq(2).removeClass("detailHide").siblings().addClass("detailHide");
+            $(".detailBox .back-box").removeClass("detailHide");
+            $(".detailBox .back-box .part1").css({"display":"block"});
+        });
+
+        // 点击联系我们
+        $(".detail1 .list5").on("click",function(){
+            $(".detailBox .detailList").eq(3).removeClass("detailHide").siblings().addClass("detailHide");
+            $(".detailBox .back-box").removeClass("detailHide");
+            $(".detailBox .back-box .part1").css({"display":"block"});
+        });
+
+        // 小图标显示与隐藏
+        $(".icons .icon-0").on("click",function(){
+            if($(this).hasClass("iconBlock")){
+                $(".icons").removeClass("iconsClose").addClass("iconsOpen");
+                $(this).removeClass("iconBlock").addClass("iconHide");
+            } else {
+                $(".icons").removeClass("iconsOpen").addClass("iconsClose");
+                $(this).removeClass("iconHide").addClass("iconBlock");
+            }
+        });
+
+        // 返回顶部
+        $(".backTop").on("click",function(){
+            swiper.slideTo(0);
+        })
+
+
+    </script>
+</body>
+<!--[if lt IE 10]>
+<script>
+    $(".flex").removeClass('flex')
+</script>
+<![endif]-->
+</html>

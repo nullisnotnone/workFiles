@@ -1,0 +1,51 @@
+@charset "utf-8";
+* {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#000;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+#con{min-height:100%; width:100%; background:#f2f2f2;}
+#con .title{ height:0.8rem; width:100%;  position:relative; }
+#con .title .txt{height:0.8rem; width:100%; line-height:0.8rem; text-align:center; border-bottom:1px solid #797979; position:relative;}
+#con .title .backBtn{background:transparent; height:0.3rem; line-height:0.3rem; position:absolute;left:0.5rem;top:0.25rem;}
+
+#con  .con{min-height:5.0rem; width:100%;}
+#con  .con .cards{height:0.8rem; width:100%; background:#fff; border-bottom:1px solid #797979;margin-bottom:0.5rem;}
+#con  .con .cards .card{float:left; height:0.8rem; line-height:0.8rem; width:50%; text-align:center; }
+#con  .con .cards .card1{box-sizing: border-box; -webkit-box-sizing: border-box; border-right:1px solid #797979;}
+#con  .con .cards .actived{color:#ff9900;}
+#con  .tasks{ min-height:3.0rem; width:94%; margin:0 auto; }
+#con  .tasks .task{height:2.0rem; width:100%; padding:0 0.4rem; box-sizing: border-box; -webkit-box-sizing: border-box; border:1px solid #797979; border-radius: 5px; background:#fff; margin-bottom:0.3rem;}
+#con  .tasks .task1 .markImg{display:block; height:0.3rem; padding-top:0.6rem; width:0.3rem; line-height:0.3rem; text-align:center; margin:0 auto; margin-bottom:0.2rem;}
+#con  .tasks .task1 .txt{height:0.5rem;line-height:0.5rem;width:100%;text-align:center;}
+#con  .tasks .task2 .txt1{height:0.6rem;line-height:0.6rem;}
+#con  .tasks .task2 .txt2{height:0.7rem;line-height:0.7rem;}
+#con  .tasks .task2 .txt3{height:0.6rem;line-height:0.6rem;}
+#con  .tasks .task2 .txt3 .add{float:left;}
+#con  .tasks .task2 .txt3 .time{float:right;}
+#con  .tasks .task3{padding-top:0.4rem; padding-bottom:0.4rem;}
+#con  .tasks .task3 .txt1{height:0.6rem;line-height:0.6rem;}
+#con  .tasks .task3 .txt2{height:0.6rem;line-height:0.6rem;}
+#con  .tasks .task3 .txt2 .add{float:left;}
+#con  .tasks .task3 .txt2 .time{float:right;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

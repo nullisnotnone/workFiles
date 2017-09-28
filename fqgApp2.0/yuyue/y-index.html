@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>我的预约</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/y-index.css">
+    <link rel="stylesheet" href="css/y-address.css">
+</head>
+
+<body>
+    <div class="allBox allBox1">
+        <div class="nav-bar-box">
+            <div class="navBar1 barHide">
+                <p class="empty-bar "></p>
+                <p class="nav-title">马上预约</p>
+                <span class="backBtn"><img src="images/icon-back2.png" alt=""></span>
+                <span class="shareBtn"><img src="images/icon-share.png" alt=""></span>
+            </div>
+            <div class="navBar2 ">
+                <p class="empty-bar"></p>
+                <p class="nav-title">马上预约</p>
+                <span class="backBtn"><img src="images/icon-back2.png" alt=""></span>
+                <span class="shareBtn"><img src="images/icon-share.png" alt=""></span>
+            </div>
+        </div>
+        <div id="con">
+            <div class="emptyArea"></div>
+            <div class="yy-infoPart yy-part">
+                <p class="y-title">请填写并提交预约信息</p>
+                <div class="infoInput">
+                    <form action="" id="infoArea">
+                        <div class="part1">
+                            <p class="infoCon infoCon1 underLine">
+                                <span class="i-txt">选择地址</span>
+                                <i class="icon-more"></i>
+                                <input id="lineCityInfo" class="infoPicker" type="hidden" value="" shopName="" shopId="" lng="" lat="">
+                                <span id="cityInfoPicker" class="infoPicker">选择地址</span>
+                            </p>
+                            <div class="infoCon infoCon2 underLine">
+                                <span class="i-txt">选择门店</span>
+                                <p>
+                                    <i class="icon-more"></i>
+                                    <span id="shopValue" class="infoPicker">选择门店</span>
+                                </p>
+                            </div>
+                            <div class="infoCon infoCon3 underLine">
+                                <span class="i-txt">预约时间</span>
+                                <p>
+                                    <i class="icon-more"></i>
+                                    <span id="time-value" class="infoPicker">选择时间</span>
+                                    <input id="timeValue" type="date" placeholder="选填项">
+                                </p>
+                            </div>
+                        </div>
+                        <p class="emptyBorder"></p>
+                        <div class="part2">
+                            <p class="infoCon infoCon4 underLine">
+                                <b>*</b>
+                                <span class="i-txt">姓名</span>
+                                <input id="info-name" class="textInput info-name" type="text" placeholder="请输入真实姓名">
+                            </p>
+                            <p class="infoCon infoCon5 underLine">
+                                <b>*</b>
+                                <span class="i-txt">手机号</span>
+                                <input id="info-tel" class="textInput info-tel" type="text" placeholder="请输入正确手机号" maxlength="11">
+                            </p>
+                            <p class="infoCon infoCon6 underLine">
+                                <b>*</b>
+                                <input id="imgYz" class="textInput yz-text" type="text" placeholder="请输入图形验证码">
+                                <span class="yz-txt yz-img"><img src="" alt=""></span>
+                            </p>
+                            <p class="infoCon infoCon7 underLine">
+                                <b>*</b>
+                                <input id="codeYz" class="textInput yz-text" type="text" placeholder="请输入验证码">
+                                <button type="button" class="yz-txt mess-code ">短信验证码</button>
+                            </p>
+                            <div class="textArea">
+                                <textarea name="" id="said" placeholder="备注" maxlength="80"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="yy-part">
+                <p class="y-title">更省心的产品方案</p>
+                <div class="y-con">
+                    <div class="c-detail underLine">
+                        <img src="images/icon-01.png" alt="">
+                        <div class="c-txt">
+                            <p class="c-name">申请便捷</p>
+                            <p class="c-text">急速审核、资料更少、流程更简</p>
+                        </div>
+                    </div>
+                    <div class="c-detail underLine">
+                        <img src="images/icon-02.png" alt="">
+                        <div class="c-txt">
+                            <p class="c-name">分期灵活</p>
+                            <p class="c-text">客户自主选择首付比例，还款期数</p>
+                        </div>
+                    </div>
+                    <div class="c-detail underLine">
+                        <img src="images/icon-03.png" alt="">
+                        <div class="c-txt">
+                            <p class="c-name">申请便捷</p>
+                            <p class="c-text">申请分期付款后按时付款，培养良好信用记录</p>
+                        </div>
+                    </div>
+                    <div class="c-detail underLine">
+                        <img src="images/icon-04.png" alt="">
+                        <div class="c-txt">
+                            <p class="c-name">申请便捷</p>
+                            <p class="c-text">广布全国十万家门店，覆盖多数消费者</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="yy-part yy-part3">
+                <p class="y-title">更全面的产品覆盖</p>
+                <div class="y-con clearfix">
+                    <div class="y-detail">
+                        <img src="images/icon-05.png" alt="">
+                        <p class="y-name">手机分期</p>
+                    </div>
+                    <div class="y-detail ">
+                        <img src="images/icon-06.png" alt="">
+                        <p class="y-name">电脑分期</p>
+                    </div>
+                    <div class="y-detail ">
+                        <img src="images/icon-07.png" alt="">
+                        <p class="y-name">消费品分期</p>
+                    </div>
+                    <div class="y-detail ">
+                        <img src="images/icon-08.png" alt="">
+                        <p class="y-name">电动车分期</p>
+                    </div>
+                    <div class="y-detail ">
+                        <img src="images/icon-09.png" alt="">
+                        <p class="y-name">家电分期</p>
+                    </div>
+                    <div class="y-detail ">
+                        <img src="images/icon-10.png" alt="">
+                        <p class="y-name">医美分期</p>
+                    </div>
+                </div>
+            </div>
+            <div class="yy-part yy-part4">
+                <p class="y-title">更便捷的申请流程</p>
+                <div class="con-box">
+                    <div class="y-con clearfix">
+                        <div class="y-detail">
+                            <img src="images/icon-11.png" alt="">
+                            <p class="y-name">线上预约佰仟
+                                <br>合作销售门店</p>
+                        </div>
+                        <div class="y-detail ">
+                            <img src="images/icon-12.png" alt="">
+                            <p class="y-name">客户到达
+                                <br>线下销售门店</p>
+                        </div>
+                        <div class="y-detail ">
+                            <img src="images/icon-13.png" alt="">
+                            <p class="y-name">确认商品
+                                <br>型号及价格</p>
+                        </div>
+                        <div class="y-detail ">
+                            <img src="images/icon-14.png" alt="">
+                            <p class="y-name">提供简单资料</p>
+                        </div>
+                        <div class="y-detail">
+                            <img src="images/icon-15.png" alt="">
+                            <p class="y-name">等待审核通过</p>
+                        </div>
+                        <div class="y-detail ">
+                            <img src="images/icon-16.png" alt="">
+                            <p class="y-name">宝贝带回家</p>
+                        </div>
+                    </div>
+                    <div class="remarkInfo">
+                        <p class="r-info"><span>办理资格 : </span>• 中国居民 • 18-55周岁 • 有固定收入</p>
+                        <p class="r-info"><span>基本资料 : </span>• 二代身份证 + 其中第二身份证明之一（社保卡、户口本、驾驶本、银行卡、存折、刷卡回单、工牌）</p>
+                    </div>
+                </div>
+            </div>
+            <p class="bottomEmptyBox"></p>
+            <div class="part-bottom">
+                <button type="button" class="yy-btn">马上预约</button>
+            </div>
+        </div>
+        <div class="layOutView add-conHide"></div>
+        <div class="cityLists add-conHide" id="cityPickerBox">
+            <div class="topBar">
+                <p class="c-result" id="province" @click="provinceClick" v-html="provinceValue"></p>
+                <p class="c-result" :class="[cityValue == '市/区'? 'conHide' : '']" id="city" @click="cityClick" v-html="cityValue"></p>
+                <p class="c-result" :class="[townValue == '区/县'? 'conHide' : '']" id="town" v-html="townValue"></p>
+                <p class="s-btn" @click="allValuePicked">确定</p>
+            </div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide swiper-slide1" id="provincePicker">
+                        <template v-for="data in provinceData">
+                            <p class="d-list underLine" :class="[provinceValue == data.geoNameLocal? 'd-list-checked' : '']" @click="choose1">
+                                <input type="radio" :id="data.geoId" :value="data.geoNameLocal" :name="data.geoId" v-model="provinceValue">
+                                <label :for="data.geoId" v-html="data.geoNameLocal"></label>
+                            </p>
+                        </template>
+                    </div>
+                    <div class="swiper-slide swiper-slide2 conHide" id="cityPicker">
+                        <template v-for="data in cityData">
+                            <p class="d-list underLine" :class="[cityValue == data.geoNameLocal? 'd-list-checked' : '']" :name="data.geoCodeNumeric" @click="choose2">
+                                <input type="radio" :id="data.geoId" :value="data.geoNameLocal" :name="data.geoId" v-model="cityValue">
+                                <label :for="data.geoId" v-html="data.geoNameLocal"></label>
+                            </p>
+                        </template>
+                    </div>
+                    <div class="swiper-slide swiper-slide3 conHide" id="townPicker">
+                        <template v-for="data in townData">
+                            <p class="d-list underLine" :class="[townValue == data.geoNameLocal? 'd-list-checked' : '']">
+                                <input type="radio" :id="data.geoId" :value="data.geoNameLocal" :name="data.geoId" v-model="townValue">
+                                <label :for="data.geoId" v-html="data.geoNameLocal"></label>
+                            </p>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="allBox allBox2 conHide">
+        <div class="nav-bar-box">
+            <div class="navBar">
+                <p class="empty-bar"></p>
+                <p class="nav-title">选择门店</p>
+                <span class="backBtn"><img src="images/icon-back.png" alt=""></span>
+            </div>
+        </div>
+        <div class="Box-con" id="shopInfoLists">
+            <div class="search-part">
+                <div class="p-con">
+                    <p class="txtInput">
+                        <input id="shop-keyWorlds" type="text" placeholder="请输入门店名称">
+                    </p>
+                    <p class="s-btn">
+                        <span id="s-btn">搜索</span>
+                    </p>
+                </div>
+            </div>
+            <div class="shopsLists"></div>
+            <div class="addressBar">
+                <div class="part1 clearfix">
+                    <p class="l-part">
+                        <i class="icon-address"></i>
+                        <span id="currentAdd">当前位置：福田区上梅林2路125号</span>
+                    </p>
+                    <p class="r-part">切换位置</p>
+                </div>
+            </div>
+            <div class="layOutView2 viewHide">
+                <div class="l-con ">
+                    <p class="textInput">
+                        <input id="addInput" type="text" placeholder="请输入详细的位置信息">
+                    </p>
+                    <div class="btns">
+                        <p>
+                            <span class="btn cancel-btn">取消</span>
+                        </p>
+                        <p>
+                            <span class="btn sure-btn">确认</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/layer.js"></script>
+    <script src="js/vue1.0.min.js"></script>
+    <script src="js/cityPicker2.0.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var url_self = location.search.substring(1);
+        alert(url_self);
+        //            var getAddress = '广东省深圳市福田区';
+        var province_value = "",
+            town_value = "",
+            lng_value = null,
+            lat_value = null,
+            shopsData = null;
+        var address_value = $("#lineCityInfo").val() == "" ? '选择地址' : $("#lineCityInfo").val();
+        $("#cityInfoPicker").html(address_value);
+        var shop_num_value = $("#lineCityInfo").attr("shopId") || "";
+        var shopName_str = $("#lineCityInfo").attr("shopName") == "" ? '选择门店' : $("#lineCityInfo").attr("shopName");
+        $("#shopValue").html(shopName_str);
+        if (url_self && (url_self.indexOf('lng') > -1)) {
+            var addArr = url_self.split("&");
+            if (addArr.length > 1)
+                if (addArr.length == 2) {
+                    lng_value = addArr[0].split("=")[1];
+                    lat_value = addArr[1].split("=")[1];
+                }
+            if (addArr.length == 3) {
+                lng_value = addArr[1].split("=")[1];
+                lat_value = addArr[2].split("=")[1];
+            }
+            $("#lineCityInfo").attr("lng_value", lng_value);
+            $("#lineCityInfo").attr("lat_value", lat_value);
+            alert(lng_value + ',' + lat_value);
+        } else {
+            layerInfo('没有开启定位功能，暂时无法定位');
+            $(".addressBar").addClass("conHide");
+        }
+        // 安卓去掉导航栏
+        var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
+        if (isAndroid) {
+            $(".nav-bar-box").addClass("conHide");
+            $("#con").css({ "padding-top": "5.4rem", "margin-top": "-64px" });
+        }
+
+        // 返回
+        $(".allBox1 .backBtn").on("click", function() {
+            if (history.length > 1) {
+                history.back();
+            } else {
+                backToNative("popToView://backToNative");
+            }
+        });
+
+        // 分享
+        $(".shareBtn").on("click", function() {
+            var articleUrl = location.href;
+            var title = '好贷分期';
+            var imgUrl = "images/shareImg.png";
+            var description = '超10万家认证门店，新潮尖贷触手可及';
+            shareApp(articleUrl, title, imgUrl, description);
+        });
+
+
+        $(".allBox2 .backBtn").on("click", function() {
+            $(".allBox2").addClass("conHide");
+            $(".allBox1").removeClass("conHide");
+        });
+
+
+        $(window).on("scroll", function() {
+            if ($(this).scrollTop() > 10) {
+                $(".navBar1").removeClass("barHide");
+                $(".navBar2").addClass("barHide");
+            } else {
+                $(".navBar1").addClass("barHide");
+                $(".navBar2").removeClass("barHide");
+            }
+        });
+
+        // 手机号验证
+        var reg1 = /^1[3|4|5|7|8]\d{9}$/;
+        $("#info-tel").on("blur", function() {
+            var $telNum = $("#info-tel").val();
+            if (!reg1.test($telNum)) { // 手机号码格式错误
+                layerInfo("手机号格式错误，请重新填写。");
+            }
+        });
+
+        // 姓名验证
+        var regName = /[\u4E00-\u9FA5\uF900-\uFA2D]+/g;
+        $("#info-name").on("blur", function() {
+            var $telName = $("#info-name").val();
+            if ($telName.length == 0) {
+                layerInfo("请填写姓名");
+            } else {
+                if (!regName.test($telName)) { // 姓名非法字符检验
+                    layerInfo("您填写的姓名中有非法字符，请重新填写！");
+                }
+            }
+        });
+
+
+        // 图片验证码点击刷新
+        $(".yz-txt").on("click", function() {
+            $(this).find("img").attr("src", 'http://pre.52baiqian.com/newapi/verify?rand=123456');
+        });
+        $(".yz-txt").trigger('click');
+
+        // 请求门店数据
+        $("#shopValue").on("click", function() {
+            var address_str = $("#cityInfoPicker").html();
+            if (address_str == '请选择地址') {
+                layerInfo("请先选择地址");
+                return false;
+            }
+            if (address_str != $("#lineCityInfo").val() && $("#lineCityInfo").val().length != 0) {
+                $(".addressBar").removeClass("conHide");
+            }
+            $("#currentAdd").html('当前位置：' + address_str);
+            if (lng_value && lat_value) {
+                showShops(address_str, lng_value, lat_value);
+            } else {
+                showShops(address_str);
+            }
+
+            $(".allBox1").addClass("conHide");
+            $(".allBox2").removeClass("conHide");
+        });
+
+        // 搜索门店
+        $("#s-btn").on("click", function() {
+            var searchData = [];
+            keyworlds = $("#shop-keyWorlds").val().replace(/\s*/g, "");
+            for (var i = 0; i < shopsData.length; i++) {
+                console.log(shopsData[i].store_name);
+                if (shopsData[i].store_name.indexOf(keyworlds) != -1) {
+                    searchData.push(shopsData[i]);
+                }
+            }
+            if (searchData.length != 0) {
+                $(".shopsLists").html(appendToDOM(searchData));
+            } else {
+                layerInfo('对不起，没有查询到这个门店,请重新输入门店名称');
+            }
+        });
+
+
+        // 选择时间
+        $(".infoCon3 p").on("click", function() {
+            $("#timeValue").focus();
+        //          console.log(1);
+        });
+
+        $("#timeValue").on("change", function() {
+            var currentTime = new Date().getTime();
+            console.log(new Date($(this).val()).getTime());
+            if (new Date($(this).val()).getTime() <= currentTime) {
+                layerInfo("预约时间不合理，请重新选择预约时间");
+                $("#time-value").html('重新选择时间');
+                return false;
+            }
+            $("#time-value").html($(this).val());
+        });
+
+        // 获取短信验证码
+        $(".mess-code").on("click", function() {
+            var img_yz_value = $("#imgYz").val().replace(/\s*/g, "");
+            var phone_value = $("#info-tel").val();
+            if (phone_value.length == 0) {
+                layerInfo("请填写手机号后再获取验证码");
+                return false;
+            }
+            if (!reg1.test(phone_value)) { // 手机号码格式错误
+                layerInfo("手机号格式错误，请重新填写。");
+                return false;
+            }
+            if (img_yz_value.length == 0) {
+                layerInfo("请先填写图片验证码");
+                return false;
+            }
+            var timer = null,
+                countTime = 60;
+            $(this).attr("disabled", "disabled").addClass("btn-disabled");
+            $(this).html("60s");
+            timer = setInterval(function() {
+                if (countTime > 0) {
+                    --countTime;
+                    $(".mess-code").html(countTime + 's');
+                } else {
+                    clearTimeout(timer);
+                    $(".mess-code").html('短信验证码');
+                    $(".mess-code").removeAttr("disabled").removeClass("btn-disabled");
+                }
+            }, 1000);
+            var params = 'verify_code=' + img_yz_value + '&phone=' + phone_value;
+            $.ajax({
+                type: "get",
+                url: 'http://pre.52baiqian.com/newapi/appointment-api/sms-code?' + params,
+                //                  data : params,
+                success: function(data) {
+                    alert(data);
+                    if (data.code != '200') {
+                        layerInfo(data.message + '请稍后重试');
+                        $(this).find("img").attr("src", 'http://pre.52baiqian.com/newapi/verify?rand=123456');
+                        clearTimeout(timer);
+                        countTime = 60;
+                        $(".mess-code").html('短信验证码');
+                        $(".mess-code").removeAttr("disabled").removeClass("btn-disabled");
+                    }
+                },
+                error: function() {
+                    alert("网络错误，请稍后重试");
+                    clearTimeout(timer);
+                    countTime = 60;
+                    $(".mess-code").html('短信验证码');
+                    $(".mess-code").removeAttr("disabled").removeClass("btn-disabled");
+                }
+            });
+        });
+
+        // 提交信息
+        $(".yy-btn").on("click", function() {
+            var addressValue = $("#cityInfoPicker").html().replace(/\s*/g, "");
+            var shopValue = $("#shopValue").html().replace(/\s*/g, ""); // 门店信息
+            var shopNum_value = shop_num_value; // 门店编码ID
+            var timeValue = $("#timeValue").val().replace(/\s*/g, ""); // 时间
+            var telValue = $("#info-tel").val().replace(/\s*/g, ""); // 电话
+            var NameValue = $("#info-name").val().replace(/\s*/g, ""); // 姓名
+            var yz_code_value = $("#codeYz").val().replace(/\s*/g, ""); // 短信验证码
+            var remarkTxt = $("#said").val();
+
+            var params = 'store_num=' + shopNum_value + '&appointment_date=' + timeValue + '&customer_name=' + NameValue + '&customer_phone=' + telValue + '&sms_code=' + yz_code_value + '&remark=' + remarkTxt;
+
+            if (addressValue == "请选择地址") {
+                layerInfo("请完善地址信息");
+                return false;
+            }
+            if (shopValue == "请选择门店地址") {
+                layerInfo("请完善门店信息");
+                return false;
+            }
+            if (telValue.length == 0) {
+                layerInfo("请完善手机号码信息");
+                return false;
+            }
+            if (NameValue.length == 0) {
+                layerInfo("请完善姓名信息");
+                return false;
+            }
+            if (yz_code_value.length == 0) {
+                layerInfo("请完善验证码信息");
+                return false;
+            }
+            layer.open({
+                type: 2,
+                content: '提交中...'
+            });
+            $.ajax({
+                type: 'post',
+                url: 'http://pre.52baiqian.com/newapi/appointment-api/submit',
+                data: params,
+                success: function(data) {
+                    console.log(data);
+                    layer.closeAll();
+                    if (data.code != '200') {
+                        alert(data.message);
+                    } else {
+                        location.href = 'y-success.html'; // 跳转到预约成功页面
+                    }
+                },
+                error: function() {
+                    layer.closeAll();
+                    alert("网络错误，请稍后重新提交");
+                }
+            })
+        });
+
+        // 选取门店
+
+        $("body").on("click", ".shop-list", function() {
+            $(this).addClass("shop-list-checked").siblings().removeClass("shop-list-checked");
+            //                $("#shopValue").html($(this).find(".shop-name").html().substring(0,14)+"...");
+            $("#shopValue").html($(this).find(".shop-name").html());
+            shop_num_value = $(this).find("input[type='hidden']").val();
+            $(".allBox2").addClass("conHide");
+            $(".allBox1").removeClass("conHide");
+            var top = document.body.scrollTop;
+            scrollBy(0, -top);
+        });
+
+        // 选择地址
+        $("#cityInfoPicker").on("click", function() {
+            $("html").addClass("noScroll");
+            $("body").addClass("noScroll");
+            $("#cityPickerBox").removeClass("add-conHide");
+            $(".layOutView").removeClass("add-conHide");
+            $("#shopValue").html("选择门店")
+        });
+
+        // 切换位置
+        $(".r-part").on("click", function() {
+            var getAddress_str = $("#lineCityInfo").val(); // 定位地址
+            var chooseAddress_str = $("#cityInfoPicker").html(); // 用户自己选择的地址
+            if (getAddress_str != chooseAddress_str) {
+                $("#currentAdd").html('当前位置: ' + getAddress_str);
+                $("#cityInfoPicker").html(getAddress_str);
+                showShops(getAddress_str, lng_value, lat_value);
+            } else {
+                layerInfo("已显示当前位置所有门店信息");
+            }
+        });
+
+        // 取消
+        $(".cancel-btn").on("click", function() {
+            $(".layOutView2").addClass("viewHide");
+            $("html").removeClass("unScroll");
+            $("body").removeClass("unScroll");
+        });
+
+        // 确认
+        $("body").on("click", ".sure-btn", function() {
+            var address_str = $("#addInput").val().replace(/\s*/g, "");
+            if (address_str.length == 0) {
+                alert("请填写正确的地址信息后再提交！");
+                return false;
+            }
+        });
+
+        // 弹窗信息
+        function layerInfo(str) {
+            layer.open({
+                content: str,
+                skin: 'msg',
+                time: 2 //2秒后自动关闭
+            });
+        }
+
+        // 门店信息拼接
+        function appendToDOM(dataList) {
+            var resultStr = "";
+            for (var i = 0; i < dataList.length; i++) {
+                resultStr += ' <div class="shop-list underLine">' +
+                    '<img class="shop-img" src="images/shopImg.png" alt="">' +
+                    '<div class="shop-info">' +
+                    '<p class="shop-name">' + dataList[i].store_name + '</p>' +
+                    '<div class="shop-address clearfix">' +
+                    '<div class="l-part">' +
+                    '<i class="icon-address"></i>' +
+                    '<p class="address-txt">' + dataList[i].store_addr + '</p>' +
+                    '<input type="hidden" value=' + dataList[i].store_num + '>' +
+                    '</div>';
+                if (dataList[i].distance) {
+                    resultStr += '<p class="r-part">' +
+                        '<i class="icon-img"></i>' +
+                        '<span>距您' + dataList[i].distance + 'm</span>' +
+                        '</p>' +
+                        '</div></div></div>'
+                } else {
+                    resultStr += '</div></div></div>';
+                }
+            }
+            return resultStr;
+        }
+
+        function showShops(address, lng_str, lat_str) {
+            var str = address.replace(/(['省'|'市'|'区'])/g, "$1 ").split(" ");
+            var params = "";
+            //                console.log(str.length);
+            //                console.log(str);
+            if (str.length <= 3) {
+                province_value = str[0];
+                town_value = str[1];
+            } else {
+                province_value = str[0];
+                town_value = str[2];
+            }
+            if (lng_str && lat_str) {
+                params = 'province=' + province_value + '&district=' + town_value + '&lng=' + lng_str + '&lat=' + lat_str;
+            } else {
+                params = 'province=' + province_value + '&district=' + town_value
+            }
+            layer.open({
+                type: 2,
+                content: '查询中...'
+            });
+            $.ajax({
+                type: 'post',
+                url: 'http://pre.52baiqian.com/newapi/appointment-api/store',
+                data: params,
+                success: function(data) {
+                    console.log(data);
+                    layer.closeAll();
+                    if (data.code == '200') {
+                        if (data.data.length != 0) {
+                            shopsData = data.data;
+                            console.log(shopsData);
+                            $(".shopsLists").html(appendToDOM(shopsData));
+                        } else {
+                            layerInfo("对不起，此地区暂无合作门店信息");
+                        }
+                    } else {
+                        layerInfo("数据请求错误，请稍后再试！");
+                    }
+                },
+                error: function(msg) {
+                    alert("网络错误");
+                }
+            });
+        }
+    })
+    </script>
+</body>
+
+</html>

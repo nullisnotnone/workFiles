@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>公章备案详情</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/apply2.css">
+</head>
+<body>
+
+    <div id="con">
+        <p class="emptyBox"></p>
+        <div class="con">
+            <div class="part part1">
+                <p class="part-title">请门店一填写信息</p>
+                <div class="shopCode">
+                    <span class="code-t">代码</span>
+                    <span class="inputValue"></span>
+                    <p class="selectBtn">
+                        <i></i>
+                        <select name="" id="shopCode">
+                            <option value="0">01200120120</option>
+                            <option value="1">01200120121</option>
+                            <option value="2">01200120122</option>
+                            <option value="3">01200120123</option>
+                            <option value="4">01200120124</option>
+                        </select>
+                    </p>
+                </div>
+                <p class="shopName clearfix">
+                    <span class="name-t">名称</span>
+                    <span id="shopName">点击重新上传点击重新上传点击重新上传点击重新上传点击重新上传点击重新上传点击重</span>
+                </p>
+            </div>
+            <div class="part part2 ">
+                <p class="part-title"><i></i>备案内容</p>
+                <textarea name="" id="ba-con" ></textarea>
+                <p class="part-title"><i></i>备案公章图片</p>
+                <div class="fileBox">
+                    <div class="box box4">
+                        <div class="viewBox">
+                            <img class="fileBg" src="images/addFile01.png" alt="">
+                            <p class="secBtn conHide">
+                                <i></i>
+                                <span>点击重新上传</span>
+                            </p>
+                            <div class="progress conHide">
+                                <p class="txt">正在上传...</p>
+                                <p class="progressBar"></p>
+                            </div>
+                        </div>
+                        <div class="fileName">
+                            <i class="stateBg"></i>
+                            <span class="nameTxt">白纸盖章照</span>
+                        </div>
+                    </div>
+                    <div class="box box-demo">
+                        <div class="viewBox">
+                            <img class="fileBg" src="images/demo.png" alt="">
+                        </div>
+                        <div class="fileName">
+                            <i class="stateBg"></i>
+                            <span class="nameTxt">示意图</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part3 reasonPart">
+                <div class="listTitle ">
+                    <span class="left">审核信息一</span>
+                    <span class="right "></span>
+                </div>
+                <ul class="listCon listConHide">
+                    <li class="listTxt"><i></i>提交时间 : 2017-08-01 17:00:00</li>
+                    <li class="listTxt"><i></i>审核时间 : 2017-08-01 17:00:00</li>
+                    <li class="listTxt"><i></i>审核结果 : 已驳回</li>
+                    <li class="listTxt listTxt4">
+                        <p class="txt-1">
+                            <i></i>驳回原因:
+                        </p>
+                        <div class="resons">
+                            <p class="txt">1.风险评估过大，不予准入风险评估过大，不予准入</p>
+                            <p class="txt">1.风险评估过大，不予准入风险评估过大，不予准入</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="part3 reasonPart">
+                <div class="listTitle underLine">
+                    <span class="left">审核信息二</span>
+                    <span class="right con-open"></span>
+                </div>
+                <ul class="listCon ">
+                    <li class="listTxt"><i></i>提交时间 : 2017-08-01 17:00:00</li>
+                    <li class="listTxt"><i></i>审核时间 : 2017-08-01 17:00:00</li>
+                    <li class="listTxt"><i></i>审核结果 : 已驳回</li>
+                    <li class="listTxt listTxt4">
+                        <p class="txt-1">
+                            <i></i>驳回原因:
+                        </p>
+                        <div class="resons">
+                            <p class="txt">1.风险评估过大，不予准入风险评估过大，不予准入</p>
+                            <p class="txt">1.风险评估过大，不予准入风险评估过大，不予准入</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p class="submitBtn">提交</p>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".listTitle").on("click",function(){
+                $(this).find(".right").toggleClass("con-open");
+                if($(this).find(".right").hasClass("con-open")){
+                    $(this).next().removeClass("listConHide");
+                    $(this).addClass("underLine");
+                } else{
+                    $(this).next().addClass("listConHide");
+                    $(this).removeClass("underLine");
+                }
+            });
+        })
+    </script>
+
+</body>
+</html>

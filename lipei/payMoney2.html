@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>还款详情</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/payMoney2.css">
+</head>
+<body>
+
+    <div id="con">
+        <p class="emptyBox"></p>
+        <form id="listInfo" class="listInfo" action="">
+            <p class="hideArea">
+                <input class="customer_name" type="hidden" alt="客户名称">
+                <input class="putout_no" type="hidden" alt="合同号">
+                <input class="repayment_amount" type="hidden" alt="首付金额">
+                <input class="periods" type="hidden" alt="期数">
+            </p>
+            <div class="part1 underLine">
+                <p class="left"><img src="images/icon.png" alt=""></p>
+                <div class="right">
+                    <div class="txt txt1 clearfix">
+                        <p class="p1">应还期数 : <span class="periods">36</span>期</p>
+                    </div>
+                    <div class="txt txt1 clearfix">
+                        <p class="p1">合同号 : <span class="contract-num">1115003019</span></p>
+                    </div>
+                    <div class="txt txt2">
+                        <p class="text1">首次付款金额(元) :</p>
+                        <p class="text2 sp money"><span class="money-num">16900.00</span>元</p>
+                    </div>
+                    <!--<div class="txt txt3">-->
+                        <!--<span class="chooseBtn">-->
+                            <!--<i class="checked"></i>-->
+                        <!--</span>-->
+                        <!--<span class="text1">本人已阅读并同意</span>-->
+                        <!--<span class="text2 sp agreement">《XX线上支付协议》</span>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="part2">
+                <p class="p-left"><i></i>提示: </p>
+                <p class="p-right">由于微信支付部分银行卡限额，如果支付超过限额，可尝试分多笔支付。</p>
+            </div>
+            <div class="part3">
+                请输入金额 <span>(少于5000元不提供自助输入)</span>
+            </div>
+            <div class="part4">
+                <span>¥:</span>
+                <input id="actual-money" type="number" >
+            </div>
+            <div class="part5">
+                <p class="p5-left">已支付: <span id="hasPay">10000元</span></p>
+                <p class="p5-right">未支付: <span id="shouldPay">5900元</span></p>
+            </div>
+            <button type="button" class="submitBtn">微信付款</button>
+        </form>
+    </div>
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 钱数格式化
+            $(".money-num").html(Number($(".money-num").html()).toLocaleString());
+            $(".part5 span").each(function(index , ele){
+                var str = $(ele).html();
+                var resultStr = str.substring(0,str.length-1);
+                $(ele).html(Number(resultStr).toLocaleString() + "元");
+            });
+
+            var shouldPay = $("#shouldPay").html().substring(0,$("#shouldPay").html().length - 1).replace(/,/g , ""); // 未支付金额
+            if(shouldPay <= 5000){
+                $("#actual-money").val(shouldPay).attr("readonly","true");
+            }
+
+
+            $("#actual-money").on('input',function(){
+                console.log(shouldPay);
+                if(Number($(this).val()) > shouldPay){
+                    $(this).val(shouldPay);
+                }
+            });
+            $(".submitBtn").on("click",function(){
+                var resultPay = Number($('#actual-money').val());
+                if(shouldPay > 5000 && resultPay < 5000){
+                    layerInfo("单次支付额度至少5000元以上");
+                    return false;
+                }
+                layer.open({
+                    type : 1,
+                    content :'<div id="layer3">' +
+                    '<p class="ly-txt">已支付：<span>10000元</span></p>' +
+                    '<p class="ly-txt ly-txt2">未支付：<span>6000元</span></p>' +
+                    '<p class="ly-txt ly-txt3">去支付：<span id="goToPay">'+resultPay+'元</span></p>' +
+                    '<button class="sureBtn" type="button" onclick="layer.postMessage()">继续支付</button>' +
+                    '</div>'
+                     ,
+                    anim : 'up',
+                    style :'min-height:1.0rem; width:4.2rem;  background:transparent; border-radius:5px;'
+                });
+            });
+
+            layer.open({
+                type : 1,
+                content :'<div id="layer3">' +
+                '<p class="ly-txt">已支付：<span>10000元</span></p>' +
+                '<p class="ly-txt ly-txt2">未支付：<span>6000元</span></p>' +
+                '<p class="ly-txt ly-txt3">去支付：<span id="goToPay">1000元</span></p>' +
+                '<button class="sureBtn" type="button" onclick="layer.postMessage()">继续支付</button>' +
+                '</div>'
+                ,
+                anim : 'up',
+                style :'min-height:1.0rem; width:4.2rem;  background:transparent; border-radius:5px;'
+            });
+
+
+            layer.postMessage = function(){
+                $("#listInfo").submit();
+            };
+
+            // 弹窗信息
+            function layerInfo(str){
+                layer.open({
+                    content: str
+                    ,skin: 'msg'
+                    ,time: 2  //2秒后自动关闭
+                });
+            }
+        })
+    </script>
+</body>
+</html>

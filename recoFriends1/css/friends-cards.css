@@ -1,0 +1,44 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#333;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+textarea{-webkit-appearance: none;}
+*::-webkit-input-placeholder { color: #555; }
+
+
+#con{height:100%;width:5.5rem;margin:0 auto; background:#fff ; display:-webkit-flex; display:flex; -webkit-flex-direction: column; flex-direction: column;}
+#con .remarkTxt{height:0.64rem;line-height:0.64rem;color:#a1a1a1;width:100%;text-align:center;margin-bottom:0.2rem;}
+.cardLists{ -webkit-flex:1;flex:1;overflow-y: scroll; }
+.cardLists .f-card{height:3.42rem;width:2.54rem;border:3px solid #f7f7f7;border-radius:5px;box-sizing: border-box; -webkit-box-sizing: border-box;}
+.cardLists .f-card:nth-child(2n){float:right;margin-bottom:0.26rem;}
+.cardLists .f-card:nth-child(2n+1){float:left;margin-bottom:0.26rem;}
+.cardLists .card-actived{border-color:#ffdb44;}
+
+.cardLists .f-card .per-img{height:1.3rem;width:1.3rem;margin:0.3rem auto; border-radius:50%;}
+.cardLists .f-card .per-name{height:0.36rem;line-height:0.36rem;text-align:center;font-size:0.32rem;color:#000;}
+.cardLists .f-card .per-tel{height:0.3rem;line-height:0.3rem;text-align:center;font-size:0.28rem; color:#000;}
+.cardLists .f-card .c-btns{height:0.28rem;padding:0.24rem 0;width:1.6rem;margin:0 auto;color:#999;}
+.cardLists .f-card .c-btns span{display:block;height:0.28rem;line-height:0.28rem;width:0.8rem;padding:0 0.1rem;box-sizing: border-box; -webkit-box-sizing: border-box;}
+.cardLists .f-card .c-btns .change-btn{float:left;border-right:0.01rem solid #999;}
+.cardLists .f-card .c-btns .delete-btn{float:right;padding-left:0.2rem;}
+
+.cardLists .add-card .add-btn-img{height:0.73rem;width:0.73rem;margin:0 auto; margin-top:1.35rem;}
+
+.btn-box{height:1.0rem;width:5.0rem;margin:0 auto;padding:0.56rem 0;}
+.btn-box .recommendBtn{height:1.0rem;width:5.0rem;line-height:1.0rem;text-align:center;background:#ffdb44;color:#2b0101; border-radius:0.5rem;}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>佰仟分期购</title>
+    <script type="text/javascript" src="../yuyue/js/public.js"></script>
+    <link rel="stylesheet" href="css/productDetail.css">
+</head>
+<body>
+    <div class="nav-bar-box">
+        <div class="navBar">
+            <p class="empty-bar"></p>
+            <p class="nav-title">商品详情</p>
+            <span class="backBtn"><i></i></span>
+            <span class="shareBtn"><i></i></span>
+        </div>
+    </div>
+    <div id="con">
+        <div class="part part1">
+            <p class="p-name">红米Note 4X 多彩金属</p>
+            <p class="p-txt">5.5〞多彩金属机身 / 4100Ah 超长续航 / 高性能处理器</p>
+            <img class="p-img" src="images/d-img01.jpg" alt="">
+        </div>
+        <div class="part part2">
+            <p class="p-title">多彩金属、超长续航的国民手机</p>
+            <p class="p-txt">每款新红米，都不断刷新它曾经树立的千元旗舰标准。今天，全新红米Note 4X 再次提升标准：要性能强大，也要漂亮、时尚、与众不同。为金属赋予色彩，首次增加初音未来专属配色，还有经典的香槟金、铂银灰、樱花粉和磨砂黑。大电量与系统级省电技术，让手机的续航时间更进一步。高性能、高颜值、长续航，这就是我们对国民手机的全新定义。</p>
+            <img class="p-img" src="images/d-img01.jpg" alt="">
+        </div>
+        <p class="btnBox">
+            <button type="button" class="yy-btn">马上预约</button>
+        </p>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
+            if(isAndroid){
+                $(".nav-bar-box").addClass("conHide");
+                $("#con").css({"padding-top" : "0"});
+            }
+
+        })
+    </script>
+</body>
+</html>

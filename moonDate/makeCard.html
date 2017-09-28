@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>我送出的心愿卡</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/makeCard.css">
+</head>
+<body>
+
+
+    <div id="con">
+        <p class="topView"><img src="images/type_bumper.jpg" alt=""></p>
+        <div class="part c-part1">
+            <p class="p-title">选择你想送的卡片样式</p>
+            <div class="swiper-container">
+                <div class="swiper-wrapper swiper-wrapper0">
+                    <div class="swiper-slide swiper-slide-checked">
+                        <i class="conHide"></i>
+                        <img src="images/type_bumper.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <i class="conHide"></i>
+                        <img src="images/type_family.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <i class="conHide"></i>
+                        <img src="images/type_couple.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <i class="conHide"></i>
+                        <img src="images/type_bumper.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <i class="conHide"></i>
+                        <img src="images/type_family.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <i class="conHide"></i>
+                        <img src="images/type_couple.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="part c-part2">
+            <p class="p-title">你想对TA说的话</p>
+            <p class="textBox">
+                <textarea name="" id="said" placeholder="输入你想说的话(不超过200字)" maxlength="200"></textarea>
+            </p>
+        </div>
+        <div class="part c-part3">
+            <p class="p-title">附上你的小心意</p>
+            <div class="g-con">
+                <p class="part1">
+                    <span>¥</span>50
+                </p>
+                <p class="part2">佰仟<br>还款券 <i class="ruleBtn conHide"></i> </p>
+                <p class="part3">
+                    <span id="getGift">点击<br>选择</span>
+                </p>
+            </div>
+        </div>
+
+        <button class="viewBtn" type="button">做好了,预览一下</button>
+
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            var swiper0 = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                slidesPerView: 3,
+                paginationClickable: true,
+                spaceBetween: 10
+            });
+
+            $(".swiper-slide").on("click",function(){
+                $(this).addClass("swiper-slide-checked").siblings().removeClass("swiper-slide-checked");
+                $(".topView img").attr("src",$(this).find("img").attr("src"));
+            });
+
+            // 选择卡券
+            $("#getGift").on("click",function(){
+                $(this).parents(".g-con").toggleClass("g-con-checked");
+                if($(".g-con").hasClass("g-con-checked")){
+                    $(this).html("取消<br>选择");
+                    $(".part2").find("i").removeClass("conHide");
+                } else {
+                    $(this).html("点击<br>选择");
+                    $(".part2").find("i").addClass("conHide");
+                }
+            });
+
+            // 还款券规则
+            $(".ruleBtn").on("click",function(){
+                layer.open({
+                    shadeClose : false,
+                    type : 1,
+                    content :'<div id="ruleBox">' +
+                    '<i class="closeBtn" onclick="layer.closeAll();"></i>' +
+                    '<p class="r-title">佰仟还款券使用规则</p>' +
+                    '<div class="txtBox">' +
+                    '<p class="r-txt">1. 面向人群：当您的亲友为非佰仟客户时，还款券可生效。</p>' +
+                    '<p class="r-txt">2. 使用规则：亲友接收您发送的还款券且填写手机号码后，该券即为领取成功。当亲友领券后使用填写的手机号码办理佰仟业务时，系统则在首次还款后在账单中抵扣相应费用。</p>' +
+                    '<p class="r-txt">3. 还款券可抵扣每月还款中的客户服务费和财务管理费。</p>' +
+                    '</div>' +
+                    '<p class="remark-txt">对提交虚假信息等有恶意行为的用户，佰仟有权进行奖励回收。</p>' +
+                    '<p class="remark-txt">*最终活动解释权归佰仟金融所有。</p>' +
+                    '<button type="button" class="okBtn" onclick="layer.closeAll();">好的，我知道</button>' +
+                    '</div>',
+                    anim : 'up',
+                    style :'min-height:3.0rem;width:5.7rem;  background:transparent;border-radius:8px;'
+                });
+            })
+        })
+    </script>
+</body>
+</html>

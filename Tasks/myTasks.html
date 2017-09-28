@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>我的任务</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#888;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+        #con{min-height:100%;width:100%; background:#f3f3f3;}
+        #con .conHide{display:none;}
+        #con  .lists .underLine:after{content:"";display:block;height:1px ;width:100%;background:#333;transform: scaleY(0.5);-webkit-transform: scaleY(0.5);position:absolute;left:0;bottom:0;}
+        #con .top{height:0.8rem;width:100%;line-height:0.8rem;text-align:center;font-size:0.32rem;position:relative; color:#333;border-bottom:1px solid #666;}
+        #con .top .backBtn{display:block;height:0.8rem;width:1.2rem;line-height:0.8rem;text-align:center;font-size:0.28rem;position:absolute;left:0;top:0;}
+        #con .btns{height:0.8rem;width:100%;background:#fff;border-bottom:1px solid #333;font-size:0.28rem;}
+        #con .btns .btn{float:left;height:0.8rem; line-height:0.8rem;width:50%; text-align:center; box-sizing: border-box;-webkit-box-sizing: border-box; }
+        #con .btns .left{border-right:1px solid #333;}
+        #con .btns .actived{color:#0099ff;}
+        #con .part1{height:1.7rem;padding-top:0.4rem;width:94%;margin:0 auto;margin-bottom:0.4rem;}
+        #con .part1 .remarkTxt{height:0.4rem;line-height:0.4rem;font-size:0.24rem;margin-bottom:0.1rem;}
+        #con .part1 .remarkTxt .searchLink{display:inline-block;height:0.4rem;width:0.8rem;line-height:0.4rem;text-align:center;background:#169bd5;color:#fff;border-radius:5px;}
+        #con .part1 .addIn{height:0.8rem;padding-top:0.25rem;width:100%;background:#fff; border:1px solid #333;}
+        #con .part1 .addIn .txt{text-align:center;color:#333;}
+        #con .part{height:auto;width:94%;margin:0 auto;margin-bottom:0.4rem;}
+        #con .part .text{height:0.4rem;line-height:0.4rem;width:100%;margin-bottom:0.1rem;}
+        #con .part .lists{border:1px solid #333;}
+        #con .part .lists .list{display:block;height:1.2rem;padding:0 0.2rem;background:#fff; position:relative;}
+        #con .part .lists .list .shopName{float:left;height:0.6rem;line-height:0.6rem;width:80%;margin-bottom:0.1rem;}
+        #con .part .lists .list .editBtn{float:left;height:0.4rem;width:1.4rem;background:#169bd5;line-height:0.4rem;text-align:center;color:#fff; border-radius:5px;}
+        #con .part .lists .list .right{float:left; width:0.2rem; height:1.2rem; line-height:1.2rem; font-size:0.32rem; position:absolute;right:0.2rem;top:0;}
+        #con .part3 .txt{float:left;height:0.4rem;width:90%;}
+        #con .part3 .txt .time{float:right;height:0.4rem;line-height:0.4rem;}
+
+        #con .con2 .lists{height:auto; width:94%;margin:0 auto;padding-top:0.4rem;}
+        #con .con2 .lists .list{display:block;height:1.2rem;padding:0 0.2rem;background:#fff; border:1px solid #333;  margin-bottom:0.2rem; position:relative;}
+        #con .con2 .lists .list .title{float:left;height:0.6rem;line-height:0.6rem;width:80%;margin-bottom:0.1rem;}
+        #con .con2 .lists .list .txt{float:left;height:0.4rem;width:90%;}
+        #con .con2 .lists .list .txt .shopName{float:left;height:0.4rem;line-height:0.4rem;}
+        #con .con2 .lists .list .txt .time{float:right;height:0.4rem;line-height:0.4rem;}
+        #con .con2 .lists .list .right{display:block;height:1.2rem;line-height:1.2rem;position:absolute;font-size:0.32rem;right:0.2rem;top:0;}
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <p class="top">
+            我的任务
+            <span class="backBtn">&lt首页</span>
+        </p>
+        <div class="btns">
+            <p class="btn left actived">未完成</p>
+            <p class="btn right">已完成</p>
+        </div>
+        <div class="con con1 ">
+            <div class="part1">
+                <p class="remarkTxt">
+                    非佰仟门店信息采集前，请先点 <a class="searchLink" href="javascript:;">搜索</a>避免重复采集
+                </p>
+                <div class="addIn">
+                    <p class="txt">
+                        + <br>
+                        非佰仟门店信息采集
+                    </p>
+                </div>
+            </div>
+            <div class="part part2 clearfix">
+                <p class="text">非佰仟门店信息采集</p>
+                <div class="lists clearfix">
+                    <a class="list underLine" href="javascript:;">
+                        <p class="shopName">华润大润发连锁超市</p>
+                        <span class="editBtn">继续填写</span>
+                        <span class="right">&gt</span>
+                    </a>
+                    <a class="list" href="javascript:;">
+                        <p class="shopName">华润大润发连锁超市</p>
+                        <span class="editBtn">继续填写</span>
+                        <span class="right">&gt</span>
+                    </a>
+                </div>
+            </div>
+            <div class="part part3 clearfix">
+                <p class="text">佰仟门店信息采集</p>
+                <div class="lists clearfix">
+                    <a class="list underLine" href="javascript:;">
+                        <p class="shopName">华润大润发连锁超市</p>
+                        <p class="txt">
+                            <span class="editBtn">继续填写</span>
+                            <span class="time">截止&nbsp;2017-5-27 14:00</span>
+                        </p>
+                        <span class="right">&gt</span>
+                    </a>
+                    <a class="list" href="javascript:;">
+                        <p class="shopName">华润大润发连锁超市</p>
+                        <p class="txt">
+                            <span class="editBtn">待填写</span>
+                            <span class="time">截止&nbsp;2017-5-27 14:00</span>
+                        </p>
+                        <span class="right">&gt</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="con con2 conHide">
+            <div class="lists">
+                <a href="javascript:;" class="list">
+                    <p class="title">非佰仟门店信息收集</p>
+                    <p class="txt">
+                        <span class="shopName">华润大润发连锁超市</span>
+                        <span class="time">截止&nbsp;2017-5-27 14:00</span>
+                    </p>
+                    <span class="right">&gt</span>
+                </a>
+                <a href="javascript:;" class="list">
+                    <p class="title">非佰仟门店信息收集</p>
+                    <p class="txt">
+                        <span class="shopName">华润大润发连锁超市</span>
+                        <span class="time">截止&nbsp;2017-5-27 14:00</span>
+                    </p>
+                    <span class="right">&gt</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $(".btns .btn").on("click",function(){
+                $(this).addClass("actived").siblings().removeClass("actived");
+                if($(".btns .left").hasClass("actived")){
+                    $(".con").eq(0).removeClass("conHide");
+                    $(".con").eq(1).addClass("conHide");
+                } else {
+                    $(".con").eq(1).removeClass("conHide");
+                    $(".con").eq(0).addClass("conHide");
+                }
+            })
+        })
+    </script>
+
+</body>
+</html>

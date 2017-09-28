@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>佰仟分期购</title>
+    <link rel="stylesheet" href="css/commit.css"/>
+    <script type="text/javascript" src="js/public.js"></script>
+</head>
+<body>
+
+    <div id="con">
+        <h3 class="title">请对我们的服务作出评价吧!</h3>
+        <div class="con">
+            <div class="card card1">
+                <div class="title">
+                    <span class="left">门店服务:</span>
+                    <p class="stars">
+                        <i class="star ostar"></i>
+                        <i class="star ostar"></i>
+                        <i class="star hstar"></i>
+                        <span class="num">2分</span>
+                    </p>
+                </div>
+                <div class="tips tips-2">
+                    <p class="tip tip6 uncheck-6-bg">店内干净整洁</p>
+                    <p class="tip tip5 uncheck-5-bg">商品选择多</p>
+                    <p class="tip tip7 uncheck-7-bg">品质优赏心悦目</p>
+                    <p class="tip tip4 uncheck-4-bg">价格透明</p>
+                </div>
+                <div class="tips tips-1 tips-hide">
+                    <p class="tip tip5 uncheck-5-bg">店内有异味</p>
+                    <p class="tip tip4 uncheck-4-bg">样机老旧</p>
+                    <p class="tip tip7 uncheck-7-bg">无真机演示体验</p>
+                    <p class="tip tip5 uncheck-5-bg">售后服务少</p>
+                </div>
+            </div>
+            <div class="card card2">
+                <div class="title">
+                    <span class="left">销售服务:</span>
+                    <p class="stars">
+                        <i class="star ostar"></i>
+                        <i class="star ostar"></i>
+                        <i class="star hstar"></i>
+                        <span class="num">2分</span>
+                    </p>
+                </div>
+                <div class="tips tips-2 ">
+                    <p class="tip tip6 uncheck-6-bg">分期知识专才</p>
+                    <p class="tip tip7 uncheck-7-bg">介绍办单快又准</p>
+                    <p class="tip tip7 uncheck-7-bg">穿戴整齐精神佳</p>
+                    <p class="tip tip6 uncheck-6-bg">态度好服务棒</p>
+                </div>
+                <div class="tips tips-1 tips-hide">
+                    <p class="tip tip7 uncheck-7-bg">讲解含糊疑问多</p>
+                    <p class="tip tip6 uncheck-6-bg">私自更改期数</p>
+                    <p class="tip tip7 uncheck-7-bg">流程混乱效率低</p>
+                    <p class="tip tip7 uncheck-7-bg">态度差敷衍了事</p>
+                </div>
+            </div>
+            <div class="card card3">
+                <div class="title">
+                    <span class="left">公众号服务:</span>
+                    <p class="stars">
+                        <i class="star ostar"></i>
+                        <i class="star ostar"></i>
+                        <i class="star hstar"></i>
+                        <span class="num">2分</span>
+                    </p>
+                </div>
+                <div class="tips tips-2">
+                    <p class="tip tip6 ">服务推送准时</p>
+                    <p class="tip tip6 ">查询简单高效</p>
+                    <p class="tip tip6 ">账目一目了然</p>
+                    <p class="tip tip4 ">界面精致</p>
+                </div>
+                <div class="tips tips-1 tips-hide">
+                    <p class="tip tip6 ">消息推送延迟</p>
+                    <p class="tip tip5 ">查询入口深</p>
+                    <p class="tip tip6 ">服务少更新慢</p>
+                    <p class="tip tip7 ">界面粗糙无美感</p>
+                </div>
+            </div>
+        </div>
+        <textarea name="" id="said" cols="30" rows="10" placeholder="我有话说..."></textarea>
+        <button id="submitBtn" type="button">确定评分</button>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            var star1 = $(".card1 .stars .star");
+            var star2 = $(".card2 .stars .star");
+            var star3 = $(".card3 .stars .star");
+            var tips1 = $(".card1 .tips");
+            var tips2 = $(".card2 .tips");
+            var tips3 = $(".card3 .tips");
+
+            var tipA = $(".card1 .tips .tip");
+            var tipB = $(".card2 .tips .tip");
+            var tipC = $(".card3 .tips .tip");
+
+            var tipAll = $(".card .tips .tip");
+
+            var comData = {
+                "shopStars" : "2",
+                "shopCom" : [],
+                "saleStars" : "2",
+                "saleCom" : [],
+                "publicStars" : "2",
+                "publicCom" : [],
+                "personalSaid" : ""
+            };
+
+            star1.on("tap",function(){
+                for(var j=0;j<3;j++){
+                    star1.eq(j).removeClass("ostar").addClass("hstar");
+                }
+                var len = $(this).index() + 1;
+                $(this).parent(".stars").find(".num").html(len + "分");
+                if(len == 1){
+                    tips1.eq(1).removeClass("tips-hide");
+                    tips1.eq(0).addClass("tips-hide");
+                    for(var k=0;k<4;k++){
+                        tips1.eq(0).find(".tip").eq(k).removeClass("check-4-bg");
+                        tips1.eq(0).find(".tip").eq(k).removeClass("check-5-bg");
+                        tips1.eq(0).find(".tip").eq(k).removeClass("check-6-bg");
+                        tips1.eq(0).find(".tip").eq(k).removeClass("check-7-bg");
+                    }
+                } else {
+                    tips1.eq(1).addClass("tips-hide");
+                    tips1.eq(0).removeClass("tips-hide");
+                    for(var k=0;k<4;k++){
+                        tips1.eq(1).find(".tip").eq(k).removeClass("check-4-bg");
+                        tips1.eq(1).find(".tip").eq(k).removeClass("check-5-bg");
+                        tips1.eq(1).find(".tip").eq(k).removeClass("check-6-bg");
+                        tips1.eq(1).find(".tip").eq(k).removeClass("check-7-bg");
+                    }
+                }
+                for(var i=0;i<len;i++){
+                    star1.eq(i).removeClass("hstar").addClass("ostar");
+                }
+                comData.shopStars = len;
+            });
+
+
+            star2.on("click",function(){
+                for(var j=0;j<3;j++){
+                    star2.eq(j).removeClass("ostar").addClass("hstar");
+                }
+                var len = $(this).index() + 1;
+                $(this).parent(".stars").find(".num").html(len + "分");
+                if(len == 1){
+                    tips2.eq(1).removeClass("tips-hide");
+                    tips2.eq(0).addClass("tips-hide");
+                    for(var k=0;k<4;k++){
+                        tips2.eq(0).find(".tip").eq(k).removeClass("check-4-bg");
+                        tips2.eq(0).find(".tip").eq(k).removeClass("check-5-bg");
+                        tips2.eq(0).find(".tip").eq(k).removeClass("check-6-bg");
+                        tips2.eq(0).find(".tip").eq(k).removeClass("check-7-bg");
+                    }
+                } else {
+                    tips2.eq(1).addClass("tips-hide");
+                    tips2.eq(0).removeClass("tips-hide");
+                    for(var k=0;k<4;k++){
+                        tips2.eq(1).find(".tip").eq(k).removeClass("check-4-bg");
+                        tips2.eq(1).find(".tip").eq(k).removeClass("check-5-bg");
+                        tips2.eq(1).find(".tip").eq(k).removeClass("check-6-bg");
+                        tips2.eq(1).find(".tip").eq(k).removeClass("check-7-bg");
+                    }
+                }
+                for(var i=0;i<len;i++){
+                    star2.eq(i).removeClass("hstar").addClass("ostar");
+                }
+                comData.saleStars = len;
+            });
+
+            star3.on("tap",function(){
+                for(var j=0;j<3;j++){
+                    star3.eq(j).removeClass("ostar").addClass("hstar");
+                }
+                var len = $(this).index() + 1;
+                $(this).parent(".stars").find(".num").html(len + "分");
+                if(len == 1){
+                    tips3.eq(1).removeClass("tips-hide");
+                    tips3.eq(0).addClass("tips-hide");
+                    for(var k=0;k<4;k++){
+                        tips3.eq(0).find(".tip").eq(k).removeClass("check-4-bg").removeClass("got");
+                        tips3.eq(0).find(".tip").eq(k).removeClass("check-5-bg").removeClass("got");
+                        tips3.eq(0).find(".tip").eq(k).removeClass("check-6-bg").removeClass("got");
+                        tips3.eq(0).find(".tip").eq(k).removeClass("check-7-bg").removeClass("got");
+                    }
+                } else {
+                    tips3.eq(1).addClass("tips-hide");
+                    tips3.eq(0).removeClass("tips-hide");
+                    for(var k=0;k<4;k++){
+                        tips3.eq(1).find(".tip").eq(k).removeClass("check-4-bg").removeClass("got");
+                        tips3.eq(1).find(".tip").eq(k).removeClass("check-5-bg").removeClass("got");
+                        tips3.eq(1).find(".tip").eq(k).removeClass("check-6-bg").removeClass("got");
+                        tips3.eq(1).find(".tip").eq(k).removeClass("check-7-bg").removeClass("got");
+                    }
+                }
+                for(var i=0;i<len;i++){
+                    star3.eq(i).removeClass("hstar").addClass("ostar");
+                }
+                comData.publicStars = len;
+            });
+
+            tipAll.on("click",function(){
+
+                if($(this).html().length == 4){
+                    $(this).toggleClass("check-4-bg").toggleClass("got");
+                }
+                if($(this).html().length == 5){
+                    $(this).toggleClass("check-5-bg").toggleClass("got");
+                }
+                if($(this).html().length == 6){
+                    $(this).toggleClass("check-6-bg").toggleClass("got");
+                }
+                if($(this).html().length == 7){
+                    $(this).toggleClass("check-7-bg").toggleClass("got");
+                }
+            });
+
+            $("#submitBtn").on("click",function(){
+                console.log(comData);
+                var $tip1 = $(".card1 .tip");
+                var $tip2 = $(".card2 .tip");
+                var $tip3 = $(".card3 .tip");
+                for(var i=0;i<6;i++){
+                    if($tip1.eq(i).hasClass("got")){
+                        comData.shopCom.push($tip1.eq(i).html());
+                    }
+                    if($tip2.eq(i).hasClass("got")){
+                        comData.saleCom.push($tip1.eq(i).html());
+                    }
+                    if($tip3.eq(i).hasClass("got")){
+                        comData.publicCom.push($tip1.eq(i).html());
+                    }
+                }
+                console.log(comData);
+            })
+
+        })
+    </script>
+</body>
+</html>

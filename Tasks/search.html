@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>我的任务</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#888;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+        #con{min-height:100%;width:100%;background:#f3f3f3;}
+        #con .top{height:0.8rem;width:100%;line-height:0.8rem;text-align:center;font-size:0.32rem;position:relative; color:#333;border-bottom:1px solid #666;}
+        #con .top .backBtn{display:block;height:0.8rem;width:1.2rem;line-height:0.8rem;text-align:center;font-size:0.28rem;position:absolute;left:0;top:0;}
+        #con .con{min-height:3.0rem;width:100%;}
+        #con .con .box1{height:1.0rem;width:100%;background:#fff;}
+        #con .con .part1{height:0.6rem;padding:0.2rem;padding-left:0.4rem;margin:0 auto;background:#fff;position:relative;}
+        #con .con .part1 .left{float:left; height:0.4rem;width:3.6rem;padding:0.1rem 0.2rem;border:1px solid #333;border-radius: 5px;margin-right:0.2rem;  }
+        #con .con .part1 .left .txtIn{float:left;height:0.4rem;width:3.6rem;line-height:0.4rem;}
+        #con .con .part1  .searchBtn{float:left;height:0.5rem;margin-top:0.04rem;width:1.2rem;line-height:0.5rem;text-align:center;font-size:0.28rem;color:#333;border:1px solid #333;border-radius:5px;}
+        #con .con .part2{height:auto;width:100%;background:#fff;}
+        #con .con .part2 .list{height:1.1rem;padding:0 0.4rem;padding-top:0.1rem;margin:0 auto;background:#fff;color:#666;position:relative;}
+        #con .con  .underLine:after{content:"";display:block;height:1px ;width:100%;background:#333;transform: scaleY(0.5);-webkit-transform: scaleY(0.5);position:absolute;left:0;bottom:0;}
+        #con .con .part2 .list .shop{height:0.4rem;width:100%;margin-bottom:0.2rem;}
+        #con .con .part2 .list .shop .shopName{float:left;height:0.4rem;line-height:0.4rem;}
+        #con .con .part2 .list .shop .shopkeeper{float:right;height:0.4rem;line-height:0.4rem;padding-right:0.2rem;}
+        #con .con .part2 .list .shopAddress{height:0.4rem;line-height:0.4rem;}
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <p class="top">
+            搜索
+            <span class="backBtn">&lt首页</span>
+        </p>
+        <div class="con">
+            <div class="box1">
+                <div class="part1 underLine">
+                    <p class="left">
+                        <input class="txtIn" type="text" placeholder="请输入门店关键字">
+                    </p>
+                    <p class="searchBtn">搜索</p>
+                </div>
+            </div>
+
+            <a  class="part2" href="JavaScript:;">
+                <div class="list underLine">
+                    <div class="shop">
+                        <p class="shopName">美宜佳深圳宝安西乡分店</p>
+                        <p class="shopkeeper">张三</p>
+                    </div>
+                    <p class="shopAddress">门店地址：广东省深圳市福田区购物公园</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

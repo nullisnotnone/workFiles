@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div>
+    <p>你好，<input id='nickName'></input></p>
+    <div id="introduce"></div>
+</div>　　
+</body>
+<script type="text/javascript">
+//视图控制器
+var userInfo = {};
+Object.defineProperty(userInfo, "nickName", {
+    get: function(){
+        return document.getElementById('nickName').value;
+    },
+    set: function(nick){
+    	document.getElementById('nickName').value = nick;
+        document.getElementById('introduce').innerHTML = document.getElementById('nickName').value;
+    }
+});
+Object.defineProperty(userInfo, "introduce", {
+    get: function(){
+        return document.getElementById('introduce').innerHTML;
+    },
+    set: function(introduce){
+        document.getElementById('introduce').innerHTML = introduce;
+    }
+})
+userInfo.nickName = "xxx";
+document.getElementById('nickName').onkeyup = function(){
+	userInfo.nickName = userInfo.nickName;
+}
+</script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>批量添加好友</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/friends-cards.css">
+</head>
+<body>
+
+    <div id="con">
+        <p class="remarkTxt">您已添加<span>2</span>名好友</p>
+        <div class="cardLists">
+            <div class="f-card">
+                <img class="per-img" src="images/per-img.png" alt="">
+                <p class="per-name">迪丽热巴</p>
+                <p class="per-tel">18565790976</p>
+                <p class="c-btns">
+                    <span class="change-btn">修改</span>
+                    <span class="delete-btn">删除</span>
+                </p>
+            </div>
+            <div class="f-card">
+                <img class="per-img" src="images/per-img.png" alt="">
+                <p class="per-name">迪丽热巴</p>
+                <p class="per-tel">18565790976</p>
+                <p class="c-btns">
+                    <span class="change-btn">修改</span>
+                    <span class="delete-btn">删除</span>
+                </p>
+            </div>
+            <div class="f-card">
+                <img class="per-img" src="images/per-img.png" alt="">
+                <p class="per-name">迪丽热巴</p>
+                <p class="per-tel">18565790976</p>
+                <p class="c-btns">
+                    <span class="change-btn">修改</span>
+                    <span class="delete-btn">删除</span>
+                </p>
+            </div>
+            <div class="f-card">
+                <img class="per-img" src="images/per-img.png" alt="">
+                <p class="per-name">迪丽热巴</p>
+                <p class="per-tel">18565790976</p>
+                <p class="c-btns">
+                    <span class="change-btn">修改</span>
+                    <span class="delete-btn">删除</span>
+                </p>
+            </div>
+            <div class="f-card add-card">
+                <img class="add-btn-img" src="images/icon-addBtn.png" alt="">
+            </div>
+        </div>
+        <div class="btn-box">
+            <p class="recommendBtn">立即推荐</p>
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 删除好友
+            $(".f-card .delete-btn").on("click",function(){
+               $(this).parents(".f-card").remove();
+            });
+
+            // 选中
+            $(".f-card").on("click",function(){
+                if(!$(this).hasClass("add-card")){
+                    $(this).toggleClass("card-actived");
+                }
+            })
+        })
+    </script>
+</body>
+</html>

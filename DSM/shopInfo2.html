@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>关联商户信息</title>
+    <link rel="stylesheet" href="css/mobiscroll-2.13.2.full.min.css">
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#92a1a8;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #a9bac2; }
+
+        #con{min-height:100%;width:100%; background:#f0f4f5;}
+        #con .underLine:after{content:"";display:block;height:1px;width:100%;background:#c0d2db;position:absolute;left:0;bottom:0;transform: scaleY(0.5); -webkit-transform: scaleY(0.5);}
+        #con .emptyBox{height:0.3rem;width:100%;}
+        #basicInfo{min-height:4.0rem;width:100%; padding-bottom:0.2rem;}
+
+        #basicInfo .formLists{min-height:4.0rem; width:100%;}
+        #basicInfo .formLists .list{min-height:0.8rem; width:100%; margin-bottom:0.2rem; background:#fff;}
+        #basicInfo .formLists .list .listTitle{height:0.4rem; padding:0.24rem 0.2rem;position:relative;}
+        #basicInfo .formLists .list .listTitle .left{float:left;height:0.4rem;line-height:0.4rem;padding-left:0.1rem;font-size:0.28rem;color:#000;border-left:4px solid #2e82fc;}
+        #basicInfo .formLists .list .listTitle .state{float:right;height:0.4rem;width:1.7rem;}
+        #basicInfo .formLists .list .listTitle .state i{float:left;height:0.28rem;width:0.28rem;margin-right:0.15rem;margin-top:0.06rem;}
+        #basicInfo .formLists .list .listTitle .state .over{background:url(images/page2-01.png) no-repeat left top; background-size:100% 100%;}
+        #basicInfo .formLists .list .listTitle .state .editing{background:url(images/page2-02.png) no-repeat left top; background-size:100% 100%;}
+        #basicInfo .formLists .list .listTitle .state .noStared{background:url(images/page2-03.png) no-repeat left top; background-size:100% 100%;}
+        #basicInfo .formLists .list .listTitle .state .stateTxt{float:left; height:0.4rem; line-height:0.4rem;}
+        #basicInfo .formLists .list .listTitle .state .remarkBg{float:right; height:0.18rem; width:0.28rem; margin-top:0.11rem;}
+        #basicInfo .formLists .list .listTitle .state .close{background:url("images/close.png") no-repeat left top; background-size:100% 100%;}
+        #basicInfo .formLists .list .listTitle .state .open{background:url("images/open.png") no-repeat left top; background-size:100% 100%;}
+        #basicInfo .formLists .list .infoBox{min-height:3.0rem;padding:0 0.2rem; padding-bottom:0.2rem;background:#fefefe; overflow:hidden;}
+        #basicInfo .formLists .list .infoBox .part{padding-top:0.2rem; height:0.64rem;width:100%; position:relative;}
+        #basicInfo .formLists .list .infoBox .part .infoName{float:left;height:0.64rem;line-height:0.64rem;width:2.0rem;padding-right:0.1rem;text-align:right;}
+        #basicInfo .formLists .list .infoBox .part .infoCon{float:left;height:0.4rem;width:3.4rem;padding:0.1rem 0.2rem; color:#000; border:1px solid #c0d2db;border-radius:5px;}
+        /*#basicInfo .formLists .list .infoBox .part .infoCon{float:left;height:0.4rem;width:3.1rem;padding:0.1rem 0.2rem; padding-right:0.5rem;color:#000; border:1px solid #c0d2db;border-radius:5px;}*/
+        #basicInfo .formLists .list .infoBox .part .remarkBtn{display:block;height:0.26rem;width:0.26rem;padding:0.14rem;position:absolute;left:5.36rem;top:0.24rem;}
+        #basicInfo .formLists .list .infoBox .part .remarkBtn i{float:left;height:100%;width:100%;background:url("images/remarkBg.png") no-repeat left top;background-size:100% 100%;}
+        #basicInfo .formLists .list .infoBox .part .infoConError{border-color:red;  box-shadow: 0 0 1px 1px red;}
+
+        #basicInfo .formLists .list3 .d-box{display:none;}
+        #basicInfo .formLists .list3 #addressPicker .addressChoose{float:left;height:0.6rem;width:3.8rem; color:#000;}
+        #addressPicker .addressChoose input{float:left;height:0.6rem;width:1.2rem;line-height:0.6rem;text-align:center;box-sizing: border-box; -webkit-box-sizing: border-box; border:1px solid #c0d2db;border-radius:5px;}
+        #addressPicker .addressChoose input:nth-child(2){margin:0 0.1rem;}
+        #provinceData_dummy , #cityData_dummy , #townData_dummy{position:absolute;left:-9999px;top:0;}
+
+
+        #basicInfo .formLists .list2 .infoBox .part1 .infoName{width:1.9rem;}
+        #basicInfo .formLists .list .infoBox .part .line{float:left;margin-top:0.15rem;}
+        #basicInfo .formLists .list .infoBox .part .timeInput1 ,#basicInfo .formLists .list .infoBox .part .timeInput2 {width:1.2rem; text-align:center;  }
+
+        #basicInfo .formLists .list .infoBox .said{min-height:1.5rem;width:100%;}
+        #basicInfo .formLists .list .infoBox .said .txt1{height:0.54rem;line-height:0.54rem;padding-left:0.2rem;}
+        #said{height:1.6rem;width:100%;padding:0.2rem; box-sizing: border-box; -webkit-box-sizing: border-box; border:1px solid #c0d2db; border-radius:5px; resize:none;}
+
+        #basicInfo .formLists .list .infoBox .part .infoNameRa{width:2.2rem;}
+        #basicInfo .formLists .list .con-radio{float:left;height:0.64rem;width:3.0rem;}
+        #basicInfo .formLists .list .con-radio label{float:left;height:0.64rem;padding-left:0.5rem;width:0.6rem;margin:0 0.2rem; position:relative;}
+        #basicInfo .formLists .list .con-radio label input{position:absolute;left:-9999px;top:0;}
+        #basicInfo .formLists .list .con-radio label .txt{float:left; height:0.64rem; line-height:0.64rem;}
+        #basicInfo .formLists .list .con-radio label i{display:block; height:0.26rem; width:0.26rem; position:absolute;left:0;top:0.19rem;}
+        #basicInfo .formLists .list .con-radio label .checked{background:url("images/checkedBtn.png") no-repeat left top; background-size:100% 100%;}
+        #basicInfo .formLists .list .con-radio label .unchecked{background:url("images/uncheckedBtn.png") no-repeat left top; background-size:100% 100%;}
+
+        #basicInfo .formLists .list .sel-box{float:left;height:0.4rem;width:3.01rem;padding:0.1rem 0.2rem; padding-right:0.58rem; color:#000; border:1px solid #c0d2db;border-radius:5px; position:relative;}
+        #basicInfo .formLists .list .sel-box i{display:block;height:0.18rem;width:0.28rem;position:absolute;right:0.15rem;top:0.21rem;background:url("images/selectBg.png") no-repeat left top; background-size:100% 100%; z-index:10;}
+        #basicInfo .formLists .list .sel-box .sel-value{float:left;height:0.4rem;width:3.0rem;border-right:0.01rem solid #b0bec5;}
+        #basicInfo .formLists .list .sel-box select{display:block;height:0.6rem;width:0.58rem;position:absolute;right:0;top:0; opacity:0; z-index:100; }
+
+        #basicInfo .formLists .list .boxHide{display:none;}
+        #basicInfo .formLists .list .boxOpen{min-height:3.0rem; display:block;}
+
+        #con .btns{height:0.6rem;width:5.0rem; padding-bottom:0.6rem; margin:0 auto; margin-top:0.6rem;}
+        #con .btns p{float:left;height:0.58rem;width:1.8rem;line-height:0.58rem;color:#fff;text-align:center;background:#2e82fc;border:0.01rem solid #ededed;border-radius:4px;}
+        #con .btns .nextBtn{float:right;}
+
+        /* 提示信息弹窗 */
+        #layer2{min-height:2.0rem;width:3.9rem;padding:0 0.45rem; padding-bottom:0.2rem;background:#fff; border-radius:5px; margin:0 auto;}
+        #layer2 .title{height:1.0rem;line-height:1.0rem;width:100%;text-align:center; font-size:0.28rem;color:#000;font-weight:600;}
+        #layer2 .txt2{height:0.3rem;line-height:0.3rem;width:100%;margin-bottom:0.1rem;}
+        #layer2 .txt3{line-height:0.4rem;width:100%;text-indent: 1.8em;}
+        #layer2 .backBtn{display:block;height:0.58rem;width:2.72rem;line-height:0.58rem;text-align:center;color:#fff;background:#2e82fc;font-size:0.28rem;border-radius: 5px;margin:0 auto;margin-top:0.4rem;}
+
+
+    </style>
+</head>
+<body>
+    <div id="con">
+        <p class="emptyBox"></p>
+        <form id="basicInfo" action="">
+            <ul class="formLists">
+                <li class="list list1">
+                    <div class="listTitle">
+                        <span class="left">注册信息</span>
+                        <p class="state">
+                            <i class="noStared"></i>
+                            <span class="stateTxt">待完成</span>
+                            <span class="remarkBg close"></span>
+                        </p>
+                    </div>
+                    <div class="infoBox registerInfo boxHide">
+                        <div class="part part1">
+                            <span class="infoName infoNameRa">是否门店从属承诺函</span>
+                            <p class="con-radio">
+                                <label for="big-yes">
+                                    <input id="big-yes" class="big-yes" type="radio" name="bigShop" >
+                                    <span class="txt">是</span>
+                                    <i class="unchecked"></i>
+                                </label>
+                                <label for="big-no">
+                                    <input id="big-no" class="big-no" type="radio" name="bigShop" >
+                                    <span class="txt">否</span>
+                                    <i class="unchecked"></i>
+                                </label>
+                            </p>
+                            <span class="remarkBtn"><i></i></span>
+                        </div>
+                        <div class="part part2">
+                            <span class="infoName">门店注册号</span>
+                            <input class="infoCon" id="shopNum" type="text" >
+                        </div>
+                        <div class="part part3">
+                            <span class="infoName">门店名称</span>
+                            <input class="infoCon" id="shopName" type="text" maxlength="50" placeholder="请输入1~40个字符">
+                            <span class="remarkBtn"><i></i></span>
+                        </div>
+                        <div class="part part4">
+                            <span class="infoName">门店类型</span>
+                            <p class="sel-box">
+                                <i></i>
+                                <span class="sel-value"></span>
+                                <select class="selBox" name="" id="shopType">
+                                    <option value="0">商户类型</option>
+                                    <option value="1">连锁商家</option>
+                                    <option value="1">商场商家</option>
+                                    <option value="1">独立商家</option>
+                                    <option value="1">IT MALL</option>
+                                </select>
+                            </p>
+                        </div>
+                        <div class="part part5">
+                            <span class="infoName">运作模式</span>
+                            <p class="sel-box">
+                                <i></i>
+                                <span class="sel-value"></span>
+                                <select class="selBox" name="" id="moveStyle">
+                                    <option value="0">自身1</option>
+                                    <option value="1">自身2</option>
+                                    <option value="1">自身3</option>
+                                    <option value="1">自身4</option>
+                                    <option value="1">自身5</option>
+                                </select>
+                            </p>
+                        </div>
+                        <div class="part part6">
+                            <span class="infoName infoNameRa">是否采用商户网银</span>
+                            <p class="con-radio">
+                                <label for="do-yes">
+                                    <input id="do-yes" class="big-yes" type="radio" name="online" >
+                                    <span class="txt">是</span>
+                                    <i class="unchecked"></i>
+                                </label>
+                                <label for="do-no">
+                                    <input id="do-no" class="big-no" type="radio" name="online" >
+                                    <span class="txt">否</span>
+                                    <i class="unchecked"></i>
+                                </label>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="list list2">
+                    <div class="listTitle">
+                        <span class="left">业务信息</span>
+                        <p class="state">
+                            <i class="noStared"></i>
+                            <span class="stateTxt">待完成</span>
+                            <span class="remarkBg close"></span>
+                        </p>
+                    </div>
+                    <div class="infoBox boxHide">
+                        <div class="part part1">
+                            <span class="infoName">营业时间</span>
+                            <input class="infoCon timeInput1" id="startTime" type="text" placeholder="开始时间">
+                            <span class="line">------</span>
+                            <input class="infoCon timeInput2" id="closeTime" type="text" placeholder="结束时间">
+                        </div>
+                        <div class="part part2">
+                            <span class="infoName">主推品牌</span>
+                            <input class="infoCon" type="text" placeholder="必填">
+                        </div>
+                        <div class="part part3">
+                            <span class="infoName">门店商品范畴</span>
+                            <input class="infoCon" type="text" placeholder="必填">
+                        </div>
+                        <div class="part part4">
+                            <span class="infoName">负责人姓名</span>
+                            <input class="infoCon" type="text" placeholder="必填">
+                        </div>
+                        <div class="part part5">
+                            <span class="infoName">负责人手机号</span>
+                            <input class="infoCon phoneNum" type="text" placeholder="必填" maxlength="13">
+                        </div>
+                        <div class="part part6">
+                            <span class="infoName">财务人员邮箱</span>
+                            <input class="infoCon emailAddress" type="text" placeholder="必填">
+                        </div>
+                        <div class="part part7">
+                            <span class="infoName">主要联系人手机号</span>
+                            <input class="infoCon phoneNum" type="text" placeholder="11位手机号" maxlength="13">
+                        </div>
+                        <div class="part part8">
+                            <span class="infoName">主要联系人邮箱</span>
+                            <input class="infoCon emailAddress" type="text" placeholder="必填">
+                        </div>
+                        <div class="part part9">
+                            <span class="infoName">预计月分期贷款单量</span>
+                            <input class="infoCon" type="text" placeholder="必填">
+                        </div>
+                    </div>
+                </li>
+                <li class="list list3">
+                    <div class="listTitle">
+                        <span class="left">地址信息</span>
+                        <p class="state">
+                            <i class="noStared"></i>
+                            <span class="stateTxt">待完成</span>
+                            <span class="remarkBg close"></span>
+                        </p>
+                    </div>
+                    <div class="infoBox boxHide">
+                        <div class="part part1" id="addressPicker">
+                            <span class="infoName">门店所在城市</span>
+                            <p class="addressChoose">
+                                <input type="text" placeholder="--省--" id="province" name="provinceData"  readonly @click="listShow">
+                                <input type="text" placeholder="--市--" id="city" name="cityData"  readonly @click="listShow">
+                                <input type="text" placeholder="-区/县-" id="town" name="townData" readonly @click="listShow">
+                            </p>
+                            <div>
+                                <ul id="provinceData" class="d-box p-box" name="province">
+                                    <template v-for="data in provinceData">
+                                        <li>{{data.name}}</li>
+                                    </template>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul id="cityData" class="d-box c-box" name="city">
+                                    <template v-for="data in cityData">
+                                        <li>{{data.name}}</li>
+                                    </template>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul id="townData" class="d-box t-box" name="town">
+                                    <template v-for="data in townData">
+                                        <li>{{data.name}}</li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="part part3">
+                            <span class="infoName">街道</span>
+                            <input class="infoCon" type="text" >
+                        </div>
+                        <div class="part part6">
+                            <span class="infoName">门店具体地址</span>
+                            <input class="infoCon" type="text" >
+                            <span class="remarkBtn"><i></i></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="list list4">
+                    <div class="listTitle">
+                        <span class="left">前置审核信息</span>
+                        <p class="state">
+                            <i class="noStared"></i>
+                            <span class="stateTxt">待完成</span>
+                            <span class="remarkBg close"></span>
+                        </p>
+                    </div>
+                    <div class="infoBox boxHide">
+                        <div class="part part1">
+                            <span class="infoName infoNameRa">是否门店前置审核</span>
+                            <p class="con-radio">
+                                <label for="exam-yes">
+                                    <input id="exam-yes" class="big-yes" type="radio" name="examine" >
+                                    <span class="txt">是</span>
+                                    <i class="unchecked"></i>
+                                </label>
+                                <label for="exam-no">
+                                    <input id="exam-no" class="big-no" type="radio" name="examine" >
+                                    <span class="txt">否</span>
+                                    <i class="unchecked"></i>
+                                </label>
+                            </p>
+                        </div>
+                        <div class="p-box boxHide">
+                            <div class="part part2">
+                                <span class="infoName">门店经度</span>
+                                <input class="infoCon" type="text" placeholder="必填">
+                            </div>
+                            <div class="part part3">
+                                <span class="infoName">门店维度</span>
+                                <input class="infoCon" type="text" placeholder="必填">
+                            </div>
+                            <div class="part part4">
+                                <span class="infoName">店长名字</span>
+                                <input class="infoCon" type="text" placeholder="必填">
+                            </div>
+                            <div class="part part5">
+                                <span class="infoName">店长手机号</span>
+                                <input class="infoCon phoneNum" type="text" placeholder="必填" maxlength="13">
+                            </div>
+                            <div class="part part6">
+                                <span class="infoName">店员一名字</span>
+                                <input class="infoCon" type="text" placeholder="必填">
+                            </div>
+                            <div class="part part7">
+                                <span class="infoName">店员一手机号</span>
+                                <input class="infoCon phoneNum" type="text" placeholder="必填" maxlength="13">
+                            </div>
+                            <div class="part part8">
+                                <span class="infoName">店员二名字</span>
+                                <input class="infoCon" type="text" placeholder="必填">
+                            </div>
+                            <div class="part part9">
+                                <span class="infoName">店员二手机号</span>
+                                <input class="infoCon phoneNum" type="text" placeholder="必填" maxlength="13">
+                            </div>
+                            <div class="part part10">
+                                <span class="infoName">店员三名字</span>
+                                <input class="infoCon" type="text" placeholder="必填">
+                            </div>
+                            <div class="part part11">
+                                <span class="infoName">店员三手机号</span>
+                                <input class="infoCon phoneNum" type="text" placeholder="必填" maxlength="13">
+                            </div>
+                        </div>
+                        <p class="said">
+                            <span class="txt1">·备注(选填)</span>
+                            <textarea name="" id="said" placeholder="请限制在200字以内"></textarea>
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </form>
+        <div class="btns">
+            <p class="backBtn">上一步</p>
+            <p class="nextBtn">录入完毕</p>
+        </div>
+    </div>
+
+    <script src="js/layer.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/mobiscroll-2.13.2.full.min.js"></script>
+    <script src="js/vue1.0.min.js"></script>
+    <script src="js/cityPicker.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 显示隐藏信息栏
+            $("#basicInfo .list .listTitle").on("click",function(){
+                if($(this).find(".remarkBg").hasClass("close")){
+                    $(this).find(".remarkBg").removeClass("close").addClass("open");
+                    $(this).addClass("underLine");
+                    $(this).parent().find(".infoBox").removeClass("boxHide").addClass("boxOpen");
+                } else {
+                    $(this).find(".remarkBg").removeClass("open").addClass("close");
+                    $(this).removeClass("underLine");
+                    $(this).parent().find(".infoBox").removeClass("boxOpen").addClass("boxHide");
+                }
+            });
+
+            // 身份证号验证
+            $("#idCard").on("keyup",function(e){
+                var str = $(this).val();
+                if(e.keyCode != 8){
+                    if(str.replace(/\s*/g,"").length % 4 == 0){
+                        $(this).val(str + " ");
+                    }
+                }
+                if($(this).val().replace(/\s*/g , "").length == 18){
+                    $(this).removeClass("infoConError");
+                }
+            });
+
+            // 单选按钮切换
+            $(".con-radio label").on("click",function(){
+                var eles = $(this).parent().find("label");
+                eles.eq($(this).index() % 2).find("i").removeClass("unchecked").addClass("checked");
+                eles.eq($(this).index() % 2).siblings().find("i").removeClass("checked").addClass("unchecked");
+
+                var labelEle = $(".con-radio label");
+                for(var i=0;i<labelEle.length;i++){
+                    if(labelEle.eq(i).find("i").hasClass("checked")){
+                        labelEle.eq(i).find("input").attr("checked","checked");
+                    } else {
+                        labelEle.eq(i).find("input").removeAttr("checked");
+                    }
+                }
+                if($("#exam-yes").attr("checked")){
+                    $(".p-box").removeClass("boxHide");
+                } else {
+                    $(".p-box").addClass("boxHide");
+                }
+            });
+
+            // 下拉框选择
+            $(".selBox").each(function(){
+                $(this).on("change",function(){
+                    if($(this).val() != 0){
+                        var str = this.options[this.options.selectedIndex].innerHTML;
+                        $(this).parent().find(".sel-value").html(str);
+                    }
+                });
+            });
+
+            // 门店注册号码格式化
+            $("#shopNum").on("input",function(){
+                var str = $(this).val().substring(1);
+                if(e.keyCode != 8){
+                    if(str.replace(/\s*/g,"").length % 4 == 0){
+                        $(this).val("R" + str + " ");
+                    }
+                }
+            });
+
+            // 手机号验证
+            var regTel = /^1[3|4|5|7|8]\d{9}$/;
+            $(".phoneNum").on("blur",function(){
+                if(!regTel.test($(this).val().replace(/\s*/g , ""))){
+                   $(this).addClass("infoConError");
+                    layerInfo("手机号格式错误，请检查！");
+                } else {
+                    $(this).removeClass("infoConError");
+                }
+            });
+
+            // 手机号格式化
+            $(".phoneNum").on("keyup",function(){
+                var str = $(this).val();
+                var str1 = str.replace(/\s*/g,"");
+                if(e.keyCode != 8){
+                    if(str1.length == 3 || str1.length == 7){
+                        $(this).val(str + " ");
+                    }
+                }
+            });
+
+            // 邮箱验证
+            var regEmail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+            $(".emailAddress").on("blur",function(){
+                if(!regEmail.test($(this).val())){
+                    $(this).addClass("infoConError");
+                    layerInfo("邮箱格式错误，请检查！");
+                } else {
+                    $(this).removeClass("infoConError");
+                }
+            });
+
+            // 时间选择
+            var opt = {};
+            opt.default = {
+                theme: "android-ics light",
+                display: 'bottom',
+                lang: "zh",
+                headerText: '请选择时间'
+            };
+            opt.time = {
+                preset : 'time'
+            };
+            $("#startTime").scroller('destroy').scroller($.extend(opt['default'] , opt['time']));
+            $("#closeTime").scroller('destroy').scroller($.extend(opt['default'] , opt['time']));
+
+
+            // 提示消息弹窗
+            $(".remarkBtn").on("click",function(){
+                var str = $(this).parents(".part").find(".infoName").html();
+                if(str == "是否门店从属承诺函"){
+                    remarkMessage("如门店有单独的营业执照则选择是，在门店附件中上传证件照片，如有门店从属承诺函请在上门审查表填是");
+                    return false;
+                }
+                if(str == "门店名称"){
+                    remarkMessage("门店名称需包含商户名称关键字，门店名称需和上门审查表一致");
+                    return false;
+                }
+                if(str == "门店具体地址"){
+                    remarkMessage("门店地址一定要精确到门牌号（无门牌号的，请提供显著标识，如***第一中学左侧30米");
+                    return false;
+                }
+            });
+
+            function layerInfo(str){
+                layer.open({
+                    content: str
+                    ,skin: 'msg'
+                    ,time: 2  //2秒后自动关闭
+                });
+            }
+
+            // 提示按钮弹窗
+            function remarkMessage(str){
+                layer.open({
+                    type : 1,
+                    content :'<div id="layer2">' +
+                    '<p class="title">温馨提醒</p>' +
+                    '<p class="txt3">'+ str +'</p>' +
+                    '<a class="backBtn" href="javascript:;" onclick="layer.closeAll();">我知道了</a>' +
+                    '</div>',
+                    anim : 'up',
+                    style :'height:4.0rem;width:4.82rem;background:transparent;position:absolute;left:50%;margin-left:-2.41rem;bottom:4.0rem;'
+                })
+            }
+
+
+        })
+    </script>
+
+
+</body>
+</html>

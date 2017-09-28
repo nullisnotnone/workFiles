@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>佰仟融资租赁</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/ability.css">
+    <link rel="stylesheet" href="css/layer.css">
+    <style type="text/css">
+        body{height:100%;width:100%;background:#000;}
+        *{padding:0;margin:0;}
+        #box{height:6.6rem; width:4.8rem; border-radius:5px; background:transparent; position:relative;margin:0 auto; display:none;}
+        #box .closeBtn{display:block; height:0.56rem; width:0.56rem; position:absolute;left:50%;margin-left:-0.28rem;bottom:0; background:url("images/closeBtn.png") no-repeat left top; background-size:100% 100%; }
+
+        #box .con{ height:5.5rem; width:3.9rem;padding:0 0.45rem; background:#fff; border-radius:5px;}
+        #box .con .title{height:1.08rem; line-height:1.08rem; font-size:0.28rem; color:#000;text-align:center; }
+        #box .con .part1 .txt{height:0.22rem;width:100%;}
+        #box .con .part2 .txt{height:0.22rem;width:100%;}
+        #box .con .part1{min-height:1.8rem; border-bottom:1px dashed #e8e8e8;}
+        #box .con  .txt .left{float:left; height:0.22rem; line-height:0.22rem; font-size:0.22rem; width:1.7rem; text-align:right;}
+        #box .con  .txt .right{float:right; width:1.8rem; height:0.22rem;line-height:0.22rem; font-size:0.22rem; padding-right:0.3rem; text-align:right; }
+        #box .con .part1 .txt1{ margin-bottom:0.44rem; }
+        #box .con .part1 .txt2{ margin-bottom:0.28rem; }
+        #box .con .part1 .txt3{ margin-bottom:0.28rem; }
+        #box .con .part1 .txt4{ margin-bottom:0.32rem; }
+        #box .con .part2{min-height:1.0rem; padding-top:0.3rem;border-bottom:1px solid #e8e8e8;}
+        #box .con .part2 .txt5{ margin-bottom:0.28rem; }
+        #box .con .part2 .txt6{ margin-bottom:0.32rem; }
+        #box .con .part3{height:0.88rem;width:100%;}
+        #box .con .part3 .txt7{ height:0.88rem;width:100%;line-height:0.88rem; color:#ff7143; }
+        #box .con .part3 .txt7 .left{height:0.88rem;line-height:0.88rem;}
+        #box .con .part3 .txt7 .right{height:0.88rem;line-height:0.88rem;}
+
+        .con2{min-height:4.0rem;   width:3.9rem; padding:0 0.45rem; background:#fff; border-radius:5px; margin:0 auto; display:none;}
+        .con2 .title{height:1.0rem;line-height:1.0rem; width:100%;text-align:center; font-size:0.28rem;color:#000;font-weight:600;}
+        .con2 .txt2{height:0.3rem; line-height:0.3rem; width:100%;margin-bottom:0.1rem;}
+        .con2 .txt3{line-height:0.4rem; width:100%; text-indent: 2em;}
+        .con2 .backBtn{display:block; height:0.58rem; width:2.72rem;line-height:0.58rem;text-align:center;color:#fff;background:#ff7143;font-size:0.28rem;border-radius: 5px;margin:0 auto;margin-top:0.4rem;}
+
+
+        #layer3{height:5.6rem; width:4.0rem; padding:0 0.4rem; background:#fff; border-radius:5px; margin:0 auto; display:none;}
+        #layer3 .title{height:1.06rem; width:100%; line-height:1.06rem; text-align:center;font-size:0.28rem;color:#000;}
+        #layer3 .con{height:3.2rem; width:100%; overflow-y:scroll; margin-bottom:0.2rem;}
+        #layer3 .con .txt{ line-height:0.4rem;text-indent:2em; }
+        #layer3 .closeBtn{display:block;height:0.58rem;width:2.72rem;line-height:0.58rem;text-align:center;font-size:0.28rem;color:#fff;background:#ff7143;border-radius:5px;margin:0 auto;margin-top:0.4rem;}
+
+
+        #layer4{height:4.0rem;width:4.0rem; padding:0 0.4rem; background:#fff; margin:0 auto; border-radius:5px; display:none;}
+        #layer4 .title{height:1.0rem; line-height:1.0rem; width:100%; text-align:center;font-size:0.28rem;color:#000;}
+        #layer4 .txt{height:0.4rem;width:100%;line-height:0.4rem;text-align:center;}
+        #layer4 .txt .sp{color:#ff7143;}
+        #layer4 .closeBtn{display:block;height:0.58rem;width:2.72rem;line-height:0.58rem;text-align:center;font-size:0.28rem;color:#fff;background:#ff7143;border-radius:5px;margin:0 auto;margin-top:0.4rem;}
+
+        #layer5{height:5.2rem;width:4.0rem; padding:0 0.4rem; background:transparent; margin:0 auto; border-radius:5px; position:relative;}
+        #layer5 .box{min-height:3.6rem;width:4.0rem;  background:#fff; margin:0 auto; border-radius:5px; padding-bottom:0.4rem}
+        #layer5 .box .title{height:1.0rem; line-height:1.0rem; width:100%; text-align:center;font-size:0.32rem;color:#000; font-weight:600;}
+        #layer5 .box .txt{height:0.5rem;line-height:0.5rem;width:100%;}
+        #layer5 .box .txt3{height:0.8rem;line-height:0.8rem;color:#000; font-weight:600;border-top:1px solid #ededed;}
+        #layer5 .box .txt .l-left{float:left;height:0.5rem;width:50%;text-align:right;}
+        #layer5 .box .txt .l-right{float:right;height:0.5rem;width:50%;text-align:center;}
+        #layer5 .box .repayBtn{display:block;height:0.58rem;width:2.72rem;line-height:0.58rem;text-align:center;font-size:0.28rem;color:#fff;background:#ff7143;border-radius:5px;margin:0 auto;margin-top:0.4rem;}
+        #layer5 .closeBtn{display:block; height:0.56rem; width:0.56rem; margin:0 auto;margin-top:0.4rem; background:url("images/closeBtn.png") no-repeat left top; background-size:100% 100%; }
+
+        .bigBox{height:4.0rem;width:4.0rem;margin:0 auto; background:red; position:relative;}
+        .bigBox .txt{height:1.0rem; width:1.0rem; text-align:center; line-height:1.0rem; font-size:0.36rem; color:red; background:skyblue; position: center; left:0;top:0; }
+
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <div class="con">
+            <p class="title">合同详情</p>
+            <div class="part1">
+                <p class="txt txt1">
+                    <span class="left">合同号</span>
+                    <span class="right">123456789</span>
+                </p>
+                <p class="txt txt2">
+                    <span class="left">本期应还金额</span>
+                    <span class="right">¥660.00</span>
+                </p>
+                <p class="txt txt3">
+                    <span class="left">催收工本费</span>
+                    <span class="right">¥5.00</span>
+                </p>
+                <p class="txt txt4">
+                    <span class="left">罚息费用</span>
+                    <span class="right">¥1.00</span>
+                </p>
+            </div>
+            <div class="part2">
+                <p class="txt txt5">
+                    <span class="left">小计</span>
+                    <span class="right">¥660.00</span>
+                </p>
+                <p class="txt txt6">
+                    <span class="left">微信还款手续费</span>
+                    <span class="right">¥0.66</span>
+                </p>
+            </div>
+            <div class="part3">
+                <p class="txt txt7">
+                    <span class="left">合计</span>
+                    <span class="right">¥666.66</span>
+                </p>
+            </div>
+        </div>
+        <span class="closeBtn"></span>
+    </div>
+    <div class="con2">
+        <p class="title">温馨提醒</p>
+        <p class="txt2">尊敬地用户：</p>
+        <p class="txt3">
+            每日23:00 - 次日9:00为系统维护 时间段，无法进行微信还款。请明天 上午九点后再试。
+        </p>
+        <a class="backBtn" href="javascript:;">返回</a>
+    </div>
+
+    <div id="layer3">
+        <p class="title">佰仟融资租赁微信还款协议</p>
+        <div class="con">
+            <p class="txt">
+                1．中泰信托有限责任公司（以下简称“贷款人”）为依法成立并有效存续的信托公司，根据中国银行业监督管理委员会颁布的《信托公司管理办法》第十九条的规定，可以发放信托贷款，贷款人拟向借款人发放的贷款资金，贷款人拟向借款人发放的贷款资贷款人拟向借款人
+            </p>
+            <p class="txt">
+                1．中泰信托有限责任公司（以下简称“贷款人”）为依法成立并有效存续的信托公司，根据中国银行业监督管理委员会颁布的《信托公司管理办法》第十九条的规定，可以发放信托贷款，贷款人拟向借款人发放的贷款资金，贷款人拟向借款人发放的贷款资贷款人拟向借款人
+            </p>
+        </div>
+        <button class="closeBtn" type="button">我知道了</button>
+    </div>
+
+
+    <div id="layer4">
+        <p class="title">温馨提示</p>
+        <p class="txt txt1">
+            您今日已还<span class="sp">600.00</span>元
+        </p>
+        <p class="txt txt2">内容</p>
+        <p class="txt txt2">内容</p>
+        <p class="txt txt2">内容</p>
+        <button class="closeBtn" type="button">好的</button>
+    </div>
+
+    <div id="layer5">
+        <div class="box">
+            <p class="title">实际还款</p>
+            <p class="txt txt1">
+                <span class="l-left">输入还款</span>
+                <span class="l-right">¥660.00</span>
+            </p>
+            <p class="txt txt2">
+                <span class="l-left">微信还款手续费</span>
+                <span class="l-right">¥0.66</span>
+            </p>
+            <p class="txt txt3">
+                <span class="l-left">实际还款金额</span>
+                <span class="l-right">¥660.66</span>
+            </p>
+            <button class="repayBtn" type="button">确认还款</button>
+        </div>
+        <span class="closeBtn"></span>
+    </div>
+
+    <div class="bigBox">
+        <p class="txt">
+            helloWorld
+        </p>
+    </div>
+
+</body>
+</html>

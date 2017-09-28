@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>推荐好友</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.32rem; color:#888;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+        body{height:100%;width:100%; background:#000;}
+        #layer0{height:4.85rem; width:100%; background:transparent; }
+        #layer0 .remark{padding-top:0.8rem;height:3.24rem; width:4.89rem;  margin: 0 auto; margin-left:20%; margin-bottom:0.4rem;  }
+        #layer0 .remark .remarkImg{float:left;height:100%;width:100%;}
+        #layer0 .remarkBtn{ height:0.9rem;width:2.09rem; margin:0 auto; background:url("images/remarkBtn.png") no-repeat left top; background-size:100% 100%;  }
+
+        #con{min-height:100%;width:100%;}
+        #con .testImg{width:100%;}
+
+    </style>
+</head>
+<body>
+
+    <span id="box" style="display:block; color:#fff; font-size:14px; width:100px;">佰仟分期购aaaaaaaaa</span>
+    <span id="box1" style="color:#fff; font-size:14px; width:100px;">bafqg</span>
+
+
+    <script src="js/zepto/zepto.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var width1 = $("#box").get(0).clientWidth;
+//            var conStr = $("#box").html();
+            var conStr = $("#box").get(0).textContent;
+            var len = $("#box").html().length;
+            console.log(conStr.length);
+            console.log(conStr);
+            console.log(width1);
+            $("#box").get(0).style.fontSize = Math.floor(width1 / len) + "px";
+        });
+
+        function autoFont(eleObj){
+            var eleWidth = eleObj.clientWidth;
+            var sizeNumber = parseInt(eleObj.style.fontSize);
+
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+﻿<!Doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="css/bootstrap3.0.min.css">
+<style>
+	.top{height:1rem;background-color:rgb(240,244,245);;}
+	.nopad{padding:0}
+	.l1,.l2,.l3{overflow:hidden;margin:0 1.5rem;position:relative;}
+	.l1,.l3{color:rgb(146,161,168);}
+	.l2{padding-top:0.5rem;padding-bottom:0.5rem;}
+	.l2:before{content: "";display: block;position: absolute;left:-50%;width:200%;outline:1px dotted rgb(146,161,168);background: black;-ms-transform: scale(0.5); /* IE 9 */-webkit-transform: scale(0.5); /* Safari */transform: scale(0.5); /* 标准语法 */}
+	.l2:after{content: "";display: block;position: absolute;left:-50%;width:200%;outline:1px dotted rgb(146,161,168);background: black;-ms-transform: scale(0.5); /* IE 9 */-webkit-transform: scale(0.5); /* Safari */transform: scale(0.5); /* 标准语法 */bottom:0;}
+	.l1>div,.l2>div,.l3>div{margin-top:0.5rem;margin-bottom:0.5rem}
+
+	.box{padding:0  2.0rem; }
+	#dataSheet{width:100%;min-height:5rem;}
+	#dataSheet tr{height:3rem;}
+	#dataSheet tr td{text-align:center; vertical-align: middle;}
+	#dataSheet tr th{text-align:center; font-weight:100; color:#92a1a8; border-bottom:1px dashed #92a1a8;}
+	#dataSheet .lastRow{color:#92a1a8;}
+	#dataSheet .lastRow td{border-top:1px dashed #92a1a8;}
+
+</style>
+</head>
+
+<body>
+	<div class="top"></div>
+	<div class="box">
+		<table id="dataSheet" cellspacing="0" cellpadding="0">
+			<tr class="firstRow">
+				<th>姓名</th>
+				<th>已分配</th>
+				<th>待审核</th>
+				<th>已完成</th>
+			</tr>
+			<tr>
+				<td>王灿灿</td>
+				<td>12</td>
+				<td>56</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td>王灿灿</td>
+				<td>12</td>
+				<td>56</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td>王灿灿</td>
+				<td>12</td>
+				<td>56</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td>王灿灿</td>
+				<td>12</td>
+				<td>56</td>
+				<td>10</td>
+			</tr>
+			<tr class="lastRow">
+				<td>合计</td>
+				<td>9</td>
+				<td>56</td>
+				<td>50</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

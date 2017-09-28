@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title></title>
+    <link rel="stylesheet" href="css/feedback.css"/>
+    <link rel="stylesheet" href="css/need/layer.css"/>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        .layer_txt{line-height:0.4rem; font-size:0.36rem; color:red;}
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.32rem; color:#fff;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+        html,body{height:100%;width:100%;}
+        #con{height:100%;width:100%; background:#ec5e24;}
+        #con .title{height:1.0rem; width:100%; line-height:1.0rem; text-align:center; font-size:0.32rem; margin-bottom:0.2rem;}
+        #addInfo{min-height:2.0rem;width:5.5rem; margin:0 auto;}
+        #addInfo .info{height:0.5rem;width:5.5rem;  margin-bottom:0.4rem; background:#fff;border:1px solid #ccc;}
+        #addInfo .info>span{float:left; height:0.5rem; width:1.0rem; line-height:0.5rem; font-size:0.28rem;color:#888;text-align:right;}
+        #addInfo .info>input{float:left;height:0.3rem;width:4.28rem;padding:0.1rem;line-height:0.3rem;font-size:0.28rem; color:#888;}
+        #submitBtn{height:0.78rem;width:4.0rem;line-height:0.78rem; text-align:center; font-weight:700;font-size:0.32rem;color:#ec5e24;border-radius:6px;background:#fff;box-shadow: 0 5px 0 0  #888; font-family: "Microsoft YaHei"; margin:0.7rem ;}
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <h3 class="title"> 邮寄地址信息： </h3>
+        <form id="addInfo" action="">
+            <p class="info info1">
+                <span>姓名:</span>
+                <input id="name"  type="text"  />
+            </p>
+            <p class="info info1">
+                <span>手机号:</span>
+                <input id="tel"  type="text"  />
+            </p>
+            <p class="info info1">
+                <span>地址:</span>
+                <input id="address"  type="text"  />
+            </p>
+            <button id="submitBtn" type="button">提交</button>
+        </form>
+    </div>
+
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        var reg1 = /^1[3|4|5|7|8]\d{9}$/;
+        $("#tel").on("blur",function(){
+            var $telNum = $("#tel").val();
+            if(!reg1.test($telNum)){ // 手机号码格式错误
+                layer.open({
+                    type: 1
+                    ,content: '<p style="font-size:0.32rem;color:red;height:100%;width:100%; line-height:50px;text-align:center; background:#fff;border-radius:10px;">手机号码格式错误，请重新填写!</p>'
+                    ,anim: 'up'
+                    ,style: 'position:fixed; bottom:50%; left:10%; width: 80%; height: 40px; padding:10px 0; border:none; background:transparent;'
+                });
+            }
+        });
+
+        $("#submitBtn").on("tap",function(){
+            var name = $("#name").val();
+            var telNum = $("#tel").val();
+            var add = $("#address").val();
+
+            if(name && telNum && add){
+                if(1){
+                    layer.open({
+                        type: 1
+                        ,content: '<div class="layer_con"><img class="_close" onclick="layer.closeAll();"  src="images/close.png" alt=""/><div class="con_box"><img src="images/success.png" alt=""/><p class="_txt _txt1">感谢您提交的信息！</p><p class="_txt _txt2">佰仟同事会为您提供更好的服务！</p> </div></div>'
+                        ,anim: 'up'
+                        ,style: 'height:5.2rem; width:5.2rem; position:absolute; left:50%; margin-left:-2.6rem; top:2.5rem; background:transparent;'
+                    });
+                }
+
+            } else {
+                layer.open({
+                    content: '请完善所需信息再提交，谢谢！'
+                    ,skin: 'msg'
+                    ,time: 3 //3秒后自动关闭
+                });
+            }
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>商户准入申请</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#92a1a8;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+        html,body{overflow-x:hidden;}
+        #con{min-height:100%; width:100%; background:#f0f4f5;overflow-x:hidden;}
+
+        #con  .remarkTxt{ padding:0 0.24rem; padding-top:0.1rem;line-height:0.6rem;  }
+        #con  .shopBossInfo{min-height:1.5rem;padding:0 0.24rem;background:#fff;}
+        #con  .info{display:block;height:0.81rem;width:100%;position:relative;background:#fff;}
+        #con  .underLine:after{content:"";display:block;height:1px;width:100%;background:#c0d2db;position:absolute;left:0;bottom:0;transform: scaleY(0.5); -webkit-transform: scaleY(0.5);}
+        #con  .info .infoName{float:left; height:0.81rem; line-height:0.81rem;font-size:0.28rem; color:#000; }
+        #con  .info .box{float:right;height:0.81rem;width:1.5rem;}
+        #con  .info .box .state{float:left;height:0.81rem;width:1.3rem;}
+        #con  .info .box .state i{float:left;height:0.28rem;width:0.28rem;margin-right:0.2rem;margin-top:0.26rem;}
+        #con  .info .box .state .over{background:url(images/page2-01.png) no-repeat left top; background-size:100% 100%;}
+        #con  .info .box .state .editing{background:url(images/page2-02.png) no-repeat left top; background-size:100% 100%;}
+        #con  .info .box .state .noStared{background:url(images/page2-03.png) no-repeat left top; background-size:100% 100%;}
+        #con  .info .box .state .stateTxt{float:left;height:0.81rem;line-height:0.81rem;}
+        #con  .info .box .bg-img{float:right;height:0.27rem;width:0.14rem;margin-top:0.26rem;background:url("images/page1-03.png") no-repeat left top; background-size:100% 100%;}
+
+        #con .shopsInfo{min-height:2.0rem; margin-bottom:0.15rem; overflow-x:hidden;}
+        #con .shopBox{position:relative;}
+        #con .shopBox .deleteBtn{position:absolute;right:-1.8rem;top:0.7rem;height:1.62rem; width:1.8rem; line-height:1.62rem; text-align:center; background:red; color:#fff; font-size:0.36rem; }
+        #con .shopsInfo .shop{min-height:1.5rem;padding:0  0.24rem;background:#fff;}
+        #con .shopsInfo .title{padding-left:0.2rem;padding-top:0.1rem;line-height:0.6rem; background:#f0f4f5; }
+        #con .shopsInfo .shop .info{width:100%;}
+
+        #con .addBtn{height:0.4rem;padding:0.2rem 0.24rem;padding-left:0.5rem;margin-bottom:0.7rem;}
+        #con .addBtn i{float:left;height:0.4rem;width:0.4rem;margin-right:0.2rem;background:url("images/page2-04.png") no-repeat left top; background-size:100% 100%;}
+        #con .addBtn span{float:left; height:0.4rem;line-height:0.4rem; font-size:0.28rem;color:#2e82fc; }
+        #con .submitBtn{display:block;height:0.74rem;line-height:0.74rem;width:5.0rem;text-align:center;margin:0 auto;font-size:0.32rem;color:#fff;background:#d3dee1;border-radius:5px; margin-bottom:0.6rem;}
+        #con .submitBtnTrue{background:#2e82fc;}
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <p class="remarkTxt">请填写商户相关信息</p>
+        <div class="shopBossInfo">
+            <a class="info info1 underLine" href="javascript:;">
+                <span class="infoName">基本信息</span>
+                <div class="box">
+                    <p class="state">
+                        <i class="state-flag over"></i>
+                        <span class="stateTxt">已完成</span>
+                    </p>
+                    <span class="bg-img"></span>
+                </div>
+            </a>
+            <a class="info info2" href="javascript:;">
+                <span class="infoName">附件信息</span>
+                <div class="box">
+                    <p class="state">
+                        <i class="state-flag noStared"></i>
+                        <span class="stateTxt">未开始</span>
+                    </p>
+                    <span class="bg-img"></span>
+                </div>
+            </a>
+        </div>
+        <div class="shopsInfo">
+            <div class="shopBox">
+                <p class="title">关联门店1相关信息</p>
+                <div class="shop shop1">
+                    <a class="info info1 underLine" href="javascript:;">
+                        <span class="infoName">基本信息</span>
+                        <div class="box">
+                            <p class="state">
+                                <i class="state-flag over"></i>
+                                <span class="stateTxt">已完成</span>
+                            </p>
+                            <span class="bg-img"></span>
+                        </div>
+                    </a>
+                    <a class="info info2" href="javascript:;">
+                        <span class="infoName">附件信息</span>
+                        <div class="box">
+                            <p class="state">
+                                <i class="state-flag editing"></i>
+                                <span class="stateTxt">进行中</span>
+                            </p>
+                            <span class="bg-img"></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="deleteBtn">删除</div>
+            </div>
+        </div>
+        <p class="addBtn">
+            <i></i>
+            <span>增加关联门店</span>
+        </p>
+        <button class="submitBtn" type="button"  disabled="disabled">确定准入</button>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/layer.js"></script>
+    <!--<script src="js/jquery-3.2.1.min.js"></script>-->
+    <script type="text/javascript">
+//        document.querySelector('body').addEventListener('touchmove', function (ev) {
+//            event.preventDefault();
+//        });
+
+        $(function(){
+            FastClick.attach(document.body);
+
+            // 增加关联门店
+            $(".addBtn i").on("click",function(){
+                var flag = Array.from($(".state-flag")).every(function(ele){
+                    return $(ele).hasClass("over");
+                });
+                if(flag){
+                    addShop($(".shopBox").length + 1);
+                } else {
+                    layerWindow("请确保信息已经填写完成再添加门店");
+//                    alert("请确保信息已经填写完成再添加门店");
+                }
+            });
+
+            function addShop(_index){
+                var str = '<div class="shopBox">' +
+                        ' <p class="title">关联门店'+_index+'相关信息</p>' +
+                        '<div class="shop shop1">' +
+                        '<a class="info info1 underLine" href="javascript:;">' +
+                        '<span class="infoName">基本信息</span>' +
+                        '<div class="box">' +
+                        '<p class="state">' +
+                        '<i class="noStared"></i>' +
+                        '<span class="stateTxt">未开始</span>' +
+                        '</p>' +
+                        '<span class="bg-img"></span>' +
+                        '</div>' +
+                        '</a>' +
+                        '<a class="info info2" href="javascript:;">' +
+                        '<span class="infoName">附件信息</span>' +
+                        '<div class="box">' +
+                        '<p class="state">' +
+                        ' <i class="noStared"></i>' +
+                        '<span class="stateTxt">未开始</span>' +
+                        '</p>' +
+                        '<span class="bg-img"></span>' +
+                        '</div></a></div><div class="deleteBtn">删除</div></div>';
+
+                $(".shopsInfo").append(str);
+            }
+
+            // 删除门店
+            $("body").on("swipeLeft", ".shop" ,function(){
+                $(this).parent().find(".deleteBtn").animate({"right":"0"},200);
+            });
+
+            $("body").on("swipeRight", ".shop" ,function(){
+                $(this).parent().find(".deleteBtn").animate({"right":"-1.8rem"},200);
+            });
+
+            $("body").on("click", ".deleteBtn" ,function(){
+                $(this).parents(".shopBox").remove();
+            });
+
+
+
+            // 提示弹窗一
+            function layerWindow(message){
+                layer.open({
+                    content: message
+                    ,skin: 'msg'
+                    ,time: 2 //2秒后自动关闭
+                });
+            }
+
+        });
+    </script>
+</body>
+</html>

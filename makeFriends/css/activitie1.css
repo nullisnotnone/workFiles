@@ -1,0 +1,81 @@
+@charset "utf-8";
+* {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.32rem; color:#888;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+
+
+#top{height:6.22rem;width:100%;}
+#top .top_img{float:left;height:6.22rem;width:100%;}
+
+#con{min-height:8.0rem; width:100%; background:#ec5e24;}
+#con .activeRule{width:88%;height:0; margin:0 auto; color:#fff; overflow:hidden;}
+#con .activeRule_hide{height:0; transition: all 0.5s linear ; -webkit-transition: all 0.5s linear ;}
+#con .activeRule_open{height:11.0rem; transition: all 0.5s linear; -webkit-transition: all 0.5s linear;}
+#con .activeRule ._title{height:0.36rem;width:2.6rem;margin:0 auto; margin-bottom:0.2rem;}
+#con .activeRule .activeCon .txt{line-height:0.4rem;font-size:0.28rem;color:#ffded0; margin-bottom:0.15rem;}
+#con .activeRule .activeCon .txt ._tel{color:yellow;}
+
+#con .activeRule ._title ._imgLeft{float:left;height:0.22rem;width:0.39rem;margin-top:0.07rem;background:url("../images/14.png") no-repeat left top ; background-size:cover;}
+#con .activeRule ._title .txt{float:left;height:0.36rem;line-height:0.36rem;width:1.7rem;text-align:center;}
+#con .activeRule ._title ._imgRight{float:left;height:0.22rem;width:0.39rem;margin-top:0.07rem;background:url("../images/15.png") no-repeat left top ; background-size:cover;}
+#con .activeTitle{height:0.36rem; line-height:0.36rem;  width:3.8rem;margin:0 auto; border-bottom:1px solid #fff;}
+#con .activeTitle .box{float:left;height:0.36rem;width:4.0rem;}
+#con .activeTitle .box_hide{display:none;}
+#con .activeTitle .title{float:left;height:0.36rem; margin-right:0.2rem; color:#fff; font-weight:700;}
+#con .activeTitle .mark_img{float:left;height:0.14rem;width:0.27rem;margin:0.11rem 0;}
+
+#con .info_form{width:5.1rem;min-height:5.0rem;margin:0 auto; margin-top:0.35rem;}
+#infoForm{width:5.0rem;margin:0 auto; font-family: "Microsoft YaHei";}
+#infoForm p{height:0.78rem; width:100%; line-height:0.78rem; margin-bottom:0.16rem;}
+#infoForm ._input{background:#fff; width:4.2rem; height:0.48rem; padding:0.15rem  0  0.15rem 0.78rem; border-radius: 6px; position:relative;}
+#infoForm ._input .forward_img{height:0.47rem; width:0.38rem; position:absolute; left:0.2rem; top:0.15rem;}
+
+#infoForm ._input input{float:left; height:0.48rem; width:3.98rem; padding:0 0.1rem; border-left:1px solid #f7a07d; border-radius:0; -webkit-border-radius:0;}
+#infoForm ._select .selectbg{position:absolute; right:0.2rem; top:0.27rem; height:0.24rem; width:0.28rem;}
+#infoForm ._input select{float:left;height:0.48rem;width:3.7rem; padding:0 0.1rem; border-left:1px solid #f7a07d; background:transparent; border-radius:0; -webkit-border-radius:0;}
+#infoForm .box3{height:0;width:100%;overflow:hidden;}
+#infoForm .box3_open{height:2.9rem; transition: all 0.3s linear;}
+#infoForm .box3_hide{height:0; transition:  all 0.1s linear}
+#infoForm  ._radio{height:0.78rem; width:100%; line-height:0.78rem; margin-bottom:0.16rem; position:relative;}
+
+
+#infoForm  ._radio .s_txt{float:left;padding-left:0.1rem;margin-right:0.4rem; color:#fff;}
+
+#infoForm  ._radio label{float:left;height:0.78rem;width:1.2rem;margin-right:0.2rem; position:relative; }
+#infoForm  ._radio .mar_none{margin-right:0;}
+/*#infoForm  ._radio ._box label{float:left;height:0.78rem;width:1.2rem;}*/
+#infoForm  ._radio label span{padding-left:0.5rem;float:left; color:#ffded0;}
+#infoForm  ._radio label input{position:absolute;left:-9999px;top:0;}
+#infoForm  ._radio  ._out{height:0.28rem;width:0.28rem;position:absolute;left:0;top:0.25rem; background:url("../images/32.png") no-repeat left top ; background-size:cover;}
+#infoForm  ._radio  ._enter{height:0.28rem;width:0.28rem;position:absolute;left:0;top:0.25rem; background:url("../images/31.png") no-repeat left top ; background-size:cover;}
+#infoForm .submitBtn{height:0.78rem;width:5.0rem;line-height:0.78rem;text-align:center; font-weight:700;font-size:0.32rem;color:#ec5e24;border-radius:6px;background:#fff;box-shadow: 0 5px 0 0  #888; font-family: "Microsoft YaHei"; margin-bottom:0.4rem;}
+
+.info_form .mark_txt{line-height:0.4rem;font-size:0.28rem;text-indent: 1.2em; position:relative; color:#f29e85;}
+.info_form .mark_txt i{display:block;height:0.3rem;width:0.3rem;position:absolute;left:0;top:0.03rem; background:url("../images/30.png") no-repeat left top; background-size: cover; }
+
+.remind{width:85%;padding:0.1rem 0.2rem;min-height:1.36rem; background:#e95417;border-radius: 10px;margin:0 auto; line-height:0.4rem; font-size:0.28rem;text-indent: 1.5em; color:#ffded0; margin-top:0.15rem;margin-bottom:0.2rem;}
+.remind_hide{display:none;}
+.down_img{height:0.64rem;width:100%; background:red;}
+.down_img>img{float:left;height:100%;width:100%;}
+
+.goodsList{ height:8.7rem;width:100%;background:#192c48; }
+.goodsList .list_title{height:0.36rem;width:2.6rem;font-size:0.36rem;color:#fff;font-weight:700;margin:0 auto; margin-bottom:0.4rem; padding-top:0.6rem;}
+.goodsList .list_title ._imgLeft{float:left;height:0.22rem;width:0.39rem;margin-top:0.07rem;background:url("../images/14.png") no-repeat left top ; background-size:cover;}
+.goodsList .list_title .txt{float:left;height:0.36rem;line-height:0.36rem;width:1.7rem;text-align:center;}
+.goodsList .list_title ._imgRight{float:left;height:0.22rem;width:0.39rem;margin-top:0.07rem;background:url("../images/15.png") no-repeat left top ; background-size:cover;}
+.goodsList .goods{height:6.7rem;width:6.42rem;margin:0 auto; background:url("../images/2.png") no-repeat left top; background-size:cover;}
+
+.layer_con {height:6.67rem; width:5.2rem; }
+.layer_con ._close { height:0.65rem; width:0.65rem; margin:0 auto; margin-bottom:0.3rem; }
+.layer_con .con_box {height:5.3rem;width:100%;background:#fff;padding-top:0.64rem; border-radius: 10px}
+.layer_con .con_box>img {height:1.5rem;width:1.5rem;margin:0 auto; margin-bottom:0.4rem;}
+.layer_con .con_box ._txt { width:100%;text-align:center; }
+.layer_con .con_box ._txt1{height:0.38rem; font-size:0.38rem; line-height:0.38rem; font-weight:700; color:#ec5e24; margin-bottom:0.25rem;}
+.layer_con .con_box ._txt2{height:0.32rem;width:80%; margin:0 auto;font-size:0.24rem; line-height:0.40rem;color:#ec5e24; text-align:left;}

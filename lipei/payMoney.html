@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>还款详情</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#999;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        *::-webkit-input-placeholder {  color: #d6d6db;}
+
+        #con{min-height:100%; width:100%; background:#edf1f2;}
+        #con .emptyBox{height:0.2rem;width:100%;}
+        #con .sp{color:#ff7143;}
+        #con .underLine:after{content:""; display:block;height:0;width:100%;border-bottom:1px dashed #333;  transform: scaleY(0.5); -webkit-transform: scaleY(0.5); position:absolute;left:0;bottom:0;}
+        #con .lists{min-height:2.0rem;width:100%;  }
+        #con .lists .list{min-height:1.5rem;padding:0 0.24rem;margin-bottom:0.2rem;background:#fff;}
+        #con .lists .list .hideArea{display:none;}
+        #con .list .part1{height:1.2rem;width:100%; padding:0.4rem 0; display:-webkit-flex; display:flex; position:relative; }
+        #con .list .part1 .left{height:1.2rem;width:1.2rem;margin-right:0.25rem;}
+        #con .left img{float:left;height:100%;width:100%;  }
+        #con .list .part1 .right{flex:1; -webkit-flex:1;}
+        #con .list .part1 .right .txt1{float:left;height:0.3rem;width:100%;  font-size:0.24rem;}
+        #con .list .part1 .right .txt1 .p1{float:left;height:0.3rem;line-height:0.3rem;}
+        #con .list .part1 .right .txt1 .p2{float:right;height:0.3rem;line-height:0.3rem;}
+        #con .list .txt2{float:left;width:100%;line-height:0.5rem; font-size:0.24rem;}
+        #con .list .txt2 p{float:left;margin-right:0.2rem;}
+        #con .list .txt3{font-size:0.22rem;}
+        #con .list .txt3 .chooseBtn{float:left;height:0.32rem;width:0.32rem; margin-right:0.1rem; background:url("images/chooseBtnBg.png") no-repeat left top; background-size:100% 100%; position:relative;}
+        #con .list .txt3 .chooseBtn i{height:0.15rem; width:0.22rem; position:absolute;left:0.05rem;top:0.08rem; }
+        #con .list .txt3 .chooseBtn .checked{background:url("images/checked.png") no-repeat left top; background-size:100% 100%;}
+
+        #con .list .part2{height:0.8rem;width:100%;}
+        #con .list .part2 .linkBtn{float:right;height:0.46rem;width:1.2rem;line-height:0.46rem;text-align:center;color:#fff; background:#ff7143;border-radius:4px; margin-top:0.17rem; font-size:0.2rem;}
+
+        /*弹窗*/
+        #payLayer .p-title{height:0.8rem;width:100%;line-height:0.8rem;text-align:center;font-size:0.28rem;color:#000;font-weight:600;}
+        #payLayer .p-con{min-height:0.4rem;padding:0 0.3rem;line-height:0.4rem; border-bottom:0.01rem solid #aaa; font-size:0.24rem;padding-bottom:0.2rem;}
+        #payLayer .btns{height:0.8rem;width:100%;}
+        #payLayer .btns span{float:left;height:100%;width:50%;line-height:0.8rem;text-align:center;-webkit-box-sizing: border-box;box-sizing: border-box;}
+        #payLayer .btns .yes-btn{float:right;border-left:0.01rem solid #aaa; color:#ff7143;}
+        /*线上还款协议弹窗*/
+        #layer3 .title{height:1.06rem; width:100%; line-height:1.06rem; text-align:center;font-size:0.28rem;color:#000;}
+        #layer3 .con{height:3.2rem; width:100%; overflow-y:scroll; margin-bottom:0.2rem;}
+        #layer3 .con .txt{ line-height:0.4rem;text-indent:2em; font-size:0.2rem; }
+        #layer3 .closeBtn{display:block;height:0.58rem;width:2.72rem;line-height:0.58rem;text-align:center;font-size:0.28rem;color:#fff;background:#ff7143;border-radius:5px;margin:0 auto;margin-top:0.4rem;}
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <p class="emptyBox"></p>
+        <div class="lists">
+            <div class="list">
+                <form class="listInfo" action="">
+                    <p class="hideArea">
+                        <input class="customer_name" type="hidden" alt="客户名称">
+                        <input class="putout_no" type="hidden" alt="合同号">
+                        <input class="repayment_amount" type="hidden" alt="首付金额">
+                        <input class="periods" type="hidden" alt="期数">
+                    </p>
+                    <div class="part1 underLine">
+                        <p class="left"><img src="images/icon.png" alt=""></p>
+                        <div class="right">
+                            <div class="txt txt1">
+                                <p class="p1">应还期数 : <span class="periods">36</span>期</p>
+                                <p class="p2">合同号 : <span class="contract-num">1115003019</span></p>
+                            </div>
+                            <div class="txt txt2">
+                                <p class="text1">首付金额(元): </p>
+                                <p class="text2 sp money"><span class="money-num">16900.00</span>元</p>
+                            </div>
+                            <div class="txt txt3">
+                            <span class="chooseBtn">
+                                <i></i>
+                            </span>
+                                <span class="text1">本人已阅读并同意</span>
+                                <span class="text2 sp agreement">《XX线上支付协议》</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="part2">
+                        <a class="linkBtn" href="javascript:;">微信还款</a>
+                    </div>
+                </form>
+            </div>
+            <div class="list">
+                <form class="listInfo" action="">
+                    <p class="hideArea">
+                        <input class="customer_name" type="hidden" alt="客户名称">
+                        <input class="putout_no" type="hidden" alt="合同号">
+                        <input class="repayment_amount" type="hidden" alt="首付金额">
+                        <input class="periods" type="hidden" alt="期数">
+                    </p>
+                    <div class="part1 underLine">
+                        <p class="left"><img src="images/icon.png" alt=""></p>
+                        <div class="right">
+                            <div class="txt txt1">
+                                <p class="p1">应还期数 : <span class="c-periods">36</span>期</p>
+                                <p class="p2">合同号 : <span class="contract-num">1115003019</span></p>
+                            </div>
+                            <div class="txt txt2">
+                                <p class="text1">首付金额(元): </p>
+                                <p class="text2 sp money"><span class="money-num">16900.00</span>元</p>
+                            </div>
+                            <div class="txt txt3">
+                            <span class="chooseBtn">
+                                <i></i>
+                            </span>
+                                <span class="text1">本人已阅读并同意</span>
+                                <span class="text2 sp agreement">《XX线上支付协议》</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="part2">
+                        <a class="linkBtn" href="javascript:;">微信还款</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 钱数格式化
+            var reg1 = /(?!\b)(?=(\d{3})+\b)/g;
+            $(".money-num").each(function(){
+               var num_str = $(this).html().substring(0,$(this).html().length - 3);
+                $(this).html(num_str.replace(reg1 , ",") + ".00");
+            });
+            // 给隐藏域赋值
+            $(".putout_no").each(function(index , ele){
+                $(ele).val($(ele).parents(".list").find(".contract-num").html());
+            });
+            $(".repayment_amount").each(function(index , ele){
+                $(ele).val($(ele).parents(".listInfo").find(".money-num").html().replace(/[,]/,""));
+            });
+            $(".periods").each(function(index , ele){
+                $(ele).val($(ele).parents(".list").find(".c-periods").html());
+            });
+
+            // 线上还款协议弹窗
+            $(".agreement").on("click",function(){
+                layer.open({
+                    shadeClose : false,
+                    type : 1,
+                    content :'<div id="layer3">' +
+                    '<p class="title">佰仟融资租赁微信还款协议</p>' +
+                    '<div class="con">' +
+                    '<p class="txt">本人作为佰仟融资租赁有限公司（以下简称佰仟公司）的客户，同意在微信公众号“bq_carfinance”中注册为会员并使用“微信支付”的方式向佰仟公司支付本人相关合同项下的应付款项（包括但不限于本金、利息、租金、管理费、违约金、催收工本费、违章罚款等）。针对前述支付行为本人承诺：</p>' +
+                    '<p class="txt">1.在“微信支付”中绑定的银行卡为本人名下合法有效有效的借记卡。</p>' +
+                    '<p class="txt">2.在使用“微信支付”过程中本人账户发生异常导致本人资金损失或者因本人的不当使用可能或已经产生的侵犯他人合法权利的行为由本人承担全部法律责任（如：绑定他人借记卡进行支付等），与佰仟公司无关。</p>' +
+                    '<p class="txt">3、在使用“微信支付”过程中产生的所有手续费（以“微信支付”发布的手续费率为准）由本人承担。</p>' +
+                    '<p class="txt">4.本人知晓并同意通过“微信支付”方式向佰仟公司支付款项自款项到达佰仟公司账户之日才视为本人已经向佰仟公司履行支付义务。</p>' +
+                    '</div>' +
+                    '<button class="closeBtn" type="button" onclick="layer.closeAll();">我知道了</button>' +
+                    '</div>' ,
+                    anim : 'up',
+                    style :'height:5.6rem; width:4.0rem; padding:0 0.4rem; background:#fff; border-radius:5px; position:absolute;;left:50%;margin-left:-2.4rem;bottom:3rem;'
+                });
+            });
+
+
+            // 勾选还款协议
+            var flag = null;
+            $(".chooseBtn").on("click",function(){
+                $(this).find("i").toggleClass("checked");
+            });
+
+            $(".linkBtn").on("click",function(){
+                if(!$(this).parents(".list").find("i").hasClass("checked")){
+                    layer.open({
+                        content: '请勾选还款协议!'
+                        ,skin: 'msg'
+                        ,time: 2 //2秒后自动关闭
+                    });
+                    return false;
+                } else {
+                    $(this).parents(".listInfo").attr("id" , "payment_form" + $(this).parents(".list").index());
+                    var str = $(this).parents(".list").find(".money-num").html().replace(/\s*/,"").replace(/[,]/,"");
+                    flag = "payment_form" + $(this).parents(".list").index();
+                    layerOpen(str);
+                }
+            });
+
+            $("body").on("click" , ".yes-btn" , function(){
+                layer.postMessage(flag);
+            });
+
+            layer.postMessage = function(str){
+                alert(1);
+                console.log($("#" + str));
+//                $("#" + str).submit();
+            };
+
+            function layerOpen(str){
+                return  layer.open({
+                    shadeClose : false,
+                    type: 1
+                    ,content: '<div id="payLayer">' +
+                    '<p class="p-title">请确认</p>' +
+                    '<p class="p-con">本次支付首付金额: '+ str +'元；点击确认进行微信支付</p>' +
+                    '<p class="btns">' +
+                    '<span class="cancel-btn" onclick="flag = null; layer.closeAll();">取消</span>' +
+                    '<span class="yes-btn">确认</span>' +
+                    '</p>' +
+                    '</div>'
+                    ,anim: 'up'
+                    ,style: 'min-height:2.0rem;width:5.0rem; margin:0 auto; border-radius:5px; background:#fff;'
+                });
+            }
+        })
+
+    </script>
+
+</body>
+</html>

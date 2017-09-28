@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>问题反馈</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/need/layer.css">
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#999;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+
+        #con{min-height:100%;width:100%;background:#f1f1f1;}
+        #con .conHide{display:none;}
+        #con .underLine:after{content:"";display:block;height:1px;width:100%;background:#c0d2db;position:absolute;left:0;bottom:0;transform: scaleY(0.5); -webkit-transform: scaleY(0.5);}
+        #feedBackQues{min-height:3.0rem;width:100%;}
+        #feedBackQues .title{height:0.9rem; line-height:0.9rem; padding:0 0.2rem;}
+        #feedBackQues .options{min-height:4.0rem; width:100%;}
+        #feedBackQues .options .option{height:0.9rem; padding:0 0.2rem; padding-right:0.1rem; background:#fff;position:relative;}
+        #feedBackQues .options .option label{float:left; height:0.9rem; width:100%; line-height:0.9rem; color:#666;}
+        #feedBackQues .options .option i{display:block; height:0.24rem; width:0.24rem; position:absolute; right:0.3rem;top:0.33rem;}
+        #feedBackQues .options .option .unchecked{background:url(images/unchecked.png) no-repeat left top; background-size:100% 100%;}
+        #feedBackQues .options .option .checked{background:url(images/checked.png) no-repeat left top; background-size:100% 100%;}
+        #feedBackQues .options .option input{position:absolute; left:-9999px; top:0;}
+
+        #feedBackQues .wrap{height:3.0rem; padding:0.4rem; background:#fff; margin-bottom:0.6rem; }
+        #feedBackQues .wrap .con{ height:100%; width:100%; box-sizing:border-box; -webkit-box-sizing:border-box; border:1px solid #ededed; }
+        #feedBackQues .txtCount{height:0.4rem;line-height:0.4rem;padding:0 0.2rem;text-align:right; }
+        #textInputs{min-height:2.4rem; width:100%; box-sizing:border-box; -webkit-box-sizing:border-box; padding:0.2rem; resize:none;  overflow-y:scroll;}
+
+        #feedBackQues .submitBtn{display:block; height:0.8rem; line-height:0.8rem; width:4.8rem; margin:0 auto; text-align:center; background:#41a8eb; color:#fff; font-size:0.32rem; border-radius:0.4rem; }
+
+        #con .box{height:3.02rem; width:100%;padding-top:3.2em; }
+        #con .box img{height:3.02rem;width:2.74rem;margin:0 auto;}
+    </style>
+</head>
+<body>
+    <div id="con">
+        <form id="feedBackQues" action="">
+            <p class="title underLine">对您造成困惑的是以下哪个问题呢？</p>
+            <div class="options">
+                <p class="option underLine">
+                    <label for="tip1">业务办理流程不满</label>
+                    <i class="unchecked"></i>
+                    <input   id="tip1" type="radio" name="feedQue">
+                </p>
+                <p class="option underLine">
+                    <label for="tip2">知识答复不清晰</label>
+                    <i class="unchecked"></i>
+                    <input  id="tip2" type="radio" name="feedQue">
+                </p>
+                <p class="option underLine">
+                    <label for="tip3">代扣时间不满</label>
+                    <i class="unchecked"></i>
+                    <input  id="tip3" type="radio" name="feedQue">
+                </p>
+                <p class="option underLine">
+                    <label for="tip4">期数、金额不符</label>
+                    <i class="unchecked"></i>
+                    <input  id="tip4" type="radio" name="feedQue">
+                </p>
+                <p class="option underLine">
+                    <label for="tip5">合同费用不清楚</label>
+                    <i class="unchecked"></i>
+                    <input  id="tip5" type="radio" name="feedQue">
+                </p>
+            </div>
+            <p class="title">请你简单描述未解决问题的原因:</p>
+            <div class="wrap">
+                <div class="con">
+                    <textarea name="" id="textInputs" placeholder="请填写10字以上的问题描述以便我们提供更好的帮助"></textarea>
+                    <p class="txtCount">
+                        <span class="num">0</span>/<span class="all">500</span>
+                    </p>
+                </div>
+            </div>
+            <button type="button" class="submitBtn" disabled="disabled">提&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+        </form>
+        <p class="box conHide">
+            <img src="images/successed.png" alt="">
+        </p>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".option").on("click",function(){
+                $(".submitBtn").removeAttr("disabled");
+                $(this).find("i").removeClass("unchecked").addClass("checked");
+                $(this).siblings().find("i").removeClass("checked").addClass("unchecked");
+            });
+
+            // 字数
+            $("#textInputs").on("input",function(){
+               var len = $(this).val().length;
+                $(".txtCount").find(".num").html(len);
+
+                //超过500字符
+
+                if(len >= $(".txtCount .all").html()){
+                    var str = $(this).val().substr(0,500);
+                    $(this).val(str);
+                }
+            });
+
+            $(".submitBtn").on("click",function(){
+                var str1 = "", str2 = $("#textInputs").val();
+
+                $(".option").each(function(index,ele){
+                    if($(this).find("i").hasClass("checked")){
+                        str1 = $(this).find("label").html();
+                    }
+                });
+
+                // 向服务器提交数据
+
+                if(1){
+                    $("#feedBackQues").addClass("conHide");
+                    $("#con .box").removeClass("conHide");
+                }
+            })
+        })
+    </script>
+</body>
+</html>

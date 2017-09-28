@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>理赔资料提交</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#999;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        *::-webkit-input-placeholder {  color: #d6d6db;}
+
+        #con{height:100%;width:100%; background:#fff;}
+        #con .conHide{display:none;}
+        #con .con{width:100%; padding-top:20%;}
+        .con img{display:block;height:1.3rem; width:1.3rem; margin:0 auto; margin-bottom:0.3rem;}
+        .c-con1 .txt1{height:0.8rem;line-height:0.8rem; color:#ff7143; font-size:0.36rem;text-align:center;}
+        .c-con1 .txt2{text-align:center; color:#000;}
+        .c-con1 .back-btn{height:0.6rem;width:1.5rem;margin:0 auto; padding-top:1.0rem;}
+        .c-con1 .back-btn button{float:left;height:100%;width:100%; background:#ff7143;color:#fff;border-radius:5px;font-size:0.28rem;}
+
+        .c-con2 .txt1{height:0.4rem; line-height:0.4rem; color:#999; font-size:0.28rem;text-align:center;}
+        .c-con2 .txt2{height:0.4rem; line-height:0.4rem; color:#ff7143; font-size:0.28rem;text-align:center;}
+        .c-con2 .txt3{height:0.4rem; line-height:0.4rem; color:#ff7143; font-size:0.28rem;text-align:center;}
+        .c-con2 .back-btn{height:0.6rem;width:70%; margin:0 auto;padding-top:1.0rem;}
+        .c-con2 .back-btn button{float:left;height:0.6rem;width:1.5rem;background:#ff7143;color:#fff;font-size:0.28rem;border-radius:5px;}
+        .c-con2 .back-btn .goTopay{float:right;}
+
+        .c-con3 .txt1{height:0.4rem; line-height:0.4rem; color:#999; font-size:0.28rem;text-align:center;}
+        .c-con3 .txt2{height:0.4rem; line-height:0.4rem; color:#ff7143; font-size:0.28rem;text-align:center;}
+        .c-con3 .txt3{height:0.4rem; line-height:0.4rem; color:#ff7143; font-size:0.28rem;text-align:center;}
+        .c-con3 .back-btn{height:0.6rem;width:70%; margin:0 auto;padding-top:1.0rem;}
+        .c-con3 .back-btn button{display:block; margin:0 auto; height:0.6rem;width:1.5rem;background:#ff7143;color:#fff;font-size:0.28rem;border-radius:5px;}
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div class="con">
+            <img src="images/pay_success1.png" alt="">
+            <div class="c-con1 ">
+                <p class="txt1">完成付款金额: <span class="money">16900.00</span></p>
+                <p class="txt2">订单号 : <span class="billNum">11256105635</span></p>
+                <p class="back-btn"><button type="button">返回</button></p>
+            </div>
+            <div class="c-con2 conHide">
+                <p class="txt1">订单号 : <span class="billNum">11256105635</span></p>
+                <p class="txt2">已经支付金额: <span class="money">16900.00</span></p>
+                <p class="txt3">待支付金额: <span class="money">900.00</span></p>
+                <p class="back-btn">
+                    <button class="cancel-btn" type="button">取消</button>
+                    <button class="goTopay" type="button">继续支付</button>
+                </p>
+            </div>
+            <div class="c-con3 conHide">
+                <p class="txt1">订单号 : <span class="billNum">11256105635</span></p>
+                <p class="txt2">已经支付金额: <span class="money">16900.00</span></p>
+                <p class="txt3">待支付金额: <span class="money">0.00</span></p>
+                <p class="back-btn">
+                    <button class="cancel-btn" type="button">返回</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function(){
+            var money = document.getElementsByClassName("money")[0];
+            console.log(money);
+            var str = money.innerHTML;
+            money.innerHTML = str.toLocaleString();
+        }
+    </script>
+</body>
+</html>

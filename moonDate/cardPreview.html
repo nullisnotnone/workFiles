@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>我送出的心愿卡</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#494949;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #a5abaf; font-size:0.24rem; }
+
+        #con{min-height:100%;width:100%; padding-bottom:2.0rem;background:#f3f3f3;position:relative; -webkit-box-sizing: border-box; box-sizing: border-box;}
+        .title{height:3.8rem;width:6.4rem;margin:0 auto;}
+        .title>img{float:left;height:100%;width:100%;}
+        .txtBox{position:relative;min-height:1.0rem;width:5.3rem; padding:0.5rem 0.55rem; margin:auto; margin-bottom:0.76rem; background:#fff;}
+        .txtBox .box-bg{position:absolute;left:0;top:-0.15rem;height:0.3rem;width:100%;background:url("images/cardtxt_bg.png") no-repeat left top; background-size:100% 100%;}
+        .txtBox .box-bg2{position:absolute;left:0;bottom:-0.15rem;height:0.3rem;width:100%;background:url("images/cardtxt_bg.png") no-repeat left top; background-size:100% 100%;}
+        .txtBox .cardTxt{line-height:0.46rem;}
+
+        .gift{height:auto;width:100%; color:#7d5600;}
+        .gift .g-title{height:0.7rem;line-height:0.7rem;text-align:center;}
+        .gift .g-con{height:0.93rem;padding:0.16rem 0.38rem;width:4.27rem;margin:0 auto;background:url("images/coupon_orange.png") no-repeat left top; background-size:100% 100%;}
+        .gift .g-con .part1{float:left;height:0.7rem;width:1.5rem;font-size:0.7rem;color:#7d5600;}
+        .gift .g-con .part1 span{font-size:0.12rem;line-height:0.2rem;}
+        .gift .g-con .part2{ float:left;margin-top:0.16rem; height:0.6rem; font-size:0.28rem; line-height:0.3rem; padding-right:0.6rem; border-right:0.01rem solid #7d5600;  }
+        .gift .g-con .part3{ float:left;padding-left:0.4rem; }
+        .gift .g-con .part3 span{float:left;height:0.61rem; font-size:0.2rem; width:0.67rem;padding:0.13rem 0.1rem;line-height:0.3rem;text-align:center;background:url("images/btn_round.png") no-repeat left top; background-size:100% 100%;}
+
+        .btns{position:absolute;left:50%;bottom:0;height:1.0rem;width:5.7rem;padding:0.35rem;margin:0 auto; margin-left:-3.2rem; background:#fff;}
+        .btns .againBtn{float:left;height:0.89rem;width:2.07rem;line-height:0.89rem;text-align:center;color:#fff;background:url("images/btn_red.png") no-repeat left top; background-size:100% 100%;}
+        .btns .sendBtn{float:right;margin-top:0.05rem;height:0.82rem;width:3.48rem;line-height:0.82rem;text-align:center;color:#7d5600;background:url("images/btn_orange.png") no-repeat left top; background-size:100% 100%;}
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <p class="title"><img src="images/type_family.jpg" alt=""></p>
+        <div class="txtBox">
+            <p class="box-bg"></p>
+            <p class="cardTxt">月儿照九州，月饼解烦忧。尝一尝常开笑口，咬一咬好运拥有，瞧一瞧快乐牵手。闻一闻，幸福与你共白头。中秋愉快！</p>
+            <p class="box-bg2"></p>
+        </div>
+        <div class="gift">
+            <p class="g-title">小心意，请领取</p>
+            <div class="g-con">
+                <p class="part1">
+                    <span>¥</span>50
+                </p>
+                <p class="part2">佰仟<br>还款券</p>
+                <p class="part3">
+                    <span>点击<br>领取</span>
+                </p>
+            </div>
+        </div>
+        <div class="btns">
+            <a href="javascript:;" class="againBtn">重新制作</a>
+            <a href="javascript:;" class="sendBtn">制作完成，立即发送</a>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

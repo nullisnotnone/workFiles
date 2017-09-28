@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>任务</title>
+    <link rel="stylesheet" href="css/shopInfo.css"/>
+    <script type="text/javascript" src="js/public.js"></script>
+</head>
+<body>
+
+    <div id="con">
+        <div class="title">
+            <p class="txt txt1">门店基本信息</p>
+            <p class="txt txt2">门店销量信息</p>
+            <p class="txt txt3 borderBottom">门店GPS信息</p>
+        </div>
+        <div class="con con3">
+            <div class="add-gps">
+                <div class="gps-title">
+                    <p class="txt">位置信息</p>
+                </div>
+                <div class="gps-info">
+                    <div class="gps-1 gps-txt">
+                        <span class="txt1">门店地址经纬度:</span>
+                        <p class="txt2"></p>
+                    </div>
+                    <div class="gps-2 gps-txt">
+                        <span class="txt1">信息填报者位置:</span>
+                        <p class="txt2"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="add-shop">
+                <div class="shop-title">
+                    <p class="txt">门店照片信息</p>
+                </div>
+                <div class="pic-info">
+                    <div class="pic pic1">
+                        <div class="pic-det">
+                            <img src="images/u434.png" alt=""/>
+                            <p class="txt">门店产品展示</p>
+                        </div>
+                    </div>
+                    <div class="pic pic2">
+                        <div class="pic-det">
+                            <img src="images/u434.png" alt=""/>
+                            <p class="txt">门店背景照片</p>
+                        </div>
+                    </div>
+                    <div class="pic pic3">
+                        <div class="pic-det">
+                            <img src="images/u434.png" alt=""/>
+                            <p class="txt">周边环境</p>
+                        </div>
+                    </div>
+                    <div class="pic pic4">
+                        <div class="pic-det">
+                            <img src="images/u434.png" alt=""/>
+                            <p class="txt">门店招牌</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btns">
+            <button class="btn1" type="button">上一步</button>
+            <button class="btn2" type="button">确认提交</button>
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/zepto/touch.js"></script>
+    <script src="js/zepto/fx.js"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(function(pos){
+                    var str1 = pos.coords.latitude;
+                    var str2 = pos.coords.longitude +"";
+                    console.log(typeof str2);
+                    str2 = str2.substring(0,13);
+                    $(".gps-2 .txt2").html("N"+str1 + ' E'+str2);
+                    console.log("N"+pos.coords.latitude + '  E'+pos.coords.longitude);
+                },function(err){
+                    console.log("对不起，无法定位");
+                },{
+                    enableHighAcuracy : true,
+                    timeout : 5000,
+                    maximumAge : 5000,
+                    frequency : 1000
+                });
+            } else {
+                alert("抱歉！您的浏览器无法使用地位功能");
+            }
+        })
+
+    </script>
+
+</body>
+</html>

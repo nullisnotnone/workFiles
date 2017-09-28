@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>公章备案详情</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/apply.css">
+</head>
+<body>
+
+    <div id="con">
+        <div class="chooseCards">
+            <p class="chooseCard chooseCardActive">
+                <i></i>
+                <span>写申请</span>
+            </p>
+            <p class="chooseCard">
+                <i></i>
+                <span>待修改</span>
+            </p>
+            <p class="chooseCard">
+                <i></i>
+                <span>已完成</span>
+            </p>
+        </div>
+        <div class="con-box">
+            <div class="con con1 ">
+                <a class="applyBtn" href="apply3.html">
+                    <p class="btn-con">
+                        <i></i>
+                        <span>发起备案申请</span>
+                    </p>
+                </a>
+            </div>
+            <div class="con con2 conHide">
+                <div class="con-lists">
+                    <div class="con-list">
+                        <p class="shopName">
+                            <i></i>
+                            广东深圳福田手机通讯连锁店
+                        </p>
+                        <div class="shopInfo clearfix">
+                            <span class="shopId">ID300525458</span>
+                            <span class="fixBtn">修改</span>
+                            <span class="shopState">已驳回</span>
+                        </div>
+                    </div>
+                    <div class="con-list">
+                        <p class="shopName">
+                            <i></i>
+                            广东深圳福田手机通讯连锁店
+                        </p>
+                        <div class="shopInfo clearfix">
+                            <span class="shopId">ID300525458</span>
+                            <span class="fixBtn">修改</span>
+                            <span class="shopState">已驳回</span>
+                        </div>
+                    </div>
+                    <div class="con-list">
+                        <p class="shopName">
+                            <i></i>
+                            广东深圳福田手机通讯连锁店
+                        </p>
+                        <div class="shopInfo clearfix">
+                            <span class="shopId">ID300525458</span>
+                            <span class="fixBtn">修改</span>
+                            <span class="shopState">已驳回</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="con con3 conHide">
+                <div class="con-lists">
+                    <div class="con-list">
+                        <p class="shopName">
+                            <i></i>
+                            广东深圳福田手机通讯连锁店
+                        </p>
+                        <div class="shopInfo clearfix">
+                            <span class="shopId">ID300525458</span>
+                            <span class="detailBtn"><i></i>查看详情</span>
+                            <span class="shopState">已完成</span>
+                        </div>
+                    </div>
+                    <div class="con-list">
+                        <p class="shopName">
+                            <i></i>
+                            广东深圳福田手机通讯连锁店
+                        </p>
+                        <div class="shopInfo clearfix">
+                            <span class="shopId">ID300525458</span>
+                            <span class="detailBtn"><i></i>查看详情</span>
+                            <span class="shopState">已驳回</span>
+                        </div>
+                    </div>
+                    <div class="con-list">
+                        <p class="shopName">
+                            <i></i>
+                            广东深圳福田手机通讯连锁店
+                        </p>
+                        <div class="shopInfo clearfix">
+                            <span class="shopId">ID300525458</span>
+                            <span class="detailBtn"><i></i>查看详情</span>
+                            <span class="shopState">已驳回</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/zepto/zepto.js"></script>
+    <script type="text/javascript">
+        $(function(){
+           $(".chooseCard").on("click",function(){
+               $(this).addClass("chooseCardActive").siblings().removeClass("chooseCardActive");
+               $(".con").eq($(this).index()).removeClass("conHide").siblings().addClass("conHide");
+           });
+
+        });
+    </script>
+</body>
+</html>

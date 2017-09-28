@@ -1,0 +1,57 @@
+/*弹窗*/
+.overView{height:100%;width:100%;background:rgba(0,0,0,0.5);position:absolute;left:0;top:0;z-index:100;}
+.layOutView{height:6.0rem; width:100%; background:#fff; position:fixed;left:0;bottom:0; z-index:1000; -webkit-transition: height 0.3s linear; transition: height 0.3s linear;}
+#con .con-hide{height:0; -webkit-transition: all 0.3s linear; transition: all 0.3s linear;}
+.searchBar{height:0.6rem; padding:0.2rem;  display:flex; display:-webkit-flex;}
+.searchBar .cancel-btn{float:left; height:0.4rem; width:0.4rem; margin-right:0.2rem; margin-top:0.1rem;background:url("../images/cancel-btn.png") no-repeat left top; background-size:100% 100%;}
+.searchBar .txtInput{flex:1; -webkit-flex:1; border-radius:8px; position:relative;background:#eef4f4;margin-right:0.24rem !important;}
+.searchBar .txtInput i{ float:left; height:0.4rem; width:0.42rem; margin:0.1rem 0.2rem; background:url("../images/icon-search.png") no-repeat left top; background-size:100% 100%;}
+.searchBar .txtInput input{float:left;padding:0 0.1rem; width:3.0rem; background:#eef4f4; height:0.4rem; margin-top:0.1rem;border-left:0.01rem solid #a5b8bf; border-radius:0;  }
+.searchBar .search-btn{float:left; height:0.6rem; width:1.0rem; line-height:0.6rem;text-align:center;color:#2e82fc;font-weight:600;background:#eef4f4;border-radius:8px;font-size:0.28rem;}
+.searchResult{height:4.6rem;padding:0 0.2rem; padding-bottom:0.4rem; background:#fff;position:relative; }
+.searchResult .dataBox{float:left;height:4.6rem;width:60%;  overflow-y:scroll; -webkit-box-sizing: border-box;box-sizing: border-box; border:0.01rem solid #c0d2db; border-bottom:none;}
+.searchResult .dataLists{float:left; height:auto; width:100%;  }
+.dataLists .dataList{height:0.8rem;width:100%;position:relative;}
+.dataLists .dataList .data-name{float:left;height:0.8rem;line-height:0.8rem;padding-left:0.6rem;font-size:0.32rem;}
+.dataLists .dataList .data-btn{float:right;padding-right:0.6rem;}
+.dataLists .dataList .data-btn .state{float:right;height:0.6rem;width:0.6rem;margin-top:0.1rem;}
+.dataLists .list-choose .data-btn .state{background:url("../images/state-choose.png") no-repeat left top; background-size:100% 100%;}
+.dataLists .list-choose .data-name{color:#2e82fc;}
+.searchResult .yesBtn{position:absolute;right:0.6rem;bottom:0.4rem; height:0.6rem;width:1.5rem;line-height:0.6rem;text-align:center;background:#2e82fc;color:#fff; font-size:0.28rem;border-radius:5px;}
+
+
+
+/* 商品范畴弹窗*/
+.productsList{height:6.0rem;width:100%;background:#fff;position:fixed;left:0;bottom:0;-webkit-transition: height 0.3s linear;transition: height 0.3s linear;z-index:1000;}
+.p-choose-btns{padding:0.2rem 0;height:0.4rem; width:4.0rem;margin:0 auto !important;}
+.p-choose-btns .p-btn{float:left;height:0.4rem;width:1.2rem;line-height:0.4rem;text-align:center;background:#2e82fc;color:#fff;border-radius:5px;}
+.p-choose-btns .p-yesBtn{float:right;}
+.productsList .listBox{height:5.0rem;padding-bottom:0.2rem;width:4.5rem;margin:0 auto;overflow-y:scroll;}
+#productsList{float:left;height:100%;width:100%; border-collapse:collapse; }
+#productsList tr{height:0.6rem;width:100%;}
+#productsList .p-list1{background:#f0f4f5;}
+#productsList tr td{border:0.01rem dashed #aaa;text-align:center;}
+#productsList tr .checkState{width:0.6rem;position:relative;}
+#productsList tr .checkState input{position:absolute;left:-9999px;top:0;}
+#productsList tr .checkState i{display:inline-block;height:0.28rem;width:0.28rem;background:url("../images/uncheckedBtn.png") no-repeat left top;background-size:100% 100%;}
+#productsList .p-list-checked .checkState i{background:url("../images/checkedBtn.png") no-repeat left top;background-size:100% 100%;}
+#productsList .p-list-checked{background:#c8e1f9;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

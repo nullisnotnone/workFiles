@@ -1,0 +1,72 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+html {height: 100%;}
+body {width:100%; height:100%; font-family : "Microsoft YaHei",Arial,Helvetica,sans-serif; font-size: 0.28rem; color:#92a1a8;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+textarea{-webkit-appearance: none;}
+*::-webkit-input-placeholder { color: #a5a8af; font-size:0.24rem; }
+
+
+body{min-width:300px;max-width:640px; margin:0 auto;}
+.unScroll{height:100%;width:100%;overflow:hidden;}
+
+.allBox2 .nav-bar-box{position:fixed;left:0;top:0;height:64px;width:100%;background:#fff;z-index:100;}
+.allBox2 .navBar{height:64px;min-width:300px;max-width:640px;margin:0 auto; position:relative;}
+.allBox2 .navBar .empty-bar{height:20px;width:100%; background:#fff;}
+.allBox2 .navBar .nav-title{ height:44px;width:100%;line-height:44px;text-align:center;font-size:0.32rem;color:#262626;background:#fff; }
+.allBox2 .navBar .backBtn{position:absolute;left:5px;top:27px;height:20px;width:20px;padding:5px;}
+.allBox2 .navBar .backBtn>img{float:left;height:20px;width:20px;}
+
+/*#con{padding-top:1.28rem; -webkit-box-sizing:border-box;box-sizing:border-box;height:100%; width:100%; background:#eef1f6;}*/
+
+.allBox2 .Box-con{padding-top:64px; padding-bottom:1.0rem;min-height:100%; width:100%; background:#eef1f6; -webkit-box-sizing:border-box;box-sizing:border-box;}
+.allBox2 .Box-con .underLine:after{position:absolute;left:0;bottom:0;content:"";display:block;height:1px;width:100%;background:#f1f1f1;transform: scaleY(0.5); -webkit-transform: scaleY(0.5);}
+
+.allBox2 .search-part{height:0.68rem; padding:0.24rem;}
+.allBox2 .search-part .p-con{height:0.68rem;width:100%;border-radius:5px;}
+.allBox2 .search-part .p-con .txtInput{float:left;height:0.68rem;width:70%;padding:0 0.2rem; background:#fff; box-sizing: border-box; -webkit-box-sizing: border-box; border-radius:10px;font-size:0.28rem;}
+.allBox2 .search-part .p-con .txtInput input{float:left;height:0.4rem;line-height:0.4rem;padding:0.14rem 0;}
+.allBox2 .search-part .p-con .s-btn{float:right;height:0.68rem;width:25%;}
+.allBox2 .search-part .p-con .s-btn>span{display:block;height:0.6rem;width:80%;max-width:1.5rem;line-height:0.6rem;text-align:center;font-size:0.28rem; margin:0.04rem auto;background:#508cee;color:#fff;border-radius:5px;}
+.allBox2 .search-part .p-con .s-btn>span:active{background:skyblue;}
+
+.shopsLists{height:auto;padding:0 0.24rem;background:#fff;}
+.shopsLists .shop-list{padding:0.24rem 0;padding-bottom:0.4rem;min-height:1.36rem;width:100%;display:-webkit-flex; display:flex;position:relative;}
+.shopsLists .shop-list-checked{background:skyblue;}
+.shopsLists .shop-list .shop-img{float:left;height:1.36rem;width:1.36rem;margin-right:0.24rem;}
+.shopsLists .shop-list .shop-info{-webkit-flex:1; flex:1; padding:0.1rem 0;}
+.shopsLists .shop-list .shop-info .shop-name{ line-height:0.32rem;font-size:0.22rem;color:#616673; overflow:hidden; text-overflow: ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.shopsLists .shop-list .shop-info .shop-address .l-part{float:left;padding-left:0.28rem;width:80%;position:relative;}
+.shopsLists .shop-list .shop-info .shop-address .l-part .icon-address{display:block;height:0.24rem;width:0.2rem;position:absolute;left:0;top:0.14rem; background:url("../images/icon-address.png") no-repeat left top; background-size:100% 100%;}
+.shopsLists .shop-list .shop-info .shop-address .l-part .address-txt{float:left;padding-top:0.1rem;line-height:0.3rem;font-size:0.2rem;}
+.shopsLists .shop-list .shop-info .shop-address .r-part{float:right;position:absolute;right:0; bottom:0.1rem;padding-left:0.4rem;}
+.shopsLists .shop-list .shop-info .shop-address .r-part .icon-img{display:block;height:0.18rem;width:0.23rem;position:absolute;left:0;top:0.06rem; background:url("../images/icon-address2.png") no-repeat left top; background-size:100% 100%;}
+.shopsLists .shop-list .shop-info .shop-address .r-part span{float:left;font-size:0.2rem;}
+
+
+.Box-con .addressBar{position:fixed;left:0;bottom:0;height:1.0rem;width:100%; background:#fff; padding:0 0.24rem; box-sizing: border-box; -webkit-box-sizing: border-box;}
+.Box-con .addressBar .l-part{ float:left;padding-left:0.3rem;width:60%;position:relative;}
+.Box-con .addressBar .l-part span{display:table-cell;vertical-align: middle;height:0.8rem;padding:0.1rem;font-size:0.22rem;color:#616673}
+.Box-con .addressBar .l-part .icon-address{display:block;height:0.24rem;width:0.2rem;position:absolute;left:0;top:0.38rem; background:url("../images/icon-address.png") no-repeat left top; background-size:100% 100%;  }
+.Box-con .addressBar .r-part {float:right;height:0.6rem;width:1.8rem;margin-top:0.19rem;border:0.01rem solid #999;line-height:0.6rem;text-align:center;font-size:0.24rem; border-radius:10px; }
+
+/*弹窗*/
+.layOutView2{height:100%;width:100%;position:absolute;left:0;top:0;background:rgba(0,0,0,0.8); z-index:120;}
+.viewHide{display:none;}
+
+.l-con{height:2.0rem;width:5.0rem;padding-top:0.4rem;margin:0 auto; background:#fff; border-radius:10px; position:absolute;left:50%;margin-left:-2.5rem;top:50%; margin-top:-1.2rem;}
+.l-con .textInput{height:0.6rem;width:100%;margin:0.2rem 0; margin-bottom:0.4rem;}
+.l-con .textInput input{display:block;height:0.46rem;line-height:0.46rem;width:70%; margin:0 auto;padding:0.07rem 0.2rem;border:0.01rem solid #999;border-radius:5px;}
+.l-con .btns{height:0.5rem;width:70%;margin:0 auto;margin-top:0.2rem;}
+.l-con .btns p{float:left;height:0.4rem;width:50%;}
+.l-con .btns p .btn{display:block;height:0.38rem;width:1.2rem;font-size:0.24rem;line-height:0.4rem;text-align:center;margin:0 auto;border:0.01rem solid #999; border-radius:5px;}
+.l-con .btns p .sure-btn{background:#508cee; color:#fff; border:none;}
+
+
+
+

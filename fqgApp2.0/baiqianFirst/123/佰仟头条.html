@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>佰仟头条</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/public.css">
+		<link rel="stylesheet" href="../plugin/swiper/swiper.3.1.7.min.css">
+		<link href="../plugin/mui/css/mui.min.css" rel="stylesheet" type="text/css">
+		<script src="../js/public.js"></script>
+		<style>
+			body{min-width:300px;max-width:640px; margin:0 auto;}
+			.nav-bar-box{position:fixed;left:0;top:0;height:64px;width:100%;background:#fff;z-index:110; }
+			.navBar{height:64px;min-width:300px;max-width:640px;margin:0 auto; position:relative;background:red;}
+			.navBar .empty-bar{height:20px;width:100%; background:#fff;}
+			.navBar .nav-title{ height:44px;width:100%;line-height:44px;text-align:center;font-size:0.32rem;color:#262626;background:#fff;border-bottom:0.01rem solid #f1f1f1; }
+			.navBar .backBtn{position:absolute;left:5px;top:27px;height:20px;width:20px;padding:0.1rem;}
+			.navBar .backBtn>img{float:left;height:20px;width:20px;}
+			.navBar .shareBtn{position:absolute;right:15px;top:35px;display:block;height:17px;width:18px;}
+			.navBar .shareBtn>img{float:left;height:100%; width:100%;}
+
+			.main-cont{height:100%; padding:0 0.24rem; padding-top:64px; background:#fff; -webkit-box-sizing: border-box; box-sizing: border-box;}
+			.main-cont .m-header{position: fixed;top:64px;height:42px;z-index: 100;left: 0;width: 100%;}
+			.main-cont .m-header .swiper-container{background-color: #fff;}
+			.main-cont .m-header .swiper-slide{width: auto;padding:0 8px;}
+			.main-cont .m-header .nav-item{font-size:14px;color: #a5a8af; padding:12px 0; position: relative;}
+			.main-cont .m-header .nav-item:after{content:''; display:none; width: 100%; height:4px; border-radius:4px; background-color: #508cee;position: absolute;left:0;bottom: 0;}
+			.main-cont .m-header .swiper-slide.on .nav-item{color:#505050;}
+			.main-cont .m-header .swiper-slide.on .nav-item:after{display: block;}
+			.main-cont .m-body{position: absolute;top: 107px;bottom: 0;left: 0;right: 0;}
+			.main-cont .m-cont{background-color: #fff;}
+			.main-cont .m-cont .m-item{padding-bottom: 0.4rem;word-break: break-all;}
+			.main-cont .m-cont .m-img{display: block;width: 100%;height: 2.7rem;}
+			.main-cont .m-cont .m-title{color: #4c505b;font-size: 0.3rem;width:100%;white-space:nowrap; overflow:hidden; text-overflow: ellipsis; padding: 0 0.25rem;margin: 0.16rem 0 0.14rem;box-sizing: border-box;-webkit-box-sizing: border-box; }
+			.main-cont .m-cont .m-desc{color: #545558;font-size: 0.24rem;padding: 0 0.25rem;overflow: hidden;text-overflow: ellipsis;display:-webkit-box;-webkit-line-clamp:2; -webkit-box-orient:vertical;}
+
+
+			.main-cont .m-pannel.swiper-container{position: absolute;top: 0;bottom: 0;left: 0;right: 0;}
+			.main-cont .m-pannel .swiper-wrapper{}
+			.main-cont .m-pannel .swiper-slide{}
+			.main-cont .m-pannel .pull-wrap{}
+
+			.mui-content{background-color: #eef1f6;}
+	        .mui-pull{font-size: 0;}
+	        .mui-scroll-wrapper{top:0;}
+	        .mui-table-view-chevron .mui-table-view-cell{padding-right: 0;}
+	        .mui-table-view-cell{padding:0;}
+
+			.slideBox{display:flex; display:-webkit-flex;}
+			.slideBox .swiper-slide{flex:1;-webkit-flex:1;}
+			.slideBox .swiper-slide .nav-item{text-align:center;}
+		</style>
+	</head>
+	<body>
+		<div class="nav-bar-box">
+			<div class="navBar">
+				<p class="empty-bar"></p>
+				<p class="nav-title">更改手机号</p>
+				<span class="backBtn"><img src="../images/icon-back.png" alt=""></span>
+				<span class="shareBtn"><img src="../images/icon-share1.png" alt=""></span>
+			</div>
+		</div>
+		<div class="main-cont">
+			<div class="m-header">
+				<div class="swiper-container m-nav">
+					<div class="swiper-wrapper slideBox">
+						<div class="swiper-slide on"><div class="nav-item">科技</div></div>
+						<div class="swiper-slide"><div class="nav-item">生活</div></div>
+						<div class="swiper-slide"><div class="nav-item">女性</div></div>
+						<div class="swiper-slide"><div class="nav-item">发烧友</div></div>
+						<div class="swiper-slide"><div class="nav-item">汽车</div></div>
+					</div>
+				</div>
+			</div>
+			<div class="m-body">
+				<div class="swiper-container m-pannel">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide swiper-no-swiping">
+							<div id="pullrefresh-0" class="mui-content mui-scroll-wrapper">
+								<div class="mui-scroll h_push">
+									<ul class="mui-table-view mui-table-view-chevron m-cont">
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-1.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-2.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-3.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide swiper-no-swiping">
+							<div id="pullrefresh-1" class="mui-content mui-scroll-wrapper">
+								<div class="mui-scroll h_push">
+									<ul class="mui-table-view mui-table-view-chevron m-cont">
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-1.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-2.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-3.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide swiper-no-swiping">
+							<div id="pullrefresh-2" class="mui-content mui-scroll-wrapper">
+								<div class="mui-scroll h_push">
+									<ul class="mui-table-view mui-table-view-chevron m-cont">
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-1.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-2.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-3.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide swiper-no-swiping">
+							<div id="pullrefresh-3" class="mui-content mui-scroll-wrapper">
+								<div class="mui-scroll h_push">
+									<ul class="mui-table-view mui-table-view-chevron m-cont">
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-1.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-2.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-3.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide swiper-no-swiping">
+							<div id="pullrefresh-4" class="mui-content mui-scroll-wrapper">
+								<div class="mui-scroll h_push">
+									<ul class="mui-table-view mui-table-view-chevron m-cont">
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-1.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+										<li>
+											<div class="m-item">
+												<img class="m-img" src="../images/i-2.png" alt="">
+												<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+												<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+											</div>
+										</li>
+										<li>
+											<div class="m-item">
+												<a href="">
+													<img class="m-img" src="../images/i-3.png" alt="">
+													<p class="m-title">共享单车发展意见出台：禁向未满?</p>
+													<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>
+												</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../plugin/jquery/jquery-2.1.4.js"></script>
+		<script src="../plugin/mui/js/mui.min.js"></script>
+		<script src="../plugin/swiper/swiper.3.1.7.min.js"></script>
+		<script>
+			$(function(){
+				$(".m-desc").each(function(index, ele){
+					if($(ele).html().length > 40){
+						$(ele).html(($(ele).html().substring(0,40) + "..."));
+					}
+				});
+				var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
+				if(isAndroid){
+					$(".nav-bar-box").css({"display":"none"});
+					$(".main-cont").css({"padding-top" : "0"});
+					$(".main-cont .m-header").css({"top" : "0"});
+					$(".main-cont .m-body").css({"top" : "43px"});
+				}
+
+				var infoObj = [
+					{"page" : 1 , "term_id" : 1 , "description" : "佰仟" },
+					{"page" : 1 , "term_id" : 2 , "description" : "生活" },
+					{"page" : 1 , "term_id" : 3 , "description" : "女性" },
+					{"page" : 1 , "term_id" : 4 , "description" : "发烧友"},
+					{"page" : 1 , "term_id" : 5 , "description" : "汽车" }
+				];
+				var currObj = {
+						currIndex:0,
+			            page:1,// 页数
+			            size:10,// 每页展示10个
+			        },
+			        initPageSize = 10;
+				var _index = null;
+				var param = infoObj[0];
+
+				var navSwiper = new Swiper('.m-nav', {
+					slidesPerView : 'auto',
+					onClick: function(swiper){
+						var $clickedSlide = $(navSwiper.clickedSlide);
+						$clickedSlide.addClass('on').siblings().removeClass('on');
+
+						navSwiper.slideTo($clickedSlide.index()-2,400,true);
+						currObj.currIndex = $(navSwiper.clickedSlide).index();
+						param = infoObj[currObj.currIndex];
+						currObj.page = 1;
+						currObj.size = initPageSize;
+						tabSwiper.slideTo(currObj.currIndex,200,true);
+		            }
+				});
+				var tabSwiper = new Swiper('.m-pannel', {
+            		autoHeight: true
+            	});
+            	//初始化上拉下拉
+            	$('.m-pannel .swiper-slide').each(function(){
+            		_index = $(this).index();
+            		mui.init({
+						pullRefresh: {
+							container: '#pullrefresh-'+_index,
+							down: {
+								callback: pulldownRefresh
+							},
+							up: {
+								contentrefresh: '正在加载...',
+								callback: pullupRefresh
+							}
+						}
+					});
+            	});
+				//下拉				
+				function pulldownRefresh() {
+					var ele = $('#pullrefresh-'+currObj.currIndex).find(".m-cont");
+					setTimeout(function() {
+						getPageData(0 , param , ele);
+						console.log(param);
+						mui('#pullrefresh-'+currObj.currIndex).pullRefresh().endPulldownToRefresh(); //refresh completed
+					}, 500);
+				}
+				//上拉
+				function pullupRefresh() {
+					var ele = $('#pullrefresh-'+currObj.currIndex).find(".m-cont");
+					setTimeout(function() {
+						getPageData(1, param , ele);
+						console.log(param);
+						mui('#pullrefresh-'+currObj.currIndex).pullRefresh().endPullupToRefresh();
+
+					}, 500);
+				}
+				//
+				function getPageData(type , param , $obj){//type 0 下拉刷新，1 上拉加载下一页
+	                $.ajax({
+	                    type : "post",
+	                    url : Config.url+"/",
+	                    data : param,
+	                    success : function(data){
+							param.page++;
+							if(type == "0"){
+								$obj.prepend(appentData(data.data));
+							}  else if(type == "1"){
+								$obj.append(appentData(data.data));
+							}
+	                    },
+	                    error : function(xhr, errorType, error){
+
+	                    }
+	                });
+		        }
+		        function appentData(data){
+					var str = "";
+					for(var i=0;i<data.length ;i++){
+						str += '<li>' +
+								'<div class="m-item">' +
+								'<a href="https:// www.baidu.com">' +
+								'<img class="m-img" src="../images/i-3.png" alt="">' +
+								'<p class="m-title">共享单车发展意见出台：禁向未满?</p>' +
+								'<p class="m-desc">李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬曾是李文星在传销组织里的室友，他经历了被烟头烫鼻子李冬.</p>' +
+								'</a>' +
+								'</div></li>'
+					}
+					return str;
+		        }
+			});
+		</script>
+	</body>
+</html>

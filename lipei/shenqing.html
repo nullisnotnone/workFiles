@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>理赔资料提交</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <!--<link rel="stylesheet" href="">-->
+    <link rel="stylesheet" href="css/shenqing.css">
+</head>
+<body>
+
+    <div id="con">
+        <form id="infoDetail" action="">
+            <div class="con">
+                <p class="billNum">理赔单号 : <span class="sp">20170706803019</span> </p>
+                <div class="part part1">
+                    <p class="carInfo">车辆信息</p>
+                    <div class="infoCon infoCon1">
+                        <p class="info underLine carNum">
+                            <span class="txt1">车牌号</span>
+                            <input id="carNum" type="text" placeholder="请输入车牌号">
+                        </p>
+                        <p class="info underLine carSelf">
+                            <span class="txt1">承租人</span>
+                            <input id="carSelf" type="text" placeholder="请输入承租人">
+                        </p>
+                        <p class="info underLine phoneNum">
+                            <span class="txt1">联系电话</span>
+                            <input id="tel" type="text" placeholder="请输入联系电话">
+                        </p>
+                        <p class="info carSelf">
+                            <span class="txt1">申请理赔金额</span>
+                            <input id="money" type="text" placeholder="请输入理赔金额">
+                        </p>
+                    </div>
+                </div>
+                <div class="part part2">
+                    <p class="carInfo">事故信息</p>
+                    <div class="infoCon infoCon2">
+                        <div class="carImg carImg1 ">
+                            <p class="title">车辆定损单照片</p>
+                            <p class="box">
+                                <img class="upLoadImgs" id="img1" src="images/upLoadBg.png" alt="">
+                                <span class="txt">点击上传</span>
+                            </p>
+                        </div>
+                        <div class="carImg carImg2">
+                            <p class="title">车辆维修后照片 <br>(清晰体现车牌号和受损部位特写)</p>
+                            <div class="imgsBox">
+                                <p class="box">
+                                    <img class="upLoadImgs" id="img2" src="images/upLoadBg.png" alt="">
+                                    <span class="txt">点击上传</span>
+                                </p>
+                            </div>
+                            <p class="addBtn"></p>
+                        </div>
+                        <div class="carImg carImg3">
+                            <p class="title">事故认定书照片</p>
+                            <p class="box">
+                                <img class="upLoadImgs" id="img3" src="images/upLoadBg.png" alt="">
+                                <span class="txt">点击上传</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="part part3">
+                    <p class="carInfo">账户信息</p>
+                    <div class="infoCon infoCon3">
+                        <p class="info underLine">
+                            <span class="txt1">开户银行</span>
+                            <input id="carBank" type="text" placeholder="请输入开户银行">
+                        </p>
+                        <p class="info underLine">
+                            <span class="txt1">账户名称</span>
+                            <input id="cardName" type="text" placeholder="请输入账户名称">
+                        </p>
+                        <p class="info underLine">
+                            <span class="txt1">银行账号</span>
+                            <input id="cardNum" type="text" placeholder="请输入银行卡账号">
+                        </p>
+                        <div class="carImg carImg3">
+                            <p class="title">银行卡正面照片</p>
+                            <p class="box">
+                                <img class="upLoadImgs" id="img4" src="images/upLoadBg.png" alt="">
+                                <span class="txt">点击上传</span>
+                            </p>
+                        </div>
+                        <div class="carImg carImg4">
+                            <p class="title">身份证正面照片</p>
+                            <p class="box">
+                                <img class="upLoadImgs" id="img5" src="images/upLoadBg.png" alt="">
+                                <span class="txt">点击上传</span>
+                            </p>
+                        </div>
+                        <input id="imgs" type="hidden">
+                    </div>
+                </div>
+            </div>
+            <div class="btns">
+                <p class="submitBtn">提交</p>
+                <button type="reset" class="cancelBtn">取消</button>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script  src="js/zepto/zepto.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 车牌号验证
+            var reg1 = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z]{1}[0-9A-Z]{5}$/g;
+            var reg2 = /^1[3|4|5|7|8]\d{9}$/;
+            var flag = true;
+
+            $("#carNum").on("input",function(){
+                $(this).val($(this).val().toUpperCase());
+            });
+
+
+            $("#carNum").on("blur",function(){
+                if(!reg1.test($(this).val())){
+                    layer.open({
+                        type: 1
+                        ,content: '<p style="font-size:0.32rem;color:red;height:100%;width:100%; line-height:50px;text-align:center; background:#fff;border-radius:10px;">车牌号码格式错误，请重新填写!</p>'
+                        ,anim: 'up'
+                        ,style: 'position:fixed; bottom:50%; left:10%; width: 80%; height: 40px; padding:10px 0; border:none; background:transparent;'
+                    });
+                }
+            });
+
+            $("#tel").on("blur",function(){
+                if(!reg2.test($(this).val())){
+                    layer.open({
+                        type: 1
+                        ,content: '<p style="font-size:0.32rem;color:red;height:100%;width:100%; line-height:50px;text-align:center; background:#fff;border-radius:10px;">手机号码格式错误，请重新填写!</p>'
+                        ,anim: 'up'
+                        ,style: 'position:fixed; bottom:50%; left:10%; width: 80%; height: 40px; padding:10px 0; border:none; background:transparent;'
+                    });
+                }
+            });
+
+            //验证银行卡号
+            $("#cardNum").on("input",function(){
+                var str = $(this).val();
+                $(this).val(str.replace(/\D/g,'').replace(/....(?!$)/g,'$& '));
+            });
+
+            // 添加图片
+            $(".addBtn").on("click",function(){
+                $(".carImg2 .imgsBox").append(addImg());
+            });
+
+            function addImg(){
+                var str = '<p class="box">' +
+                        '<img class="upLoadImgs"  src="images/upLoadBg.png" alt="">' +
+                        '<span class="txt">点击上传</span>  <i></i>' +
+                        '</p>' +
+                        '</div>';
+                return str;
+            }
+
+            // 删除照片
+            $(".imgsBox").on("click","i",function(){
+                $(this).parent(".box").remove();
+            });
+
+
+            // 通过config接口注入权限验证配置
+            wx.config({
+                debug: false,
+                appId: '{{ $signPackage["appId"] }}',
+                timestamp: '{{ $signPackage["timestamp"] }}',
+                nonceStr: '{{ $signPackage["nonceStr"] }}',
+                signature: '{{ $signPackage["signature"] }}',
+                jsApiList: [
+                    'checkJsApi',
+                    'chooseImage',
+                    'previewImage',
+                    'uploadImage',
+                    'downloadImage',
+                    'closeWindow'
+                ]
+            });
+
+            var images = {
+                localId: [],
+                serverId: []
+            };
+
+            var str1="" , arr1 = [] , str3="" , str4="" , str5="";
+            var imgs = {
+                "carImg1" : str1,
+                "carImg2" : arr1,
+                "carImg3" : str3,
+                "carImg4" : str4,
+                "carImg5" : str5
+            };
+
+            // 拍照或从手机相册中选图
+            $(".upLoadImgs").on("click",function(){
+                wx.chooseImage({
+                    count: 1,
+                    sizeType: ['original', 'compressed'], // 以指定是原图还是压缩图，默认二者都有
+                    sourceType: ['camera','album'], // 可以指定来源是相册还是相机，默认二者都有
+                    success: function (res) {
+                        images.localId = res.localIds;
+                        //返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                        $(this).attr("src", res.localIds);
+                        $(this).attr("width", "100%");
+                        $(this).attr("height", "100%");
+
+                        // 上传照片
+                        wx.uploadImage({
+                            localId: images.localId.toString(), //需要上传的图片的本地ID，由chooseImage接口获得
+                            isShowProgressTips: 1, // 默认为1，显示进度提示
+                            success: function (res) {
+                                images.serverId = res.serverId; // 返回图片的服务器端ID
+                                $(this).attr('js_data_resourceId',res.serverId);
+                            }
+                        });
+                    }
+                });
+            });
+
+            // 提交信息
+            $(".submitBtn").on("click",function(){
+                $(".carImg1 .upLoadImgs").each(function(){
+                    if($(this).attr("js_data_resourceId")){
+                        str1 += $(this).attr("js_data_resourceId") +";";
+                    }
+                });
+
+                $(".carImg2 .upLoadImgs").each(function(){
+                    if($(this).attr("js_data_resourceId")){
+                        arr1.push($(this).attr("js_data_resourceId"));
+                    }
+                });
+
+                $(".carImg3 .upLoadImgs").each(function(){
+                    if($(this).attr("js_data_resourceId")){
+                        str3 += $(this).attr("js_data_resourceId") +";";
+                    }
+                });
+
+                $(".carImg4 .upLoadImgs").each(function(){
+                    if($(this).attr("js_data_resourceId")){
+                        str4 += $(this).attr("js_data_resourceId") +";";
+                    }
+                });
+
+                $(".carImg5 .upLoadImgs").each(function(){
+                    if($(this).attr("js_data_resourceId")){
+                        str5 += $(this).attr("js_data_resourceId") +";";
+                    }
+                });
+
+                 console.log(imgs);
+            });
+        })
+    </script>
+</body>
+</html>
