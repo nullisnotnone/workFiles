@@ -519,6 +519,10 @@
                 layerInfo("请完善门店信息");
                 return false;
             }
+            if (timeValue.length == 0) {
+                layerInfo("请选择预约时间");
+                return false;
+            }
             if (telValue.length == 0) {
                 layerInfo("请完善手机号码信息");
                 return false;
