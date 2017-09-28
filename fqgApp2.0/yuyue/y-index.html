@@ -321,13 +321,10 @@
         if (isAndroid || !isMyApp ) {
             $(".nav-bar-box").addClass("conHide");
             $("#con").css({ "padding-top": "5.4rem", "margin-top": "-64px" });
-
-            function androidshare(){
-                share.androidshare('好贷分期','超10万家认证门店，新潮尖贷触手可及',location.href,"images/shareImg.png")
-            }
-
         }
-
+        function androidshare(){
+            share.androidshare('好贷分期','超10万家认证门店，新潮尖贷触手可及',location.href,"images/shareImg.png")
+        }
 
         // 返回
         $(".allBox1 .backBtn").on("click", function() {
