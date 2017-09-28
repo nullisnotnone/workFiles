@@ -95,7 +95,7 @@ body{min-width:300px;max-width:640px; margin:0 auto; cursor:pointer;}
 #con .yy-part4 .con-box .remarkInfo p{line-height:0.4rem; font-size:0.2rem;}
 
 .part-bottom{position:fixed; left:0;bottom:0;height:1.2rem;width:100%;background:transparent;}
-.part-bottom .yy-btn{display:block;height:0.72rem;width:4.8rem;margin:0 auto;margin-top:0.24rem;line-height:0.72rem;text-align:center;border-radius:10px;background:#397ad6; color:#fff; font-size:0.3rem;}
+.part-bottom .yy-btn{display:block;height:0.8rem;width:4.8rem;margin:0 auto;margin-top:0.24rem;line-height:0.8rem;text-align:center;border-radius:6px;background:#397ad6; color:#fff; font-size:0.3rem; }
 
 .layOutView{position:absolute;left:0;top:0; height:100%;width:100%;background:rgba(0,0,0,0.5); z-index:110;}
 #cityPickerBox{position:fixed;left:0;bottom:0;height:6.0rem;width:100%;overflow:hidden;background:#fff; z-index:120}

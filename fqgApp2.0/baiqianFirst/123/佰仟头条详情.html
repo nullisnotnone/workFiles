@@ -117,11 +117,12 @@
 				});
 
 				var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
-				if(isAndroid){
+				var isMyApp = navigator.userAgent.indexOf('BQMMQB') > -1;
+				if(isAndroid || !isMyApp){
 					$(".nav-bar-box").css({"display":"none"});
 					$(".main-cont").css({"padding-top":"0"});
-
 				}
+
 
 				$('.c-ul .c-item').on('click',function(){
 					console.log(this);
