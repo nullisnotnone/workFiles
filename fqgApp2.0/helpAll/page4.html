@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="format-detection" content="email=no" />
-    <title>添加好友</title>
+    <title>帮助中心</title>
     <script type="text/javascript" src="js/public.js"></script>
     <link rel="stylesheet" href="css/page4.css">
 </head>
@@ -30,9 +30,18 @@
             <textarea name="" id="qe-direction" placeholder="请描述一下问题"></textarea>
         </div>
         <div class="img-file">
-            <p class="upImg"><img src="images/icon_Add.png" alt=""></p>
-            <p class="upImg"><img src="images/icon_Add.png" alt=""></p>
-            <p class="upImg"><img src="images/icon_Add.png" alt=""></p>
+            <p class="upImg">
+                <input class="upImg-file" type="file">
+                <img src="images/icon_Add.png" alt="">
+            </p>
+            <p class="upImg">
+                <input class="upImg-file" type="file">
+                <img src="images/icon_Add.png" alt="">
+            </p>
+            <p class="upImg">
+                <input class="upImg-file" type="file">
+                <img src="images/icon_Add.png" alt="">
+            </p>
         </div>
         <p class="submitBtn">提交</p>
     </div>
@@ -95,6 +104,21 @@
                 }
                 $("#qw-name").html(resultStr);
                 $(".layOutView").addClass("conHide");
+            });
+
+            // 上传图片
+            $('.upImg-file').change(function() {
+                var url=null;
+                var file=this.files[0];
+                if (window.createObjectURL != undefined) {
+                    url=window.createObjectURL(file);
+                }else if (window.URL != undefined) {
+                    url=window.URL.createObjectURL(file);
+                }else if (window.webkitURL != undefined) {
+                    url=window.webkitURL.createObjectURL(file);
+                }
+                $(this).next().attr('src', url);
+
             });
         })
     </script>

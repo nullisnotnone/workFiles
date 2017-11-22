@@ -19,21 +19,42 @@
             0%{transform: rotate(0deg);}
             100%{transform: rotate(360deg);}
         }
+        .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{bottom: 0;}
+        .swiper-pagination-bullet{
+            width: 6px;
+            height: 6px;
+            display: inline-block;
+            border:1px solid #65c1be;
+            border-radius: 100%;
+            background: #fff;
+            opacity: 0.5;
+        }
+        .swiper-pagination-bullet-active{opacity: 1; background:#65c1be;}
+
+
+
     </style>
 </head>
 <body>
     <div id="audioBox">
         <img class="static" src="images/music_off.png" alt=""/>
         <img class="active" src="images/music.gif" alt=""/>
-        <audio src="birthday.mp3" preload="auto" loop="loop" autoplay="autoplay" ></audio>
+        <audio  src="birthday.mp3"  preload="auto" loop="loop" crossOrigin="anonymous" ></audio>
+            <!--<source src="birthday.mp3" type="audio/ogg">-->
+        <!--</audio>-->
     </div>
-    <div class="swiper-container">
+    <div class="swiper-container swiper-container0">
         <div class="swiper-wrapper">
             <div class="swiper-slide swiper-slide1">
                 <div class="top"></div>
                 <div class="middle">
                     <div class="_person ani" swiper-animate-effect="fadeInDownBig" swiper-animate-duration="0.9s" swiper-animate-delay="0s">
                         <img class="_personal ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.0s" swiper-animate-delay="0.9s" src="images/page2_personal.png" alt=""/>
+                    </div>
+                    <div class="bInfo-box">
+                        <p class="b-txt1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.9s" swiper-animate-delay="0.3s">[ 白羊座 ]</p>
+                        <p class="b-txt2 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.9s" swiper-animate-delay="0.5s">3月21日 --- 4月20日</p>
+                        <p class="b-txt3 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.9s" swiper-animate-delay="0.8s">直来直往捧出一颗赤子之心</p>
                     </div>
                 </div>
                 <div class="bottom">
@@ -166,10 +187,6 @@
                 </div>
                 <div class="bottom"></div>
             </div>
-            <div class="swiper-slide swiper-slide5">
-                <p class="slide5-txt1 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.0s" swiper-animate-delay="0s"></p>
-                <p class="slide5-txt2 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1.0s" swiper-animate-delay="1s"></p>
-            </div>
             <div class="swiper-slide swiper-slide3">
                 <div class="top">
                     <p class="txt1 ani" swiper-animate-effect="slideInDown" swiper-animate-duration="0.6s" swiper-animate-delay="0s">你相信吗？</p>
@@ -205,19 +222,78 @@
                     </p>
                 </div>
             </div>
-            <div class="swiper-slide swiper-slide6">
-                <p class="slide6-txt1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1.0s" swiper-animate-delay="0s"></p>
-                <p class="slide6-txt2 ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="1.0s" swiper-animate-delay="0.5s"></p>
-                <a class="recommendBtn" href="http://kh.billionsfinance.cn/recommend/index?type=6"></a>
-            </div>
-            <div class="swiper-slide swiper-slide7">
-                <p class="slide7-txt1 ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"></p>
-                <p class="slide7-txt2 ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.0s" swiper-animate-delay="0.6s">
-                    1000+投资体验金，100+海量免费游戏<br>
-                    更多丰富精彩内容等您来发现
+            <div class="swiper-slide swiper-slide5">
+                <p class="slide5-txt1 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.0s" swiper-animate-delay="0s"></p>
+                <p class="slide-txt-text ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1.0s" swiper-animate-delay="0s">1000+投资体验金，100+海量免费游戏<br>更多丰富精彩内容等您来发现</p>
+                <p class="slide5-txt2 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1.0s" swiper-animate-delay="1s"></p>
+                <p class="slideBtns">
+                    <button class="recommendBtn ani"  type="button"  swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.9s"></button>
+                    <button class="downLoadBtn ani" type="button" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.9s"></button>
                 </p>
-                <p class="slide7-txt3 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0s"></p>
-                <p class="downLoadBtn"></p>
+            </div>
+            <div class="swiper-slide swiper-slide6">
+               <div class="s-part1 s-part1-top">
+                   <img class="title-img" src="images/activities/page2-getAward-title.png" alt="">
+               </div>
+               <div class="s-part2">
+                   <p class="c-title"></p>
+                    <div class="s-p-con s-p-con1 conHide">
+                        <p class="c-txt">还没有收到祝福<br>快去分享吧！</p>
+                    </div>
+                   <div class="s-p-con s-p-con2 ">
+                       <div class="swiper-container swiper-container1">
+                           <div class="swiper-wrapper">
+                               <div class="swiper-slide">
+                                   <div class="slide-con">
+                                       <p class="c-part">
+                                           <img class="c-part-img" src="images/activities/per-bg.png" alt="">
+                                           <span class="c-part-name">假想敌</span>
+                                       </p>
+                                       <p class="c-part">
+                                           <img class="c-part-img" src="images/activities/per-bg.png" alt="">
+                                           <span class="c-part-name">假想敌</span>
+                                       </p>
+                                       <p class="c-part">
+                                           <img class="c-part-img" src="images/activities/per-bg.png" alt="">
+                                           <span class="c-part-name">假想敌</span>
+                                       </p>
+                                       <p class="c-part">
+                                           <img class="c-part-img" src="images/activities/per-bg.png" alt="">
+                                           <span class="c-part-name">假想敌假想敌假想敌</span>
+                                       </p>
+                                       <p class="c-part">
+                                           <img class="c-part-img" src="images/activities/per-bg.png" alt="">
+                                           <span class="c-part-name">假想敌</span>
+                                       </p>
+                                       <p class="c-part">
+                                           <img class="c-part-img" src="images/activities/per-bg.png" alt="">
+                                           <span class="c-part-name">假想敌</span>
+                                       </p>
+                                       <p class="c-part">
+                                           <img class="c-part-img" src="images/activities/per-bg.png" alt="">
+                                           <span class="c-part-name">假想敌</span>
+                                       </p>
+                                       <p class="c-part">
+                                           <img class="c-part-img" src="images/activities/per-bg.png" alt="">
+                                           <span class="c-part-name">假想敌</span>
+                                       </p>
+                                   </div>
+                               </div>
+                               <div class="swiper-slide">
+                                   <div class="slide-con">slide2</div>
+                               </div>
+                               <div class="swiper-slide">
+                                   <div class="slide-con">slide3s</div>
+                               </div>
+                           </div>
+                           <div class="swiper-pagination"></div>
+                       </div>
+                   </div>
+                   <p class="p-txt">共收到<span class="sp">0</span>位小伙伴生日祝福</p>
+               </div>
+               <div class="s-part3">
+                   <a class="shareBtn" href="javascript:;"></a>
+               </div>
             </div>
         </div>
         <!-- 如果需要分页器 -->
@@ -230,10 +306,11 @@
     <script src="js/swiper.min.js"></script>
     <script src="js/jsized.snow.min.js"></script>
     <script src="js/swiper.animate1.0.2.min.js"></script>
+    <script src="js/layer.js"></script>
     <script src="js/downloadApp.js"></script>
     <script type="text/javascript">
         $(function(){
-            var mySwiper = new Swiper ('.swiper-container', {
+            var mySwiper = new Swiper ('.swiper-container0', {
                 direction : 'vertical',
                 pagination : '.swiper-pagination', // 分页器
 
@@ -247,19 +324,24 @@
                 }
             });
 
+            var mySwiper1 = new Swiper ('.swiper-container1', {
+                direction : 'horizontal',
+                pagination : '.swiper-pagination' // 分页器
+            });
+
             // 音乐控制
             var flag = true;
             $("#audioBox").on("click",function(){
                 if(flag){
-                    $("audio")[0].pause();
-                    flag = false;
+                    $("audio").get(0).pause();
                     $(".active").css({"display":"none"});
                     $(".static").css({'animation':"none"});
+                    flag = false;
                 }else{
-                    $("audio")[0].play();
-                    flag = true;
+                    $("audio").get(0).play();
                     $(".active").css({"display":"block"});
                     $(".static").css({"animation":"rotate 3s linear infinite"});
+                    flag = true;
                 }
             });
 
@@ -312,10 +394,26 @@
                 $(this).siblings().find(".num").css({"opacity":0});
             });
 
+            // 推荐
+            $(".recommendBtn").on("click",function(){
+                location.href = 'http://kh.billionsfinance.cn/recommend/index?type=6'
+            });
+
             // 下载APP
             $(".downLoadBtn").on("click",function(){
                 webDownload('https://itunes.apple.com/cn/app/bai-qian-fen-qi-gou/id1138372591?mt=8','http://a.app.qq.com/o/simple.jsp?pkgname=com.billionsfinance.repayment','downLoad');
             });
+
+            //分享指引
+            $(".shareBtn").on("click",function(){
+                layer.open({
+                    type: 1,
+                    content: '<div id="layer1"><p class="remarkImg"><span class="closeBtn" onclick="layer.closeAll();"></span><img src="images/shareGuide-bg.png" alt=""></p></div>',
+                    anim: 'up',
+                    style: 'height:auto;width:6.4rem;background:transparent;margin:0 auto;margin-top:-2.0rem;'
+                });
+            })
+
         })
     </script>
 </body>

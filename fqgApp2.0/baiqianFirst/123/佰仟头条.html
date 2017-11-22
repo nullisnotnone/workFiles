@@ -9,27 +9,33 @@
 		<link rel="stylesheet" href="../css/public.css">
 		<link rel="stylesheet" href="../plugin/swiper/swiper.3.1.7.min.css">
 		<link href="../plugin/mui/css/mui.min.css" rel="stylesheet" type="text/css">
+
 		<script src="../js/public.js"></script>
 		<style>
 			body{min-width:300px;max-width:640px; margin:0 auto;}
+			html,body{height:100%;}
+			.emptyTopBar{height:0;width:100%;}
+			.clearfix:after{content:'';display:block;height:0;width:100%;clear:both; visibility: hidden;}
 			.nav-bar-box{position:fixed;left:0;top:0;height:64px;width:100%;background:#fff;z-index:110; }
 			.navBar{height:64px;min-width:300px;max-width:640px;margin:0 auto; position:relative;background:red;}
 			.navBar .empty-bar{height:20px;width:100%; background:#fff;}
-			.navBar .nav-title{ height:44px;width:100%;line-height:44px;text-align:center;font-size:0.32rem;color:#262626;background:#fff;border-bottom:0.01rem solid #f1f1f1; }
+			.navBar .nav-title{ height:44px;width:100%;line-height:44px;text-align:center;font-size:0.32rem;color:#4b505d;background:#fff;border-bottom:0.01rem solid #f1f1f1; }
 			.navBar .backBtn{position:absolute;left:5px;top:27px;height:20px;width:20px;padding:0.1rem;}
 			.navBar .backBtn>img{float:left;height:20px;width:20px;}
 			.navBar .shareBtn{position:absolute;right:15px;top:35px;display:block;height:17px;width:18px;}
 			.navBar .shareBtn>img{float:left;height:100%; width:100%;}
 
-			.main-cont{height:100%; padding:0 0.24rem; padding-top:64px; background:#fff; -webkit-box-sizing: border-box; box-sizing: border-box;}
-			.main-cont .m-header{position: fixed;top:64px;height:42px;z-index: 100;left: 0;width: 100%;}
+			.main-cont{height:100%;  padding-top:64px; background:#fff; -webkit-box-sizing: border-box; box-sizing: border-box; display:flex; display:-webkit-flex; -webkit-flex-direction: column;flex-direction: column;}
+			/*.main-cont .m-header{position: fixed;top:64px;height:42px;z-index: 100;left: 0;width: 100%;}*/
+			.main-cont .m-header{height:42px;width: 100%;}
 			.main-cont .m-header .swiper-container{background-color: #fff;}
 			.main-cont .m-header .swiper-slide{width: auto;padding:0 8px;}
 			.main-cont .m-header .nav-item{font-size:14px;color: #a5a8af; padding:12px 0; position: relative;}
 			.main-cont .m-header .nav-item:after{content:''; display:none; width: 100%; height:4px; border-radius:4px; background-color: #508cee;position: absolute;left:0;bottom: 0;}
 			.main-cont .m-header .swiper-slide.on .nav-item{color:#505050;}
 			.main-cont .m-header .swiper-slide.on .nav-item:after{display: block;}
-			.main-cont .m-body{position: absolute;top: 107px;bottom: 0;left: 0;right: 0;}
+			/*.main-cont .m-body{position: absolute;top: 107px;bottom: 0;left: 0;right: 0;}*/
+			.main-cont .m-body{width:100%; position:relative;height:auto;flex:1; -webkit-flex:1;}
 			.main-cont .m-cont{background-color: #fff;}
 			.main-cont .m-cont .m-item{padding-bottom: 0.4rem;word-break: break-all;}
 			.main-cont .m-cont .m-img{display: block;width: 100%;height: 2.7rem;}
@@ -51,9 +57,15 @@
 			.slideBox{display:flex; display:-webkit-flex;}
 			.slideBox .swiper-slide{flex:1;-webkit-flex:1;}
 			.slideBox .swiper-slide .nav-item{text-align:center;}
+
+			/*@media only screen and (max-width:322px) and (min-width:310px){*/
+				/*body{background:red; padding-top:1000px;}*/
+			/*}*/
 		</style>
+		<link rel="stylesheet" href="../css/iphoneX.css">
 	</head>
-	<body>
+	<body class='has-topBar has-bottomBar'>
+		<p class="emptyTopBar emptyTopBarShow"></p>
 		<div class="nav-bar-box">
 			<div class="navBar">
 				<p class="empty-bar"></p>
@@ -62,7 +74,7 @@
 				<span class="shareBtn"><img src="../images/icon-share1.png" alt=""></span>
 			</div>
 		</div>
-		<div class="main-cont">
+		<div class="main-cont clearfix">
 			<div class="m-header">
 				<div class="swiper-container m-nav">
 					<div class="swiper-wrapper slideBox">

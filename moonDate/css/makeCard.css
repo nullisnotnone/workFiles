@@ -28,7 +28,7 @@ textarea{-webkit-appearance: none;}
 .c-part1 .swiper-container .swiper-slide>img{float:left;height:100%;width:100%;}
 
 .c-part2 .textBox{height:1.35rem;width:100%;padding:0.1rem 0.2rem;box-sizing: border-box; -webkit-box-sizing: border-box;border:1px solid #ccc;}
-.c-part2 .textBox #said{float:left;height:100%;width:100%;resize: none; overflow-y: scroll;}
+.c-part2 .textBox #said{float:left;height:100%;width:100%;resize: none; overflow-y: scroll; font-size:0.28rem;}
 
 .c-part3{margin-bottom:0.6rem;}
 .c-part3 .g-con{color:#ccc;height:0.93rem;padding:0.16rem 0.38rem;width:4.27rem;margin:0 auto;background:url("../images/coupon_black.png") no-repeat left top; background-size:100% 100%;}

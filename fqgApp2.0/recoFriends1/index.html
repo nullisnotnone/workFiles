@@ -55,25 +55,19 @@
                         <p class="s-img">
                             <img src="images/icon-shareCard4.png" alt="">
                         </p>
-                        <p class="share-name">扫码</p>
+                        <p class="share-name">QQ空间</p>
                     </div>
                     <div class="shareCard shareCard5">
                         <p class="s-img">
                             <img src="images/icon-shareCard5.png" alt="">
                         </p>
-                        <p class="share-name">QQ空间</p>
+                        <p class="share-name">微博</p>
                     </div>
                     <div class="shareCard shareCard6">
                         <p class="s-img">
                             <img src="images/icon-shareCard6.png" alt="">
                         </p>
-                        <p class="share-name">微博</p>
-                    </div>
-                    <div class="shareCard shareCard7">
-                        <p class="s-img">
-                            <img src="images/icon-shareCard7.png" alt="">
-                        </p>
-                        <p class="share-name">陌陌</p>
+                        <p class="share-name">复制链接</p>
                     </div>
                 </div>
             </div>
@@ -364,13 +358,13 @@
                 $("html").addClass("otherHide");
                $("#layoutView").removeClass("viewHide");
             });
+
             // 填写好友信息弹窗关闭
             $(".closeBtn").on("click",function(){
                 $("body").removeClass("otherHide");
                 $("html").removeClass("otherHide");
                 $("#layoutView").addClass("viewHide");
             });
-
 
             // 推荐好友
             $(".recommendBtn").on("click",function(){
@@ -386,7 +380,7 @@
 
             // 排行榜滚动
             setInterval(function(){
-                $("#rankingList").animate({"margin-top":"-0.9rem"},1000,function(){
+                $("#rankingList").animate({"margin-top":"-0.9rem"},1400,function(){
                     $(this).css({"margin-top" : "0"}).find("tr").eq(0).appendTo($(this));
                 });
             },1500);

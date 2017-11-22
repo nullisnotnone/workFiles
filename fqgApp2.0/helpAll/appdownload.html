@@ -1,91 +1,53 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>文件下载</title>
-    <!--<link rel="stylesheet" href="{{ URL::asset('css/sales/reset.css') }}" />-->
-    <!--<link rel="stylesheet" href="{{ URL::asset('new/css/css.css') }}">-->
-    <!--<link rel="stylesheet" href="{{ URL::asset('css/sales/paddy.css') }}?v=20151211" />-->
-    <!--<script src="/xtbd/plugin/jquery/jquery-1.11.0.js"></script>-->
-    <!--<script src="/xtbd/js/public.js?v2016154545"></script>-->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>更多升级问题</title>
     <script src="js/public.js"></script>
     <style type="text/css">
-        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
-        html {height: 100%;} 
-        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#888;}
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family : "Microsoft YaHei",Arial,Helvetica,sans-serif; font-size: 0.24rem; color:#92a1a8;}
         h1,h2,h3,h4,h5,h6{font-weight:300;}
         ul,dl,li{list-style: none;}
         a {color: #606060;text-decoration: none;}
         a:hover {text-decoration: none;}
         img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
         .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #a5a8af; font-size:0.24rem; }
 
-        .conHide{display:none;}
-        .nav-bar-box{position:fixed;left:0;top:0;height:64px;width:100%;background:#fff;z-index:100;}
-        .navBar{height:64px;min-width:300px;max-width:640px;margin:0 auto; position:relative;}
-        .navBar .empty-bar{height:20px;width:100%; background:#fff;}
-        .navBar .nav-title{ height:44px;width:100%;line-height:44px;text-align:center;font-size:0.32rem;color:#262626;background:#fff; }
-        .navBar .backBtn{position:absolute;left:5px;top:27px;height:20px;width:20px;padding:5px;}
-        .navBar .backBtn>img{float:left;height:20px;width:20px;}
-
-
-        #con{min-height:100%; padding-top:64px; width:94%; margin:0 auto;box-sizing: border-box ;-webkit-box-sizing: border-box;}
-        #con .title{height:0.8rem; width:100%; line-height:0.8rem; text-align:center; font-size:0.32rem;color:#000;}
-        #con .con{min-height:1.5rem; width:100%; padding-top:0.2rem; }
-        #con .con .list{height:0.6rem; width:100%; border-bottom:1px solid #ededed; }
-        #con .con .list .fileName{float:left; height:0.6rem; width:70%; line-height:0.6rem; text-align:center; font-size:0.28rem;}
-        #con .con .list .downloadBtn{float:right; height:0.6rem; width:30%; line-height:0.6rem; text-align:center; color:blue;font-size:0.28rem;}
+        #con{position:relative;height:100%; width:100%; background:#f0f3f7;}
+        .title{padding-top:0.5rem; height:1.2rem;line-height:1.2rem;text-align:center;color:#ff8431; font-size:0.64rem;background:#fff;}
+        .title span{color:#508cee;}
+        .txt1{line-height:0.42rem; background:#fff; color:#9f9f9f;text-align:center; padding-bottom:0.4rem;}
+        .imgBox{width:100%;background:#fff;margin-bottom:0.6rem;}
+        .page-img{width:100%;}
+        .UpBtn{display:block; height:0.76rem;width:5.2rem;line-height:0.76rem;text-align:center;margin:0 auto;background:#508cee;color:#fff;border-radius:5px; font-size:0.30rem; }
+        .UpBtn:active{background:#9f9f9f;}
+        .moreBtn{ position:absolute;right:0.24rem;bottom:0.3rem;font-size:0.26rem; color:#508cee;text-decoration: underline; }
     </style>
-    <script>
-//        var _hmt = _hmt || [];
-//        (function() {
-//            var hm = document.createElement("script");
-//            hm.src = "//hm.baidu.com/hm.js?0a7ce4eb6b881e682aac93f69951504c";
-//            var s = document.getElementsByTagName("script")[0];
-//            s.parentNode.insertBefore(hm, s);
-//        })();
-
-    </script>
 </head>
-<body class="p-bg-primary">
-    <div class="nav-bar-box underLine">
-        <div class="navBar">
-            <p class="empty-bar"></p>
-            <p class="nav-title">帮助中心</p>
-            <span class="backBtn"><img src="images/icon-back.png" alt=""></span>
-        </div>
-    </div>
+<body>
+
     <div id="con">
-        <!--<h3 class="title">文件下载</h3>-->
-        <div class="con">
-            <p class="list">
-                <span class="fileName">客户增值服务取消申请表</span>
-                <a  class="downloadBtn" href="/withhold/app-downloadfile" >点击下载</a>
-            </p>
-        </div>
+        <h1 class="title">我们<span>升级了</span></h1>
+        <p class="txt1">“佰仟分期购APP”升级为“佰仟买买钱包APP”<br>升级后，请重新注册账号！</p>
+        <p class="imgBox"><img class="page-img" src="images/up-bg.png"  alt=""></p>
+        <button id="upBtn" class="UpBtn" type="button">立即升级</button>
+        <a class="moreBtn" href="appDownLoad2.html">升级小贴士&gt;</a>
     </div>
-
-    <script src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
-        $(function(){
-            // 返回
-            $(".backBtn").on("click",function(){
-                if(history.length > 1){
-                    backToNative("popToView://backToNative");
-                } else {
-                    history.back();
-                }
-            });
+        var upBtn = document.querySelector("#upBtn");
+        upBtn.onclick = function(){
 
-            // 安卓不用导航栏
-            var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
-            if(isAndroid){
-                $(".nav-bar-box").addClass("conHide");
-                $("#con").css({"padding-top" : "0"});
-            }
-        })
+
+        }
     </script>
 </body>
 </html>

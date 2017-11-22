@@ -13,7 +13,7 @@
 	var feedback = {
 		question: document.getElementById('question'), 
 		contact: document.getElementById('contact'), 
-		imageList: document.getElementById('image-list'),
+		imageList: document.getElementById('images-list'),
 		submitBtn: document.getElementById('submit')
 	};
 	var url = 'https://service.dcloud.net.cn/feedback';
@@ -74,12 +74,12 @@
 		};
 		imageIndexIdNum++;
 		var placeholder = document.createElement('div');
-		placeholder.setAttribute('class', 'image-item space');
+		placeholder.setAttribute('class', 'images-item space');
 		var up = document.createElement("div");
-		up.setAttribute('class','image-up')
+		up.setAttribute('class','images-up')
 		//删除图片
 		var closeButton = document.createElement('div');
-		closeButton.setAttribute('class', 'image-close');
+		closeButton.setAttribute('class', 'images-close');
 		closeButton.innerHTML = 'X';
 		closeButton.id = "img-"+index;
 		//小X的点击事件
@@ -98,7 +98,7 @@
 		//
 		var fileInput = document.createElement('div');
 		fileInput.setAttribute('class', 'file');
-		fileInput.setAttribute('id', 'image-' + imageIndexIdNum);
+		fileInput.setAttribute('id', 'images-' + imageIndexIdNum);
 		fileInput.addEventListener('tap', function(event) {
 			var self = this;
 			var index = (this.id).substr(-1);
@@ -126,7 +126,7 @@
 						feedback.addFile(zip.target);
 						feedback.newPlaceholder();
 					}
-					up.classList.remove('image-up');
+					up.classList.remove('images-up');
 					placeholder.style.backgroundImage = 'url(' + zip.target + ')';
 				}, function(zipe) {
 					mui.toast('压缩失败！')

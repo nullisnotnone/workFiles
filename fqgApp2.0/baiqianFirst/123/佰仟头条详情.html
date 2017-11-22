@@ -12,14 +12,14 @@
 			.nav-bar-box{position:fixed;left:0;top:0;height:64px;width:100%;background:#fff;z-index:110; border-bottom:0.01rem solid #f1f1f1;}
 			.navBar{height:64px;min-width:300px;max-width:640px;margin:0 auto; position:relative;background:red;}
 			.navBar .empty-bar{height:20px;width:100%; background:#fff;}
-			.navBar .nav-title{ height:44px;width:100%;line-height:44px;text-align:center;font-size:0.32rem;color:#262626;background:#fff; }
+			.navBar .nav-title{ height:44px;width:100%;line-height:44px;text-align:center;font-size:0.32rem;color:#4b505d;background:#fff; }
 			.navBar .backBtn{position:absolute;left:5px;top:27px;height:20px;width:20px;padding:0.1rem;}
 			.navBar .backBtn>img{float:left;height:20px;width:20px;}
 			.navBar .shareBtn{position:absolute;right:15px;top:35px;display:block;height:20px;width:19px;}
 			.navBar .shareBtn>img{float:left;height:100%; width:100%;}
 
-			html,body{height:100%;width:100%;}
-			.main-cont{padding-top:64px;min-height:100%;display:flex; display:-webkit-flex; flex-direction: column; -webkit-flex-direction: column;  box-sizing: border-box; -webkit-box-sizing: border-box;}
+			html,body{height:100%;width:100%; background:#fff;}
+			.main-cont{padding-top:64px;height:100%;overflow:scroll;display:flex; display:-webkit-flex; flex-direction: column; -webkit-flex-direction: column;  box-sizing: border-box; -webkit-box-sizing: border-box;}
 			.a-detail{background-color: #fff;padding-bottom: 1px; flex:1; -webkit-flex:1;}
 			.a-detail img{display: block;width: 100%;max-width: 768px;margin: 0 auto;}
 			.a-detail .a-title{color: #616673;font-size: 0.29rem;text-align: center;line-height: 0.4rem;margin: 0.2rem 0.5rem 0.1rem;word-break: break-word;font-weight: bold;}
@@ -33,6 +33,11 @@
 			.comment .c-ul li>a .c-img{display: block;margin: 0 auto;width: 0.4rem;height: 0.4rem;}
 			.comment .c-ul li>a .c-txt{color: #616673;font-size: 0.24rem;margin-top: 0.1rem;}
 			.comment .c-ul li>a .c-num{color: #a5a8af;font-size: 0.2rem;}
+			 .remarkInfoBox1{ min-height:0.2rem; margin:0.4rem auto; padding-bottom:0.1rem;width:90%;background:#fff; }
+			 .fromWhere{display:block; padding:0.2rem;padding-bottom:0.1rem; line-height:0.36rem;background:#f1f1f1; font-size:0.22rem; color:#999;}
+			 .fromWhere a{color:skyblue; text-decoration:underline;}
+			 .o-txt{padding:0.2rem;padding-top:0.1rem;line-height:0.36rem;color:#999;font-size:0.24rem;background:#f1f1f1;margin-top:-0.1rem;}
+
 
 			.a-bouncein{-webkit-animation:0.5s ease-out backwards;-moz-animation:0.5s ease-out backwards;-ms-animation:0.5s ease-out backwards;animation:0.5s ease-out backwards;}
 			.a-bouncein{-webkit-animation-name:bouncein;-moz-animation-name:bouncein;-ms-animation-name:bouncein;animation-name:bouncein;}
@@ -62,8 +67,10 @@
 			    100%{transform:scale(1);}
 			}
 		</style>
+		<link rel="stylesheet" href="../css/iphoneX.css">
 	</head>
-	<body>
+	<body class='has-topBar has-bottomBar'>
+		<p class="emptyTopBar emptyTopBarShow"></p>
 		<div class="nav-bar-box">
 			<div class="navBar">
 				<p class="empty-bar"></p>
@@ -81,6 +88,10 @@
 				<p class="a-txt">这个月魅族在珠海的发布会除了带来了新旗舰PRO7系列，李欗也上台介绍了魅族目前的旗舰耳机——Flow，虽说耳塞本身是旗舰定位，但实际上Flow的售价也仅仅只为599元，这对于大多数普通用户都是负担得起的。</p>
 				<img src="../images/i-8.png" alt="">
 				<p class="a-txt">期初，Flow的售价被谣传到了4999元，还把AKG的当家产品K3K3拿来当做对比参考的对象，勾起了不少人对它的兴趣，魅族自身也是做音频起家，现在突然高出一个高端耳塞大家也是抱着相信的态度，而且重新回归音频相信是不少老魅友所期待的。不过后续我收到实物时也说了，我自己是不信Flow真的会定价到4999元，理由嘛，声音方面是一个，做工方面也是一个。</p>
+			</div>
+			<div class="remarkInfoBox1">
+				<p class="fromWhere">文章来源自<a href="javascript:;">网易新闻</a>，如有侵权，请及时联系删除</p>
+				<p class="o-txt">【免责声明】本文仅代表作者本人观点，与买买钱包无关。请读者仅作参考，并自行承担全部责任。</p>
 			</div>
 			<div class="comment">
 				<ul class="c-ul">

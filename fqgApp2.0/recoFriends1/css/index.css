@@ -31,15 +31,10 @@ textarea{-webkit-appearance: none;}
 #con .shareApps .s-title .t-middle{float:left;height:0.36rem;width:3.0rem;line-height:0.36rem;text-align:center;color:#333;font-weight:600;font-size:0.34rem}
 #con .shareApps .s-title .t-right{float:left;height:2px;width:0.6rem;background:#fce472;margin-top:0.17rem;}
 #con .shareApps .shareCards{min-height:3.2rem;width:100%; }
-#con .shareApps .shareCards .shareCard{float:left;height:1.3rem;width:25%;margin-bottom:0.3rem;}
+#con .shareApps .shareCards .shareCard{float:left;height:1.3rem;width:33.33%;margin-bottom:0.3rem;}
 #con .shareApps .shareCards .shareCard .s-img{height:0.64rem;width:100%;margin-bottom:0.2rem;}
-#con .shareApps .shareCards .shareCard1 .s-img>img{display:block;margin:0 auto;height:0.52rem;width:0.64rem;}
-#con .shareApps .shareCards .shareCard2 .s-img>img{display:block;margin:0 auto;height:0.54rem;width:0.54rem;}
-#con .shareApps .shareCards .shareCard3 .s-img>img{display:block;margin:0 auto;height:0.56rem;width:0.46rem;}
-#con .shareApps .shareCards .shareCard4 .s-img>img{display:block;margin:0 auto;height:0.49rem;width:0.49rem;}
-#con .shareApps .shareCards .shareCard5 .s-img>img{display:block;margin:0 auto;height:0.57rem;width:0.60rem;}
-#con .shareApps .shareCards .shareCard6 .s-img>img{display:block;margin:0 auto;height:0.55rem;width:0.61rem;}
-#con .shareApps .shareCards .shareCard7 .s-img>img{display:block;margin:0 auto;height:0.53rem;width:0.53rem;}
+#con .shareApps .shareCards .shareCard .s-img>img{display:block;margin:0 auto;height:0.64rem;width:0.64rem;}
+
 #con .shareApps .shareCards .shareCard .share-name{display:block;height:0.4rem;width:100%;line-height:0.4rem;text-align:center;font-size:0.28rem;color:#333;}
 #con .friendInfo{height:1.0rem;width:5.5rem;line-height:1.0rem;text-align:center;font-size:0.32rem;color:#fff;margin:0.3rem auto; margin-top:-0.3rem; background:url("../images/recommendBtn.png") no-repeat left top; background-size:100% 100%;}
 
@@ -144,14 +139,6 @@ textarea{-webkit-appearance: none;}
 #addressPicker .addressChoose input{float:left;height:0.6rem;width:1.2rem;line-height:0.6rem;text-align:center;box-sizing: border-box; -webkit-box-sizing: border-box; border:1px solid #dcdcdc;border-radius:5px;}
 #addressPicker .addressChoose input:nth-child(2){margin:0 0.1rem;}
 #provinceData_dummy , #cityData_dummy , #townData_dummy{position:absolute;left:-9999px;top:0;}
-
-
-
-
-
-
-
-
 
 
 

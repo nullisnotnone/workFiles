@@ -16,7 +16,7 @@ body{min-width:300px;max-width:640px; margin:0 auto;}
 .underLine:after{ position:absolute; left:0;top:0; content:""; display:block;height:1px;width:100%;background:#f1f1f1;transform: scaleY(0.5); -webkit-transform: scaleY(0.5); }
 .navBar{height:1.28rem;min-width:300px;max-width:640px;margin:0 auto; position:relative;}
 .navBar .empty-bar{height:0.4rem;width:100%; background:#fff;}
-.navBar .nav-title{ height:0.88rem;width:100%;line-height:0.88rem;text-align:center;font-size:0.32rem;color:#262626;background:#fff; }
+.navBar .nav-title{ height:0.88rem;width:100%;line-height:0.88rem;text-align:center;font-size:0.32rem;color:#4b505d;background:#fff; }
 .navBar .backBtn{position:absolute;left:0.1rem;top:0.54rem;height:0.4rem;width:0.4rem;padding:0.1rem;}
 .navBar .backBtn>img{float:left;height:0.4rem;width:0.4rem;}
 

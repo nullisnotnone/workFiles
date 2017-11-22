@@ -7,6 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="format-detection" content="email=no" />
     <title>佰仟融资租赁</title>
+    <link rel="stylesheet" href="css/mobiscroll-2.13.2.full.min.css">
     <script type="text/javascript" src="js/public.js"></script>
     <link rel="stylesheet" href="css/ability.css">
     <link rel="stylesheet" href="css/layer.css">
@@ -31,8 +32,22 @@
             <p class="txt1">
                 以下合同支持微信还款，请点击选择:
             </p>
+            <p class="selectBox">
+                <span >合同号：</span>
+                <input id="concat-select" name="select-items" type="text"  readonly value="13156156">
+                <i><img src="images/icon-select.png" alt=""></i>
+            </p>
+            <div data-role="fieldcontain"  class="select-box">
+                <select id="select-items" class="dataList" data-role="none">
+                        <option>1315615666</option>
+                        <!--<option>1315615777</option>-->
+                        <!--<option>1315615888</option>-->
+                </select>
+            </div>
+
             <div class="lists">
                 <div class="list list1">
+                    <p class="infoList"><span class="periods">第3期</span><span class="periods-time">2016-10-12</span></p>
                     <input id="radio1" class="radio" type="radio" name="contract">
                     <label class="label" for="radio1"></label>
                     <div class="part1">
@@ -56,6 +71,7 @@
                     </div>
                 </div>
                 <div class="list list2">
+                    <p class="infoList"><span class="periods">第3期</span><span class="periods-time">2016-10-12</span></p>
                     <input id="radio2" class="radio" type="radio" name="contract" >
                     <label class="label" for="radio2"></label>
                     <div class="part1">
@@ -107,25 +123,60 @@
         <p class="bottomTxt">POWER BY 佰仟融资租赁</p>
     </div>
 
-    <script src="js/zepto/zepto.js"></script>
-    <script src="js/zepto/touch.js"></script>
-    <script src="js/zepto/fx.js"></script>
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/mobiscroll-2.13.2.full.min.js"></script>
     <script src="js/layer.js"></script>
     <script type="text/javascript">
         $(function(){
+
+            var optionLen =  $("#select-items option").length;
+            if(optionLen > 1){
+                var opt = {};
+                opt.default = {
+                    theme: "android-ics light",
+                    display: 'bottom',
+                    lang: "zh"
+                };
+                opt.select = {preset : "select"};
+                $("#select-items").scroller($.extend(opt['default'] , opt['select']));
+                $("#concat-select").on("click",function(){
+                    $("#select-items_dummy").focus();
+                });
+                $("select").on("change",function(){
+                    $("#concat-select").val($(this).val());
+                });
+            } else {
+                $(".selectBox").find("i").css({"display":"none"});
+            }
+
+
+
             // 选择合同
+//            $(".lists .label").on("click",function(){
+//                if($(this).parent().hasClass("repaid")){
+//                    return false;
+//                } else {
+//                    var listCards = $(".lists .list");
+//                    $(this).parent().addClass("sp").siblings().removeClass("sp");
+//                    for(var i=0; i<listCards.length; i++){
+//                        if(listCards.eq(i).hasClass("sp")){
+//                            listCards.eq(i).find(".markImg").addClass("checked");
+//                        } else {
+//                            listCards.eq(i).find(".markImg").removeClass("checked");
+//                        }
+//                    }
+//                }
+//            });
             $(".lists .label").on("click",function(){
                 if($(this).parent().hasClass("repaid")){
                     return false;
                 } else {
                     var listCards = $(".lists .list");
-                    $(this).parent().addClass("sp").siblings().removeClass("sp");
-                    for(var i=0; i<listCards.length; i++){
-                        if(listCards.eq(i).hasClass("sp")){
-                            listCards.eq(i).find(".markImg").addClass("checked");
-                        } else {
-                            listCards.eq(i).find(".markImg").removeClass("checked");
-                        }
+                    if($(this).parent().hasClass("list1")){
+                        $(this).parent().addClass("sp");
+                        $(this).parent().find(".markImg").addClass("checked");
+                    } else {
+                        layerMessage("请优先清还较前一期的欠款");
                     }
                 }
             });
@@ -146,6 +197,8 @@
                     '<div class="con">' +
                     '<p class="title">合同详情</p>' +
                     '<div class="part1">' +
+                    '<p class="txt txt10"><span class="left">期数</span><span class="right">12</span></p>'+
+                    '<p class="txt txt10"><span class="left">还款日期</span><span class="right">2017-10-25</span></p>'+
                     '<p class="txt txt1"><span class="left">合同号</span><span class="right">123456789</span></p>'+
                     '<p class="txt txt2"><span class="left">本期应还金额</span><span class="right">¥660.00</span></p>'+
                     '<p class="txt txt3"><span class="left">催收工本费</span><span class="right">¥5.00</span></p>'+
@@ -246,15 +299,23 @@
 
 
             // 通知消息滚动
-            if($(".remarkTxt0 .right .box .txt")){
-                txtMove();
-                setInterval(txtMove , 11000 );
-                function txtMove(){
-                    var aniWidth = $(".remarkTxt0 .right .box .txt").get(0).clientWidth;
-                    $(".remarkTxt0 .right .box").animate({"margin-left": -aniWidth + "px"} , 10000 , function(){
-                        $(this).css("margin-left" , "0").children().eq(0).appendTo($(this))
-                    });
-                }
+//            if($(".remarkTxt0 .right .box .txt")){
+//                txtMove();
+//                setInterval(txtMove , 11000 );
+//                function txtMove(){
+//                    var aniWidth = $(".remarkTxt0 .right .box .txt").get(0).clientWidth;
+//                    $(".remarkTxt0 .right .box").animate({"margin-left": -aniWidth + "px"} , 10000 , function(){
+//                        $(this).css("margin-left" , "0").children().eq(0).appendTo($(this))
+//                    });
+//                }
+//            }
+
+            function layerMessage(str){
+                layer.open({
+                    content : str ,
+                    skin : 'msg' ,
+                    time : 2
+                })
             }
         })
     </script>

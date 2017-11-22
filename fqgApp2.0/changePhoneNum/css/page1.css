@@ -17,11 +17,12 @@ body{min-width:300px;max-width:640px; margin:0 auto;}
 .nav-bar-box{position:fixed;left:0;top:0;height:64px;width:100%;z-index:100;}
 .navBar{height:64px;min-width:300px;max-width:640px;margin:0 auto; position:relative;}
 .navBar .empty-bar{height:20px;width:100%; background:#fff;}
-.navBar .nav-title{ height:44px;width:100%;line-height:44px;text-align:center;font-size:0.32rem;color:#262626;background:#fff; }
+.navBar .nav-title{ height:44px;width:100%;line-height:44px;text-align:center;font-size:0.32rem;color:#4b505d;background:#fff; }
 .navBar .backBtn{position:absolute;left:5px;top:27px;height:20px;width:20px;padding:5px;}
 .navBar .backBtn>img{float:left;height:20px;width:20px;}
 
 #con{height:100%; padding:0 0.28rem; padding-top:64px; background:#eef1f6; -webkit-box-sizing: border-box; box-sizing: border-box;}
+
 .c-txt{padding-top:0.1rem;height:0.8rem;line-height:0.8rem;color:#a5a8af;}
 .inputBox{height:0.84rem;width:100%;box-sizing: border-box;padding:0.1rem 0.24rem;background:#fff;border-radius:5px;}
 .inputBox .b-txt{float:left;height:0.64rem;line-height:0.64rem;padding-right:0.44rem; color:#4c505b; }

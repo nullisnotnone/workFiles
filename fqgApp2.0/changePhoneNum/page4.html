@@ -30,15 +30,23 @@
         $(function(){
             // 返回
             $(".backBtn").on("click",function(){
-                history.back();
+                backToNative("popToView://backToNative");
             });
             console.log(history.length);
 
             var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
+            var isMyApp = navigator.userAgent.indexOf('BQMMQB') > -1;
             if(isAndroid){
                 $(".nav-bar-box").addClass("conHide");
                 $("#con").css({"padding-top" : "0"});
             }
+
+            $(".over-btn").on("click",function(){
+                if(isAndroid && isMyApp){
+                    window.android.modifytelsuccess();
+                }
+            });
+
         });
 
 
