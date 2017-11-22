@@ -1,0 +1,45 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#616161;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+input{background:none; border:none; box-shadow: none;-webkit-appearance: none; font-size:0.28rem;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+textarea{-webkit-appearance: none; font-size:0.28rem;}
+*::-webkit-input-placeholder { color: #a5abaf; font-size:0.24rem; }
+
+body{min-width:300px;max-width:640px; margin:0 auto; cursor:pointer;  }
+/*::selection{background:skyblue;color:green; user-select:none;}*/
+
+#con{height:100%;width:100%;background:#fff;}
+.part-top{width:100%;}
+.part-top>img{width:100%;}
+.part-middle{height:auto;padding:0.3rem;padding-top:0;background:#fff;}
+.part-middle .bill-state{height:0.6rem;line-height:0.6rem;font-size:0.32rem;text-align:center;}
+
+.part-middle .bill-about-txt1{margin-bottom:0.5rem;font-size:0.24rem;text-align:center;line-height:0.36rem;}
+.part-middle .refresh-btn{display:block;margin:0 auto;font-size:0.30rem;height:0.86rem;width:4.14rem;line-height:0.86rem;text-align:center;color:#fff;background:url("../images/submitBtn-bg1.png") no-repeat left top; background-size:100% 100%;}
+
+.part-bottom .p-con{display:flex;display:-webkit-flex;height:1.2rem;width:5.0rem;margin:0 auto;margin-top:0.88rem;}
+.p-con .p-c-1{height:1.2rem;width:1.2rem;margin-right:0.2rem;}
+.p-con .p-c-1>img{height:1.2rem;width:1.2rem;}
+.p-con .p-c-2{-webkit-flex:1; flex:1;}
+.p-c-2 .txt1{line-height:0.32rem;height:0.32rem;font-size:0.32rem;}
+.p-c-2 .txt2{line-height:0.46rem;font-size:0.22rem;}
+
+#downLoadBtn{display:block;font-size:0.18rem;height:0.4rem;width:1.4rem;line-height:0.4rem;text-align:center;color:#fff;background:url("../images/downLoad-bg.png") no-repeat left top; background-size:100% 100%;}
+
+.state-passed .bill-state{height:0.6rem;line-height:0.6rem;font-size:0.24rem;text-align:center;margin-bottom:0.4rem;}
+.state-passed .all-money{line-height:0.8rem;text-align:center;font-size:0.72rem;color:#000;}
+.state-passed .m-txt{line-height:0.3rem;text-align:center;margin-bottom:0.6rem;}
+.state-passed .m-info{display:-webkit-flex;display:flex;padding:0 0.2rem;height:0.68rem;}
+.state-passed .m-info .i-part{flex:1;-webkit-flex:1;}
+.state-passed .m-info .i-part p{text-align:center;height:0.34rem;width:100%;line-height:0.34rem;}
+.state-passed .m-info .i-part .p-txt1{color:#333;}
+.state-passed .s-txt{position:relative;width:5.6rem;padding-left:0.3rem;margin:0 auto;margin-top:0.6rem;line-height:0.3rem;font-size:0.22rem;}
+.state-passed .s-txt i{position:absolute;left:0;top:0.06rem;display:block;height:0.2rem;width:0.2rem;background:url("../images/icon-remark.png") no-repeat left top;background-size:100% 100%;}
+
+

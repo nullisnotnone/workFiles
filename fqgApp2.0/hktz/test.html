@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>还款调账</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href="css/page1.css">
+    <style type="text/css">
+        body{height:100%;width:100%;background:rgba(0,0,0,0.8);}
+        #layer0{position:relative;margin:0 auto;min-height:2.0rem;width:4.6rem;background:#fff; border-radius:10px;}
+        #layer1{position:relative;margin:0 auto;min-height:3.0rem;width:4.6rem;background:#fff; border-radius:10px;}
+
+        .l-title{ height:0.8rem;line-height:0.8rem;text-align:center;color:#616673;font-size:0.32rem; font-weight:600;}
+        .l-txt{line-height:0.42rem;font-size:0.28rem;padding:0.14rem 0.26rem;color:#616673; padding-bottom:0.4rem; }
+        .l-btn{ height:0.72rem;line-height:0.72rem;text-align:center;color:#508cee; border-top:0.01rem solid #dddcdc;}
+        .closeBtn{position:absolute;right:0.1rem;top:0.1rem;height:0.3rem;width:0.3rem;padding:0.1rem;}
+        .closeBtn i{display:block;height:0.3rem;width:0.3rem;background:url("images/icon-03.png") no-repeat left top; background-size:100% 100%;}
+        .l-icon{padding:0.3rem 0; padding-bottom:0.4rem; width:100%;}
+        .l-icon img{height:1.06rem; width:1.06rem; margin:0 auto;}
+
+    </style>
+</head>
+<body>
+
+    <div id="layer0">
+        <span class="closeBtn" onclick="layer.closeAll();"><i></i></span>
+        <p class="l-title">系统提示</p>
+        <p class="l-txt">收款方账号有误，款项未来入我司，请重新转账，如有疑问，可致电我司客服热线咨询400-9987101</p>
+        <p class="l-btn" onclick="layer.closeAll();">知道了</p>
+    </div>
+
+    <div id="layer1">
+        <span class="closeBtn"><i></i></span>
+        <p class="l-title">提交成功</p>
+        <p class="l-icon"><img src="images/icon-over.png" alt=""></p>
+        <p class="l-btn">查看申请进度</p>
+    </div>
+
+
+</body>
+</html>

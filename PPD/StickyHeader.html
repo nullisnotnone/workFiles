@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sticky Header</title>
+	<style type="text/css">
+		*{padding:0;margin:0;}
+		.header{height:100px;width:100%;line-height:10px;font-size:32px;background:red;color:#fff;}
+		.sticky{position:sticky;top:0;}
+		.b-con{ height:2000px;width:100%; background:green; font-size:100px; }
+	</style>
+</head>
+<body>
+	
+	<div class="header">Sticky Headers</div> 
+	<div class="b-con">哈哈哈哈。。。。。。</div>
+
+	
+
+	<script type="text/javascript">
+		var headerEle = document.querySelector(".header");
+		var origOffsetY = headerEle.offsetTop;
+		function onScroll(e){
+			alert(1);
+			window.scrollY >= origOffsetY ? headerEle.classList.add('sticky') : headerEle.classList.remove('sticky');
+		}
+		document.addEventListener('scroll', onScroll, false);
+
+	</script>
+</body>
+</html>

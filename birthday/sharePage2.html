@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>佰仟分期购</title>
+    <script src="js/public.js"></script>
+    <link rel="stylesheet" href="css/sharePage2.css">
+</head>
+<body>
+
+    <div id="con">
+        <div class="part1">
+            <img src="images/sharePage/page2-title-bg.png" alt="">
+        </div>
+        <div class="part2">
+            <div class="perImg"><img class="headImg" src="images/page2_personal.png" alt=""></div>
+            <div class="perImgBg"></div>
+        </div>
+        <div class="part3">
+            <p class="starStyle">[ <span>白羊座</span> ]</p>
+            <p class="timeArea">3月21日--4月20日</p>
+            <p class="styleTxt">直来直往捧出一颗赤子之心！</p>
+        </div>
+        <div class="part4">
+            <a class="sendWishBtn" href="JavaScript:;">给彭于晏送祝福</a>
+        </div>
+    </div>
+
+    <script src="js/zepto/zepto.js"></script>
+    <script src="js/jsized.snow.min.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".sendWishBtn").on("click",function(){
+                layer.open({
+                    content : '祝福已经送出，感谢您的关注！',
+                    skin : 'msg',
+                    time : 2
+                });
+                $(this).attr("disabled","disabled");
+            });
+            createSnow("",60);
+        });
+    </script>
+
+</body>
+</html>

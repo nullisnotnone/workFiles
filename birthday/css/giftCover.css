@@ -1,0 +1,29 @@
+@charset "utf-8";
+* {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0)}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.24rem; color:#888;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+
+body{height:100%;min-width:320px;max-width: 640px;margin:0 auto;overflow:hidden;}
+#con{position:relative;height:100%;width:100%;background:url("../images/activities/gift-cover.png") no-repeat left top; background-size:100% 100%;}
+.giftBoxImg{margin:0 auto;margin-right:-0.2rem;padding-top:1.67rem;width:6.33rem;height:6.52rem;}
+.giftBoxImg>img{height:100%; width:100%;}
+.g-txt{line-height:0.36rem;text-align:center;color:#eeb1fa;}
+.openArea{position:absolute;left:0;bottom:0.5rem;height:0.91rem;width:100%;}
+.openArea .openBtn{display:block;height:0.91rem;width:3.31rem;margin:0 auto;text-align:center;line-height:0.91rem;color:#fadcff;font-weight:600;font-size:0.32rem;background:url("../images/activities/acknowledge.png") no-repeat left top; background-size:100% 100%;}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+
+
+@media only screen and (device-width:375px) and (device-height:812px)  {
+    /* 增加头部适配*/
+    .has-topBar .emptyTopBarShow{
+        display:block;
+        height:24px;
+        width:100%;
+        background:#fff;
+        position:fixed;
+        top:0;
+        left:0;
+    }
+    .has-topBar .nav-bar-box{
+        top:24px;
+    }
+    .has-topBar .main-cont{
+        padding-top:88px;
+    }
+    .has-bottomBar{
+        padding-bottom:34px;
+        box-sizing: border-box;
+        -webkit-box-sizing:border-box;
+    }
+}

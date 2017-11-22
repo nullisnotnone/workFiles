@@ -1,0 +1,31 @@
+#middlePart{width:100%;height:auto;background:#f0f0f0;}
+.middleCon{ padding-top:80px;width:1200px;background:#fff;margin:0 auto; }
+.middleCon  .n-title{width:100%;margin-bottom:60px;}
+.middleCon  .n-title .txt1{line-height:44px; text-align:center; font-size:26px; color:#1e73f0;}
+.middleCon  .n-title .txt2{line-height:34px;text-align:center;color:#8b8b90;}
+.middleCon  .n-title .txt3{margin:0 auto; height:18px;width:60px;border-bottom:2px solid #8b8b90;}
+
+.n-box{height:auto;padding:0 45px;background:#fff; padding-bottom:96px;}
+.n-box .d-left{float:left;width:445px;height:420px;padding-right:33px;border-right:1px solid #c8c8c8;margin-right:32px;}
+.n-box .d-left .news-img{ width:445px; height:242px;margin-bottom:12px; }
+.n-box .d-left .news-title{padding:10px 0;line-height:24px;font-size:18px; width:445px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.n-box .d-left .news-time{line-height:20px;font-size:12px;color:#8b8b90;padding-bottom:10px;}
+.n-box .d-left .news-detail{line-height:24px;font-size:14px; color:#414143;display:-webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp:3 ;overflow:hidden;}
+.n-box .d-left .news-link{ margin-left:396px; font-size:14px; }
+
+.n-box .d-right{float:right;height:420px;width:599px;  color:#414143;}
+.n-box .d-right .newsList{height:120px; margin-bottom:30px; }
+.n-box .d-right .newsList:nth-child(3){margin-bottom:0;}
+.newsList img{float:left;height:120px;width:148px; margin-right:18px;}
+.newsList .listInfo{float:left;height:120px;width:433px;}
+.newsList .listInfo .i-title{ height:24px;line-height:24px;width:433px; font-size:14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.newsList .listInfo .i-time{line-height:20px;color:#8b8b90;font-size:12px;}
+.newsList .listInfo .i-detail{line-height:24px;font-size:12px; color:#414143;display:-webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp:2 ;overflow:hidden;}
+.newsList .listInfo .i-link{margin-left:386px; font-size:14px;}
+
+.pageDiff{ padding-bottom:90px; width:1200px; margin:0 auto; background:#fff;text-align:center;  }
+.pageDiff .btn-box{display:inline-block;height:24px;width:auto; color:#8b8b90;}
+.pageDiff .btn-box span{cursor:pointer;display:inline-block;height:22px;width:34px;line-height:22px;text-align:center;border:1px solid #8b8b90; margin-right:16px;}
+.pageDiff .btn-box .jump-btn{width:50px;}
+.pageDiff .btn-box .actived{background:#1e73f0; color:#fff;}
+

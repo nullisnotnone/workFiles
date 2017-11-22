@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>佰仟金融</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <link rel="stylesheet" href= "css/index.css">
+</head>
+<body>
+
+    <div id="con">
+        <p class="top-part"><img src="images/PPD-022.png" alt=""></p>
+        <div class="con-part">
+            <p class="c-txt">该活动的解释权归深圳市佰仟金融服务有限公司所有</p>
+            <div class="p-box">
+                <div class="b-part2">
+                    <p class="b-part2-txt1"><i class="bq-logo"></i><span>佰仟金融联合拍拍贷为您账户充值</span><i class="ppd-logo"></i></p>
+                    <div class="num-table">
+                        <div class="table-box">
+                            <p class="num-list clearfix num-list1 "><span class="num-card">5</span></p>
+                            <p class="num-list clearfix num-list2"><span class="num-card">0</span></p>
+                            <p class="num-list clearfix num-list3"><span class="num-card">0</span></p>
+                            <p class="num-list clearfix num-list4"><span class="num-card">0</span></p>
+                            <p class="num-list clearfix num-list5"><span class="num-card">0</span></p>
+                            <p class="num-txt">元</p>
+                        </div>
+                    </div>
+                    <p class="b-part-txt2">名额有限，速来申请</p>
+                </div>
+                <p class="b-part3">最高贷款额度五万元，最快两小时放款</p>
+            </div>
+            <a class="yes-btn" href="page2.html">立即充值</a>
+            <div class="aboutLinks">
+                <p class="l-box">
+                    <a class="recordLink" style="display:none" href="bill-record.html"><i></i><span>贷款记录</span></a>
+                    <a class="quesLink" href="javascript:;"><i></i><span>常见问题</span></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="js/jQuery-1.8.3mini.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $(".quesLink").on("click",function(){
+                layer.open({
+                    shadeClose : false,
+                    type : 1,
+                    content :'<div id="rulesOut">' +
+                    '<p class="r-title"><span class="t-left"></span><span class="t-middle">常见问题</span><span class="t-right"></span></p>' +
+                    '<div class="rule-con">' +
+                    '<p class="q-txt"><span class="order-num">1.</span>Q: 我收到了佰仟推送的“荷包充充充”活动，是真实的吗？</p>' +
+                    '<p class="a-txt">A: 是真实的，这是我们联合合作商为经筛选的佰仟客户提供的贷款服务。您可通过我们提供的链接直接进行现金贷款申请。</p>' +
+                    '<p class="q-txt"><span class="order-num">2.</span>Q: 我要如何获得贷款呢？</p>' +
+                    '<p class="a-txt">A: 通过点击活动邀请链接，进入活动注册页并按照指示完成信息填写，审核通过后即可获得贷款。活动页具体操作如下：</p>' +
+                    '<p class="a-txt a-txt-detail">1）活动主页点击“立即充值” ; </p>' +
+                    '<p class="a-txt a-txt-detail">2）个人信息页完成所有信息填写，并点击“提交” ;</p>' +
+                    '<p class="a-txt a-txt-detail">3）页面跳转为“已完成注册”，您可耐心等待短信通知；如页面出现其他提示，则请根据提示进行修改或稍后再试 ;</p>' +
+                    '<p class="a-txt a-txt-detail">4）成功收到短信后，需根据短信提醒进行操作，如补充审核信息等 。</p>' +
+                    '<p class="q-txt"><span class="order-num">3.</span>页面提示本次活动由佰仟与拍拍贷联合提供，那么贷款的审核、费率、期限及最终放款等，是由哪一方提供？</p>' +
+                    '<p class="a-txt">  A: 均由合作商提供。</p>' +
+                    '<p class="q-txt"><span class="order-num">4.</span>Q:  如在短信链接操作过程中有任何疑问，如何处理？</p>' +
+                    '<p class="a-txt">  A: 您可联系合作商客服。如,拍拍贷为<a href="tel:4001848888">4001848888</a>（08:00-20:00）</p>' +
+                    '<p class="r-txt">*本次活动解释权归佰仟金融所有。</p>'+
+                    '</div>' +
+                    '<p class="ok-btn" onclick="layer.closeAll();">朕，已阅</p>' +
+                    '</div>',
+                    anim : 'up',
+                    style :'min-height:3.0rem;width:5.6rem;height:6.0rem;padding:0.4rem 0.2rem; background:#fff;border-radius:8px; overflow:scroll;'
+                });
+            });
+
+
+        })
+    </script>
+</body>
+</html>

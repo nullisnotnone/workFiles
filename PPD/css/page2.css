@@ -1,0 +1,36 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#999;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+input{background:none; border:none; box-shadow: none;-webkit-appearance: none; font-size:0.28rem;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+textarea{-webkit-appearance: none; font-size:0.28rem;}
+*::-webkit-input-placeholder { color: #a5abaf; font-size:0.24rem; }
+
+body{min-width:300px;max-width:640px; margin:0 auto; cursor:pointer;}
+
+#con{height:100%;width:100%;background:#f3f3f3;}
+.underLine:after{position:absolute;left:0;bottom:0;content:"";display:block;height:1px;width:100%;background:#f3f3f3;transform: scaleY(0.5); -webkit-transform: scaleY(0.5);}
+.emptyBox{height:0.2rem;width:100%;}
+.infoBox{position:relative;height:0.8rem;padding:0 0.2rem;background:#fff;}
+.infoBox .info-name{float:left;height:0.8rem;padding-right:0.2rem;line-height:0.8rem;}
+.infoBox .info-value{float:right;height:0.5rem;padding:0.15rem 0.2rem;width:4.0rem;text-align:right;line-height:0.5rem;}
+
+.loanDeal{margin:0.4rem auto;height:0.6rem;width:4.0rem;text-align:center;}
+.loanDeal .stateBox{display:inline-block;height:0.4rem;width:0.4rem;padding:0.1rem;}
+.loanDeal .bookBox{ display:inline-block;height:0.6rem;line-height:0.6rem;vertical-align: top }
+#submitBtn{display:block;height:0.86rem;width:4.14rem;font-size:0.30rem;line-height:0.86rem;text-align:center;color:#fff;margin:0 auto;background:url("../images/submitBtn-bg1.png") no-repeat left top; background-size:100% 100%;font-family: "microsoft yahei";}
+
+
+
+
+
+
+
+
+
+

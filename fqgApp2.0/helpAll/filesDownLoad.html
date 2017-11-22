@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>更多升级问题</title>
+    <script src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family : "Microsoft YaHei",Arial,Helvetica,sans-serif; font-size: 0.24rem; color:#4c505b;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #a5a8af; font-size:0.24rem; }
+
+        body{min-width:300px;max-width:640px; margin:0 auto; cursor:pointer;}
+        #con{min-height:100%;padding:0 0.2rem; background:#eef1f6;}
+        .emptyBox{height:0.2rem;width:100%;}
+        .concatLists{height:auto;width:100%;}
+        .c-list{width:100%;height:auto; background:#fff;border-radius:5px 5px 0 0; margin-bottom:0.3rem;}
+        .c-list .l-title{ width:100%;height:1.2rem;box-sizing: border-box; border-left:4px solid #508cee; border-bottom: 1px dashed #eee; border-radius:5px 5px 0 0;  }
+        .c-list .l-title .m-style{padding:0.2rem 0.3rem; padding-bottom:0.1rem; height:0.4rem; line-height:0.4rem; font-size:0.32rem;color:#508cee; }
+        .c-list .l-title .c-info {height:0.4rem;padding:0 0.3rem; font-size:0.28rem; }
+        .c-list .l-title .c-info .c-num{float:left;height:0.4rem;line-height:0.4rem;}
+        .c-info .c-num span{color:#a5a8af;}
+        .c-list .l-title .c-info .c-time{float:right;height:0.4rem;line-height:0.4rem;color:#a5a8af;}
+        .remarkText{height:0.5rem; line-height:0.5rem;padding:0 0.3rem;border-bottom:1px dashed #eee;}
+        .linkList{padding:0 0.26rem; background:#fff;}
+        .linkList .link{ height:0.88rem;width:100%;line-height:0.88rem;border-bottom:1px dashed #eee; }
+        .linkList .link:nth-last-child(1){border:none;}
+        .linkList .link a{color:#4c505b;font-size:0.28rem; }
+        .no-contract{height:1.0rem;width:100%;line-height:1.0rem;font-size:0.32rem;text-align:center;}
+        .conHide{display:none;}
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <p class="emptyBox"></p>
+        <div class="no-contract conHide">
+            暂无合同
+        </div>
+        <div class="concatLists ">
+            <!--<div class="c-list">-->
+                <!--<div class="l-title">-->
+                    <!--<p class="m-style">消费分期</p>-->
+                    <!--<div class="c-info">-->
+                        <!--<p class="c-num">合同号：<span>1234567890</span> </p>-->
+                        <!--<p class="c-time">2017-11-01</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<p class="remarkText">点击条目下载文档，手机需要能查看PDF的软件</p>-->
+                <!--<div class="linkList">-->
+                    <!--<p class="link">-->
+                        <!--<a href="javascript:;">风险提示函</a>-->
+                    <!--</p>-->
+                    <!--<p class="link">-->
+                        <!--<a href="javascript:;">随心还服务申请书</a>-->
+                    <!--</p>-->
+                    <!--<p class="link">-->
+                        <!--<a href="javascript:;">分期购消费贷款三方协议</a>-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var isIos = (/\(i[^;]+;( U;)? CPU.+Mac OS X/).test(navigator.userAgent)|| navigator.userAgent.indexOf('iOS') > -1;
+            var getData = null;
+            layer.open({
+                type: 2
+                ,content: '加载中...'
+            });
+            $.ajax({
+                type : 'GET',
+                url : ' http://pre.52baiqian.com/newapi/contract/contractlist?customerid=29121240 ',
+                dataType : 'json',
+                success : function(data){
+                    console.log(data);
+                    if(data.code == '200' && data.data.length > 0){
+                        layer.closeAll();
+                        getData = data.data;
+                        $(".concatLists").html(montageStr(getData));
+                        if(isIos){
+                            console.log($(".remarkText"));
+                            $(".remarkText").each(function(index , ele){
+                                $(ele).addClass('conHide');
+                            })
+                        }
+                    }
+                },
+                error : function(){
+                    alert("请求失败，请稍后在试");
+                }
+            });
+
+            console.log(navigator.userAgent);
+
+
+
+
+
+            function montageStr(data){
+                var resultStr = "";
+                for(var i=0 ;i<data.length ; i++){
+                    resultStr += '<div class="c-list">' +
+                            '<div class="l-title"><p class="m-style">'+data[i].subproducttype+'</p>' +
+                            '<div class="c-info"><p class="c-num">合同号：<span>'+data[i].serialno+'</span> </p>' +
+                            '<p class="c-time">'+data[i].putoutdate+'</p>' +
+                            '</div></div>' +
+                            '<p class="remarkText">点击条目下载文 档，手机需要能查看PDF的软件</p>' +
+                             '<div class="linkList">' ;
+
+                        for(var j=0;j<data[i].contracttype.length;j++){
+                            resultStr += '<p class="link"><a href='+data[i].contracttype[j].url+'>'+data[i].contracttype[j].name+'</a>';
+                        }
+                    resultStr += '</div></div>'
+
+                }
+                return resultStr;
+            }
+
+//            var str = "哈哈哈哈11111";
+//            console.log(base64(str));
+
+        })
+
+    </script>
+</body>
+</html>

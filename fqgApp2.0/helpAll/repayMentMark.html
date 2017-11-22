@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>还款小贴士</title>
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#333;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #555; }
+
+        #con{min-height:100%; padding:0.2rem; background:#fff;}
+        #con .c-title{line-height:0.4rem;padding:0.2rem 0;}
+        #con .txt-part{ margin-bottom:0.2rem; }
+        .c-title-2{line-height:0.4rem;font-size:0.26rem; }
+        .c-txt{text-indent: 1.5em;font-size:0.26rem;}
+        .c-txt-2{margin-bottom:0.2rem; }
+
+
+
+        .cardInfo{min-height:2.0rem;width:5.6rem;margin:0.1rem auto;background:#fff;border:4px solid #eef1f6;border-radius: 5px;}
+        .cardInfo .cardMark{float:right;padding:0.1rem 0.2rem;height:0.36rem;color:#fff;line-height:0.36rem;background:#508cee;border-radius:0 5px 5px 0;}
+        .cardInfo .count-name{line-height:0.36rem;padding:0 0.2rem;color:#999;clear:both;}
+        .cardInfo .count-value{line-height:0.42rem; padding:0 0.2rem; color:#4c505b;font-weight:600;margin-bottom:0.1rem; }
+
+        .info-add .c-txt{margin-bottom:0.2rem;}
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <p class="c-title">分期业务，支持两种还款方式：</p>
+        <div class="txt-part txt-part1">
+            <p class="c-title-s">一、银行代扣还款</p>
+            <p class="c-txt">我司会从您提供的代扣银行账户中按月扣除相应款项，请您在还款日零点前确保卡内余额充足，以便成功扣款；如需临时代扣，欢迎您通过“佰仟分期购”微信公众号或致电客服热线申请。</p>
+        </div>
+        <div class="txt-part txt-part2">
+            <p class="c-title-s">二、转账还款</p>
+            <p class="c-txt">1.手机银行转账：即需即用，快捷简单</p>
+            <p class="c-txt">2.网上银行转账：足不出户，快捷简单</p>
+            <p class="c-txt">3.银行柜台转账：需携带您的银行卡前往银行柜台办理</p>
+        </div>
+        <p class="c-txt-2">如选择银行转账还款，请确保填写的收款方信息准确无误：</p>
+
+        <div class="cardInfo clearfix" >
+            <p class="cardMark">专属还款账号</p>
+            <p class="count-name">收款方账号：</p>
+            <p class="count-value" id="cardNum">75592094791092020656449</p>
+            <p class="count-name">收款方户名：</p>
+            <p class="count-value">深圳市佰仟金融服务有限公司</p>
+            <p class="count-name">开户行：</p>
+            <p class="count-value">招商银行深圳安联支行</p>
+        </div>
+        <p class="c-txt-2">如需帮助，请加入关注"佰仟分期购"微信公众号或拨打客户热线4009987101，我们将为您提供专业的协助。</p>
+        <div class="info-add">
+            <p class="c-title-2">温馨提示：</p>
+            <p class="c-txt">1.为保证您的款项及时到账，建议您提前7天在还款账户中存入稍大于每月还款额的钱款。进行还款时，请正确输入或填写您的23位指定还款账号，还款操作结束后，敬请保留您的还款纸质凭条或电子截屏。</p>
+            <p class="c-txt">2.敬请您使用正规银行的服务网点及技术平台进行还款操作，请勿让他人代为还款，以免影响您的还款到账时间及个人信用记录。</p>
+            <p class="c-txt">3.敬请知悉，按照合同条款约定，如您未能按时还款，您将需支付逾期费用，并且相关逾期情况将会上报至金融信用信息基础数据库及其他依法设立的征信机构。</p>
+            <p class="c-txt">同时提示您，近期媒体多次报道不法分子冒充企业官方客服进行诈骗的案件。佰仟金融不会采用电话或者短信方式要求您提供银行卡信息，请警惕并远离诈骗。</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var cardEle = document.querySelector("#cardNum");
+        var ce_value = cardEle.innerHTML.replace(/\s*/g,"");
+        cardEle.innerHTML = ce_value.replace(/[^\d]/g,'').replace(/(\d{4})(?=\d)/g,'$1 ');
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <title>注册协议</title>
+    <script src="../js/public.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html {height: 100%;}
+        body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#333;}
+        h1,h2,h3,h4,h5,h6{font-weight:300;}
+        ul,dl,li{list-style: none;}
+        a {color: #606060;text-decoration: none;}
+        a:hover {text-decoration: none;}
+        img{display:block; border:none 0;}
+        input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+        .clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+        textarea{-webkit-appearance: none;}
+        *::-webkit-input-placeholder { color: #555; }
+
+        body{min-width:300px; max-width:640px; margin:0 auto;}
+        #con{height:100%; width:100%; background:#fff; position:relative;}
+        .d-title{padding-top:1.46rem; margin-bottom:0.2rem;height:0.76rem;line-height:0.76rem;width:100%;text-align:center;font-size:0.76rem;font-weight:600;color:#5b94ef;}
+        .d-title .sp{color:#ff8431;}
+        .d-title-txt{margin-bottom:0.6rem;height:0.3rem;line-height:0.3rem;font-size:0.24rem;color:#b8b8b8;text-align:center;}
+        .c-logo{margin-bottom:0.9rem;height:2.7rem;width:100%;}
+        .c-logo>img{height:100%; width:100%;}
+        .downLoadBtn{margin:0 auto;margin-bottom:0.2rem; height:0.76rem;line-height:0.76rem; width:3.5rem; padding-left:0.6rem; background:#5b94ef; color:#fff; border:1px solid #5b94ef; border-radius:0.38rem; }
+        .downLoadBtn .d-img{float:left;height:0.48rem;width:0.43rem;margin-top:0.16rem;margin-right:0.38rem;background:url("../images/ios-btn-bg.png") no-repeat left top; background-size:100% 100%;}
+        .btn-android{background:#fff;color:#5b94ef;}
+        .btn-android .d-img{background:url("../images/android-btn-bg.png") no-repeat left top; background-size:100% 100%;}
+
+        .bottom-txt{position:absolute;left:0;bottom:0;width:100%;padding-top:1.14rem;padding-bottom:0.32rem;height:0.3rem;line-height:0.3rem;font-size:0.2rem;color:#9cbff3;text-align:center; background:url("../images/page-bg.png") no-repeat left top; background-size:100% 100%; }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <p class="d-title"><span class="sp">信用</span>丰富生活</p>
+        <p class="d-title-txt">最高可借3W 10分钟极速放款</p>
+        <p class="c-logo"><img src="../images/c-logo.png" alt=""></p>
+        <p class="downLoadBtn btn-ios"><i class="d-img"></i><span>IOS版下载</span></p>
+        <p class="downLoadBtn btn-android"><i class="d-img"></i><span>Android版下载</span></p>
+        <p class="bottom-txt">深圳市买买提乐购金融服务有限公司版权所有</p>
+    </div>
+    <script src="../plugin/jquery/jquery-2.1.4.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $(".btn-ios").on("click",function(){
+                if(isIOS()){
+                    location.href = 'https://itunes.apple.com/cn/app/bai-qian-fen-qi-gou/id1138372591?mt=8';
+                }
+            });
+
+
+            $(".btn-android").on("click",function(){
+                if(isAndroid()){
+                    location.href = 'http://www.billionsfinance.cn/uploadfile/app/fenqigou.apk';
+                }
+            });
+        })
+    </script>
+</body>
+</html>

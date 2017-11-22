@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0, maximum-scale=1.0,user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="format-detection" content="email=no" />
+        <title>还款调账</title>
+        <script type="text/javascript" src="js/public.js"></script>
+        <link rel="stylesheet" href="css/page3.css">
+    </head>
+    <body>
+
+        <div class="nav-bar-box underLine">
+            <div class="navBar">
+                <p class="empty-bar"></p>
+                <p class="nav-title">我的调账</p>
+                <span class="backBtn"><img src="images/icon-back.png" alt=""></span>
+                <span class="explain-btn">新增调账</span>
+            </div>
+        </div>
+        <div class="con">
+            <p class="emptyBox"></p>
+            <ul class="lists">
+                <li class="list">
+                    <div class="l-title underLine"><p class="t-left">435.44</p><p class="t-right"><span class="state-applying">申请中</span><i></i></p></div>
+                    <div class="listDetail">
+                        <div class="p-step underLine">
+                            <p class="step-name">提交申请<i></i></p>
+                            <p class="step-time">2017年10月19日 18:59:07</p>
+                        </div>
+                        <div class="p-step underLine">
+                            <p class="step-name">驳回<i></i></p>
+                            <p class="step-reason">原因: 提供图片模糊，请重新提交清晰的图片;</p>
+                            <p class="step-time">2017年10月19日 18:59:07</p>
+                        </div>
+                        <div class="p-step">
+                            <p class="step-name">调账成功<i></i></p>
+                            <p class="step-time">2017年10月19日 18:59:07</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="l-title "><p class="t-left">435.44</p><p class="t-right"><span class="state-refused">调账驳回</span><i></i></p></div>
+                    <div class="listDetail conHide">
+                        <div class="p-step underLine">
+                            <p class="step-name">提交申请<i></i></p>
+                            <p class="step-time">2017年10月19日 18:59:07</p>
+                        </div>
+                        <div class="p-step underLine">
+                            <p class="step-name">驳回<i></i></p>
+                            <p class="step-reason">原因: 提供图片模糊，请重新提交清晰的图片；</p>
+                            <p class="step-time">2017年10月19日 18:59:07</p>
+                        </div>
+                        <div class="p-step">
+                            <p class="step-name">调账驳回<i></i></p>
+                            <p class="step-time">2017年10月19日 18:59:07</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="list">
+                    <div class="l-title "><p class="t-left">435.44</p><p class="t-right"><span class="state-over">调账成功</span><i></i></p></div>
+                    <div class="listDetail conHide">
+                        <div class="p-step underLine">
+                            <p class="step-name">提交申请<i></i></p>
+                            <p class="step-time">2017年10月19日 18:59:07</p>
+                        </div>
+                        <div class="p-step underLine">
+                            <p class="step-name">驳回<i></i></p>
+                            <p class="step-reason">原因: 提供图片模糊，请重新提交清晰的图片；</p>
+                            <p class="step-time">2017年10月19日 18:59:07</p>
+                        </div>
+                        <div class="p-step">
+                            <p class="step-name">调账成功<i></i></p>
+                            <p class="step-time">2017年10月19日 18:59:07</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript">
+            $(function(){
+
+                // 返回原生APP界面
+                $(".backBtn").on("click",function(){
+                    backToNative("popToView://backToNative");
+                });
+
+
+                // 安卓不用导航栏
+                var isAndroid = navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1;
+                if(isAndroid){
+                    $(".nav-bar-box").addClass("conHide");
+                    $("#con").css({"padding-top" : "0"});
+                }
+
+                $(".t-right").on("click",function(){
+                    $(this).parent().toggleClass('underLine');
+                    if($(this).parent().hasClass('underLine')){
+                        $(this).parents(".list").find(".listDetail").removeClass("conHide");
+                    } else {
+                        $(this).parents(".list").find(".listDetail").addClass("conHide");
+                    }
+                })
+            })
+        </script>
+    </body>
+</html>

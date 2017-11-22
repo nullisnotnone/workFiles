@@ -1,0 +1,63 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#616161; -webkit-overflow-scrolling : touch;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+input{background:none; border:none; box-shadow: none;-webkit-appearance: none; font-size:0.28rem;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+textarea{-webkit-appearance: none; font-size:0.28rem;}
+*::-webkit-input-placeholder { color: #a5abaf; font-size:0.24rem; }
+
+body{min-width:300px;max-width:640px; margin:0 auto; cursor:pointer;}
+
+#con{min-height:100%;width:100%;background:#fff;}
+.top-part , .top-part>img{width:100%;}
+.con-part{position:relative;min-height:2.0rem;width:100%;padding-bottom:1.0rem;background:#f24f4b;}
+.con-part .c-txt{ line-height:0.3rem;padding-bottom:0.1rem;text-align:center;font-size:0.2rem;color:#f0efef;}
+.p-box{height:3.66rem;width:5.4rem;padding:0.2rem;padding-bottom:0;margin:0 auto;background:#fef5e4;border:5px solid #e84a47;border-radius:10px;}
+.p-box .b-part2{width:4.4rem;height:2.28rem;padding:0.3rem 0.5rem;background:url("../images/box-bg.png") no-repeat left top; background-size:100% 100%;}
+.b-part2 .b-part2-txt1{position:relative;height:0.42rem;width:4.18rem;margin:0.16rem auto; line-height:0.42rem;text-align:center;border:1px dashed #4f5565;font-size:0.24rem;color:#d1b938;}
+.b-part2 .b-part2-txt1 .bq-logo{position:absolute;left:-0.24rem;top:0.05rem;display:block;height:0.32rem;width:0.48rem;background:url("../images/bq-logo.png") no-repeat left top; background-size:100% 100%;}
+.b-part2 .b-part2-txt1 .ppd-logo{position:absolute;right:-0.18rem;top:0.05rem;display:block;height:0.32rem;width:0.36rem;background:url("../images/ppd-logo.png") no-repeat left top; background-size:100% 100%;}
+.num-table{height:0.6rem;padding:0.15rem 0.3rem; background:#ac211c;border-radius:8px;overflow:hidden;}
+.table-box{height:0.6rem;width:3.8rem;overflow:hidden;}
+.num-table .num-list{float:left;height:auto;width:0.52rem;margin-right:0.12rem;}
+.num-table .num-list .num-card{float:left;height:0.6rem;width:0.52rem;line-height:0.6rem;text-align:center;color:#fff;background:#f7524b;font-size:0.5rem;font-weight:600;border-radius:5px;}
+.num-table .num-txt{ float:right;font-size:0.36rem;color:#dea6a4;font-weight:600; padding-top:0.1rem;}
+.b-part-txt2{line-height:0.6rem;color:#fff;text-align:center;font-size:0.24rem;letter-spacing: 4px;}
+
+/*.num-table{height:30px;padding:7px 15px; background:#ac211c;border-radius:8px;overflow:hidden;}*/
+/*.table-box{height:30px;width:190px; margin:0 auto; overflow:hidden;}*/
+/*.num-table .num-list{float:left;height:auto;width:26px;margin-right:6px;}*/
+/*.num-table .num-list .num-card{float:left;height:30px;width:26px;line-height:30px;text-align:center;color:#fff;background:#f7524b;font-size:24px;font-weight:600;border-radius:5px;}*/
+/*.num-table .num-txt{ float:right;font-size:18px;color:#dea6a4;font-weight:600; padding-top:5px;}*/
+/*.b-part-txt2{line-height:30px;color:#fff;text-align:center;font-size:12px;letter-spacing: 4px;}*/
+
+.b-part3{line-height:0.8rem;text-align:center;color:#000;font-size:0.26rem;}
+.yes-btn{display:block;margin:0.48rem auto;height:0.92rem;width:5.85rem;line-height:0.92rem;text-align:center;color:#7a4805;font-size:0.32rem;background:url("../images/yes-btn-bg.png") no-repeat left top; background-size:100% 100%;}
+
+.aboutLinks{position:absolute;left:0;bottom:0; height:0.88rem;width:100%;background:#d64747;}
+.aboutLinks .l-box{height:0.4rem;width:4.5rem;margin:0 auto;margin-top:0.2rem;text-align:center;}
+.aboutLinks .l-box a{display:inline-block;width:2.1rem;height:0.4rem;line-height:0.4rem;color:#fff;}
+.recordLink i{display:inline-block;height:0.34rem;margin-top:0.03rem;margin-right:0.18rem;width:0.31rem;background:url("../images/record-bg.png") no-repeat left top; background-size:100% 100%;}
+.quesLink i{display:inline-block;height:0.35rem;margin-top:0.02rem;width:0.28rem;margin-right:0.18rem;background:url("../images/que-bg.png") no-repeat left top; background-size:100% 100%;}
+.aboutLinks .l-box a span{vertical-align: top;}
+
+/*.quesLink{text-align:right;border-left:1px solid #fff;}*/
+/*活动规则弹窗*/
+/*#rulesOut{min-height:3.0rem;width:4.8rem;padding:0.4rem;margin:0 auto; background:#fff;border-radius:8px;}*/
+#rulesOut .r-title{height:0.4rem;width:2.7rem;margin:0 auto; margin-bottom:0.4rem;}
+#rulesOut .r-title .t-left{float:left; height:1px;width:0.5rem; background:#fedb01;margin-top:0.19rem; }
+#rulesOut .r-title .t-middle{float:left; height:0.4rem;width:1.7rem;line-height:0.4rem; text-align:center;}
+#rulesOut .r-title .t-right{float:right; height:1px;width:0.5rem; background:#fedb01;margin-top:0.19rem; }
+#rulesOut .rule-con{height:6.0rem;width:100%;overflow-y:scroll;}
+#rulesOut .rule-con .q-txt{padding-left:0.4rem;line-height:0.34rem;margin-bottom:0.1rem;font-size:0.2rem;color:#555;position:relative;}
+#rulesOut .rule-con .q-txt .order-num{ position:absolute; left:0;top:0; display:block;height:0.34rem;width:0.3rem;line-height:0.34rem;text-align:center; }
+#rulesOut .rule-con .a-txt{text-indent:2em;line-height:0.34rem;margin-bottom:0.1rem;font-size:0.2rem;color:#555;}
+#rulesOut .rule-con .a-txt-detail{text-indent:2.5em;}
+#rulesOut .rule-con .a-txt a{color:blue;}
+#rulesOut .ok-btn{height:0.7rem; width:3.8rem; line-height:0.7rem; text-align:center; background:#fedb01; color:#fff; margin:0 auto;border-radius:0.35rem; margin-top:0.4rem; }
+

@@ -1,0 +1,46 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#616161;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+input{background:none; border:none; box-shadow: none;-webkit-appearance: none; font-size:0.28rem;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+textarea{-webkit-appearance: none; font-size:0.28rem;}
+*::-webkit-input-placeholder { color: #a5abaf; font-size:0.24rem; }
+
+body{min-width:300px;max-width:640px; margin:0 auto; cursor:pointer;  }
+#con{height:100%;width:100%;}
+#con .part-top{position:relative; width:100%; height:auto;}
+.part-top img{width:100%;}
+.part-top .t-title{position:absolute;left:50%;margin-left:-1.2rem;top:0.46rem;height:0.4rem;width:2.4rem;}
+.part-top .t-title i{display:inline-block;height:0.4rem;width:0.36rem; margin-right:0.1rem; background:url("../images/bill-title-bg.png") no-repeat left top; background-size:100% 100%;}
+.part-top .t-title span{height:0.4rem;line-height:0.4rem;color:#fff;vertical-align: top;}
+
+.record-con{height:auto;width:5.8rem;margin:0 auto;border-left:1px solid #999;}
+.r-c-step{min-height:0.8rem;margin-bottom:0.2rem;width:100%;}
+.r-c-step .step-time{position:relative;color:#616161;height:0.36rem;line-height:0.36rem;padding-left:0.36rem;font-size:0.24rem;}
+.r-c-step .step-time i{position:absolute;left:-0.14rem;top:0;display:block;height:0.28rem;width:0.28rem;background:url("../images/PPD-01.png") no-repeat left top; background-size:100% 100%;}
+.r-c-step  .step-detail{padding-left:0.34rem;padding-top:0.16rem;line-height:0.3rem;}
+.r-c-step  .step-detail .money-num{color:#f24f4b;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

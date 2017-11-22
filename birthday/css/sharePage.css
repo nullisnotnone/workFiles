@@ -1,0 +1,34 @@
+* {margin: 0; padding: 0; border:0 none; outline:none; box-sizing: content-box; -webkit-tap-highlight-color:rgba(255,255,255,0);}
+html {height: 100%;}
+body {width:100%; height:100%; font-family:"microsoft yahei","黑体",Arial, Helvetica, sans-serif; font-size: 0.28rem; color:#333;}
+h1,h2,h3,h4,h5,h6{font-weight:300;}
+ul,dl,li{list-style: none;}
+a {color: #606060;text-decoration: none;}
+a:hover {text-decoration: none;}
+img{display:block; border:none 0;}
+input{background:none; border:none; box-shadow: none;-webkit-appearance: none;}
+.clearfix:after{content:""; display:block; height:0; width:100%; clear:both; visibility: hidden;}
+textarea{-webkit-appearance: none;}
+*::-webkit-input-placeholder { color: #a5abaf; font-size:0.24rem; }
+
+
+@font-face {
+    font-family: myFirstFont1;
+    src: url('fontFace01.ttf')
+}
+
+body{min-width:300px;max-width:640px; margin:0 auto; cursor:pointer;}
+#con{position:relative;height:100%;width:100%;overflow:hidden;background:url("../images/sharePage/page1Bg.png") no-repeat left top; background-size:100% 100%;}
+.part1{padding-top:1.52rem;width:4.06rem;height:1.03rem;margin:0 auto;}
+.part1>img{width:4.06rem;height:1.03rem;}
+.part2{position:relative;height:3.7rem;width:100%;margin-top:0.7rem;}
+.part2 .perImgBg{position:absolute;top:0;left:50%;margin-left:-1.05rem;height:3.7rem;width:3.53rem;background:url("../images/sharePage/page1-part2-bg.png") no-repeat left top; background-size:100% 100%;}
+.part2 .headImg{position:absolute;top:0.16rem;left:50%;margin-left:-1.04rem;  height:2.1rem;width:2.1rem;border-radius:50%;z-index:100;}
+.part3{height:1.3rem;width:100%;color:#fffce9;text-align:center;margin-top:-0.6rem;}
+/*.part3 .starStyle{margin:0 auto;width:1.35rem;height:0.3rem;background:url("../images/sharePage/page1-part3-bg.png") no-repeat left top; background-size:100% 100%;}*/
+.part3 .starStyle{margin:0 auto;width:100%;height:0.3rem;line-height:0.3rem;text-align:center;color:#fffce9; font-size:0.30rem;font-family:myFirstFont1; }
+.part3 .timeArea{ padding-bottom:0.12rem;line-height:0.42rem; }
+.part4{position:absolute;right:-1.25rem;bottom:-1.43rem;width:7.15rem;height:3.37rem; padding-top:0.4rem; background:url("../images/sharePage/page1-part4-bg.png") no-repeat left top; background-size:100% 100%; }
+.part4 .sendWishBtn{display:block;width:5.4rem;height:0.8rem;line-height:0.8rem;text-align:center; background:#e2602c;color:#fffce9; font-size:0.32rem;font-weight:600; border-radius:5px; font-family: "microsoft yahei"; }
+
+
